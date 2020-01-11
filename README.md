@@ -8,6 +8,12 @@
   <img align="center" src="https://img.shields.io/badge/Ruby%20On%20Rails-6.0.2.1-cc0600">
 </p>
 
-A pre-built React.js application with built in login/signup using JWT Auth & Bcrypt, as well as built in Admin panel with DB editor and traffic viewers.
+<p align="center">
+    <a href="https://github.com/trunkslamchest/stock_react/tree/frontend-0.1/"><img align="center" src="https://img.shields.io/badge/Most%20Recent%20Frontend%20Repository%20-0.1-000000"></a>
+    <a href="https://github.com/trunkslamchest/stock_react/tree/backend-0.1/"><img align="center" src="https://img.shields.io/badge/Most%20Recent%20Backend%20Repository%20-0.1-000000"></a>
+</p>
+
+
+A pre-built React.js application with built in login/signup using JWT Auth & Bcrypt, as well as built in Admin panel with DB editor and traffic viewers & pre-built CSS animations/styling.
 
 Designed to get projects off the ground and running extremely quickly.
