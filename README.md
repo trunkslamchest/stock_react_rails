@@ -8,4 +8,6 @@
   <img align="center" src="https://img.shields.io/badge/Ruby%20On%20Rails-6.0.2.1-cc0600">
 </p>
 
-A pre-built framework for React.js with built in login/signup using JWT Auth & Bcrypt, as well as built in Admin panel with DB editor and traffic viewers.
+A pre-built React.js application with built in login/signup using JWT Auth & Bcrypt, as well as built in Admin panel with DB editor and traffic viewers.
+
+Designed to get projects off the ground and running extremely quickly.
