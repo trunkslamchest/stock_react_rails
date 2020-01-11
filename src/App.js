@@ -12,10 +12,6 @@ import Dashboard from './user/dashboard/Dashboard'
 import EditProfile from './user/dashboard/EditProfile'
 import DeleteProfile from './user/dashboard/DeleteProfile'
 
-import QuickPlayContainer from './question/QuickPlayContainer'
-import PlayByDifficultyContainer from './question/PlayByDifficultyContainer'
-import PlayByCategoryContainer from './question/PlayByCategoryContainer'
-
 import TermsOfService from './docs/TermsOfService'
 import Privacy from './docs/Privacy'
 import Disclaimer from './docs/Disclaimer'
@@ -341,36 +337,6 @@ export default class App extends React.Component {
 								user_id={this.state.user_id }
 								access={ this.state.access }
 								log_out={ this.logOut }
-							/>
-						</Route>
-						<Route exact path='/quick_play'>
-							<QuickPlayContainer
-								update_traffic_data={ this.update_traffic_data }
-								update_page_data={ this.update_page_data }
-								// ~~~~~~~~~~~~~~~~~~~~
-								user_id={ this.state.user_id }
-								user_name={ this.state.user_name }
-								first_name={ this.state.first_name }
-							/>
-						</Route>
-						<Route exact path='/play_by_difficulty'>
-							<PlayByDifficultyContainer
-								update_traffic_data={ this.update_traffic_data }
-								update_page_data={ this.update_page_data }
-								// ~~~~~~~~~~~~~~~~~~~~
-								user_id={ this.state.user_id }
-								user_name={ this.state.user_name }
-								first_name={ this.state.first_name }
-							/>
-						</Route>
-						<Route exact path='/play_by_category'>
-							<PlayByCategoryContainer
-								update_traffic_data={ this.update_traffic_data }
-								update_page_data={ this.update_page_data }
-								// ~~~~~~~~~~~~~~~~~~~~
-								user_id={ this.state.user_id }
-								user_name={ this.state.user_name }
-								first_name={ this.state.first_name }
 							/>
 						</Route>
 						<Route exact path='/log_out'>

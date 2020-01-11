@@ -8,14 +8,7 @@ export default class TestTemp extends React.Component{
 
 	const temp_default =
 		<div className="default_wrapper">
-			<div className="loading_container">
-				{/* <div className="loading_header">
-					<h3>Loading</h3>
-				</div> */}
-				<div className="loading_animation_container">
-					<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-				</div>
-			</div>
+				Test
 		</div>
 
 		return (

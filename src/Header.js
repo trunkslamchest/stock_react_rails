@@ -3,9 +3,6 @@ import { NavLink } from 'react-router-dom'
 
 import './css/Header.css'
 
-import header_logo from './assets/header_logo.png'
-import header_logo_hover from './assets/header_logo_hover.png'
-
 export default class Header extends React.Component {
 
 	state={
@@ -50,10 +47,6 @@ export default class Header extends React.Component {
 		this.onClickUpdateTrafficFunctions(event)
 	}
 
-	onClickQuestionFunctions = (event) => {
-		this.onClickUpdateTrafficFunctions(event)
-	}
-
 	onClickBackroomFunctions = (event) => {
 		let index_msg = "index"
 		this.props.update_backroom_from_header(index_msg)
@@ -75,16 +68,10 @@ export default class Header extends React.Component {
 				key={"h_home_link"}
 				name="header_home_button"
 				interaction="click"
+				className="default_header_link"
 				onClick={this.onClickHomeFunctions }
 			>
-				<img
-					src={ this.state.hover ? header_logo_hover : header_logo }
-					name="header_home_button"
-					interaction="click"
-					onMouseEnter={this.hoverOn}
-					onMouseLeave={this.hoverOff}
-					alt="Link To Home Page"
-				/>
+				Home
 			</NavLink>
 		]
 
@@ -97,16 +84,6 @@ export default class Header extends React.Component {
 		]
 
 		const logged_in_links = [
-			<NavLink
-				key={"h_question"}
-				to="/quick_play"
-				name="header_quick_play_button"
-				interaction="click"
-				className="default_header_link"
-				onClick={ this.onClickQuestionFunctions }
-			>
-				Quick Play
-			</NavLink>,
 			<NavLink
 				key={"h_dashboard"}
 				to="/dashboard"

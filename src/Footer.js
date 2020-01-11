@@ -3,11 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 import './css/Footer.css'
 
-import footer_logo from './assets/footer_logo.png'
-import footer_logo_hover from './assets/footer_logo_hover.png'
-
 import flatiron_logo from './assets/footer_logo_flatiron.png'
-import open_trivia_logo from './assets/footer_logo_open_trivia.png'
 import postgres_logo from './assets/footer_logo_postgres.png'
 import rails_logo from './assets/footer_logo_rails.png'
 import react_logo from './assets/footer_logo_react.png'
@@ -16,18 +12,6 @@ export default class Footer extends React.Component {
 
 	state={
 		hover: false
-	}
-
-	hoverOn = () => {
-		this.setState({
-			hover: true
-		})
-	}
-
-	hoverOff = () => {
-		this.setState({
-			hover: false
-		})
 	}
 
 	onClickHomeFunctions = (event) => {
@@ -75,16 +59,10 @@ export default class Footer extends React.Component {
 			key={"f_home_link"}
 			name="footer_home_button"
 			interaction="click"
+			className="default_header_link"
 			onClick={this.onClickHomeFunctions }
 		>
-			<img
-				src={ this.state.hover ? footer_logo_hover : footer_logo }
-				name="footer_home_button"
-				interaction="click"
-				onMouseEnter={this.hoverOn}
-				onMouseLeave={this.hoverOff}
-				alt="Link To Home Page"
-			/>
+			Home
 		</NavLink>
 	]
 
@@ -133,21 +111,6 @@ export default class Footer extends React.Component {
 				className="logo_rectangle"
 				alt="The Flatiron School"
 				name="footer_flatiron_logo"
-				interaction="click"
-				onClick={ this.onClickFooterLinksFunctions }
-			/>
-		</a>,
-		<a
-			key={"open_trivia_logo"}
-			href="https://opentdb.com/"
-			rel="noopener noreferrer"
-			target="_blank"
-		>
-			<img
-				src={ open_trivia_logo }
-				className="logo_rectangle"
-				alt="Open Trivita Database"
-				name="footer_open_trivia_logo"
 				interaction="click"
 				onClick={ this.onClickFooterLinksFunctions }
 			/>

@@ -2,10 +2,6 @@ import React from 'react'
 
 import DashboardIndex from './DashboardIndex'
 import DashboardUserInfo from './DashboardUserInfo'
-import DashboardStats from './DashboardStats'
-import DashboardAnswers from './DashboardAnswers'
-import DashboardVotes from './DashboardVotes'
-import DashboardComments from './DashboardComments'
 
 import { Redirect } from 'react-router-dom'
 
@@ -34,10 +30,7 @@ export default class Dashboard extends React.Component{
 	}
 
 	componentDidUpdate(){
-		if (this.state.mounted && this.props.user_id && !this.state.updated_all_questions){
-			this.getAllQuestions()
-		}
-		if (this.state.updated_all_questions && this.props.user_id && !this.state.updated_user){
+		if (this.state.mounted && this.props.user_id && !this.state.updated_user){
 			this.getUser(this.props.user_id)
 		}
 	}
@@ -56,17 +49,6 @@ export default class Dashboard extends React.Component{
 		)
 	}
 
-	getAllQuestions = () => {
-		fetch(`http://localhost:3001/questions/`)
-		.then(res => res.json())
-		.then(res_obj =>
-			this.setState({
-				all_questions: res_obj.data.map(question_obj => question_obj.attributes.question),
-				updated_all_questions: true
-			})
-		)
-	}
-
 	displaySwitchToDashboard = () => {
 		this.setState({
 			display: 'dashboard'
@@ -76,30 +58,6 @@ export default class Dashboard extends React.Component{
 	displaySwitchToUserInfo = (event) => {
 		this.setState({
 			display: 'user_info'
-		}, this.onClickUpdateTrafficFunctionsLI(event))
-	}
-
-	displaySwitchToStats = (event) => {
-		this.setState({
-			display: 'stats'
-		}, this.onClickUpdateTrafficFunctionsLI(event))
-	}
-
-	displaySwitchToAnswers = (event) => {
-		this.setState({
-			display: 'answers'
-		}, this.onClickUpdateTrafficFunctionsLI(event))
-	}
-
-	displaySwitchToVotes = (event) => {
-		this.setState({
-			display: 'votes'
-		}, this.onClickUpdateTrafficFunctionsLI(event))
-	}
-
-	displaySwitchToComments = (event) => {
-		this.setState({
-			display: 'comments'
 		}, this.onClickUpdateTrafficFunctionsLI(event))
 	}
 
@@ -144,38 +102,6 @@ export default class Dashboard extends React.Component{
 				onClick={ this.displaySwitchToUserInfo }
 			>
 				Info
-			</li>,
-			<li
-				key={"dashboard_stats"}
-				name="dashboard_stats_button"
-				interaction="click"
-				onClick={ this.displaySwitchToStats }
-			>
-				Stats
-			</li>,
-			<li
-				key={"dashboard_answers"}
-				name="dashboard_answers_button"
-				interaction="click"
-				onClick={ this.displaySwitchToAnswers }
-			>
-				Answers
-			</li>,
-			<li
-				key={"dashboard_votes"}
-				name="dashboard_votes_button"
-				interaction="click"
-				onClick={ this.displaySwitchToVotes }
-			>
-				Votes
-			</li>,
-			<li
-				key={"dashboard_comments"}
-				name="dashboard_comments_button"
-				interaction="click"
-				onClick={ this.displaySwitchToComments }
-			>
-				Comments
 			</li>
 		]
 
@@ -207,35 +133,6 @@ export default class Dashboard extends React.Component{
 															// ~~~~~~~~~~~~~~~~~~~~
 															user={ this.state.user }
 														/>;
-								case 'stats': return <DashboardStats
-															update_traffic_data={ this.props.update_traffic_data }
-															update_page_data={ this.props.update_page_data }
-															// ~~~~~~~~~~~~~~~~~~~~
-															user={ this.state.user }
-															user_answers={ this.state.user_answers }
-															all_questions={ this.state.all_questions }
-														/>;
-								case 'answers': return <DashboardAnswers
-															update_traffic_data={ this.props.update_traffic_data }
-															update_page_data={ this.props.update_page_data }
-															// ~~~~~~~~~~~~~~~~~~~~
-															user_answers={ this.state.user_answers }
-															all_questions={ this.state.all_questions }
-														/>;
-								case 'votes': return <DashboardVotes
-															update_traffic_data={ this.props.update_traffic_data }
-															update_page_data={ this.props.update_page_data }
-															// ~~~~~~~~~~~~~~~~~~~~
-															user_votes={ this.state.user_votes }
-															all_questions={ this.state.all_questions }
-														/>;
-								case 'comments': return <DashboardComments
-															update_traffic_data={ this.props.update_traffic_data }
-															update_page_data={ this.props.update_page_data }
-															// ~~~~~~~~~~~~~~~~~~~~
-															user_comments={ this.state.user_comments }
-															all_questions={ this.state.all_questions }
-														/>;
 								default: return <DashboardIndex
 												first_name={ this.state.user.first_name }
 											/>;
@@ -247,7 +144,7 @@ export default class Dashboard extends React.Component{
 
 		return(
 			<div className="dashboard_wrapper">
-				{ this.state.updated_all_questions ? dashboard : loading }
+				{ this.state.updated_user ? dashboard : loading }
 			</div>
 		)
 	}
