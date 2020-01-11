@@ -1,19 +1,19 @@
 select:not(:-internal-list-box) {
-    overflow: hidden !important;
+	overflow: hidden !important;
 }
 
 .edit_form {
 	width: 100%;
 	text-align: center;
-  	margin: 0 auto 0px auto;
-	  background-color: rgba(255,255,255, 1);
-	  background-image: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255,255,255, 1), rgba(0,0,0, 0.025) );
+	margin: 0 auto 0px auto;
+	background-color: rgba(255,255,255, 1);
+	background-image: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255,255,255, 1), rgba(0,0,0, 0.025) );
 	box-shadow: 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 2.5px 0 rgba(0, 0, 0, 0.25);
 	animation: fade_in .25s ease-in-out 1, blur_in .25s ease-in-out 1, slide_in_from_bottom.25s ease-in-out 1;
 }
 
 .edit_form label {
-  animation: fade_in .4s ease-in-out 1, blur_in .2s ease-in-out 1;
+	animation: fade_in .4s ease-in-out 1, blur_in .2s ease-in-out 1;
 }
 
 .edit_div {
@@ -39,29 +39,21 @@ select:not(:-internal-list-box) {
 
 .edit_div select {
 	text-rendering: auto;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    text-align: start;
-    box-sizing: unset;
-    align-items: center;
-    white-space: normal;
-    background-color: #fff;
-    cursor: pointer;
+	letter-spacing: normal;
+	word-spacing: normal;
+	text-transform: none;
+	text-indent: 0px;
+	text-shadow: none;
+	text-align: start;
+	box-sizing: unset;
+	align-items: center;
+	white-space: normal;
+	background-color: #fff;
+	cursor: pointer;
 	color: #000;
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	appearance: none;
-}
-
-.edit_div input {
-
-}
-
-.edit_div textarea {
-
 }
 
 .edit_buttons_container {
@@ -96,7 +88,7 @@ select:not(:-internal-list-box) {
 	margin: 0px 0px 0px 0px;
 	padding: 10px;
 	height: 35px;
-  	width: 35px;
+	width: 35px;
 	font: 300 10pt 'Poppins', sans-serif;
 }
 

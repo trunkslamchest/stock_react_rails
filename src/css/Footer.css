@@ -1,7 +1,6 @@
 .footer {
 	background-image: linear-gradient( rgba(0, 0, 51, 1), rgba(0, 0, 102, 1) );
 	font-size: 15pt;
-	/* height: 100px; */
 	bottom: 0px;
 	padding: 15px;
 	display: flex;
