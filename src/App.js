@@ -12,10 +12,6 @@ import Dashboard from './user/dashboard/Dashboard'
 import EditProfile from './user/dashboard/EditProfile'
 import DeleteProfile from './user/dashboard/DeleteProfile'
 
-import TermsOfService from './docs/TermsOfService'
-import Privacy from './docs/Privacy'
-import Disclaimer from './docs/Disclaimer'
-
 import Backroom from './admin/Backroom'
 import TestTemp from './admin/TestTemp'
 
@@ -362,24 +358,6 @@ export default class App extends React.Component {
 						<Route exact path='/backroom/test_temp'>
 							<TestTemp
 								token={ this.state.token }
-							/>
-						</Route>
-						<Route exact path='/terms_of_service'>
-							<TermsOfService
-								update_page_data={ this.update_page_data }
-								// ~~~~~~~~~~~~~~~~~~~~
-							/>
-						</Route>
-						<Route exact path='/privacy'>
-							<Privacy
-								update_page_data={ this.update_page_data }
-								// ~~~~~~~~~~~~~~~~~~~~
-							/>
-						</Route>
-						<Route exact path='/disclaimer'>
-							<Disclaimer
-								update_page_data={ this.update_page_data }
-								// ~~~~~~~~~~~~~~~~~~~~
 							/>
 						</Route>
 						<Route component={ Error } />

@@ -18,18 +18,6 @@ export default class Footer extends React.Component {
 		this.onClickUpdateTrafficFunctions(event)
 	}
 
-	onClickTOSFunctions = (event) => {
-		this.onClickUpdateTrafficFunctions(event)
-	}
-
-	onClickPrivacyFunctions = (event) => {
-		this.onClickUpdateTrafficFunctions(event)
-	}
-
-	onClickDisclaimerFunctions = (event) => {
-		this.onClickUpdateTrafficFunctions(event)
-	}
-
 	onClickFooterLinksFunctions = (event) => {
 		this.onClickUpdateTrafficFunctions(event)
 	}
@@ -63,39 +51,6 @@ export default class Footer extends React.Component {
 			onClick={this.onClickHomeFunctions }
 		>
 			Home
-		</NavLink>
-	]
-
-	const extra_links = [
-			<NavLink
-			exact to="/terms_of_service"
-			key={"tos_link"}
-			name="footer_tos_button"
-			interaction="click"
-			target="_blank"
-			onClick={this.onClickTOSFunctions }
-		>
-			Terms Of Service
-		</NavLink>,
-			<NavLink
-			exact to="/privacy"
-			key={"privacy_link"}
-			name="footer_privacy_button"
-			interaction="click"
-			target="_blank"
-			onClick={this.onClickPrivacyFunctions }
-		>
-			Privacy
-		</NavLink>,
-		<NavLink
-			exact to="/disclaimer"
-			key={"disclaimer_link"}
-			name="footer_disclaimer_button"
-			interaction="click"
-			target="_blank"
-			onClick={this.onClickDisclaimerFunctions }
-		>
-			Disclaimer
 		</NavLink>
 	]
 
@@ -163,14 +118,11 @@ export default class Footer extends React.Component {
 
 	]
 
-	const fine_print = <> © 2019 Created by Austin Smith. All SmartApp™ logos and marks depicted herein are the property of SmartApp™ Enterprises and the respective employees and may not be reproduced without the prior written consent of SmartApp™ Enterprises, L.P. © SmartApp™ 2019. All Rights Reserved. The Zamboni word mark and configuration of the Zamboni ice resurfacing machine are registered trademarks of Frank J. Zamboni & Co., Inc.© Frank J. Zamboni & Co., Inc. 2019.All Rights Reserved. Any other third party trademarks or copyrights are the property of their respective owners. All rights reserved. </>
+	const fine_print = <> © 2019 Created by Austin Smith. All StockReactRails logos and marks depicted herein are the property of StockReactRails Enterprises and the respective employees and may not be reproduced without the prior written consent of StockReactRails Enterprises, L.P. © StockReactRails 2019. All Rights Reserved. The Zamboni word mark and configuration of the Zamboni ice resurfacing machine are registered trademarks of Frank J. Zamboni & Co., Inc.© Frank J. Zamboni & Co., Inc. 2019.All Rights Reserved. Any other third party trademarks or copyrights are the property of their respective owners. All rights reserved. </>
 
 		return(
 			<>
 				<div className="footer_left">
-					<div className="links">
-						<>{ extra_links }</>
-					</div>
 					<div className="logos">
 						<>{ footer_logos }</>
 					</div>

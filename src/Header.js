@@ -9,24 +9,6 @@ export default class Header extends React.Component {
 		hover: false
 	}
 
-	hoverOn = () => {
-		this.setState({
-			hover: true
-		})
-	}
-
-	hoverOff = () => {
-		this.setState({
-			hover: false
-		})
-	}
-
-	homeLinkClicked = () => {
-		this.setState({
-			hover: false
-		})
-	}
-
 	onClickHomeFunctions = (event) => {
 		this.onClickUpdateTrafficFunctions(event)
 	}
