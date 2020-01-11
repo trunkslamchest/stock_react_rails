@@ -14,6 +14,6 @@
 </p>
 
 
-A pre-built React.js application with built in login/signup using JWT Auth & Bcrypt, as well as built in Admin panel with DB editor and traffic viewers & pre-built CSS animations/styling.
+A pre-built React.js application with built in Ruby On Rails integration, login/signup using JWT Auth & Bcrypt, Admin panel with database editor, real time traffic viewers & pre-built CSS animations/styling.
 
 Designed to get projects off the ground and running extremely quickly.
