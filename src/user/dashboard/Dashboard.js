@@ -33,17 +33,6 @@ export default class Dashboard extends React.Component{
 		}
 	}
 
-	getUser = (user_id) => {
-		fetch(`http://localhost:3001/users/${user_id}`)
-		.then(res => res.json())
-		.then(res_obj =>
-			this.setState({
-				user: res_obj.data.attributes.user,
-				updated_user: true
-			})
-		)
-	}
-
 	displaySwitchToDashboard = () => {
 		this.setState({ display: 'dashboard' })
 	}
