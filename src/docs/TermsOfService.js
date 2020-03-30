@@ -1,28 +1,23 @@
-import React from 'react'
+import React, { useEffect, useCallback } from 'react'
 
-import { TrafficUpdate } from '../utility/trafficFunctions'
+import trafficFunctions from '../utility/trafficFunctions'
 
-import '../css/Docs.css'
+import './Docs.css'
 
-var sendTraffic = new TrafficUpdate()
+var pageInfo = {
+	user_id: localStorage.user_id,
+	page_name: 'terms_of_service',
+}
 
-export default class TermsOfService extends React.Component {
+const TermsOfService = (props) => {
 
-	componentDidMount(){
-		this.onPageLoadFunctions()
+	const onPageLoadFunctions = useCallback(() => {
+		trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
+	}, [])
 
-	}
+	useEffect(() => {onPageLoadFunctions()}, [onPageLoadFunctions])
 
-	onPageLoadFunctions = () => {
-		sendTraffic.pageUpdate({
-			user_id: localStorage.user_id,
-			page_name: "terms_of_service",
-		})
-	}
-
-	render(){
-
-		return(
+	return(
 		<div className="terms_wrapper">
 			<h1>TERMS OF USE</h1>
 
@@ -61,7 +56,7 @@ export default class TermsOfService extends React.Component {
 			<p>
 			IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF USE, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING this_project AND YOU MUST DISCONTINUE USE IMMEDIATELY.
 			</p>
-			
+
 			<h2>INTELLECTUAL PROPERTY RIGHTS</h2>
 			<p>
 			Unless otherwise indicated, this_project is our proprietary property and all source code, 
@@ -80,7 +75,7 @@ export default class TermsOfService extends React.Component {
 			print a copy of any portion of the Content to which you have properly gained access solely for your personal, non-commercial use. 
 			We reserve all rights not expressly granted to you in and to this_project, the Content and the Marks.
 			</p>
-			
+
 			<h2>USER REPRESENTATIONS</h2>
 			<p>
 			By using this_project, you represent and warrant that:
@@ -98,7 +93,7 @@ export default class TermsOfService extends React.Component {
 			If you provide any information that is untrue, inaccurate, not current, or incomplete, 
 			we have the right to suspend or terminate your account and refuse any and all current or future use of this_project (or any portion thereof).
 			</p>
-			
+
 			<h2>USER REGISTRATION</h2>
 			<p>
 			You may be required to register with this_project. 
@@ -106,7 +101,7 @@ export default class TermsOfService extends React.Component {
 			We reserve the right to remove, reclaim, or change a username you select if we determine, in our sole discretion, 
 			that such username is inappropriate, obscene, or otherwise objectionable.
 			</p>
-			
+
 			<h2>DEFINED ACTIVITIES</h2>
 			<p>
 			You may not access or use this_project for any purpose other than that for which we make this_project available. 
@@ -148,12 +143,12 @@ export default class TermsOfService extends React.Component {
 					<li>2.  Allow the sale of any data collected by the owners of this_project.</li>
 					<li>3.  Allow the occupation of any residence or property owned by the user.</li>
 					<li>4.  Supply the owners of this_project with bank account numbers, credit card numbers or any information pertaining to financial assets owned by the user.</li>
-					<li>5.  Yield all accountability and responsibility of SmartApp due to financial turmoil, family problems, illness, damages to property, and angry looks caused or given by SmartApp and it's employees.</li>
+					<li>5.  Yield all accountability and responsibility of this_project due to financial turmoil, family problems, illness, damages to property, and angry looks caused or given by this_project and it's employees.</li>
 					<li>6.  Surrender the complete box set of Monty Python's Flying Circus if the user has in their possession 1 or more copies of said box set.</li>
-					<li>7.  Waive all responsibility for any financial burden and/or debt incurred by SmartApp and it's services.</li>
+					<li>7.  Waive all responsibility for any financial burden and/or debt incurred by this_project and it's services.</li>
 				</ul>
 			</p>
-			
+
 			<h2>USER GENERATED CONTRIBUTIONS</h2>
 			<p>
 			this_project may invite you to chat, contribute to, or participate in blogs, message boards, online forums, and other functionality, 
@@ -186,7 +181,7 @@ export default class TermsOfService extends React.Component {
 			<p>
 			Any use of this_project in violation of the foregoing violates these Terms of Use and may result in, among other things, termination or suspension of your rights to use this_project.
 			</p>
-			
+
 			<h2>CONTRIBUTION LICENSE</h2>
 			<p>
 			By posting your Contributions to any part of this_project or making Contributions accessible to this_project by linking your account from this_project to any of your social networking accounts, 
@@ -223,7 +218,7 @@ export default class TermsOfService extends React.Component {
 					<li>4.  We have no obligation to monitor your Contributions.</li>
 				</ul>
 			</p>
-			
+
 			<h2>GUIDELINES FOR REVIEWS</h2>
 			<p>
 			We may provide you areas on this_project to leave reviews or ratings. 
@@ -249,7 +244,7 @@ export default class TermsOfService extends React.Component {
 			By posting a review, you hereby grant to us a perpetual, non-exclusive, worldwide, royalty-free, fully-paid, assignable, 
 			and sublicensable right and license to reproduce, modify, translate, transmit by any means, display, perform, and/or distribute all content relating to reviews.
 			</p>
-			
+
 			<h2>SOCIAL MEDIA</h2>
 			<p>
 			As part of the functionality of this_project, you may link your account with online accounts you have with third-party service providers (each such account, a “Third-Party Account”) by either: 
@@ -283,7 +278,7 @@ export default class TermsOfService extends React.Component {
 			We will attempt to delete any information stored on our servers that was obtained through such Third-Party Account, 
 			except the username and profile picture that become associated with your account.
 			</p>
-			
+
 			<h2>SUBMISSIONS</h2>
 			<p>
 			You acknowledge and agree that any questions, comments, suggestions, ideas, feedback, 
@@ -295,7 +290,7 @@ export default class TermsOfService extends React.Component {
 			and you hereby warrant that any such Submissions are original with you or that you have the right to submit such Submissions. 
 			You agree there shall be no recourse against us for any alleged or actual infringement or misappropriation of any proprietary right in your Submissions. 
 			</p>
-			
+
 			<h2>THIRD-PARTY WEBSITES AND CONTENT</h2>
 			<p>
 			this_project may contain (or you may be sent via this_project) links to other websites ("Third-Party Websites") 
@@ -322,7 +317,7 @@ export default class TermsOfService extends React.Component {
 			Additionally, you shall hold us harmless from any losses sustained by you 
 			or harm caused to you relating to or resulting in any way from any Third-Party Content or any contact with Third-Party Websites. 
 			</p>
-			
+
 			<h2>ADVERTISERS</h2>
 			<p>
 			We allow advertisers to display their advertisements and other information in certain areas of this_project, 
@@ -335,7 +330,7 @@ export default class TermsOfService extends React.Component {
 			We simply provide the space to place such advertisements, 
 			and we have no other relationship with advertisers. 
 			</p>
-			
+
 			<h2>SITE MANAGEMENT</h2>
 			<p>
 			We reserve the right, but not the obligation, to: 
@@ -347,7 +342,7 @@ export default class TermsOfService extends React.Component {
 					<li>5.  otherwise manage this_project in a manner designed to protect our rights and property and to facilitate the proper functioning of this_project. </li>
 				</ul>
 			</p>
-			
+
 			<h2>PRIVACY POLICY</h2>
 			<p>
 			We care about data privacy and security.
@@ -365,7 +360,7 @@ export default class TermsOfService extends React.Component {
 			if we receive actual knowledge that anyone under the age of 13 has provided personal information to us without the requisite 
 			and verifiable parental consent, we will delete that information from this_project as quickly as is reasonably practical.
 			</p>
-			
+
 			<h2>COPYRIGHT INFRINGEMENTS</h2>
 			<p>
 			We respect the intellectual property rights of others.
@@ -377,7 +372,7 @@ export default class TermsOfService extends React.Component {
 			Please be advised that pursuant to federal law you may be held liable for damages if you make material misrepresentations in a Notification. 
 			Thus, if you are not sure that material located on or linked to by this_project infringes your copyright, you should consider first contacting an attorney.
 			</p>
-			
+
 			<h2>TERM AND TERMINATION</h2>
 			<p>
 			These Terms of Use shall remain in full force and effect while you use this_project. 
@@ -395,7 +390,7 @@ export default class TermsOfService extends React.Component {
 			In addition to terminating or suspending your account, we reserve the right to take appropriate legal action, 
 			including without limitation pursuing civil, criminal, and injunctive redress.
 			</p>
-			
+
 			<h2>MODIFICATIONS AND INTERRUPTIONS</h2>
 			<p>
 			We reserve the right to change, modify, or remove the contents of this_project at any time or for any reason at our sole discretion without notice. 
@@ -411,16 +406,16 @@ export default class TermsOfService extends React.Component {
 			You agree that we have no liability whatsoever for any loss, damage, or inconvenience caused by your inability to access or use this_project during any downtime or discontinuance of this_project. 
 			Nothing in these Terms of Use will be construed to obligate us to maintain and support this_project or to supply any corrections, updates, or releases in connection therewith.
 			</p>
-			
+
 			<h2>GOVERNING LAW</h2>
 			<p>
 			These Terms of Use and your use of this_project are governed by 
 			and construed in accordance with the laws of the State of New York applicable to agreements made 
 			and to be entirely performed within the State of New York, without regard to its conflict of law principles. 
 			</p>
-			
+
 			<h2>DISPUTE RESOLUTION</h2>
-			
+
 			<h3>Informal Negotiations</h3>
 			<p>
 			To expedite resolution and control the cost of any dispute, controversy, 
@@ -430,7 +425,7 @@ export default class TermsOfService extends React.Component {
 			informally for at least one (1) days before initiating arbitration. 
 			Such informal negotiations commence upon written notice from one Party to the other Party.
 			</p>
-			
+
 			<h3>Binding Arbitration</h3>
 			<p>
 			If the Parties are unable to resolve a Dispute through informal negotiations, 
@@ -467,7 +462,7 @@ export default class TermsOfService extends React.Component {
 			or unenforceable and such Dispute shall be decided by a court of competent jurisdiction within the courts listed for jurisdiction above, 
 			and the Parties agree to submit to the personal jurisdiction of that court.
 			</p>
-			
+
 			<h3>Restrictions</h3>
 			<p>
 			The Parties agree that any arbitration shall be limited to the Dispute between the Parties individually. 
@@ -477,7 +472,7 @@ export default class TermsOfService extends React.Component {
 			or to utilize class action procedures; and (c) there is no right 
 			or authority for any Dispute to be brought in a purported representative capacity on behalf of the general public or any other persons.
 			</p>
-			
+
 			<h3>Exceptions to Informal Negotiations and Arbitration</h3>
 			<p>
 			The Parties agree that the following Disputes are not subject to the above provisions concerning informal negotiations 
@@ -488,7 +483,7 @@ export default class TermsOfService extends React.Component {
 			and such Dispute shall be decided by a court of competent jurisdiction within the courts listed for jurisdiction above, 
 			and the Parties agree to submit to the personal jurisdiction of that court.
 			</p>
-			
+
 			<h2>CORRECTIONS</h2>
 			<p>
 			There may be information on this_project that contains typographical errors, inaccuracies,
@@ -519,7 +514,7 @@ export default class TermsOfService extends React.Component {
 			AS WITH THE PURCHASE OF A PRODUCT OR SERVICE THROUGH ANY MEDIUM OR IN ANY ENVIRONMENT, 
 			YOU SHOULD USE YOUR BEST JUDGMENT AND EXERCISE CAUTION WHERE APPROPRIATE.
 			</p>
-			
+
 			<h2>LIMITATIONS OF LIABILITY</h2>
 			<p>
 			IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, 
@@ -532,7 +527,7 @@ export default class TermsOfService extends React.Component {
 			(1) MONTH PERIOD PRIOR TO ANY CAUSE OF ACTION ARISING. CERTAIN STATE LAWS DO NOT ALLOW LIMITATIONS ON IMPLIED WARRANTIES OR THE EXCLUSION OR LIMITATION OF CERTAIN DAMAGES. 
 			IF THESE LAWS APPLY TO YOU, SOME OR ALL OF THE ABOVE DISCLAIMERS OR LIMITATIONS MAY NOT APPLY TO YOU, AND YOU MAY HAVE ADDITIONAL RIGHTS.
 			</p>
-			
+
 			<h2>INDEMNIFICATION</h2>
 			<p>
 			You agree to defend, indemnify, and hold us harmless, including our subsidiaries, affiliates, 
@@ -548,7 +543,7 @@ export default class TermsOfService extends React.Component {
 			and you agree to cooperate, at your expense, with our defense of such claims. 
 			We will use reasonable efforts to notify you of any such claim, action, or proceeding which is subject to this indemnification upon becoming aware of it.
 			</p>
-			
+
 			<h2>USER DATA</h2>
 			<p>
 			We will maintain certain data that you transmit to this_project for the purpose of managing the performance of this_project, 
@@ -558,7 +553,7 @@ export default class TermsOfService extends React.Component {
 			You agree that we shall have no liability to you for any loss or corruption of any such data, 
 			and you hereby waive any right of action against us arising from any such loss or corruption of such data.
 			</p>
-			
+
 			<h2>ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES</h2>
 			<p>
 			Visiting this_project, sending us emails, and completing online forms constitute electronic communications. 
@@ -574,14 +569,14 @@ export default class TermsOfService extends React.Component {
 			or other laws in any jurisdiction which require an original signature or delivery or retention of non-electronic records, 
 			or to payments or the granting of credits by any means other than electronic means. 
 			</p>
-			
+
 			<h2>CALIFORNIA USERS AND RESIDENTS</h2>
 			<p>
 			If any complaint with us is not satisfactorily resolved, 
 			you can contact the Complaint Assistance Unit of the Division of Consumer Services of the California Department of Consumer Affairs in writing at 
 			1625 North Market Blvd., Suite N 112, Sacramento, California 95834 or by telephone at (800) 952-5210 or (916) 445-1254.
 			</p>
-			
+
 			<h2>MISCELLANEOUS</h2>
 			<p>
 			These Terms of Use and any policies or operating rules posted by us on this_project or 
@@ -598,7 +593,7 @@ export default class TermsOfService extends React.Component {
 			You hereby waive any and all defenses you may have based on the electronic form of these Terms of Use 
 			and the lack of signing by the parties hereto to execute these Terms of Use.
 			</p>
-			
+
 			<h2>CONTACT US</h2>
 			<p>
 			In order to resolve a complaint regarding this_project or to receive further information regarding use of this_project, please contact us at: 
@@ -610,10 +605,12 @@ export default class TermsOfService extends React.Component {
 					<br />
 					<li>(555) 123-4567</li>
 					<br />
-					<li>totally_real_email_address@SmartApp.com</li>
+					<li>totally_real_email_address@this_project.com</li>
 				</ul>
 			</p>
 		</div>
-		)
-	}
+	)
+
 }
+
+export default TermsOfService

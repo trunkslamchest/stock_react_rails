@@ -16,6 +16,10 @@ import Dashboard from './user/dashboard/Dashboard'
 import EditProfile from './user/dashboard/EditProfile'
 import DeleteProfile from './user/dashboard/DeleteProfile'
 
+import TermsOfService from './docs/TermsOfService'
+import Privacy from './docs/Privacy'
+import Disclaimer from './docs/Disclaimer'
+
 import Backroom from './admin/Backroom'
 import TestTemp from './admin/TestTemp'
 
@@ -349,6 +353,15 @@ export default class App extends React.Component {
 								access={ this.state.access }
 								logOut={ this.logOut }
 							/>
+						</Route>
+						<Route exact path='/terms_of_service'>
+							<TermsOfService />
+						</Route>
+						<Route exact path='/privacy'>
+							<Privacy />
+						</Route>
+						<Route exact path='/disclaimer'>
+							<Disclaimer />
 						</Route>
 						<Route exact path='/backroom'>
 							<Backroom
