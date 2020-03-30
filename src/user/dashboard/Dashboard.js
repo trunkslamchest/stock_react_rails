@@ -14,8 +14,7 @@ export default class Dashboard extends React.Component{
 	state = {
 		display: '',
 		user: [],
-		mounted: false,
-		updated_user: false,
+		mounted: false
 	}
 
 	componentDidMount(){
