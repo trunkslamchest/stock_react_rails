@@ -1,103 +1,80 @@
 import React from 'react'
 import { Redirect } from 'react-router'
 
+import trafficFunctions from '../utility/trafficFunctions'
+
 import '../css/LogOut.css'
 
 export default class LogOut extends React.Component {
 
 	state = {
-		user_id: "",
 		logOutSuccess: false,
 		hoverConfirm: false,
 		hoverCancel: false,
 		cancel: false
 	}
 
-	componentDidMount(){
-		this.setState({
-			user_id: this.props.user_id
-		})
-	}
-
 	onClickConfirm = (event) => {
 		this.onClickUpdateTrafficFunctions(event)
 		this.props.logOut(this.props.token)
-		this.setState({
-			logOutSuccess: true
-		})
+		this.setState({ logOutSuccess: true })
 	}
 
 	onClickCancel = (event) => {
 		this.onClickUpdateTrafficFunctions(event)
-		this.setState({
-			cancel: true
-		})
+		this.setState({ cancel: true })
 	}
 
 	onHoverConfirm = () => {
-		this.setState({
-			hoverConfirm: true
-		})
+		this.setState({ hoverConfirm: true })
 	}
 
 	offHoverConfirm = () => {
-		this.setState({
-			hoverConfirm: false
-		})
+		this.setState({ hoverConfirm: false })
 	}
 
 	onHoverCancel = () => {
-		this.setState({
-			hoverCancel: true
-		})
+		this.setState({ hoverCancel: true })
 	}
 
 	offHoverCancel = () => {
-		this.setState({
-			hoverCancel: false
-		})
-	}
-
-	onClickFunctionsLogOut = (event) => {
-		this.onClickUpdateTrafficFunctions(event)
-		this.props.logOut(this.props.token)
+		this.setState({ hoverCancel: false })
 	}
 
 	onClickUpdateTrafficFunctions = (event) => {
-		this.props.update_traffic_data({
+		let elementInfo = {
 			user_id: this.props.user_id,
 			interaction: event.target.attributes.interaction.value,
 			element: event.target.name
-		})
+		}
+
+		trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
 	}
 
 	render(){
 
-		const redirect_to_dash = <Redirect to="/dashboard" />
-		const redirect_to_index = <Redirect to="/" />
-
 		const confirmation_buttons = [
 			<button
-				key={"lo1"}
+				key={"log_out_confirm"}
 				name="log_out_form"
 				interaction="submit"
 				className="confirm_button"
 				onClick={ this.onClickConfirm }
-				onMouseEnter={this.onHoverConfirm}
-				onMouseLeave={this.offHoverConfirm}
+				onMouseEnter={ this.onHoverConfirm }
+				onMouseLeave={ this.offHoverConfirm }
 			>
-				{this.state.hoverConfirm ? "✔" : "Yes"}
+				{ this.state.hoverConfirm ? "✔" : "Yes" }
 			</button>,
 			<button
-				key={"lo2"}
+				key={"log_out_cancel"}
 				name="log_out_form"
 				interaction="cancel"
 				className="cancel_button"
 				onClick={ this.onClickCancel }
-				onMouseEnter={this.onHoverCancel}
-				onMouseLeave={this.offHoverCancel}
+				onMouseEnter={ this.onHoverCancel }
+				onMouseLeave={ this.offHoverCancel }
 			>
-				{this.state.hoverCancel ? "✘" : "No"}
+				{ this.state.hoverCancel ? "✘" : "No" }
 			</button>
 		]
 
@@ -107,10 +84,10 @@ export default class LogOut extends React.Component {
 				<div className="default_centered_buttons_container">
 					{
 						{
-							true: redirect_to_dash,
+							true: <Redirect to="/dashboard" />,
 							false: (() => {
 								switch(this.state.logOutSuccess) {
-									case true: return redirect_to_index;
+									case true: return <Redirect to="/" />;
 									case false: return confirmation_buttons;
 									default: return null;
 								}
@@ -122,7 +99,7 @@ export default class LogOut extends React.Component {
 
 		return(
 			<div className="default_wrapper">
-				{localStorage.length === 0 ? redirect_to_index : log_out_form }
+				{localStorage.length === 0 ? <Redirect to="/" /> : log_out_form }
 			</div>
 		)
 	}

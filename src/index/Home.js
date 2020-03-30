@@ -5,13 +5,7 @@ import trafficFunctions from '../utility/trafficFunctions'
 
 import './Home.css'
 
-
 const Home = (props) => {
-
-	// var pageInfo = {
-	// 	user_id: localStorage.user_id,
-	// 	page_name: 'index',
-	// }
 
 	const onClickLogInFunctions = (event) => {
 		onClickTrafficFunctions(event)

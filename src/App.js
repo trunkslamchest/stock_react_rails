@@ -251,9 +251,6 @@ export default class App extends React.Component {
 							<LogIn
 								setToken={ this.setToken }
 								updateLogin={ this.updateLogin }
-								update_traffic_data={ this.update_traffic_data }
-								update_page_data={ this.update_page_data }
-								// ~~~~~~~~~~~~~~~~~~~~
 							/>
 						</Route>
 						<Route exact path='/sign_up'>
