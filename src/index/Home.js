@@ -5,12 +5,13 @@ import trafficFunctions from '../utility/trafficFunctions'
 
 import './Home.css'
 
+
 const Home = (props) => {
 
-	const pageInfo = {
-		user_id: props.user_id,
-		page_name: 'index',
-	}
+	// var pageInfo = {
+	// 	user_id: localStorage.user_id,
+	// 	page_name: 'index',
+	// }
 
 	const onClickLogInFunctions = (event) => {
 		onClickTrafficFunctions(event)
@@ -31,8 +32,13 @@ const Home = (props) => {
 	}
 
 	const onPageLoadFunctions = useCallback(() => {
+		var pageInfo = {
+			user_id: localStorage.user_id,
+			page_name: 'index',
+		}
+
 		trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
-	}, [pageInfo])
+	}, [])
 
 	useEffect(() => {onPageLoadFunctions()}, [onPageLoadFunctions])
 

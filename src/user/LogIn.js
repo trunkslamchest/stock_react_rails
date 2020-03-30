@@ -1,7 +1,10 @@
 import React from 'react'
 import { Redirect } from 'react-router'
 
-import '../css/EditProfile.css'
+import trafficFunctions from '../utility/trafficFunctions'
+import authFunctions from '../utility/authFunctions'
+
+import './LogIn.css'
 
 export default class LogIn extends React.Component {
 
@@ -11,6 +14,11 @@ export default class LogIn extends React.Component {
 		user_name: "",
 		password: "",
 		errors: [],
+	}
+
+	pageInfo = {
+		user_id: this.props.user_id,
+		page_name: 'log_in',
 	}
 
 	componentDidMount(){
@@ -25,95 +33,85 @@ export default class LogIn extends React.Component {
 
 	onSubmitLoginFunctions = async (event) => {
 		this.logInSubmitted(event)
-		this.props.updateLogin()
 	}
 
 	logInSubmitted = (event) => {
 		event.preventDefault()
 		event.persist()
-		fetch("http://localhost:3001/login", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({
-				user_name: this.state.user_name,
-				password: this.state.password
-			})
-		})
-		.then(response => response.json())
+
+		let logInObj = {
+			user_name: this.state.user_name,
+			password: this.state.password
+		}
+
+		authFunctions('logIn', 'http://localhost:3001/login', logInObj)
 		.then(res_obj => {
 			if (res_obj.errors) {
-				this.setState({
-					errors: res_obj.errors
-				})
+				this.setState({ errors: res_obj.errors })
 			} else {
-				this.onPageLoadFunctions()
-				this.onSubmitUpdateTrafficFunctions(event, res_obj)
 				this.props.setToken(res_obj)
-				this.setState({
-					loggedIn: true
-				})
+				this.props.updateLogin()
+				this.setState({ loggedIn: true })
+				this.onSubmitTrafficFunctions(event, res_obj)
 			}
 		})
 	}
 
 	onCancelFunctions = (event) => {
-		this.onClickUpdateTrafficFunctions(event)
-		this.setState({
-			cancel: true
-		})
+		this.onClickTrafficFunctions(event)
+		this.setState({ cancel: true })
 	}
 
-	onClickUpdateTrafficFunctions = (event) => {
-		this.props.update_traffic_data({
+	onClickTrafficFunctions = (event) => {
+		let elementInfo = {
 			user_id: this.props.user_id,
 			interaction: event.target.attributes.interaction.value,
 			element: event.target.name
-		})
+		}
+
+		trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
 	}
 
-	onSubmitUpdateTrafficFunctions = (event, res_obj) => {
-		this.props.update_traffic_data({
+	onSubmitTrafficFunctions = (event, res_obj) => {
+		let elementInfo = {
 			user_id: res_obj.user_id,
 			interaction: event.target.attributes.interaction.value,
 			element: event.target.name
-		})
+		}
+
+		trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
 	}
 
 	onPageLoadFunctions = () => {
-		this.props.update_page_data({
-			user_id: localStorage.user_id,
-			page_name: "log_in",
-		})
+		trafficFunctions('page', 'http://localhost:3001/pages', this.pageInfo)
 	}
 
 	render(){
 
 		const errors = (!!this.state.errors) ?
-			( <div className="default_error_report" key={"edit_profile_error_report"}>
+			( <div className="default_error_report" key={"log_in_error_report"}>
 					{ this.state.errors.map( error =>
 						<div className="default_error_item">
 							{ error }
 						</div>
 					)}
-			  </div> )
-		:
-			( "" )
+				</div>)
+			:
+				( "" )
 
-	const login_form =
-		<div className="default_wrapper">
-			<div className="alt_header">
-				<h3>Log In</h3>
-			</div>
+		const login_form =
+			<div className="default_wrapper">
+				<div className="alt_header">
+					<h3>Log In</h3>
+				</div>
 				<form
 					name="log_in_form"
 					interaction="submit"
-					className="edit_form"
+					className="log_in_form"
 					onSubmit={ this.onSubmitLoginFunctions }
-					>
+				>
 					{ errors }
-					<div className="edit_div">
+					<div className="log_in_div">
 						<label htmlFor="log_in_user_name">User Name</label>
 						<br />
 						<input
@@ -134,7 +132,7 @@ export default class LogIn extends React.Component {
 							value={ this.state.password }
 						/>
 					</div>
-					<div className="edit_buttons_container">
+					<div className="log_in_buttons_container">
 						<input
 							className="alt_button"
 							type="submit"
@@ -151,19 +149,21 @@ export default class LogIn extends React.Component {
 				</form>
 			</div>
 
-	return <>
-		{
-			{
-				true: (() => {
-					switch(this.state.cancel) {
-						case true: return <Redirect to='/' />
-						case false: return login_form
-						default: return null;
-					}
-				})(),
-				false: <Redirect to='/' />
-			}[!(this.state.loggedIn)]
-		}
-	</>
+		return (
+			<>
+				{
+					{
+						true: (() => {
+							switch(this.state.cancel) {
+								case true: return <Redirect to='/' />
+								case false: return login_form
+								default: return null;
+							}
+						})(),
+						false: <Redirect to='/' />
+					}[!(this.state.loggedIn)]
+				}
+			</>
+		)
 	}
 }

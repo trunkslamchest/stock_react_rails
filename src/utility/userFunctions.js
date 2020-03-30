@@ -1,10 +1,5 @@
 // export function UserUpdate() {
 
-// 	this.getUser = function(userID) {
-// 		return fetch(`http://localhost:3001/users/${userID}`)
-// 		.then(res => res.json())
-// 	}
-
 // 	this.logInSubmit = function(username, password) {
 // 		return fetch("http://localhost:3001/login", {
 // 			method: "POST",

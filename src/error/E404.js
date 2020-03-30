@@ -4,14 +4,14 @@ import trafficFunctions from '../utility/trafficFunctions'
 
 import './Error.css'
 
-var pageInfo = {
-	user_id: localStorage.user_id,
-	page_name: '404 Error',
-}
-
 const E404 = (props) => {
 
 	const onPageLoadFunctions = useCallback(() => {
+		var pageInfo = {
+			user_id: localStorage.user_id,
+			page_name: '404_error',
+		}
+
 		trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
 	}, [])
 
