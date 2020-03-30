@@ -1,11 +1,7 @@
 import React from 'react'
 
-// import Header from './Header'
-import Home from './Home'
-// import Footer from './Footer'
-
 import Header from './UI/Header'
-// import Home from './index/Home'
+import Home from './index/Home'
 import Footer from './UI/Footer'
 
 import LogIn from './user/LogIn'
@@ -26,9 +22,6 @@ import TestTemp from './admin/TestTemp'
 import E404 from './error/E404'
 
 import {
-		//  NavLink,
-		//  Link,
-		//  Redirect,
 		Route,
 		Switch,
 		//  useRouteMatch,
@@ -68,8 +61,6 @@ export default class App extends React.Component {
 		join_day: null,
 		join_month: null,
 		join_year: null,
-		// ~~~~~~~~~~~~~~~~~~~~
-		backroom_display: null
 	}
 
 	componentDidMount(){
@@ -208,10 +199,6 @@ export default class App extends React.Component {
 		})
 	}
 
-	update_backroom_from_header = (index_msg) => {
-		this.setState({ backroom_display: index_msg })
-	}
-
 	update_traffic_data = (res_obj) => {
 		fetch("http://localhost:3001/traffics", {
 			method: "POST",
@@ -250,7 +237,6 @@ export default class App extends React.Component {
 						user_name={ this.state.user_name }
 						access={ this.state.access }
 						logOut={ this.logOut }
-						update_backroom_from_header={ this.update_backroom_from_header }
 					/>
 				</div>
 				<div className="main_container">
@@ -352,7 +338,6 @@ export default class App extends React.Component {
 								token={ this.state.token }
 								user_name={ this.state.user_name }
 								access={ this.state.access }
-								update_backroom_from_header={ this.state.backroom_display }
 							/>
 						</Route>
 						<Route exact path='/backroom/test_temp'>

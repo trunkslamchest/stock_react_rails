@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-import './css/Home.css'
+import './Home.css'
 
 export default class Home extends React.Component {
 

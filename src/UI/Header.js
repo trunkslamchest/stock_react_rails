@@ -31,8 +31,7 @@ const Header = (props) => {
 	}
 
 	const onClickBackroomFunctions = (event) => {
-		let index_msg = "index"
-		props.update_backroom_from_header(index_msg)
+		onClickUpdateTrafficFunctions(event)
 	}
 
 	const onClickUpdateTrafficFunctions = (event) => {
@@ -131,6 +130,8 @@ const Header = (props) => {
 				<NavLink
 					key={"h_backroom"}
 					to="/backroom"
+					name="header_backroom_button"
+					interaction="click"
 					className="default_header_link"
 					onClick={ onClickBackroomFunctions }
 				>
