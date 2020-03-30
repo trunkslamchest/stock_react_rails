@@ -30,10 +30,6 @@ const Header = (props) => {
 		onClickUpdateTrafficFunctions(event)
 	}
 
-	const onClickQuestionFunctions = (event) => {
-		onClickUpdateTrafficFunctions(event)
-	}
-
 	const onClickBackroomFunctions = (event) => {
 		let index_msg = "index"
 		props.update_backroom_from_header(index_msg)
@@ -62,25 +58,15 @@ const Header = (props) => {
 		</NavLink>
 	]
 
-	const user_greeting = [
+	const user_greeting =
 		<span
 			key={"h_user_greeting"}
 			className="header_greeting">
 			Logged In: { props.user_name }
 		</span>
-	]
+
 
 	const logged_in_links = [
-		<NavLink
-			key={"h_question"}
-			to="/quick_play"
-			name="header_quick_play_button"
-			interaction="click"
-			className="default_header_link"
-			onClick={ onClickQuestionFunctions }
-		>
-			Quick Play
-		</NavLink>,
 		<NavLink
 			key={"h_dashboard"}
 			to="/dashboard"
@@ -132,9 +118,7 @@ const Header = (props) => {
 
 	const normal_header =
 		<>
-			<>
-				{ user_greeting }
-			</>
+			{ user_greeting }
 			<div className="header_nav_links">
 				{logged_in_links}
 			</div>
@@ -142,9 +126,7 @@ const Header = (props) => {
 
 	const admin_header =
 		<>
-			<>
-				{ user_greeting }
-			</>
+			{ user_greeting }
 			<div className="header_nav_links">
 				<NavLink
 					key={"h_backroom"}

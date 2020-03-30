@@ -172,9 +172,7 @@ export default class App extends React.Component {
 	}
 
 	updateLogin = () => {
-		this.setState({
-			loggedIn: !this.state.loggedIn
-		})
+		this.setState({ loggedIn: !this.state.loggedIn })
 	}
 
 	logOut = () => {
@@ -211,9 +209,7 @@ export default class App extends React.Component {
 	}
 
 	update_backroom_from_header = (index_msg) => {
-		this.setState({
-			backroom_display: index_msg
-		})
+		this.setState({ backroom_display: index_msg })
 	}
 
 	update_traffic_data = (res_obj) => {
@@ -245,29 +241,17 @@ export default class App extends React.Component {
 
 	render(){
 
-		const showHeader =
-			<Header
-				update_traffic_data={ this.update_traffic_data }
-				// ~~~~~~~~~~~~~~~~~~~~
-				token={ this.state.token }
-				user_id={ this.state.user_id }
-				user_name={ this.state.user_name }
-				access={ this.state.access }
-				logOut={ this.logOut }
-				update_backroom_from_header={ this.update_backroom_from_header }
-				// ~~~~~~~~~~~~~~~~~~~~
-			/>
-
-		const showFooter =
-			<Footer
-				update_traffic_data={ this.update_traffic_data }
-				// ~~~~~~~~~~~~~~~~~~~~
-			/>
-
 		return (
 			<>
 				<div className="header">
-					{ showHeader }
+					<Header
+						token={ this.state.token }
+						user_id={ this.state.user_id }
+						user_name={ this.state.user_name }
+						access={ this.state.access }
+						logOut={ this.logOut }
+						update_backroom_from_header={ this.update_backroom_from_header }
+					/>
 				</div>
 				<div className="main_container">
 					<Switch>
@@ -380,7 +364,7 @@ export default class App extends React.Component {
 					</Switch>
 				</div>
 				<div className="footer">
-					{ showFooter }
+					<Footer/>
 				</div>
 			</>
 		)

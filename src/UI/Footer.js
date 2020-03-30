@@ -5,60 +5,41 @@ import trafficFunctions from '../utility/trafficFunctions'
 
 import './Footer.css'
 
-// import footer_logo from '../assets/footer_logo.png'
-// import footer_logo_hover from '../assets/footer_logo_hover.png'
-
 import flatiron_logo from '../assets/footer_logo_flatiron.png'
 import postgres_logo from '../assets/footer_logo_postgres.png'
 import rails_logo from '../assets/footer_logo_rails.png'
 import react_logo from '../assets/footer_logo_react.png'
 
-export default class Footer extends React.Component {
+const Footer = (props) => {
 
-	state={
-		hover: false
+	// const onClickHomeFunctions = (event) => {
+	// 	onClickUpdateTrafficFunctions(event)
+	// }
+
+	const onClickTOSFunctions = (event) => {
+		onClickUpdateTrafficFunctions(event)
 	}
 
-	hoverOn = () => {
-		this.setState({
-			hover: true
-		})
+	const onClickPrivacyFunctions = (event) => {
+		onClickUpdateTrafficFunctions(event)
 	}
 
-	hoverOff = () => {
-		this.setState({
-			hover: false
-		})
+	const onClickDisclaimerFunctions = (event) => {
+		onClickUpdateTrafficFunctions(event)
 	}
 
-	onClickHomeFunctions = (event) => {
-		this.onClickUpdateTrafficFunctions(event)
+	const onClickFooterLinksFunctions = (event) => {
+		onClickUpdateTrafficFunctions(event)
 	}
 
-	onClickTOSFunctions = (event) => {
-		this.onClickUpdateTrafficFunctions(event)
-	}
-
-	onClickPrivacyFunctions = (event) => {
-		this.onClickUpdateTrafficFunctions(event)
-	}
-
-	onClickDisclaimerFunctions = (event) => {
-		this.onClickUpdateTrafficFunctions(event)
-	}
-
-	onClickFooterLinksFunctions = (event) => {
-		this.onClickUpdateTrafficFunctions(event)
-	}
-
-	onClickUpdateTrafficFunctions = (event) => {
+	const onClickUpdateTrafficFunctions = (event) => {
 
 		let userID
 
 		if (localStorage.access) {
 			userID = localStorage.user_id
 		} else {
-			userID = this.props.user_id
+			userID = props.user_id
 		}
 
 		let elementInfo = {
@@ -70,27 +51,6 @@ export default class Footer extends React.Component {
 		trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
 	}
 
-	render(){
-
-	// const home_link = [
-	// 	<NavLink
-	// 		exact to="/"
-	// 		key={"f_home_link"}
-	// 		name="footer_home_button"
-	// 		interaction="click"
-	// 		onClick={this.onClickHomeFunctions }
-	// 	>
-	// 		<img
-	// 			src={ this.state.hover ? footer_logo_hover : footer_logo }
-	// 			name="footer_home_button"
-	// 			interaction="click"
-	// 			onMouseEnter={this.hoverOn}
-	// 			onMouseLeave={this.hoverOff}
-	// 			alt="Link To Home Page"
-	// 		/>
-	// 	</NavLink>
-	// ]
-
 	const extra_links = [
 			<NavLink
 			exact to="/terms_of_service"
@@ -98,7 +58,7 @@ export default class Footer extends React.Component {
 			name="footer_tos_button"
 			interaction="click"
 			target="_blank"
-			onClick={this.onClickTOSFunctions }
+			onClick={ onClickTOSFunctions }
 		>
 			Terms Of Service
 		</NavLink>,
@@ -108,7 +68,7 @@ export default class Footer extends React.Component {
 			name="footer_privacy_button"
 			interaction="click"
 			target="_blank"
-			onClick={this.onClickPrivacyFunctions }
+			onClick={ onClickPrivacyFunctions }
 		>
 			Privacy
 		</NavLink>,
@@ -118,7 +78,7 @@ export default class Footer extends React.Component {
 			name="footer_disclaimer_button"
 			interaction="click"
 			target="_blank"
-			onClick={this.onClickDisclaimerFunctions }
+			onClick={ onClickDisclaimerFunctions }
 		>
 			Disclaimer
 		</NavLink>
@@ -137,7 +97,7 @@ export default class Footer extends React.Component {
 				alt="The Flatiron School"
 				name="footer_flatiron_logo"
 				interaction="click"
-				onClick={ this.onClickFooterLinksFunctions }
+				onClick={ onClickFooterLinksFunctions }
 			/>
 		</a>,
 		<a
@@ -152,7 +112,7 @@ export default class Footer extends React.Component {
 				alt="PostgreSQL"
 				name="footer_postgres_logo"
 				interaction="click"
-				onClick={ this.onClickFooterLinksFunctions }
+				onClick={ onClickFooterLinksFunctions }
 			/>
 		</a>,
 		<a
@@ -167,7 +127,7 @@ export default class Footer extends React.Component {
 				alt="Ruby On Rails"
 				name="footer_rails_logo"
 				interaction="click"
-				onClick={ this.onClickFooterLinksFunctions }
+				onClick={ onClickFooterLinksFunctions }
 			/>
 		</a>,
 		<a
@@ -182,10 +142,9 @@ export default class Footer extends React.Component {
 				alt="React"
 				name="footer_react_logo"
 				interaction="click"
-				onClick={ this.onClickFooterLinksFunctions }
+				onClick={ onClickFooterLinksFunctions }
 			/>
-		</a>,
-
+		</a>
 	]
 
 	const fine_print =
@@ -193,23 +152,25 @@ export default class Footer extends React.Component {
 			© 2019 Created by Austin Smith. All this_project™ logos and marks depicted herein are the property of this_project™ Enterprises and the respective employees and may not be reproduced without the prior written consent of this_project™ Enterprises, L.P. © this_project™ 2019. All Rights Reserved. The Zamboni word mark and configuration of the Zamboni ice resurfacing machine are registered trademarks of Frank J. Zamboni & Co., Inc.© Frank J. Zamboni & Co., Inc. 2019.All Rights Reserved. Any other third party trademarks or copyrights are the property of their respective owners. All rights reserved.
 		</>
 
-		return(
-			<>
-				<div className="footer_left">
-					<div className="links">
-						<>{ extra_links }</>
-					</div>
-					<div className="logos">
-						<>{ footer_logos }</>
-					</div>
-					<div className="fine_print">
-						{ fine_print }
-					</div>
+	return(
+		<>
+			<div className="footer_left">
+				<div className="links">
+					<>{ extra_links }</>
 				</div>
-				<div className="footer_right">
-					{/* { home_link } */}
+				<div className="logos">
+					<>{ footer_logos }</>
 				</div>
-			</>
-		)
-	}
+				<div className="fine_print">
+					{ fine_print }
+				</div>
+			</div>
+			{/* <div className="footer_right">
+				{ home_link }
+			</div> */}
+		</>
+	)
+
 }
+
+export default Footer
