@@ -29,11 +29,6 @@ export default class SignUp extends React.Component {
 		errors: []
 	}
 
-	pageInfo = {
-		user_id: this.props.user_id,
-		page_name: 'sign_up',
-	}
-
 	componentDidMount(){
 		this.onPageLoadFunctions()
 	}
