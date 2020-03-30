@@ -21,6 +21,8 @@ import TestTemp from './admin/TestTemp'
 
 import E404 from './error/E404'
 
+import userFunctions from './utility/userFunctions'
+
 import {
 		Route,
 		Switch,
@@ -98,7 +100,7 @@ export default class App extends React.Component {
 		}
 	}
 
-	setToken = ({ token, user_id, user_name })  =>{
+	setToken = ({ token, user_id })  =>{
 
 		localStorage.user_id = user_id
 		localStorage.token = token
@@ -108,8 +110,7 @@ export default class App extends React.Component {
 			loggedIn: true,
 		})
 
-		fetch(`http://localhost:3001/users/${user_id}`)
-		.then(res => res.json())
+		userFunctions('get', `http://localhost:3001/users/${user_id}`)
 		.then(res_obj => {
 			let current_user = res_obj.data.attributes.user
 
@@ -177,7 +178,7 @@ export default class App extends React.Component {
 			user_id: null,
 			user_name: null,
 			email: null,
-			// access: "guest",
+			access: "guest",
 			// ~~~~~~~~~~~~~~~~~~~~
 			first_name: null,
 			last_name: null,

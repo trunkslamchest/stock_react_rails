@@ -5,9 +5,6 @@ import trafficFunctions from '../utility/trafficFunctions'
 
 import './Header.css'
 
-// import header_logo from '../assets/header_logo.png'
-// import header_logo_hover from '../assets/header_logo_hover.png'
-
 const Header = (props) => {
 
 	const onClickHomeFunctions = (event) => {
