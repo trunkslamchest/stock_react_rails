@@ -261,10 +261,28 @@ export default class App extends React.Component {
 						</Route>
 						<Route exact path='/dashboard'>
 							<Dashboard
-								update_traffic_data={ this.update_traffic_data }
-								update_page_data={ this.update_page_data }
+								user_id= {this.state.user_id }
+								user_name={ this.state.user_name }
+								email={ this.state.email }
+								access={ this.state.access }
 								// ~~~~~~~~~~~~~~~~~~~~
-								user_id={ this.state.user_id }
+								first_name={ this.state.first_name }
+								last_name={ this.state.last_name }
+								gender={ this.state.gender }
+								// ~~~~~~~~~~~~~~~~~~~~
+								birth_day={ this.state.birth_day }
+								birth_month={ this.state.birth_month }
+								birth_year={ this.state.birth_year }
+								// ~~~~~~~~~~~~~~~~~~~~
+								house_number={ this.state.house_number }
+								street_name={ this.state.street_name }
+								city_town={ this.state.city_town }
+								state={ this.state.state }
+								zip_code={ this.state.zip_code }
+								// ~~~~~~~~~~~~~~~~~~~~
+								join_day={this.state.join_day}
+								join_month={this.state.join_month}
+								join_year={this.state.join_year}
 							/>
 						</Route>
 						<Route exact path='/edit_profile'>

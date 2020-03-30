@@ -5,33 +5,36 @@ import DashboardUserInfo from './DashboardUserInfo'
 
 import { Redirect } from 'react-router-dom'
 
-import '../../css/Dashboard.css'
+import trafficFunctions from '../../utility/trafficFunctions'
+
+import './Dashboard.css'
 
 export default class Dashboard extends React.Component{
 
 	state = {
 		display: '',
-		all_questions: [],
 		user: [],
-		user_answers: [],
-		user_votes: [],
-		user_comments: [],
 		mounted: false,
 		updated_user: false,
-		updated_all_questions: false,
+	}
+
+	pageInfo = {
+		user_id: this.props.user_id,
+		page_name: 'dashboard',
 	}
 
 	componentDidMount(){
-		this.setState({
-			mounted: true
-		})
+		this.setState({ mounted: true })
 
 		this.onPageLoadFunctions()
 	}
 
 	componentDidUpdate(){
-		if (this.state.mounted && this.props.user_id && !this.state.updated_user){
-			this.getUser(this.props.user_id)
+		if (this.state.mounted && this.props.user_id && !this.state.loaded){
+			this.setState({
+				loaded: true,
+				display: 'dashboard'
+			})
 		}
 	}
 
@@ -41,59 +44,52 @@ export default class Dashboard extends React.Component{
 		.then(res_obj =>
 			this.setState({
 				user: res_obj.data.attributes.user,
-				user_answers: res_obj.data.attributes.answers,
-				user_votes: res_obj.data.attributes.votes,
-				user_comments: res_obj.data.attributes.comments,
 				updated_user: true
 			})
 		)
 	}
 
 	displaySwitchToDashboard = () => {
-		this.setState({
-			display: 'dashboard'
-		})
+		this.setState({ display: 'dashboard' })
 	}
 
 	displaySwitchToUserInfo = (event) => {
-		this.setState({
-			display: 'user_info'
-		}, this.onClickUpdateTrafficFunctionsLI(event))
+		this.setState({ display: 'user_info' }, this.onClickTrafficFunctionsLI(event))
 	}
 
 	onClickEditProfileFunctions = (event) => {
-		this.onClickUpdateTrafficFunctions(event)
+		this.onClickTrafficFunctions(event)
 	}
 
 	onClickDeleteProfileFunctions = (event) => {
-		this.onClickUpdateTrafficFunctions(event)
+		this.onClickTrafficFunctions(event)
 	}
 
-	onClickUpdateTrafficFunctions = (event) => {
-		this.props.update_traffic_data({
+	onClickTrafficFunctions = (event) => {
+		let elementInfo = {
 			user_id: this.props.user_id,
 			interaction: event.target.attributes.interaction.value,
 			element: event.target.name
-		})
+		}
+
+		trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
 	}
 
-	onClickUpdateTrafficFunctionsLI = (event) => {
-		this.props.update_traffic_data({
+	onClickTrafficFunctionsLI = (event) => {
+		let elementInfo = {
 			user_id: this.props.user_id,
 			interaction: event.target.attributes.interaction.value,
 			element: event.target.attributes.name.value
-		})
+		}
+
+		trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
 	}
 
 	onPageLoadFunctions = () => {
-		this.props.update_page_data({
-			user_id: localStorage.user_id,
-			page_name: "dashboard_index",
-		})
+		trafficFunctions('page', 'http://localhost:3001/pages', this.pageInfo)
 	}
 
 	render(){
-
 		const dashboard_tabs = [
 			<li
 				key={"dashboard_info"}
@@ -125,17 +121,38 @@ export default class Dashboard extends React.Component{
 						false: 	(() => {
 							switch(this.state.display) {
 								case 'dashboard': return <DashboardIndex
-															first_name={ this.state.user.first_name }
+															first_name={ this.props.first_name }
 														/>;
 								case 'user_info': return <DashboardUserInfo
 															update_traffic_data={ this.props.update_traffic_data }
 															update_page_data={ this.props.update_page_data }
 															// ~~~~~~~~~~~~~~~~~~~~
-															user={ this.state.user }
+															user_id= {this.props.user_id }
+															user_name={ this.props.user_name }
+															email={ this.props.email }
+															access={ this.props.access }
+															// ~~~~~~~~~~~~~~~~~~~~
+															first_name={ this.props.first_name }
+															last_name={ this.props.last_name }
+															gender={ this.props.gender }
+															// ~~~~~~~~~~~~~~~~~~~~
+															birth_day={ this.props.birth_day }
+															birth_month={ this.props.birth_month }
+															birth_year={ this.props.birth_year }
+															// ~~~~~~~~~~~~~~~~~~~~
+															house_number={ this.props.house_number }
+															street_name={ this.props.street_name }
+															city_town={ this.props.city_town }
+															state={ this.props.state }
+															zip_code={ this.props.zip_code }
+															// ~~~~~~~~~~~~~~~~~~~~
+															join_day={this.props.join_day}
+															join_month={this.props.join_month}
+															join_year={this.props.join_year}
 														/>;
 								default: return <DashboardIndex
-												first_name={ this.state.user.first_name }
-											/>;
+															first_name={ this.props.first_name }
+														/>;
 							}
 						})()
 					}[localStorage.length === 0]
@@ -144,7 +161,7 @@ export default class Dashboard extends React.Component{
 
 		return(
 			<div className="dashboard_wrapper">
-				{ this.state.updated_user ? dashboard : loading }
+				{ this.state.loaded ? dashboard : loading }
 			</div>
 		)
 	}
