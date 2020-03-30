@@ -256,9 +256,6 @@ export default class App extends React.Component {
 						<Route exact path='/sign_up'>
 							<SignUp
 								setToken={ this.setToken }
-								update_traffic_data={ this.update_traffic_data }
-								update_page_data={ this.update_page_data }
-								// ~~~~~~~~~~~~~~~~~~~~
 								updateLogin={ this.updateLogin }
 							/>
 						</Route>
@@ -309,9 +306,6 @@ export default class App extends React.Component {
 						</Route>
 						<Route exact path='/log_out'>
 							<LogOut
-								update_traffic_data={ this.update_traffic_data }
-								update_page_data={ this.update_page_data }
-								// ~~~~~~~~~~~~~~~~~~~~
 								token={ this.state.token }
 								user_id={ this.state.user_id }
 								user_name={ this.state.user_name }

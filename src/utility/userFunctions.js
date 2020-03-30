@@ -62,6 +62,17 @@
 			.then(res => res.json())
 		},
 
+		signUp: function(url, signUpObj) {
+			return fetch(url, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(signUpObj)
+			})
+			.then(res => res.json())
+		}
+
 	}
 
 	userFunctions.init.prototype = userFunctions.prototype

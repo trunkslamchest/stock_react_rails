@@ -3,7 +3,7 @@ import { Redirect } from 'react-router'
 
 import trafficFunctions from '../utility/trafficFunctions'
 
-import '../css/LogOut.css'
+import './LogOut.css'
 
 export default class LogOut extends React.Component {
 

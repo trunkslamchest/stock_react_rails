@@ -2,7 +2,7 @@ import React, { useEffect, useCallback } from 'react'
 
 import trafficFunctions from '../utility/trafficFunctions'
 
-import './Error.css'
+import './E404.css'
 
 const E404 = (props) => {
 

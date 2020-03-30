@@ -26,9 +26,7 @@ export default class LogIn extends React.Component {
 	}
 
 	onChange = (event) => {
-		this.setState({
-			[event.target.name]: event.target.value
-		})
+		this.setState({ [event.target.name]: event.target.value })
 	}
 
 	onSubmitLoginFunctions = async (event) => {
@@ -49,10 +47,10 @@ export default class LogIn extends React.Component {
 			if (res_obj.errors) {
 				this.setState({ errors: res_obj.errors })
 			} else {
+				this.onSubmitTrafficFunctions(event, res_obj)
 				this.props.setToken(res_obj)
 				this.props.updateLogin()
 				this.setState({ loggedIn: true })
-				this.onSubmitTrafficFunctions(event, res_obj)
 			}
 		})
 	}
