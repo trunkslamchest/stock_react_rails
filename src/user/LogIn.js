@@ -16,11 +16,6 @@ export default class LogIn extends React.Component {
 		errors: [],
 	}
 
-	pageInfo = {
-		user_id: this.props.user_id,
-		page_name: 'log_in',
-	}
-
 	componentDidMount(){
 		this.onPageLoadFunctions()
 	}
@@ -81,7 +76,12 @@ export default class LogIn extends React.Component {
 	}
 
 	onPageLoadFunctions = () => {
-		trafficFunctions('page', 'http://localhost:3001/pages', this.pageInfo)
+		let pageInfo = {
+			user_id: localStorage.user_id,
+			page_name: 'log_in',
+		}
+
+		trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
 	}
 
 	render(){
@@ -89,7 +89,7 @@ export default class LogIn extends React.Component {
 		const errors = (!!this.state.errors) ?
 			( <div className="default_error_report" key={"log_in_error_report"}>
 					{ this.state.errors.map( error =>
-						<div className="default_error_item">
+						<div className="default_error_item" key={"log_in_error_item"}>
 							{ error }
 						</div>
 					)}

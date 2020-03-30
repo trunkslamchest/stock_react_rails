@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import trafficFunctions from '../../utility/trafficFunctions'
 
-import '../../css/DashboardUserInfo.css'
+import './DashboardUserInfo.css'
 
 const DashboardUserInfo = (props) => {
 

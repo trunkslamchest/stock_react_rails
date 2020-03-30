@@ -1,12 +1,14 @@
 import React from 'react'
 import { Redirect } from 'react-router'
 
-import '../../css/EditProfile.css'
+import trafficFunctions from '../../utility/trafficFunctions'
+import userFunctions from '../../utility/userFunctions'
+
+import './EditProfile.css'
 
 export default class DeleteProfile extends React.Component {
 
 	state = {
-		user_id: "",
 		deleteSuccess: false,
 		hoverConfirm: false,
 		hoverCancel: false,
@@ -14,74 +16,57 @@ export default class DeleteProfile extends React.Component {
 	}
 
 	componentDidMount(){
-		this.setState({
-			user_id: this.props.user_id
-		})
-
 		this.onPageLoadFunctions()
 	}
 
 	onClickConfirm = (event) => {
-		fetch(`http://localhost:3001/users/${this.props.user_id}`, {
-			method: "DELETE"
-		})
+		userFunctions('delete', `http://localhost:3001/users/${this.props.user_id}`)
 		.then(
-			this.setState({
-				deleteSuccess: true
-			}, this.props.log_out(), this.onClickUpdateTrafficFunctions(event))
+			this.setState({ deleteSuccess: true }, this.props.logOut(), this.onClickTrafficFunctions(event))
 		)
 	}
 
 	onClickCancel = (event) => {
-		this.onClickUpdateTrafficFunctions(event)
-		this.setState({
-			cancel: true
-		})
+		this.onClickTrafficFunctions(event)
+		this.setState({ cancel: true })
 	}
 
 	onHoverConfirm = () => {
-		this.setState({
-			hoverConfirm: true
-		})
+		this.setState({ hoverConfirm: true })
 	}
 
 	offHoverConfirm = () => {
-		this.setState({
-			hoverConfirm: false
-		})
+		this.setState({ hoverConfirm: false })
 	}
 
 	onHoverCancel = () => {
-		this.setState({
-			hoverCancel: true
-		})
+		this.setState({ hoverCancel: true })
 	}
 
 	offHoverCancel = () => {
-		this.setState({
-			hoverCancel: false
-		})
+		this.setState({ hoverCancel: false})
 	}
 
-	onClickUpdateTrafficFunctions = (event) => {
-		this.props.update_traffic_data({
+	onClickTrafficFunctions = (event) => {
+		let elementInfo = {
 			user_id: this.props.user_id,
 			interaction: event.target.attributes.interaction.value,
-			element: event.target.name
-		})
+			element: event.target.attributes.name.value
+		}
+
+		trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
 	}
 
 	onPageLoadFunctions = () => {
-		this.props.update_page_data({
+		let pageInfo = {
 			user_id: localStorage.user_id,
-			page_name: "delete_profile"
-		})
+			page_name: 'delete_profile',
+		}
+
+		trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
 	}
 
 	render(){
-
-		const redirect_to_dash = <Redirect to="/dashboard" />
-		const redirect_to_index = <Redirect to="/" />
 
 		const confirmation_buttons = [
 			<button
@@ -114,12 +99,12 @@ export default class DeleteProfile extends React.Component {
 			<div className="delete_buttons_container">
 				{
 					{
-						true: redirect_to_dash,
+						true: <Redirect to="/dashboard" />,
 						false: (() => {
 							switch(this.state.deleteSuccess) {
-								case true: return redirect_to_index;
+								case true: return <Redirect to="/" />;
 								case false: return confirmation_buttons;
-								default: return null;
+								default: return <></>;
 							}
 						})()
 					}[this.state.cancel]
@@ -130,7 +115,7 @@ export default class DeleteProfile extends React.Component {
 
 		return(
 			<div className="default_wrapper">
-				{localStorage.length === 0 ? redirect_to_index : delete_form }
+				{localStorage.length === 0 ? <Redirect to="/" /> : delete_form }
 			</div>
 		)
 	}

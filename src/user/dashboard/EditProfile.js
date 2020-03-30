@@ -1,7 +1,10 @@
 import React from 'react'
 import { Redirect } from 'react-router'
 
-import '../../css/EditProfile.css'
+import trafficFunctions from '../../utility/trafficFunctions'
+import userFunctions from '../../utility/userFunctions'
+
+import './EditProfile.css'
 
 export default class EditProfile extends React.Component {
 
@@ -47,55 +50,47 @@ export default class EditProfile extends React.Component {
 	}
 
 	onChange = (event) => {
-		this.setState({
-			[event.target.name]: event.target.value
-		})
+		this.setState({ [event.target.name]: event.target.value })
 	}
 
 	onSubmitEditProfileFunctions = async (event) => {
 		try {
 			this.EditProfileSubmitted(event)
 		} catch(error) {
-    		console.error("Error", error)
-  		}
+				console.error("Error", error)
+			}
 	}
 
 	EditProfileSubmitted = (event) => {
 		event.persist()
 		event.preventDefault()
-		fetch(`http://localhost:3001/users/${this.props.user_id}`, {
-			method: "PATCH",
-			headers: {
-				"content-type":"application/json"
-			},
-			body: JSON.stringify({
-				user_name: event.target["edit_user_name"].value,
-				email: event.target["edit_email"].value,
-				first_name: event.target["edit_first_name"].value,
-				last_name: event.target["edit_last_name"].value,
-				gender: event.target["edit_gender"].value,
-				birth_day: event.target["edit_birth_day"].value,
-				birth_month: event.target["edit_birth_month"].value,
-				birth_year: event.target["edit_birth_year"].value,
-				house_number: event.target["edit_house_number"].value,
-				street_name: event.target["edit_street_name"].value,
-				city_town: event.target["edit_city_town"].value,
-				state: event.target["edit_state"].value,
-				zip_code: event.target["edit_zip_code"].value
-			})
-		})
-		.then(res => res.json())
+
+		let userObj = {
+			user_name: event.target["edit_user_name"].value,
+			email: event.target["edit_email"].value,
+			first_name: event.target["edit_first_name"].value,
+			last_name: event.target["edit_last_name"].value,
+			gender: event.target["edit_gender"].value,
+			birth_day: event.target["edit_birth_day"].value,
+			birth_month: event.target["edit_birth_month"].value,
+			birth_year: event.target["edit_birth_year"].value,
+			house_number: event.target["edit_house_number"].value,
+			street_name: event.target["edit_street_name"].value,
+			city_town: event.target["edit_city_town"].value,
+			state: event.target["edit_state"].value,
+			zip_code: event.target["edit_zip_code"].value
+		}
+
+		userFunctions('patch', `http://localhost:3001/users/${this.props.user_id}`, userObj)
 		.then(res_obj => {
 			if (res_obj.errors) {
 				this.setState({
 					errors: res_obj.errors
 				})
 			} else {
-        		this.onSubmitUpdateTrafficFunctions(event, res_obj)
+				this.onSubmitTrafficFunctions(event, res_obj)
 				this.props.setToken(res_obj)
-				this.setState({
-					updateSuccess: true
-				})
+				this.setState({ updateSuccess: true })
 			}
 		})
 	}
@@ -103,7 +98,8 @@ export default class EditProfile extends React.Component {
 	onResetFunctions = (event) => {
 		event.persist()
 		event.preventDefault()
-		this.onClickUpdateTrafficFunctions(event)
+
+		this.onClickTrafficFunctions(event)
 		this.setState({
 			edit_user_name: this.props.user_name,
 			edit_email: this.props.email,
@@ -122,33 +118,37 @@ export default class EditProfile extends React.Component {
 	}
 
 	onCancelFunctions = (event) => {
-		this.onClickUpdateTrafficFunctions(event)
-		this.setState({
-			cancel: true
-		})
+		this.onClickTrafficFunctions(event)
+		this.setState({ cancel: true })
 	}
 
-	onClickUpdateTrafficFunctions = (event) => {
-		this.props.update_traffic_data({
+	onClickTrafficFunctions = (event) => {
+		let elementInfo = {
 			user_id: this.props.user_id,
 			interaction: event.target.attributes.interaction.value,
-			element: event.target.name
-		})
+			element: event.target.attributes.name.value
+		}
+
+		trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
 	}
 
-	onSubmitUpdateTrafficFunctions = (event, res_obj) => {
-		this.props.update_traffic_data({
+	onSubmitTrafficFunctions = (event, res_obj) => {
+		let elementInfo = {
 			user_id: res_obj.user_id,
 			interaction: event.target.attributes.interaction.value,
 			element: event.target.name
-		})
+		}
+
+		trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
 	}
 
 	onPageLoadFunctions = () => {
-		this.props.update_page_data({
+		let pageInfo = {
 			user_id: localStorage.user_id,
-			page_name: "edit_profile"
-		})
+			page_name: 'edit_profile',
+		}
+
+		trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
 	}
 
 	render(){
@@ -411,7 +411,7 @@ export default class EditProfile extends React.Component {
 						switch(localStorage.length === 0) {
 							case true: return <Redirect to='/' />;
 							case false: return edit_form;
-							default: return <>blank</>;
+							default: return <></>;
 						}
 					})()
 				}

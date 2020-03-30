@@ -62,6 +62,23 @@
 			.then(res => res.json())
 		},
 
+		patch: function(url, userObj){
+			return fetch(url, {
+				method: "PATCH",
+				headers: {
+					"content-type":"application/json"
+				},
+				body: JSON.stringify(userObj)
+			})
+			.then(res => res.json())
+		},
+
+		delete: function(url) {
+			return fetch(url, {
+				method: "DELETE"
+			})
+		},
+
 		signUp: function(url, signUpObj) {
 			return fetch(url, {
 				method: "POST",

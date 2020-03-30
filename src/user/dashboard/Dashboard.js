@@ -18,11 +18,6 @@ export default class Dashboard extends React.Component{
 		updated_user: false,
 	}
 
-	pageInfo = {
-		user_id: this.props.user_id,
-		page_name: 'dashboard',
-	}
-
 	componentDidMount(){
 		this.setState({ mounted: true })
 
@@ -86,7 +81,12 @@ export default class Dashboard extends React.Component{
 	}
 
 	onPageLoadFunctions = () => {
-		trafficFunctions('page', 'http://localhost:3001/pages', this.pageInfo)
+		let pageInfo = {
+			user_id: localStorage.user_id,
+			page_name: 'edit_profile',
+		}
+
+		trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
 	}
 
 	render(){
@@ -150,9 +150,7 @@ export default class Dashboard extends React.Component{
 															join_month={this.props.join_month}
 															join_year={this.props.join_year}
 														/>;
-								default: return <DashboardIndex
-															first_name={ this.props.first_name }
-														/>;
+								default: return <></>;
 							}
 						})()
 					}[localStorage.length === 0]

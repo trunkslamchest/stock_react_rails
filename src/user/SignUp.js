@@ -140,7 +140,12 @@ export default class SignUp extends React.Component {
 	}
 
 	onPageLoadFunctions = () => {
-		trafficFunctions('page', 'http://localhost:3001/pages', this.pageInfo)
+		let pageInfo = {
+			user_id: localStorage.user_id,
+			page_name: 'sign_up',
+		}
+
+		trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
 	}
 
 	render(){

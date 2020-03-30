@@ -288,8 +288,6 @@ export default class App extends React.Component {
 						<Route exact path='/edit_profile'>
 							<EditProfile
 								setToken={ this.setToken }
-								update_traffic_data={ this.update_traffic_data }
-								update_page_data={ this.update_page_data }
 								// ~~~~~~~~~~~~~~~~~~~~
 								user_id= {this.state.user_id }
 								user_name={ this.state.user_name }
@@ -314,12 +312,9 @@ export default class App extends React.Component {
 						<Route exact path='/delete_profile'>
 							<DeleteProfile
 								setToken={ this.setToken }
-								update_traffic_data={ this.update_traffic_data }
-								update_page_data={ this.update_page_data }
-								// ~~~~~~~~~~~~~~~~~~~~
 								user_id={this.state.user_id }
 								access={ this.state.access }
-								log_out={ this.logOut }
+								logOut={ this.logOut }
 							/>
 						</Route>
 						<Route exact path='/log_out'>
