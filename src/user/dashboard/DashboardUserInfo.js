@@ -18,16 +18,16 @@ const DashboardUserInfo = (props) => {
 
 	const formatDate = (date) => {
 		const number_ends = [ "st", "nd", "rd", "th" ]
-		const number_split = localStorage.birth_day.split('').pop()
+		const date_split = date.split('').pop()
 
 		if ((parseInt(date, 10) > 10) && (parseInt(date, 10) < 19)) {
 			return `${ date }` + number_ends[3]
 		} else {
-			if ((number_split === '1')) {
+			if ((date_split === '1')) {
 				return `${ date }` + number_ends[0]
-			} else if (number_split === '2') {
+			} else if (date_split === '2') {
 				return `${ date }` + number_ends[1]
-			} else if (number_split === '3') {
+			} else if (date_split === '3') {
 				return `${ date }` + number_ends[2]
 			} else {
 				return `${ date }` + number_ends[3]
