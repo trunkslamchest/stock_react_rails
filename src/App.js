@@ -1,8 +1,12 @@
 import React from 'react'
 
-import Header from './Header'
+// import Header from './Header'
 import Home from './Home'
-import Footer from './Footer'
+// import Footer from './Footer'
+
+import Header from './UI/Header'
+// import Home from './index/Home'
+import Footer from './UI/Footer'
 
 import LogIn from './user/LogIn'
 import SignUp from './user/SignUp'
@@ -15,8 +19,7 @@ import DeleteProfile from './user/dashboard/DeleteProfile'
 import Backroom from './admin/Backroom'
 import TestTemp from './admin/TestTemp'
 
-
-import Error from './Error'
+import E404 from './error/E404'
 
 import {
 		//  NavLink,
@@ -360,7 +363,7 @@ export default class App extends React.Component {
 								token={ this.state.token }
 							/>
 						</Route>
-						<Route component={ Error } />
+						<Route component={ E404 } />
 					</Switch>
 				</div>
 				<div className="footer">
