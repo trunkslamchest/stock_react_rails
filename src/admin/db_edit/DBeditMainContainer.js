@@ -1,45 +1,33 @@
 import React from 'react'
 
-import { useHistory } from 'react-router-dom'
+import {
+	Route,
+	Switch,
+} from 'react-router-dom'
 
 import DBeditIndex from './DBeditIndex'
 import DBeditUsersContainer from './users/DBeditUsersContainer'
 
+import DBeditNavBar from './DBeditNavBar'
+
 import './DBedit.css'
 
-export default class DBeditMainContainer extends React.Component{
+export default class DBeditMainContainer extends React.Component {
 
-	state = { display: 'index' }
-
-	componentDidMount(){ this.setState({ display: 'index' }) }
-
-	showDBIndex = () => { this.setState({ display: 'index' }) }
-
-	showDBusers = (signal) => {
-		if(signal !== "signal") {
-			this.setState({
-				display: 'users',
-			})
-		}
-	}
-
-	render(){
+	render() {
 		return(
 			<>
 				<div className="DBedit_navbar">
-					<div className="DBedit_navbar_item" onClick={ this.showDBusers }>
-						<p>Users</p>
-					</div>
+					<DBeditNavBar />
 				</div>
-				{
-					(() => {
-						switch(this.state.display) {
-							case 'index': return <DBeditIndex />;
-							case 'users': return <DBeditUsersContainer showDBusers={ this.showDBusers } />;
-							default: return <DBeditIndex />;
-						}
-					})()
-				}
+				<Switch>
+					<Route exact path='/backroom/DBedit'>
+						<DBeditIndex />
+					</Route>
+					<Route path='/backroom/DBedit/users'>
+						<DBeditUsersContainer />
+					</Route>
+				</Switch>
 			</>
 		)
 	}

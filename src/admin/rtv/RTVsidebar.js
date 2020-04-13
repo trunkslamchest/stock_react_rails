@@ -8,27 +8,13 @@ const RTVsidebar = (props) => {
 
 	let history = useHistory()
 
-	const onClickRTVusersFunctions = () => {
-		history.push('/backroom/RTVusers')
-		props.showRTVusers()
-	}
+	const onClickRTVusersFunctions = () => { history.push('/backroom/RTVusers') }
 
-	const onClickRTVpagesFunctions = () => {
-		history.push('/backroom/RTVpages')
-		props.showRTVpages()
-	}
+	const onClickRTVpagesFunctions = () => { history.push('/backroom/RTVpages') }
 
-	const onClickDBeditFunctions = () => {
-		// let db_index_msg = "index"
-		// props.update_db_view_from_sidebar(db_index_msg)
-		history.push('/backroom/DBedit')
-		props.showDBedit()
-	}
+	const onClickDBeditFunctions = () => { history.push('/backroom/DBedit') }
 
-	const onClickSTAnalyticsFunctions = () => {
-		history.push('/backroom/STAnalytics')
-		props.showSTanalytics()
-	}
+	const onClickSTAnalyticsFunctions = () => { history.push('/backroom/STAnalytics') }
 
 	return(
 		<div className="side_bar">
