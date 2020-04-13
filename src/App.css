@@ -400,7 +400,7 @@ select:not(:-internal-list-box) {
 	margin-right: 0px;
 	box-shadow: 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 2.5px 0 rgba(0, 0, 0, 0.25);
 }
-
+/* 
 .alt_button {
 	-webkit-appearance: none;
 	text-rendering: auto;
@@ -441,7 +441,7 @@ select:not(:-internal-list-box) {
 	transition-duration: .1s, .1s;
 	transition-timing-function: ease-in-out;
 	animation: scale_out .1s ease-in-out 1, blur_out .1s ease-in-out 1;
-}
+} */
 
 .alt_button2 {
 	-webkit-appearance: none;

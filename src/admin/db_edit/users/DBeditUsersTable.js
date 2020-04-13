@@ -1,10 +1,17 @@
 import React from 'react'
 
+import { useHistory } from 'react-router-dom'
+
 const DBeditUsersTable = (props) => {
 
-	const onClickTableRowFunctions = () => { props.displaySwitchToUserInfo(props.user.attributes.user) }
+	let history = useHistory()
 
 	const user = props.user.attributes.user
+
+	const onClickTableRowFunctions = () => {
+		history.push('/backroom/DBedit/users/' + user.id)
+		props.getUser(user)
+	}
 
 	const DBedit_table =
 		<tr onClick={ onClickTableRowFunctions } className="DBedit_sub_row">

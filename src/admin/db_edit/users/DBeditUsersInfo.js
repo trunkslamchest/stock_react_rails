@@ -1,12 +1,23 @@
 import React from 'react'
 
+import { useHistory } from 'react-router-dom'
+
+import AltButton from '../../../UI/buttons/altButton'
+
 const DBeditUsersInfo = (props) => {
 
-	const editUserFunctions = () => { props.displaySwitchtoEdit(props.user) }
+	console.log(props)
 
-	const deleteUserFunctions = () => { props.displaySwitchToDelete(props.user) }
+	let history = useHistory()
 
 	const user = props.user
+
+	const editUserURL = '/backroom/DBedit/users/' + user.id + '/edit'
+	const deleteUserURL = '/backroom/DBedit/users/' + user.id + '/delete'
+
+	const editUserFunctions = () => { history.push(editUserURL) }
+
+	const deleteUserFunctions = () => { history.push(deleteUserURL) }
 
 	const user_info =
 		<ul>
@@ -35,22 +46,22 @@ const DBeditUsersInfo = (props) => {
 		</ul>
 
 	const buttons = [
-			<button
+			<AltButton
+				link={ editUserURL }
 				key={"DBe_edit_user"}
-				className="alt_button"
-				value="Edit User"
+				name="DBedit_edit_user_button"
 				onClick={ editUserFunctions }
 			>
 				Edit User
-			</button>,
-			<button
+			</AltButton>,
+			<AltButton
+				link={ deleteUserURL }
 				key={"DBe_delete_user"}
-				className="alt_button"
-				value="Delete User"
+				name="DBedit_delete_user_button"
 				onClick={ deleteUserFunctions }
 			>
 				Delete User
-			</button>
+			</AltButton>
 	]
 
 	return(

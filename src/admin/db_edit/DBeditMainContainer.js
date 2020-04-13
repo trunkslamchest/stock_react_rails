@@ -12,9 +12,8 @@ import DBeditNavBar from './DBeditNavBar'
 
 import './DBedit.css'
 
-export default class DBeditMainContainer extends React.Component {
+const DBeditMainContainer = (props) => {
 
-	render() {
 		return(
 			<>
 				<div className="DBedit_navbar">
@@ -30,5 +29,7 @@ export default class DBeditMainContainer extends React.Component {
 				</Switch>
 			</>
 		)
-	}
+
 }
+
+export default DBeditMainContainer

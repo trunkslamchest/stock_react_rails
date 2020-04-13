@@ -101,7 +101,7 @@ export default class DBeditEditUser extends React.Component {
 	}
 
 	render(){
-
+		console.log(this.props)
 		const edit_user_form =
 			<form
 				name="edit_form"

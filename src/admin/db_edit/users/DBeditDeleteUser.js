@@ -1,5 +1,9 @@
 import React from 'react'
 
+import { Redirect } from 'react-router-dom'
+
+import AltButton from '../../../UI/buttons/altButton'
+
 import userFunctions from '../../../utility/userFunctions'
 
 export default class DBeditDeleteUser extends React.Component {
@@ -10,33 +14,36 @@ export default class DBeditDeleteUser extends React.Component {
 		userFunctions('delete', `http://localhost:3001/users/${this.props.user.id}`)
 		.then(res_obj => {
 			if (res_obj.errors) this.setState({ errors: res_obj.errors })
-			else this.props.displaySwitchToIndex()
+			else return <Redirect to={'/backroom/DBedit/users/'} />
 		})
 	}
 
-	onClickNo = () => { this.props.displaySwitchToUserInfo(this.props.user) }
+	onClickNo = () => {
+		const userURL = '/backroom/DBedit/users/' + this.props.user.id
+		return <Redirect to={userURL} />
+	}
 
 	render(){
+		const usersURL = '/backroom/DBedit/users/'
+		const userURL = '/backroom/DBedit/users/' + this.props.user.id
 
 		const confirm_buttons = [
-			<button
+			<AltButton
+				link={ usersURL }
 				key={"DBe_delete_user_yes"}
-				name="delete_profile_form"
-				interaction="submit"
-				className="alt_button"
+				name="delete_user_yes"
 				onClick={ this.onClickYes }
 			>
 				Yes
-			</button>,
-			<button
+			</AltButton>,
+			<AltButton
+				link={ userURL }
 				key={"DBe_delete_user_no"}
-				name="delete_profile_form"
-				interaction="cancel"
-				className="alt_button"
+				name="delete_user_no"
 				onClick={ this.onClickNo }
 			>
 				No
-			</button>
+			</AltButton>
 		]
 
 		return(

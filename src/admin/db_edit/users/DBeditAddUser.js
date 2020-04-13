@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Redirect } from 'react-router-dom'
+
 import userFunctions from '../../../utility/userFunctions'
 
 export default class DBeditAddUser extends React.Component {
@@ -54,7 +56,7 @@ export default class DBeditAddUser extends React.Component {
 		userFunctions('post', 'http://localhost:3001/users', userObj)
 		.then(res_obj => {
 			if (res_obj.errors) this.setState({ errors: res_obj.errors })
-			else this.props.displaySwitchToIndex(res_obj)
+			else return <Redirect to={'/backroom/DBedit/users/'} />
 		})
 	}
 
