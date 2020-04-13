@@ -11,12 +11,13 @@ export default class RTVpagesContainer extends React.Component{
 
 	componentDidMount(){ this.RTVinterval = setInterval(this.updateRTVpages, 1000) }
 
-	componentWillUnmount(){ clearInterval(this.RTVinterval) }
-
+	
 	updateRTVpages = () => {
 		trafficFunctions('get', 'http://localhost:3001/pages')
 		.then(res_obj => this.setState({ RTV_page_data: res_obj.data }) )
 	}
+
+	componentWillUnmount(){ clearInterval(this.RTVinterval) }
 
 	render(){
 		return(
