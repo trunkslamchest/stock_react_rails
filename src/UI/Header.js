@@ -1,5 +1,6 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+
+import HeaderButton from './buttons/headerButton'
 
 import trafficFunctions from '../utility/trafficFunctions'
 
@@ -41,18 +42,7 @@ const Header = (props) => {
 		trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
 	}
 
-	const home_link = [
-		<NavLink
-			exact to="/"
-			key={"h_home_link"}
-			name="header_home_button"
-			interaction="click"
-			className="default_header_link"
-			onClick={ onClickHomeFunctions }
-		>
-			Home
-		</NavLink>
-	]
+	const blank = <></>
 
 	const user_greeting =
 		<span
@@ -61,56 +51,50 @@ const Header = (props) => {
 			Logged In: { props.user_name }
 		</span>
 
+	const home_link =
+		<HeaderButton
+			link="/"
+			buttonName="header_home_button"
+			onClick={ onClickHomeFunctions }
+		>
+			Home
+		</HeaderButton>
 
-	const logged_in_links = [
-		<NavLink
-			key={"h_dashboard"}
-			to="/dashboard"
-			name="header_dashboard_button"
-			interaction="click"
-			className="default_header_link"
-			onClick={ onClickDashboardFunctions }
-		>
-			Dashboard
-		</NavLink>,
-		<NavLink
-			key={"h_log_out"}
-			to="/log_out"
-			name="header_log_out_button"
-			interaction="click"
-			className="default_header_link"
-			onClick={ onClickLogOutFunctions }
-		>
-			Log Out
-		</NavLink>
-	]
+	const logged_in_links =
+		<>
+			<HeaderButton
+				link="/dashboard"
+				name="header_dashboard_button"
+				onClick={ onClickDashboardFunctions }
+			>
+				Dashboard
+			</HeaderButton>
+			<HeaderButton
+				link="/log_out"
+				name="header_log_out_button"
+				onClick={ onClickLogOutFunctions }
+			>
+				Log Out
+			</HeaderButton>
+		</>
 
-	const logged_out_links = [
-		<NavLink
-			key={"h_login"}
-			to="/log_in"
-			name="header_log_in_button"
-			interaction="click"
-			className="default_header_link"
-			onClick={ onClickLogInFunctions }
-		>
-			Login
-		</NavLink>,
-		<NavLink
-			key={"h_signup"}
-			to="/sign_up"
-			name="header_sign_up_button"
-			interaction="click"
-			className="default_header_link"
-			onClick={ onClickSignUpFunctions }
-		>
-			Sign Up
-		</NavLink>
-	]
-
-	const guest_header = [
-		logged_out_links
-	]
+	const logged_out_links =
+		<>
+			<HeaderButton
+				link="/log_in"
+				name="header_log_in_button"
+				onClick={ onClickLogInFunctions }
+			>
+				Login
+			</HeaderButton>
+			<HeaderButton
+				link="/sign_up"
+				name="header_sign_up_button"
+				onClick={ onClickSignUpFunctions }
+			>
+				Sign Up
+			</HeaderButton>
+		</>
 
 	const normal_header =
 		<>
@@ -124,37 +108,32 @@ const Header = (props) => {
 		<>
 			{ user_greeting }
 			<div className="header_nav_links">
-				<NavLink
-					key={"h_backroom"}
+				<HeaderButton
 					to="/backroom"
 					name="header_backroom_button"
-					interaction="click"
-					className="default_header_link"
 					onClick={ onClickBackroomFunctions }
 				>
 					Admin Panel
-				</NavLink>
+				</HeaderButton>
 				{logged_in_links}
 			</div>
 		</>
 
-	const no_header = [" "]
-
 	return(
 		<>
 			<div className="header_left">
-				{ !!props.token ? home_link : no_header }
+				{ !!props.token ? home_link : blank }
 			</div>
 			<div className="header_right">
 				{
 					{
-						false: no_header,
+						false: blank,
 						true: (() => {
 							switch(localStorage.access) {
-								case false: return guest_header;
+								case false: return logged_out_links;
 								case 'normal': return normal_header;
 								case 'admin': return admin_header;
-								default: return null;
+								default: return blank;
 							}
 						})()
 					}[!!props.token]

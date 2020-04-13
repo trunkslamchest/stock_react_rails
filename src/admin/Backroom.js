@@ -29,35 +29,15 @@ export default class Backroom extends React.Component{
 		db_display: null
 	}
 
-	showRTVusers = () => {
-		this.setState({
-			display: "RTVusers"
-		})
-	}
+	showRTVusers = () => { this.setState({ display: "RTVusers" }) }
 
-	showRTVpages = () => {
-		this.setState({
-			display: "RTVpages"
-		})
-	}
+	showRTVpages = () => { this.setState({ display: "RTVpages" }) }
 
-	showDBedit = () => {
-		this.setState({
-			display: "DBedit"
-		})
-	}
+	showDBedit = () => { this.setState({ display: "DBedit" }) }
 
-	showBRanalytics = () => {
-		this.setState({
-			display: "BRanalytics"
-		})
-	}
+	showBRanalytics = () => { this.setState({ display: "BRanalytics" }) }
 
-	update_db_view_from_sidebar = (db_index_msg) => {
-		this.setState({
-			db_display: db_index_msg
-		})
-	}
+	update_db_view_from_sidebar = (db_index_msg) => { this.setState({ db_display: db_index_msg }) }
 
 	render(){
 		return(
