@@ -1,9 +1,12 @@
 import React from 'react'
+
 import DBeditUsersTable from './DBeditUsersTable'
 import DBeditUsersInfo from './DBeditUsersInfo'
 import DBeditAddUser from './DBeditAddUser'
 import DBeditEditUser from './DBeditEditUser'
 import DBeditDeleteUser from './DBeditDeleteUser'
+
+import userFunctions from '../../../utility/userFunctions'
 
 export default class DBeditUsersContainer extends React.Component{
 
@@ -19,13 +22,10 @@ export default class DBeditUsersContainer extends React.Component{
 	UNSAFE_componentWillReceiveProps(nextProps){ this.setState({ display: "index" }) }
 
 	getUserDB = () => {
-		fetch("http://localhost:3001/users")
-		.then(res => res.json())
-		.then(res_obj =>
-			this.setState({
-				users: res_obj.data
-			})
-		)
+		// fetch("http://localhost:3001/users")
+		// .then(res => res.json())
+		userFunctions('get', 'http://localhost:3001/users')
+		.then(res_obj => this.setState({ users: res_obj.data }) )
 	}
 
 	displaySwitch = (user) => {

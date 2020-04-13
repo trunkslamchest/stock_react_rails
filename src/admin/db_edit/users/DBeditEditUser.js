@@ -1,5 +1,8 @@
 import React from 'react'
+
 import DBeditUsersContainer from './DBeditUsersContainer'
+
+import userFunctions from '../../../utility/userFunctions'
 
 export default class DBeditEditUser extends React.Component {
 
@@ -41,14 +44,9 @@ export default class DBeditEditUser extends React.Component {
 		}
 	}
 
-	onMountAsync = async () => {
-	}
+	onMountAsync = async () => {}
 
-	onChange = (event) => {
-		this.setState({
-			[event.target.name]: event.target.value
-		})
-	}
+	onChange = (event) => { this.setState({ [event.target.name]: event.target.value }) }
 
 	onSubmitEditUserFunctions = (event) => { this.EditUserSubmitted(event) }
 
@@ -56,38 +54,26 @@ export default class DBeditEditUser extends React.Component {
 		event.persist()
 		event.preventDefault()
 
-		let user = this.props.user
+		let userObj = {
+			user_name: this.state.edit_user_name,
+			email: this.state.edit_email,
+			first_name: this.state.edit_first_name,
+			last_name: this.state.edit_last_name,
+			gender: this.state.edit_gender,
+			birth_month: this.state.edit_birth_month,
+			birth_day: this.state.edit_birth_day,
+			birth_year: this.state.edit_birth_year,
+			house_number: this.state.edit_house_number,
+			street_name: this.state.add_street_name,
+			city_town: this.state.add_city_town,
+			state: this.state.edit_state,
+			zip_code: this.state.edit_zip_code,
+		}
 
-		fetch(`http://localhost:3001/users/${user.id}`, {
-			method: "PATCH",
-			headers: {
-				"content-type":"application/json"
-			},
-			body: JSON.stringify({
-				user_name: this.state.edit_user_name,
-				email: this.state.edit_email,
-				first_name: this.state.edit_first_name,
-				last_name: this.state.edit_last_name,
-				gender: this.state.edit_gender,
-				birth_month: this.state.edit_birth_month,
-				birth_day: this.state.edit_birth_day,
-				birth_year: this.state.edit_birth_year,
-				house_number: this.state.edit_house_number,
-				street_name: this.state.add_street_name,
-				city_town: this.state.add_city_town,
-				state: this.state.edit_state,
-				zip_code: this.state.edit_zip_code,
-			})
-		})
-	    .then(response => response.json())
-	    .then(res_obj => {
-			if (res_obj.errors) {
-				this.setState({
-					errors: res_obj.errors
-				})
-			} else {
-				this.props.displaySwitchToIndex('index')
-			}
+		userFunctions('patch', `http://localhost:3001/users/${this.props.user.id}`, userObj)
+		.then(res_obj => {
+			if (res_obj.errors) this.setState({ errors: res_obj.errors })
+			else this.props.displaySwitchToIndex('index')
 		})
 	}
 

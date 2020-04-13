@@ -1,9 +1,9 @@
 import React from 'react'
 
+import { Redirect } from 'react-router-dom'
+
 import DashboardIndex from './DashboardIndex'
 import DashboardUserInfo from './DashboardUserInfo'
-
-import { Redirect } from 'react-router-dom'
 
 import trafficFunctions from '../../utility/trafficFunctions'
 
@@ -31,17 +31,6 @@ export default class Dashboard extends React.Component{
 				display: 'dashboard'
 			})
 		}
-	}
-
-	getUser = (user_id) => {
-		fetch(`http://localhost:3001/users/${user_id}`)
-		.then(res => res.json())
-		.then(res_obj =>
-			this.setState({
-				user: res_obj.data.attributes.user,
-				updated_user: true
-			})
-		)
 	}
 
 	displaySwitchToDashboard = () => {
@@ -124,9 +113,6 @@ export default class Dashboard extends React.Component{
 															first_name={ this.props.first_name }
 														/>;
 								case 'user_info': return <DashboardUserInfo
-															update_traffic_data={ this.props.update_traffic_data }
-															update_page_data={ this.props.update_page_data }
-															// ~~~~~~~~~~~~~~~~~~~~
 															user_id= {this.props.user_id }
 															user_name={ this.props.user_name }
 															email={ this.props.email }

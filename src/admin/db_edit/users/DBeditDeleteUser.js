@@ -1,30 +1,20 @@
 import React from 'react'
 
+import userFunctions from '../../../utility/userFunctions'
+
 export default class DBeditDeleteUser extends React.Component {
 
-	state = {
-	}
+	state = { errors: [] }
 
 	onClickYes = () => {
-		let user = this.props.user
-		fetch(`http://localhost:3001/users/${user.id}`, {
-			method: "DELETE"
-		})
+		userFunctions('delete', `http://localhost:3001/users/${this.props.user.id}`)
 		.then(res_obj => {
-			if (res_obj.errors) {
-				this.setState({
-					errors: res_obj.errors
-				})
-			} else {
-				this.props.displaySwitchToIndex()
-			}
+			if (res_obj.errors) this.setState({ errors: res_obj.errors })
+			else this.props.displaySwitchToIndex()
 		})
 	}
 
-	onClickNo = () => {
-		let user = this.props.user
-		this.props.displaySwitchToUserInfo(user)
-	}
+	onClickNo = () => { this.props.displaySwitchToUserInfo(this.props.user) }
 
 	render(){
 
@@ -55,12 +45,8 @@ export default class DBeditDeleteUser extends React.Component {
 				{
 					(!!this.state.errors) ?
 						( <div className="default_error_report">
-								{ this.state.errors.map( error =>
-									<div className="default_error_item">
-										{ error }
-									</div>
-								)}
-						  </div> )
+								{ this.state.errors.map( error => <div className="default_error_item"> { error } </div> )}
+							</div> )
 					:
 						( "" )
 				}

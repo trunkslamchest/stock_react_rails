@@ -1,5 +1,7 @@
 import React from 'react'
 
+import userFunctions from '../../../utility/userFunctions'
+
 export default class DBeditAddUser extends React.Component {
 
 	state = {
@@ -20,60 +22,46 @@ export default class DBeditAddUser extends React.Component {
 		errors: []
 	}
 
-	componentDidMount(){
-	}
+	componentDidMount(){}
 
-	onMountAsync = async () => {
-	}
+	onMountAsync = async () => {}
 
-	onChange = (event) => {
-		this.setState({
-			[event.target.name]: event.target.value
-		})
-	}
+	onChange = (event) => { this.setState({ [event.target.name]: event.target.value }) }
 
 	onSubmitaddUserFunctions = (event) => { this.addUserSubmitted(event) }
 
 	addUserSubmitted = (event) => {
 		event.persist()
 		event.preventDefault()
-		fetch("http://localhost:3001/users", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({
-				user_name: this.state.add_user_name,
-				password: this.state.add_password,
-				email: this.state.add_email,
-				first_name: this.state.add_first_name,
-				last_name: this.state.add_last_name,
-				gender: this.state.add_gender,
-				birth_month: this.state.add_birth_month,
-				birth_day: this.state.add_birth_day,
-				birth_year: this.state.add_birth_year,
-				house_number: this.state.add_house_number,
-				street_name: this.state.add_street_name,
-				city_town: this.state.add_city_town,
-				state: this.state.add_state,
-				zip_code: this.state.add_zip_code,
-			})
-		})
-	    .then(response => response.json())
-	    .then(res_obj => {
-			if (res_obj.errors) {
-				this.setState({
-					errors: res_obj.errors
-				})
-			} else {
-				this.props.displaySwitchToIndex(res_obj)
-			}
+
+		let userObj = {
+			user_name: this.state.add_user_name,
+			password: this.state.add_password,
+			email: this.state.add_email,
+			first_name: this.state.add_first_name,
+			last_name: this.state.add_last_name,
+			gender: this.state.add_gender,
+			birth_month: this.state.add_birth_month,
+			birth_day: this.state.add_birth_day,
+			birth_year: this.state.add_birth_year,
+			house_number: this.state.add_house_number,
+			street_name: this.state.add_street_name,
+			city_town: this.state.add_city_town,
+			state: this.state.add_state,
+			zip_code: this.state.add_zip_code,
+		}
+
+		userFunctions('post', 'http://localhost:3001/users', userObj)
+		.then(res_obj => {
+			if (res_obj.errors) this.setState({ errors: res_obj.errors })
+			else this.props.displaySwitchToIndex(res_obj)
 		})
 	}
 
 	onResetFunctions = (event) => {
 		event.persist()
 		event.preventDefault()
+
 		this.setState({
 			add_user_name: "",
 			add_password: "",
@@ -90,6 +78,7 @@ export default class DBeditAddUser extends React.Component {
 			add_state: "",
 			add_zip_code: "",
 		})
+
 	}
 
 	render(){
