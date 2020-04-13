@@ -22,8 +22,6 @@ export default class DBeditUsersContainer extends React.Component{
 	UNSAFE_componentWillReceiveProps(nextProps){ this.setState({ display: "index" }) }
 
 	getUserDB = () => {
-		// fetch("http://localhost:3001/users")
-		// .then(res => res.json())
 		userFunctions('get', 'http://localhost:3001/users')
 		.then(res_obj => this.setState({ users: res_obj.data }) )
 	}

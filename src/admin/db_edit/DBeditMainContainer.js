@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { useHistory } from 'react-router-dom'
+
 import DBeditIndex from './DBeditIndex'
 import DBeditUsersContainer from './users/DBeditUsersContainer'
 

@@ -19,8 +19,8 @@ const RTVsidebar = (props) => {
 	}
 
 	const onClickDBeditFunctions = () => {
-		let db_index_msg = "index"
-		props.update_db_view_from_sidebar(db_index_msg)
+		// let db_index_msg = "index"
+		// props.update_db_view_from_sidebar(db_index_msg)
 		history.push('/backroom/DBedit')
 		props.showDBedit()
 	}

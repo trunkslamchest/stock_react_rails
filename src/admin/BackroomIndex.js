@@ -6,7 +6,9 @@ const BackroomIndex = (props) => {
 
 		return(
 			<>
-				<h3> Backroom Dashboard </h3>
+				<div className='main_window_header'>
+					<p> Backroom Dashboard </p>
+				</div>
 				<DefaultButton
 					link='/backroom/test_temp'
 					name='test_page_button'

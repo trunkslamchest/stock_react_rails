@@ -19,7 +19,10 @@ import './Backroom.css'
 
 export default class Backroom extends React.Component{
 
-	state = { db_display: null }
+	state = { 
+		display: null,
+		// db_display: null
+	}
 
 	showRTVusers = () => { this.setState({ display: "RTVusers" }) }
 
@@ -29,7 +32,7 @@ export default class Backroom extends React.Component{
 
 	showSTanalytics = () => { this.setState({ display: "STanalytics" }) }
 
-	update_db_view_from_sidebar = (db_index_msg) => { this.setState({ db_display: db_index_msg }) }
+	// update_db_view_from_sidebar = (db_index_msg) => { this.setState({ db_display: db_index_msg }) }
 
 	render(){
 
@@ -45,7 +48,9 @@ export default class Backroom extends React.Component{
 					<RTVpagesContainer />
 				</Route>
 				<Route path='/backroom/DBedit'>
-					<DBeditMainContainer update_db_display={ this.state.db_display } />
+					<DBeditMainContainer 
+					// update_db_display={ this.state.db_display }
+					/>
 				</Route>
 				<Route path='/backroom/STAnalytics'>
 					<STanalyticsIndex />
@@ -63,7 +68,7 @@ export default class Backroom extends React.Component{
 						showRTVpages={ this.showRTVpages }
 						showDBedit={ this.showDBedit }
 						showSTanalytics={ this.showSTanalytics }
-						update_db_view_from_sidebar={ this.update_db_view_from_sidebar }
+						// update_db_view_from_sidebar={ this.update_db_view_from_sidebar }
 					/>
 				</div>
 
