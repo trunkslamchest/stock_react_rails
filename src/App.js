@@ -17,17 +17,21 @@ import Privacy from './docs/Privacy'
 import Disclaimer from './docs/Disclaimer'
 
 import Backroom from './admin/Backroom'
-import TestTemp from './admin/TestTemp'
 
 import E404 from './error/E404'
 
 import userFunctions from './utility/userFunctions'
 
 import {
-		Route,
-		Switch,
-		//  useRouteMatch,
-		//  useParams
+	// NavLink,
+	// Link,
+	// Redirect,
+	Route,
+	Switch,
+	// useRouteMatch,
+	// useParams,
+	// useHistory,
+	// useLocation
 	} from 'react-router-dom'
 
 import './App.css'
@@ -201,7 +205,7 @@ export default class App extends React.Component {
 	}
 
 	render(){
-
+		console.log(this.props)
 		return (
 			<>
 				<div className="header">
@@ -308,16 +312,11 @@ export default class App extends React.Component {
 						<Route exact path='/disclaimer'>
 							<Disclaimer />
 						</Route>
-						<Route exact path='/backroom'>
+						<Route path='/backroom'>
 							<Backroom
 								token={ this.state.token }
 								user_name={ this.state.user_name }
 								access={ this.state.access }
-							/>
-						</Route>
-						<Route exact path='/backroom/test_temp'>
-							<TestTemp
-								token={ this.state.token }
 							/>
 						</Route>
 						<Route component={ E404 } />

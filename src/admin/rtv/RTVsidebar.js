@@ -1,20 +1,34 @@
 import React from 'react'
 
+import { useHistory } from 'react-router-dom'
+
 import './RTVsidebar.css'
 
 const RTVsidebar = (props) => {
 
-	const onClickRTVusersFunctions = () => { props.showRTVusers() }
+	let history = useHistory()
 
-	const onClickRTVpagesFunctions = () => { props.showRTVpages() }
+	const onClickRTVusersFunctions = () => {
+		history.push('/backroom/RTVusers')
+		props.showRTVusers()
+	}
+
+	const onClickRTVpagesFunctions = () => {
+		history.push('/backroom/RTVpages')
+		props.showRTVpages()
+	}
 
 	const onClickDBeditFunctions = () => {
 		let db_index_msg = "index"
 		props.update_db_view_from_sidebar(db_index_msg)
+		history.push('/backroom/DBedit')
 		props.showDBedit()
 	}
 
-	const onClickAnalyticsFunctions = () => { props.showBRanalytics() }
+	const onClickSTAnalyticsFunctions = () => {
+		history.push('/backroom/STAnalytics')
+		props.showSTanalytics()
+	}
 
 	return(
 		<div className="side_bar">
@@ -28,7 +42,7 @@ const RTVsidebar = (props) => {
 				<li onClick={ onClickDBeditFunctions }>
 					Database Editor
 				</li>
-				<li onClick={ onClickAnalyticsFunctions }>
+				<li onClick={ onClickSTAnalyticsFunctions }>
 					Statistical Analytics
 				</li>
 			</ul>
