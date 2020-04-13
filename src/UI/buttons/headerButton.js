@@ -7,7 +7,7 @@ const HeaderButton = (props) => {
 	return(
 		<NavLink
 			exact to={props.link}
-			name={props.buttonName}
+			name={props.name}
 			interaction='click'
 			className='default_header_link'
 			activeClassName='default_active'

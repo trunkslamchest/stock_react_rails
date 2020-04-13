@@ -42,7 +42,7 @@ const Header = (props) => {
 	const home_link =
 		<HeaderButton
 			link="/"
-			buttonName="header_home_button"
+			name="header_home_button"
 			onClick={ onClickHomeFunctions }
 		>
 			Home

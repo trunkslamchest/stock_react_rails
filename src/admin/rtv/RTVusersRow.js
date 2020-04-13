@@ -1,10 +1,9 @@
 import React from 'react'
 
-export default class RTVusersRow extends React.Component{
-	render(){
+const RTVusersRow = (props) => {
 
-		const RTV_timestamp = this.props.RTV_users_obj.attributes.timestamp
-		const RTV_item = this.props.RTV_users_obj.attributes
+		const RTV_timestamp = props.RTV_users_obj.attributes.timestamp
+		const RTV_item = props.RTV_users_obj.attributes
 
 		return(
 			<tr>
@@ -22,5 +21,7 @@ export default class RTVusersRow extends React.Component{
 				</td>
 			</tr>
 		)
-	}
+
 }
+
+export default RTVusersRow
