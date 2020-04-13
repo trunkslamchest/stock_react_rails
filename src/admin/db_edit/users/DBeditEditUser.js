@@ -50,9 +50,7 @@ export default class DBeditEditUser extends React.Component {
 		})
 	}
 
-	onSubmitEditUserFunctions = (event) => {
-		this.EditUserSubmitted(event)
-	}
+	onSubmitEditUserFunctions = (event) => { this.EditUserSubmitted(event) }
 
 	EditUserSubmitted = (event) => {
 		event.persist()

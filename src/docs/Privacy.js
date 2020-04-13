@@ -4,14 +4,14 @@ import trafficFunctions from '../utility/trafficFunctions'
 
 import './Docs.css'
 
-var pageInfo = {
-	user_id: localStorage.user_id,
-	page_name: 'privacy',
-}
-
 const Privacy = (props) => {
 
 	const onPageLoadFunctions = useCallback(() => {
+		let pageInfo = {
+			user_id: localStorage.user_id,
+			page_name: 'privacy',
+		}
+
 		trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
 	}, [])
 

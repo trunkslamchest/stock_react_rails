@@ -14,34 +14,28 @@ export default class LogOut extends React.Component {
 		cancel: false
 	}
 
+	componentDidMount(){ this.onPageLoadFunctions() }
+
 	onClickConfirm = (event) => {
-		this.onClickUpdateTrafficFunctions(event)
+		this.onClickTrafficFunctions(event)
 		this.props.logOut(this.props.token)
 		this.setState({ logOutSuccess: true })
 	}
 
 	onClickCancel = (event) => {
-		this.onClickUpdateTrafficFunctions(event)
+		this.onClickTrafficFunctions(event)
 		this.setState({ cancel: true })
 	}
 
-	onHoverConfirm = () => {
-		this.setState({ hoverConfirm: true })
-	}
+	onHoverConfirm = () => { this.setState({ hoverConfirm: true }) }
 
-	offHoverConfirm = () => {
-		this.setState({ hoverConfirm: false })
-	}
+	offHoverConfirm = () => { this.setState({ hoverConfirm: false }) }
 
-	onHoverCancel = () => {
-		this.setState({ hoverCancel: true })
-	}
+	onHoverCancel = () => { this.setState({ hoverCancel: true }) }
 
-	offHoverCancel = () => {
-		this.setState({ hoverCancel: false })
-	}
+	offHoverCancel = () => { this.setState({ hoverCancel: false }) }
 
-	onClickUpdateTrafficFunctions = (event) => {
+	onClickTrafficFunctions = (event) => {
 		let elementInfo = {
 			user_id: this.props.user_id,
 			interaction: event.target.attributes.interaction.value,
@@ -49,6 +43,15 @@ export default class LogOut extends React.Component {
 		}
 
 		trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
+	}
+
+	onPageLoadFunctions = () => {
+		let pageInfo = {
+			user_id: localStorage.user_id,
+			page_name: 'log_out',
+		}
+
+		trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
 	}
 
 	render(){

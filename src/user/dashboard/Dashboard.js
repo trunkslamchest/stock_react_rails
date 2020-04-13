@@ -83,7 +83,7 @@ export default class Dashboard extends React.Component{
 	onPageLoadFunctions = () => {
 		let pageInfo = {
 			user_id: localStorage.user_id,
-			page_name: 'edit_profile',
+			page_name: 'user_dasboard',
 		}
 
 		trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)

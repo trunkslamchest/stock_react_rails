@@ -2,10 +2,7 @@ import React from 'react'
 
 const DBeditUsersTable = (props) => {
 
-	const onClickTableRowFunctions = () => {
-		props.displaySwitchToUserInfo(props.user.attributes.user)
-	}
-
+	const onClickTableRowFunctions = () => { props.displaySwitchToUserInfo(props.user.attributes.user) }
 
 	const user = props.user.attributes.user
 

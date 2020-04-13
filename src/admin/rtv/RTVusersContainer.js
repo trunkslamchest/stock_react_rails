@@ -14,9 +14,7 @@ export default class RTVusersContainer extends React.Component{
 		this.RTVinterval = setInterval(this.updateRTVusers, 1000);
 	}
 
-	componentWillUnmount(){
-		clearInterval(this.RTVinterval)
-	}
+	componentWillUnmount(){ clearInterval(this.RTVinterval) }
 
 	updateRTVusers = () => {
 		fetch("http://localhost:3001/traffics")

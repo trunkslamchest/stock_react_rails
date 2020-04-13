@@ -7,13 +7,9 @@ import './Home.css'
 
 const Home = (props) => {
 
-	const onClickLogInFunctions = (event) => {
-		onClickTrafficFunctions(event)
-	}
+	const onClickLogInFunctions = (event) => { onClickTrafficFunctions(event) }
 
-	const onClickSignUpFunctions = (event) => {
-		onClickTrafficFunctions(event)
-	}
+	const onClickSignUpFunctions = (event) => { onClickTrafficFunctions(event) }
 
 	const onClickTrafficFunctions = (event) => {
 		let elementInfo = {

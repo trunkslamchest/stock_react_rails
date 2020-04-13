@@ -14,15 +14,9 @@ export default class DBeditUsersContainer extends React.Component{
 		display: "index"
 	}
 
-	componentDidMount(){
-		this.getUserDB()
-	}
+	componentDidMount(){ this.getUserDB() }
 
-	UNSAFE_componentWillReceiveProps(nextProps){
-		this.setState({
-			display: "index"
-		})
-	}
+	UNSAFE_componentWillReceiveProps(nextProps){ this.setState({ display: "index" }) }
 
 	getUserDB = () => {
 		fetch("http://localhost:3001/users")
@@ -41,11 +35,7 @@ export default class DBeditUsersContainer extends React.Component{
 		})
 	}
 
-	displaySwitchToIndex = (index) => {
-		this.setState({
-			display: 'index',
-		}, this.getUserDB())
-	}
+	displaySwitchToIndex = (index) => { this.setState({ display: 'index', }, this.getUserDB()) }
 
 	displaySwitchToUserInfo = (user) => {
 		this.setState({
@@ -54,11 +44,7 @@ export default class DBeditUsersContainer extends React.Component{
 		})
 	}
 
-	displaySwitchtoAdd = () => {
-		this.setState({
-			display: "add_user"
-		})
-	}
+	displaySwitchtoAdd = () => { this.setState({ display: "add_user" }) }
 
 	displaySwitchtoEdit = (user_id) => {
 		this.setState({

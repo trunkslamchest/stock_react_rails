@@ -4,14 +4,14 @@ import trafficFunctions from '../utility/trafficFunctions'
 
 import './Docs.css'
 
-var pageInfo = {
-	user_id: localStorage.user_id,
-	page_name: 'terms_of_service',
-}
-
 const TermsOfService = (props) => {
 
 	const onPageLoadFunctions = useCallback(() => {
+		let pageInfo = {
+			user_id: localStorage.user_id,
+			page_name: 'terms_of_service',
+		}
+
 		trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
 	}, [])
 

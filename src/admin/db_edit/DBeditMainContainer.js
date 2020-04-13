@@ -7,21 +7,11 @@ import './DBedit.css'
 
 export default class DBeditMainContainer extends React.Component{
 
-	state = {
-		display: 'index',
-	}
+	state = { display: 'index' }
 
-	componentDidMount(){
-		this.setState({
-			display: 'index'
-		})
-	}
+	componentDidMount(){ this.setState({ display: 'index' }) }
 
-	showDBIndex = () => {
-		this.setState({
-			display: 'index'
-		})
-	}
+	showDBIndex = () => { this.setState({ display: 'index' }) }
 
 	showDBusers = (signal) => {
 		if(signal !== "signal") {

@@ -2,13 +2,9 @@ import React from 'react'
 
 const DBeditUsersInfo = (props) => {
 
-	const editUserFunctions = () => {
-		props.displaySwitchtoEdit(props.user)
-	}
+	const editUserFunctions = () => { props.displaySwitchtoEdit(props.user) }
 
-	const deleteUserFunctions = () => {
-		props.displaySwitchToDelete(props.user)
-	}
+	const deleteUserFunctions = () => { props.displaySwitchToDelete(props.user) }
 
 	const user = props.user
 
