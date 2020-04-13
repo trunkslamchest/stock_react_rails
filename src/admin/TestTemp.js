@@ -33,6 +33,8 @@ export default class TestTemp extends React.Component{
 	const temp_default =
 		<div className="default_wrapper">
 			{ img_upload_form }
+
+			
 		</div>
 
 		return (

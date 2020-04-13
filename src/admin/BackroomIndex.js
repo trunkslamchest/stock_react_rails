@@ -1,14 +1,22 @@
 import React from 'react'
 
-import {
-        //  Link
-        } from 'react-router-dom'
+import DefaultButton from '../UI/buttons/defaultButton'
 
-export default class BackroomIndex extends React.Component{
+const BackroomIndex = (props) => {
 
-	render(){
 		return(
-			<h3> Backroom Dashboard </h3>
+			<>
+				<h3> Backroom Dashboard </h3>
+				<DefaultButton
+					link='/backroom/test_temp'
+					name='test_page_button'
+					onClick={null}
+				>
+					Test Temp
+				</DefaultButton>
+			</>
 		)
-	}
+
 }
+
+export default BackroomIndex

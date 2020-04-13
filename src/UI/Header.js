@@ -8,31 +8,19 @@ import './Header.css'
 
 const Header = (props) => {
 
-	const onClickHomeFunctions = (event) => {
-		onClickUpdateTrafficFunctions(event)
-	}
+	const onClickHomeFunctions = (event) => { onClickTrafficFunctions(event) }
 
-	const onClickSignUpFunctions = (event) => {
-		onClickUpdateTrafficFunctions(event)
-	}
+	const onClickSignUpFunctions = (event) => { onClickTrafficFunctions(event) }
 
-	const onClickLogInFunctions = (event) => {
-		onClickUpdateTrafficFunctions(event)
-	}
+	const onClickLogInFunctions = (event) => { onClickTrafficFunctions(event) }
 
-	const onClickLogOutFunctions = (event) => {
-		onClickUpdateTrafficFunctions(event)
-	}
+	const onClickLogOutFunctions = (event) => { onClickTrafficFunctions(event) }
 
-	const onClickDashboardFunctions = (event) => {
-		onClickUpdateTrafficFunctions(event)
-	}
+	const onClickDashboardFunctions = (event) => { onClickTrafficFunctions(event) }
 
-	const onClickBackroomFunctions = (event) => {
-		onClickUpdateTrafficFunctions(event)
-	}
+	const onClickBackroomFunctions = (event) => { onClickTrafficFunctions(event) }
 
-	const onClickUpdateTrafficFunctions = (event) => {
+	const onClickTrafficFunctions = (event) => {
 		let elementInfo = {
 			user_id: props.user_id,
 			interaction: event.target.attributes.interaction.value,
@@ -109,7 +97,7 @@ const Header = (props) => {
 			{ user_greeting }
 			<div className="header_nav_links">
 				<HeaderButton
-					to="/backroom"
+					link="/backroom"
 					name="header_backroom_button"
 					onClick={ onClickBackroomFunctions }
 				>

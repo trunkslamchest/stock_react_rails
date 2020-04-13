@@ -1,15 +1,15 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-import './indexButton.css'
+import './defaultButton.css'
 
-const indexButton = (props) => {
+const DefaultButton = (props) => {
 	return(
 		<NavLink
 			exact to={props.link}
 			name={props.buttonName}
-			interaction={props.interaction}
-			className={props.classType}
+			interaction='click'
+			className='def_button'
 			onClick={props.onClick}
 		>
 			{props.children}
@@ -17,4 +17,4 @@ const indexButton = (props) => {
 	)
 }
 
-export default indexButton
+export default DefaultButton

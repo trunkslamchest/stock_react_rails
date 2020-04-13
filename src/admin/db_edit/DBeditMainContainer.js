@@ -3,7 +3,7 @@ import React from 'react'
 import DBeditIndex from './DBeditIndex'
 import DBeditUsersContainer from './users/DBeditUsersContainer'
 
-import '../../css/DBedit.css'
+import './DBedit.css'
 
 export default class DBeditMainContainer extends React.Component{
 

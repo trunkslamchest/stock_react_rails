@@ -10,6 +10,7 @@ const HeaderButton = (props) => {
 			name={props.buttonName}
 			interaction='click'
 			className='default_header_link'
+			activeClassName='default_active'
 			onClick={props.onClick}
 		>
 			{props.children}
