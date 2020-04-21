@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Redirect } from 'react-router-dom'
 
-// import DBeditUsersContainer from './DBeditUsersContainer'
+import SubmitButton from '../../../UI/buttons/submitButton'
 
 import userFunctions from '../../../utility/userFunctions'
 
@@ -42,7 +42,8 @@ export default class DBeditEditUser extends React.Component {
 				edit_street_name: user.street_name,
 				edit_city_town: user.city_town,
 				edit_state: user.state,
-				edit_zip_code: user.zip_code
+				edit_zip_code: user.zip_code,
+				editUserSuccess: false
 			})
 		}
 	}
@@ -52,6 +53,8 @@ export default class DBeditEditUser extends React.Component {
 	onSubmitEditUserFunctions = (event) => {
 		event.persist()
 		event.preventDefault()
+
+		// const userURL = '/backroom/DBedit/users/' + this.props.user.id
 
 		let userObj = {
 			user_name: this.state.edit_user_name,
@@ -72,8 +75,9 @@ export default class DBeditEditUser extends React.Component {
 		userFunctions('patch', `http://localhost:3001/users/${this.props.user.id}`, userObj)
 		.then(res_obj => {
 			if (res_obj.errors) this.setState({ errors: res_obj.errors })
-			this.props.editUser(res_obj.data)
 			this.setState({ editUserSuccess: true })
+			this.props.editUser(res_obj.data, res_obj.data.attributes)
+			// return <Redirect to={userURL} />
 		})
 	}
 
@@ -100,12 +104,13 @@ export default class DBeditEditUser extends React.Component {
 		})
 	}
 
+	componentWillUnmount(){ this.setState({ editUserSuccess: false }) }
+
 	render(){
-		// console.log(this.props)
-
-		const userURL = '/backroom/DBedit/users/'
-		// const userURL = '/backroom/DBedit/users/' + this.props.user.id
-
+		console.log(this.props)
+		// console.log(this.state)
+		const usersURL = '/backroom/DBedit/users/'
+		const userURL = '/backroom/DBedit/users/' + this.props.user.id
 
 		const editUserForm =
 			<form
@@ -326,6 +331,15 @@ export default class DBeditEditUser extends React.Component {
 				</div>
 				<hr />
 				<div className="DBedit_default_buttons_container">
+					{/* <SubmitButton
+						// className="alt_button"
+						// type="submit"
+						link={ userURL }
+						name="submitUserEditForm"
+						// value="Submit Changes"
+					>
+						Submit Changes
+					</SubmitButton> */}
 					<input
 						className="alt_button"
 						type="submit"
@@ -339,14 +353,6 @@ export default class DBeditEditUser extends React.Component {
 					>
 						Reset
 					</button>
-					{/* {
-						(() => {
-							switch(this.state.editUserSuccess) {
-							case true: return <DBeditUsersContainer />;
-							default: return null;
-							}
-						})()
-					} */}
 				</div>
 			</form>
 
@@ -365,7 +371,8 @@ export default class DBeditEditUser extends React.Component {
 					:
 						( "" )
 				}
-				{ this.state.editUserSuccess ? <Redirect to={ userURL } /> : editUserForm }
+				{ this.state.editUserSuccess ? <Redirect to={ usersURL } /> : editUserForm }
+				{/* { editUserForm } */}
 			</div>
 		)
 	}

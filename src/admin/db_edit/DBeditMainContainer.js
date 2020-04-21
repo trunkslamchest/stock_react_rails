@@ -1,9 +1,6 @@
 import React from 'react'
 
-import {
-	Route,
-	Switch,
-} from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import DBeditIndex from './DBeditIndex'
 import DBeditUsersContainer from './users/DBeditUsersContainer'

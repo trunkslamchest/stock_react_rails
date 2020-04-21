@@ -28,7 +28,14 @@ export default class DBeditUsersContainer extends React.Component{
 
 	addUser = (addedUser) => { this.setState({ users: [...this.state.users, addedUser] }) }
 
-	editUser = (editedUser) => { this.setState({ users: this.state.users.map( user => parseInt(user.id) === this.state.user.id ? editedUser : user ) }) }
+	editUser = (userObj, attributes) => {
+		// console.log(attributes)
+		// console.log(userObj)
+		this.setState({
+			user: attributes,
+			users: this.state.users.map( user => parseInt(user.id) === this.state.user.id ? userObj : user )
+		})
+	}
 
 	deleteUser = () => { this.setState({ users: this.state.users.filter( user => parseInt(user.id) !== this.state.user.id ) }) }
 
