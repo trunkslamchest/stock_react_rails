@@ -21,15 +21,14 @@ export default class DBeditUsersContainer extends React.Component{
 
 	getUsers = () => {
 		userFunctions('get', 'http://localhost:3001/users')
-		.then(res_obj => this.setState({ users: res_obj.data }) )
+		.then(res_obj => this.setState({ users: res_obj.data }))
 	}
 
 	getUser = (user) => { this.setState({ user: user}) }
 
-	deleteUser = () => {
-		let filteredUsers = this.state.users.filter( user => parseInt(user.id) !== this.state.user.id )
-		this.setState({ users: filteredUsers })
-	}
+	addUser = (addedUser) => { this.setState({ users: [...this.state.users, addedUser] }) }
+
+	deleteUser = () => { this.setState({ users: this.state.users.filter( user => parseInt(user.id) !== this.state.user.id ) }) }
 
 	render(){
 
@@ -53,7 +52,9 @@ export default class DBeditUsersContainer extends React.Component{
 						<DBeditUsersInfo user={this.state.user} />
 					</Route>
 					<Route path={addUserURL}>
-						<DBeditAddUser />
+						<DBeditAddUser
+							addUser={this.addUser}
+						/>
 					</Route>
 					<Route path={editUserURL}>
 						<DBeditEditUser user={this.state.user} />

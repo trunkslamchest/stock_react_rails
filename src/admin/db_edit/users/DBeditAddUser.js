@@ -21,18 +21,13 @@ export default class DBeditAddUser extends React.Component {
 		add_city_town: "",
 		add_state: "",
 		add_zip_code: "",
-		errors: []
+		errors: [],
+		addUserSuccess: false
 	}
-
-	componentDidMount(){}
-
-	onMountAsync = async () => {}
 
 	onChange = (event) => { this.setState({ [event.target.name]: event.target.value }) }
 
-	onSubmitaddUserFunctions = (event) => { this.addUserSubmitted(event) }
-
-	addUserSubmitted = (event) => {
+	onSubmitaddUserFunctions = (event) => {
 		event.persist()
 		event.preventDefault()
 
@@ -55,8 +50,11 @@ export default class DBeditAddUser extends React.Component {
 
 		userFunctions('post', 'http://localhost:3001/users', userObj)
 		.then(res_obj => {
-			if (res_obj.errors) this.setState({ errors: res_obj.errors })
-			else return <Redirect to={'/backroom/DBedit/users/'} />
+			if (res_obj.errors) this.setState({ errors: res_obj.errors }, console.log(res_obj.errors))
+			else {
+				this.props.addUser(res_obj.data)
+				this.setState({ addUserSuccess: true })
+			}
 		})
 	}
 
@@ -342,8 +340,8 @@ export default class DBeditAddUser extends React.Component {
 				{
 					(!!this.state.errors) ?
 						( <div className="default_error_report">
-								{ this.state.errors.map( error =>
-									<div className="default_error_item">
+								{ this.state.errors.map( (error, i) =>
+									<div className="default_error_item" key={i}>
 										{ error }
 									</div>
 								)}
@@ -351,7 +349,7 @@ export default class DBeditAddUser extends React.Component {
 					:
 						( "" )
 				}
-				{ add_user_form }
+				{ this.state.addUserSuccess ? <Redirect to={'/backroom/DBedit/users/'} /> : add_user_form }
 			</div>
 		)
 	}
