@@ -11,11 +11,25 @@ import DBeditAddUser from './DBeditAddUser'
 import DBeditEditUser from './DBeditEditUser'
 import DBeditDeleteUser from './DBeditDeleteUser'
 
+import userFunctions from '../../../utility/userFunctions'
+
 export default class DBeditUsersContainer extends React.Component{
 
-	state = { user: {} }
+	state = { user: {}, users: [] }
+
+	componentDidMount(){ this.getUsers() }
+
+	getUsers = () => {
+		userFunctions('get', 'http://localhost:3001/users')
+		.then(res_obj => this.setState({ users: res_obj.data }) )
+	}
 
 	getUser = (user) => { this.setState({ user: user}) }
+
+	deleteUser = (user) => {
+		let filteredUsers = this.state.users.filter( user => parseInt(user.id) !== this.state.user.id )
+		this.setState({ users: filteredUsers })
+	}
 
 	render(){
 
@@ -29,7 +43,11 @@ export default class DBeditUsersContainer extends React.Component{
 			<>
 				<Switch>
 					<Route exact path={baseURL}>
-						<DBeditUsersIndex getUser={this.getUser} />
+						<DBeditUsersIndex
+							getUser={this.getUser}
+							getUsers={this.getUsers}
+							users={this.state.users}
+						/>
 					</Route>
 					<Route exact path={userURL}>
 						<DBeditUsersInfo user={this.state.user} />
@@ -41,7 +59,10 @@ export default class DBeditUsersContainer extends React.Component{
 						<DBeditEditUser user={this.state.user} />
 					</Route>
 					<Route path={deleteUserURL}>
-						<DBeditDeleteUser user={this.state.user} />
+						<DBeditDeleteUser
+							user={this.state.user}
+							deletedUser={this.deleteUser}
+						/>
 					</Route>
 				</Switch>
 			</>

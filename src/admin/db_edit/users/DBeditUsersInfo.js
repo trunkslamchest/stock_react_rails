@@ -6,8 +6,6 @@ import AltButton from '../../../UI/buttons/altButton'
 
 const DBeditUsersInfo = (props) => {
 
-	console.log(props)
-
 	let history = useHistory()
 
 	const user = props.user

@@ -4,27 +4,10 @@ import DBeditUsersTable from './DBeditUsersTable'
 
 import AltButton from '../../../UI/buttons/altButton'
 
-import userFunctions from '../../../utility/userFunctions'
-
 export default class DBeditUsersContainer extends React.Component{
 
-	state = { users: [] }
-
-	componentDidMount(){ this.getUserDB() }
-
-	getUserDB = () => {
-		userFunctions('get', 'http://localhost:3001/users')
-		.then(res_obj => this.setState({ users: res_obj.data }) )
-	}
-
-	addUserFunctions = () => {
-
-	}
-
 	render(){
-
-		console.log(this.state)
-		const distribute_users_data = this.state.users.map( user_obj =>
+		const distribute_users_data = this.props.users && this.props.users.map( user_obj =>
 			<DBeditUsersTable
 				key={user_obj.id}
 				user={user_obj}
