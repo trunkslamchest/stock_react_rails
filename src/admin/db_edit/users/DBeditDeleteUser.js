@@ -15,7 +15,7 @@ export default class DBeditDeleteUser extends React.Component {
 		.then(res_obj => {
 			if (res_obj.errors) this.setState({ errors: res_obj.errors })
 			else {
-				this.props.deletedUser(this.props.user)
+				this.props.deleteUser()
 				return <Redirect to={'/backroom/DBedit/users/'} />
 			}
 		})

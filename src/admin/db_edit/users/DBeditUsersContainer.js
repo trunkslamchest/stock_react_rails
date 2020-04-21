@@ -26,7 +26,7 @@ export default class DBeditUsersContainer extends React.Component{
 
 	getUser = (user) => { this.setState({ user: user}) }
 
-	deleteUser = (user) => {
+	deleteUser = () => {
 		let filteredUsers = this.state.users.filter( user => parseInt(user.id) !== this.state.user.id )
 		this.setState({ users: filteredUsers })
 	}
@@ -61,7 +61,7 @@ export default class DBeditUsersContainer extends React.Component{
 					<Route path={deleteUserURL}>
 						<DBeditDeleteUser
 							user={this.state.user}
-							deletedUser={this.deleteUser}
+							deleteUser={this.deleteUser}
 						/>
 					</Route>
 				</Switch>
