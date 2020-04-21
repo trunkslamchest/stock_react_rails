@@ -34,13 +34,9 @@ export default class SignUp extends React.Component {
 		page_name: 'sign_up',
 	}
 
-	componentDidMount(){
-		this.onPageLoadFunctions()
-	}
+	componentDidMount(){ this.onPageLoadFunctions() }
 
-	onChange = (event) => {
-		this.setState({ [event.target.name]: event.target.value })
-	}
+	onChange = (event) => { this.setState({ [event.target.name]: event.target.value }) }
 
 	onChecked = (event) => {
 		let flip_checked = !event.target.checked

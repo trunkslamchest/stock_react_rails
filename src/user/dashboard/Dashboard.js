@@ -33,21 +33,13 @@ export default class Dashboard extends React.Component{
 		}
 	}
 
-	displaySwitchToDashboard = () => {
-		this.setState({ display: 'dashboard' })
-	}
+	displaySwitchToDashboard = () => { this.setState({ display: 'dashboard' }) }
 
-	displaySwitchToUserInfo = (event) => {
-		this.setState({ display: 'user_info' }, this.onClickTrafficFunctionsLI(event))
-	}
+	displaySwitchToUserInfo = (event) => { this.setState({ display: 'user_info' }, this.onClickTrafficFunctionsLI(event)) }
 
-	onClickEditProfileFunctions = (event) => {
-		this.onClickTrafficFunctions(event)
-	}
+	onClickEditProfileFunctions = (event) => { this.onClickTrafficFunctions(event) }
 
-	onClickDeleteProfileFunctions = (event) => {
-		this.onClickTrafficFunctions(event)
-	}
+	onClickDeleteProfileFunctions = (event) => { this.onClickTrafficFunctions(event) }
 
 	onClickTrafficFunctions = (event) => {
 		let elementInfo = {

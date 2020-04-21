@@ -8,13 +8,9 @@ import './DashboardUserInfo.css'
 
 const DashboardUserInfo = (props) => {
 
-	const onClickEditProfileFunctions = (event) => {
-		onClickTrafficFunctions(event)
-	}
+	const onClickEditProfileFunctions = (event) => { onClickTrafficFunctions(event) }
 
-	const onClickDeleteProfileFunctions = (event) => {
-		onClickTrafficFunctions(event)
-	}
+	const onClickDeleteProfileFunctions = (event) => { onClickTrafficFunctions(event) }
 
 	const formatDate = (date) => {
 		const number_ends = [ "st", "nd", "rd", "th" ]

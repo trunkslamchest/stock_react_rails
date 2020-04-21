@@ -49,9 +49,7 @@ export default class EditProfile extends React.Component {
 		this.onPageLoadFunctions()
 	}
 
-	onChange = (event) => {
-		this.setState({ [event.target.name]: event.target.value })
-	}
+	onChange = (event) => { this.setState({ [event.target.name]: event.target.value }) }
 
 	onSubmitEditProfileFunctions = async (event) => {
 		try {

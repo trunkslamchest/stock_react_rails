@@ -16,17 +16,11 @@ export default class LogIn extends React.Component {
 		errors: [],
 	}
 
-	componentDidMount(){
-		this.onPageLoadFunctions()
-	}
+	componentDidMount(){ this.onPageLoadFunctions() }
 
-	onChange = (event) => {
-		this.setState({ [event.target.name]: event.target.value })
-	}
+	onChange = (event) => { this.setState({ [event.target.name]: event.target.value }) }
 
-	onSubmitLoginFunctions = async (event) => {
-		this.logInSubmitted(event)
-	}
+	onSubmitLoginFunctions = async (event) => { this.logInSubmitted(event) }
 
 	logInSubmitted = (event) => {
 		event.preventDefault()

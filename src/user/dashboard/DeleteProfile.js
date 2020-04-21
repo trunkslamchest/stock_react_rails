@@ -15,9 +15,7 @@ export default class DeleteProfile extends React.Component {
 		cancel: false
 	}
 
-	componentDidMount(){
-		this.onPageLoadFunctions()
-	}
+	componentDidMount(){ this.onPageLoadFunctions() }
 
 	onClickConfirm = (event) => {
 		userFunctions('delete', `http://localhost:3001/users/${this.props.user_id}`)
@@ -31,21 +29,13 @@ export default class DeleteProfile extends React.Component {
 		this.setState({ cancel: true })
 	}
 
-	onHoverConfirm = () => {
-		this.setState({ hoverConfirm: true })
-	}
+	onHoverConfirm = () => { this.setState({ hoverConfirm: true }) }
 
-	offHoverConfirm = () => {
-		this.setState({ hoverConfirm: false })
-	}
+	offHoverConfirm = () => { this.setState({ hoverConfirm: false }) }
 
-	onHoverCancel = () => {
-		this.setState({ hoverCancel: true })
-	}
+	onHoverCancel = () => { this.setState({ hoverCancel: true }) }
 
-	offHoverCancel = () => {
-		this.setState({ hoverCancel: false})
-	}
+	offHoverCancel = () => { this.setState({ hoverCancel: false}) }
 
 	onClickTrafficFunctions = (event) => {
 		let elementInfo = {

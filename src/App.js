@@ -167,9 +167,7 @@ export default class App extends React.Component {
 		})
 	}
 
-	updateLogin = () => {
-		this.setState({ loggedIn: !this.state.loggedIn })
-	}
+	updateLogin = () => { this.setState({ loggedIn: !this.state.loggedIn }) }
 
 	logOut = () => {
 		localStorage.clear()

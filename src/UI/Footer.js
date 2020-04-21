@@ -12,25 +12,15 @@ import react_logo from '../assets/footer_logo_react.png'
 
 const Footer = (props) => {
 
-	// const onClickHomeFunctions = (event) => {
-	// 	onClickUpdateTrafficFunctions(event)
-	// }
+	// const onClickHomeFunctions = (event) => { onClickUpdateTrafficFunctions(event) }
 
-	const onClickTOSFunctions = (event) => {
-		onClickUpdateTrafficFunctions(event)
-	}
+	const onClickTOSFunctions = (event) => { onClickUpdateTrafficFunctions(event) }
 
-	const onClickPrivacyFunctions = (event) => {
-		onClickUpdateTrafficFunctions(event)
-	}
+	const onClickPrivacyFunctions = (event) => { onClickUpdateTrafficFunctions(event) }
 
-	const onClickDisclaimerFunctions = (event) => {
-		onClickUpdateTrafficFunctions(event)
-	}
+	const onClickDisclaimerFunctions = (event) => { onClickUpdateTrafficFunctions(event) }
 
-	const onClickFooterLinksFunctions = (event) => {
-		onClickUpdateTrafficFunctions(event)
-	}
+	const onClickFooterLinksFunctions = (event) => { onClickUpdateTrafficFunctions(event) }
 
 	const onClickUpdateTrafficFunctions = (event) => {
 

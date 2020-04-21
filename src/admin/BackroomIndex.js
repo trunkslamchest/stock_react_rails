@@ -12,7 +12,7 @@ const BackroomIndex = (props) => {
 				<DefaultButton
 					link='/backroom/test_temp'
 					name='test_page_button'
-					onClick={null}
+					onClick={ null }
 				>
 					Test Temp
 				</DefaultButton>

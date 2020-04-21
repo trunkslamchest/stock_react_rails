@@ -15,9 +15,7 @@ export default class DBeditUsersContainer extends React.Component{
 
 	state = { user: {} }
 
-	getUser = (user) => {
-		this.setState({ user: user})
-	}
+	getUser = (user) => { this.setState({ user: user}) }
 
 	render(){
 
