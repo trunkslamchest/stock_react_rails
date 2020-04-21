@@ -1,6 +1,8 @@
 import React from 'react'
 
-import DBeditUsersContainer from './DBeditUsersContainer'
+import { Redirect } from 'react-router-dom'
+
+// import DBeditUsersContainer from './DBeditUsersContainer'
 
 import userFunctions from '../../../utility/userFunctions'
 
@@ -20,7 +22,8 @@ export default class DBeditEditUser extends React.Component {
 		edit_city_town: "",
 		edit_state: "",
 		edit_zip_code: "",
-		errors: []
+		errors: [],
+		editUserSuccess: false
 	}
 
 	componentDidMount(){
@@ -44,13 +47,9 @@ export default class DBeditEditUser extends React.Component {
 		}
 	}
 
-	onMountAsync = async () => {}
-
 	onChange = (event) => { this.setState({ [event.target.name]: event.target.value }) }
 
-	onSubmitEditUserFunctions = (event) => { this.EditUserSubmitted(event) }
-
-	EditUserSubmitted = (event) => {
+	onSubmitEditUserFunctions = (event) => {
 		event.persist()
 		event.preventDefault()
 
@@ -73,7 +72,8 @@ export default class DBeditEditUser extends React.Component {
 		userFunctions('patch', `http://localhost:3001/users/${this.props.user.id}`, userObj)
 		.then(res_obj => {
 			if (res_obj.errors) this.setState({ errors: res_obj.errors })
-			else this.props.displaySwitchToIndex('index')
+			this.props.editUser(res_obj.data)
+			this.setState({ editUserSuccess: true })
 		})
 	}
 
@@ -101,8 +101,13 @@ export default class DBeditEditUser extends React.Component {
 	}
 
 	render(){
-		console.log(this.props)
-		const edit_user_form =
+		// console.log(this.props)
+
+		const userURL = '/backroom/DBedit/users/'
+		// const userURL = '/backroom/DBedit/users/' + this.props.user.id
+
+
+		const editUserForm =
 			<form
 				name="edit_form"
 				interaction="submit"
@@ -334,14 +339,14 @@ export default class DBeditEditUser extends React.Component {
 					>
 						Reset
 					</button>
-					{
+					{/* {
 						(() => {
-							switch(this.state.EditUserSuccess) {
+							switch(this.state.editUserSuccess) {
 							case true: return <DBeditUsersContainer />;
 							default: return null;
 							}
 						})()
-					}
+					} */}
 				</div>
 			</form>
 
@@ -360,7 +365,7 @@ export default class DBeditEditUser extends React.Component {
 					:
 						( "" )
 				}
-				{ edit_user_form }
+				{ this.state.editUserSuccess ? <Redirect to={ userURL } /> : editUserForm }
 			</div>
 		)
 	}

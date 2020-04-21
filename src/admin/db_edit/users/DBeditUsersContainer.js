@@ -28,6 +28,8 @@ export default class DBeditUsersContainer extends React.Component{
 
 	addUser = (addedUser) => { this.setState({ users: [...this.state.users, addedUser] }) }
 
+	editUser = (editedUser) => { this.setState({ users: this.state.users.map( user => parseInt(user.id) === this.state.user.id ? editedUser : user ) }) }
+
 	deleteUser = () => { this.setState({ users: this.state.users.filter( user => parseInt(user.id) !== this.state.user.id ) }) }
 
 	render(){
@@ -56,7 +58,10 @@ export default class DBeditUsersContainer extends React.Component{
 						/>
 					</Route>
 					<Route path={editUserURL}>
-						<DBeditEditUser user={this.state.user} />
+						<DBeditEditUser
+							user={this.state.user}
+							editUser={this.editUser}
+						/>
 					</Route>
 					<Route path={deleteUserURL}>
 						<DBeditDeleteUser
