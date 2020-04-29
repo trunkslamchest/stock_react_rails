@@ -104,7 +104,7 @@ export default class App extends React.Component {
 		}
 	}
 
-	setToken = ({ token, user_id })  =>{
+	setToken = ({ token, user_id })  => {
 
 		localStorage.user_id = user_id
 		localStorage.token = token
@@ -164,6 +164,57 @@ export default class App extends React.Component {
 				join_month: current_user.join_month,
 				join_year: current_user.join_year,
 			})
+		})
+	}
+
+	setUser = ( res_obj ) => {
+		let current_user = res_obj.data.attributes.user
+
+		localStorage.user_name = current_user.user_name
+		localStorage.email = current_user.email
+		localStorage.access = current_user.access
+		// ~~~~~~~~~~~~~~~~~~~~
+		localStorage.first_name = current_user.first_name
+		localStorage.last_name = current_user.last_name
+		localStorage.gender = current_user.gender
+		// ~~~~~~~~~~~~~~~~~~~~
+		localStorage.birth_day = current_user.birth_day
+		localStorage.birth_month = current_user.birth_month
+		localStorage.birth_year = current_user.birth_year
+		// ~~~~~~~~~~~~~~~~~~~~
+		localStorage.house_number = current_user.house_number
+		localStorage.street_name = current_user.street_name
+		localStorage.city_town = current_user.city_town
+		localStorage.state = current_user.state
+		localStorage.zip_code = current_user.zip_code
+		// ~~~~~~~~~~~~~~~~~~~~
+		localStorage.join_day = current_user.join_day
+		localStorage.join_month = current_user.join_month
+		localStorage.join_year = current_user.join_year
+
+		this.setState({
+			user_id: current_user.id,
+			user_name: current_user.user_name,
+			email: current_user.email,
+			access: current_user.access,
+			// ~~~~~~~~~~~~~~~~~~~~
+			first_name: current_user.first_name,
+			last_name: current_user.last_name,
+			gender: current_user.gender,
+			// ~~~~~~~~~~~~~~~~~~~~
+			birth_day: current_user.birth_day,
+			birth_month: current_user.birth_month,
+			birth_year: current_user.birth_year,
+			// ~~~~~~~~~~~~~~~~~~~~
+			house_number: current_user.house_number,
+			street_name: current_user.street_name,
+			city_town: current_user.city_town,
+			state: current_user.state,
+			zip_code: current_user.zip_code,
+			// ~~~~~~~~~~~~~~~~~~~~
+			join_day: current_user.join_day,
+			join_month: current_user.join_month,
+			join_year: current_user.join_year,
 		})
 	}
 
@@ -236,6 +287,7 @@ export default class App extends React.Component {
 						<Route path='/dashboard'>
 							<DashboardContainer
 								setToken={ this.setToken }
+								setUser={ this.setUser }
 								logOut={ this.logOut }
 								// ~~~~~~~~~~~~~~~~~~~~
 								user_id= {this.state.user_id }

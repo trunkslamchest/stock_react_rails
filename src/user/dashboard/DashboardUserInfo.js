@@ -1,14 +1,6 @@
 import React, { useEffect, useCallback } from 'react'
 
-import {
-	Link,
-	// Switch,
-	// Route,
-	// useHistory
-} from 'react-router-dom'
-
-// import EditProfile from './EditProfile'
-// import DeleteProfile from './DeleteProfile'
+import { Link } from 'react-router-dom'
 
 import trafficFunctions from '../../utility/trafficFunctions'
 
@@ -16,12 +8,7 @@ import './DashboardUserInfo.css'
 
 const DashboardUserInfo = (props) => {
 
-	// let history = useHistory()
-
-	const onClickEditProfileFunctions = (event) => {
-		// history.push('/dashboard/profile/edit')
-		onClickTrafficFunctions(event)
-	}
+	const onClickEditProfileFunctions = (event) => { onClickTrafficFunctions(event) }
 
 	const onClickDeleteProfileFunctions = (event) => { onClickTrafficFunctions(event) }
 
@@ -91,45 +78,36 @@ const DashboardUserInfo = (props) => {
 	]
 
 	return(
-			<>
-				{/* <Switch>
-					<Route path='/dashboard/profile/edit'>
-						<EditProfile />
-					</Route>
-					<Route path='/dashboard/profile/delete'>
-						<DeleteProfile />
-					</Route>
-				</Switch> */}
-		<div className="user_info_wrapper">
-
-			<div className="alt_header">
-				<h3>{ props.user_name }</h3>
-				<h5>{ props.email }</h5>
+		<>
+			<div className="user_info_wrapper">
+				<div className="alt_header">
+					<h3>{ props.user_name }</h3>
+					<h5>{ props.email }</h5>
+				</div>
+				<div className="user_info_body">
+					<ul>
+						<li>{ props.first_name }</li>
+						<li>{ props.last_name }</li>
+					</ul>
+					<ul>
+						<li>{ props.gender }</li>
+						<li>{ age } years old</li>
+						<li>{ props.birth_month } { formatDate(props.birth_day) }, { props.birth_year }</li>
+					</ul>
+					<ul>
+						<li>{ props.house_number } { props.street_name }</li>
+						<li>{ props.city_town }, {props.state}</li>
+						<li>{ props.zip_code }</li>
+					</ul>
+					<ul>
+						<li>Join Date</li>
+						<li>{ props.join_month } { formatDate(props.join_day) }, { props.join_year }</li>
+					</ul>
+					<div className="user_info_buttons_container">
+						{ dashboard_edit_buttons }
+					</div>
+				</div>
 			</div>
-			<div className="user_info_body">
-				<ul>
-					<li>{ props.first_name }</li>
-					<li>{ props.last_name }</li>
-				</ul>
-				<ul>
-					<li>{ props.gender }</li>
-					<li>{ age } years old</li>
-					<li>{ props.birth_month } { formatDate(props.birth_day) }, { props.birth_year }</li>
-				</ul>
-				<ul>
-					<li>{ props.house_number } { props.street_name }</li>
-					<li>{ props.city_town }, {props.state}</li>
-					<li>{ props.zip_code }</li>
-				</ul>
-				<ul>
-					<li>Join Date</li>
-					<li>{ props.join_month } { formatDate(props.join_day) }, { props.join_year }</li>
-				</ul>
-			<div className="user_info_buttons_container">
-				{ dashboard_edit_buttons }
-			</div>
-			</div>
-		</div>
 		</>
 	)
 }

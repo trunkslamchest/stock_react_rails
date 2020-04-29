@@ -81,13 +81,11 @@ export default class EditProfile extends React.Component {
 
 		userFunctions('patch', `http://localhost:3001/users/${this.props.user_id}`, userObj)
 		.then(res_obj => {
-			if (res_obj.errors) {
-				this.setState({
-					errors: res_obj.errors
-				})
-			} else {
+			if (res_obj.errors) this.setState({ errors: res_obj.errors })
+			else {
+				console.log(res_obj)
 				this.onSubmitTrafficFunctions(event, res_obj)
-				this.props.setToken(res_obj)
+				this.props.setUser(res_obj)
 				this.setState({ updateSuccess: true })
 			}
 		})
@@ -400,7 +398,7 @@ export default class EditProfile extends React.Component {
 				</form>
 		</div>
 	:
-		<Redirect to='./dashboard' />
+		<Redirect to='/dashboard/profile' />
 
 		return(
 			<>

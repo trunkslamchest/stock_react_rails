@@ -4,8 +4,6 @@ import { useHistory } from 'react-router-dom'
 
 const DashboardNavBar = (props) => {
 
-	// console.log(props)
-
 	let history = useHistory()
 
 	const onClickDashboardUserInfo = () => { history.push('/dashboard/profile') }
