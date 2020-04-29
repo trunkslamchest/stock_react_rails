@@ -8,6 +8,8 @@ import './Header.css'
 
 const Header = (props) => {
 
+	console.log(props)
+
 	const onClickHomeFunctions = (event) => { onClickTrafficFunctions(event) }
 
 	const onClickSignUpFunctions = (event) => { onClickTrafficFunctions(event) }
@@ -22,7 +24,7 @@ const Header = (props) => {
 
 	const onClickTrafficFunctions = (event) => {
 		let elementInfo = {
-			user_id: props.user_id,
+			user_id: props.user.id,
 			interaction: event.target.attributes.interaction.value,
 			element: event.target.name
 		}
@@ -110,7 +112,7 @@ const Header = (props) => {
 	return(
 		<>
 			<div className="header_left">
-				{ !!props.token ? home_link : blank }
+				{ !!props.user_token ? home_link : blank }
 			</div>
 			<div className="header_right">
 				{
@@ -124,7 +126,7 @@ const Header = (props) => {
 								default: return blank;
 							}
 						})()
-					}[!!props.token]
+					}[!!props.user_token]
 				}
 			</div>
 		</>

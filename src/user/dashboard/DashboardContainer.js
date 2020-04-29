@@ -32,7 +32,7 @@ export default class Dashboard extends React.Component{
 	}
 
 	componentDidUpdate(){
-		if (this.state.mounted && this.props.user_id && !this.state.loaded){
+		if (this.state.mounted && this.props.user.id && !this.state.loaded){
 			this.setState({
 				loaded: true
 			})
@@ -41,7 +41,7 @@ export default class Dashboard extends React.Component{
 
 	onClickTrafficFunctions = (event) => {
 		let elementInfo = {
-			user_id: this.props.user_id,
+			user_id: this.props.user.user_id,
 			interaction: event.target.attributes.interaction.value,
 			element: event.target.name
 		}
@@ -51,7 +51,7 @@ export default class Dashboard extends React.Component{
 
 	onClickTrafficFunctionsLI = (event) => {
 		let elementInfo = {
-			user_id: this.props.user_id,
+			user_id: this.props.user.user_id,
 			interaction: event.target.attributes.interaction.value,
 			element: event.target.attributes.name.value
 		}
@@ -69,11 +69,14 @@ export default class Dashboard extends React.Component{
 	}
 
 	render(){
+
+		// console.log(this.props)
+
 		const routes =
 		<Switch>
 			<Route exact path='/dashboard'>
 				<DashboardIndex
-					firstName={this.props.first_name}
+					firstName={this.props.user.first_name}
 				/>
 			</Route>
 			<Route exact path='/dashboard/profile'>
@@ -100,41 +103,45 @@ export default class Dashboard extends React.Component{
 					join_day={this.props.join_day}
 					join_month={this.props.join_month}
 					join_year={this.props.join_year}
+					// ~~~~~~~~~~~~~~~~~~~~
+					user={this.props.user}
 				/>
 			</Route>
 			<Route path='/dashboard/profile/edit'>
 				<EditProfile
 					setUser={ this.props.setUser }
 					// ~~~~~~~~~~~~~~~~~~~~
-					user_id= {this.props.user_id }
-					user_name={ this.props.user_name }
-					email={ this.props.email }
-					access={ this.props.access }
-					// ~~~~~~~~~~~~~~~~~~~~
-					first_name={ this.props.first_name }
-					last_name={ this.props.last_name }
-					gender={ this.props.gender }
-					// ~~~~~~~~~~~~~~~~~~~~
-					birth_day={ this.props.birth_day }
-					birth_month={ this.props.birth_month }
-					birth_year={ this.props.birth_year }
-					// ~~~~~~~~~~~~~~~~~~~~
-					house_number={ this.props.house_number }
-					street_name={ this.props.street_name }
-					city_town={ this.props.city_town }
-					state={ this.props.state }
-					zip_code={ this.props.zip_code }
-					// ~~~~~~~~~~~~~~~~~~~~
-					join_day={this.props.join_day}
-					join_month={this.props.join_month}
-					join_year={this.props.join_year}
+					// user_id= {this.props.user_id }
+					// user_name={ this.props.user_name }
+					// email={ this.props.email }
+					// access={ this.props.access }
+					// // ~~~~~~~~~~~~~~~~~~~~
+					// first_name={ this.props.first_name }
+					// last_name={ this.props.last_name }
+					// gender={ this.props.gender }
+					// // ~~~~~~~~~~~~~~~~~~~~
+					// birth_day={ this.props.birth_day }
+					// birth_month={ this.props.birth_month }
+					// birth_year={ this.props.birth_year }
+					// // ~~~~~~~~~~~~~~~~~~~~
+					// house_number={ this.props.house_number }
+					// street_name={ this.props.street_name }
+					// city_town={ this.props.city_town }
+					// state={ this.props.state }
+					// zip_code={ this.props.zip_code }
+					// // ~~~~~~~~~~~~~~~~~~~~
+					// join_day={this.props.join_day}
+					// join_month={this.props.join_month}
+					// join_year={this.props.join_year}
+					// // ~~~~~~~~~~~~~~~~~~~~
+					user={this.props.user}
 				/>
 			</Route>
 			<Route path='/dashboard/profile/delete'>
 				<DeleteProfile
 					setToken={ this.props.setToken }
-					user_id={this.props.user_id }
-					access={ this.props.access }
+					user_id={this.props.user.user_id }
+					access={ this.props.user.access }
 					logOut={ this.props.logOut }
 				/>
 			</Route>
@@ -150,11 +157,8 @@ export default class Dashboard extends React.Component{
 		return(
 			<div className="dashboard_wrapper">
 				<div className="dashboard_tabs">
-					<DashboardNavBar
-						// userID={this.props.user_id}
-					/>
+					<DashboardNavBar />
 				</div>
-				{/* { routes } */}
 				{ this.state.loaded ? routes : loading }
 			</div>
 		)

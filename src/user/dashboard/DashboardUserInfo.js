@@ -8,6 +8,8 @@ import './DashboardUserInfo.css'
 
 const DashboardUserInfo = (props) => {
 
+	// console.log(props)
+
 	const onClickEditProfileFunctions = (event) => { onClickTrafficFunctions(event) }
 
 	const onClickDeleteProfileFunctions = (event) => { onClickTrafficFunctions(event) }
@@ -33,7 +35,7 @@ const DashboardUserInfo = (props) => {
 
 	const onClickTrafficFunctions = (event) => {
 		let elementInfo = {
-			user_id: props.user_id,
+			user_id: props.user.id,
 			interaction: event.target.attributes.interaction.value,
 			element: event.target.name
 		}
@@ -52,7 +54,7 @@ const DashboardUserInfo = (props) => {
 
 	useEffect(() => {onPageLoadFunctions()}, [onPageLoadFunctions])
 
-	const age = 2019 - props.birth_year
+	const age = 2019 - props.user.birth_year
 
 	const dashboard_edit_buttons = [
 		<Link
@@ -81,27 +83,27 @@ const DashboardUserInfo = (props) => {
 		<>
 			<div className="user_info_wrapper">
 				<div className="alt_header">
-					<h3>{ props.user_name }</h3>
-					<h5>{ props.email }</h5>
+					<h3>{ props.user.user_name }</h3>
+					<h5>{ props.user.email }</h5>
 				</div>
 				<div className="user_info_body">
 					<ul>
-						<li>{ props.first_name }</li>
-						<li>{ props.last_name }</li>
+						<li>{ props.user.first_name }</li>
+						<li>{ props.user.last_name }</li>
 					</ul>
 					<ul>
-						<li>{ props.gender }</li>
+						<li>{ props.user.gender }</li>
 						<li>{ age } years old</li>
-						<li>{ props.birth_month } { formatDate(props.birth_day) }, { props.birth_year }</li>
+						<li>{ props.user.birth_month } { formatDate(props.user.birth_day) }, { props.user.birth_year }</li>
 					</ul>
 					<ul>
-						<li>{ props.house_number } { props.street_name }</li>
-						<li>{ props.city_town }, {props.state}</li>
-						<li>{ props.zip_code }</li>
+						<li>{ props.user.house_number } { props.user.street_name }</li>
+						<li>{ props.user.city_town }, {props.user.state}</li>
+						<li>{ props.user.zip_code }</li>
 					</ul>
 					<ul>
 						<li>Join Date</li>
-						<li>{ props.join_month } { formatDate(props.join_day) }, { props.join_year }</li>
+						<li>{ props.user.join_month } { formatDate(props.user.join_day) }, { props.user.join_year }</li>
 					</ul>
 					<div className="user_info_buttons_container">
 						{ dashboard_edit_buttons }

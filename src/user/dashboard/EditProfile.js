@@ -28,21 +28,21 @@ export default class EditProfile extends React.Component {
 	}
 
 	componentDidMount(){
-		if (this.props.user_id) {
+		if (this.props.user) {
 			this.setState({
-				edit_user_name: this.props.user_name,
-				edit_email: this.props.email,
-				edit_first_name: this.props.first_name,
-				edit_last_name: this.props.last_name,
-				edit_gender: this.props.gender,
-				edit_birth_day: this.props.birth_day,
-				edit_birth_month: this.props.birth_month,
-				edit_birth_year: this.props.birth_year,
-				edit_house_number: this.props.house_number,
-				edit_street_name: this.props.street_name,
-				edit_city_town: this.props.city_town,
-				edit_state: this.props.state,
-				edit_zip_code: this.props.zip_code
+				edit_user_name: this.props.user.user_name,
+				edit_email: this.props.user.email,
+				edit_first_name: this.props.user.first_name,
+				edit_last_name: this.props.user.last_name,
+				edit_gender: this.props.user.gender,
+				edit_birth_day: this.props.user.birth_day,
+				edit_birth_month: this.props.user.birth_month,
+				edit_birth_year: this.props.user.birth_year,
+				edit_house_number: this.props.user.house_number,
+				edit_street_name: this.props.user.street_name,
+				edit_city_town: this.props.user.city_town,
+				edit_state: this.props.user.state,
+				edit_zip_code: this.props.user.zip_code
 			})
 		}
 
@@ -52,11 +52,8 @@ export default class EditProfile extends React.Component {
 	onChange = (event) => { this.setState({ [event.target.name]: event.target.value }) }
 
 	onSubmitEditProfileFunctions = async (event) => {
-		try {
-			this.EditProfileSubmitted(event)
-		} catch(error) {
-				console.error("Error", error)
-			}
+		try { this.EditProfileSubmitted(event) }
+		catch(error) { console.error("Error", error) }
 	}
 
 	EditProfileSubmitted = (event) => {
@@ -79,13 +76,30 @@ export default class EditProfile extends React.Component {
 			zip_code: event.target["edit_zip_code"].value
 		}
 
-		userFunctions('patch', `http://localhost:3001/users/${this.props.user_id}`, userObj)
+		// let userObj = {
+		// 	user_name: this.state.edit_user_name,
+		// 	email: this.state.edit_email,
+		// 	first_name: this.state.edit_first_name,
+		// 	last_name: this.state.edit_last_name,
+		// 	gender: this.state.edit_gender,
+		// 	birth_day: this.state.edit_birth_day,
+		// 	birth_month: this.state.edit_birth_month,
+		// 	birth_year: this.state.edit_birth_year,
+		// 	house_number: this.state.edit_house_number,
+		// 	street_name: this.state.edit_street_name,
+		// 	city_town: this.state.edit_city_town,
+		// 	state: this.state.edit_state,
+		// 	zip_code: this.state.edit_zip_code
+		// }
+
+
+		userFunctions('patch', `http://localhost:3001/users/${this.props.user.id}`, userObj)
 		.then(res_obj => {
 			if (res_obj.errors) this.setState({ errors: res_obj.errors })
 			else {
 				console.log(res_obj)
 				this.onSubmitTrafficFunctions(event, res_obj)
-				this.props.setUser(res_obj)
+				this.props.setUser(res_obj, this.props.user.token)
 				this.setState({ updateSuccess: true })
 			}
 		})
@@ -120,7 +134,7 @@ export default class EditProfile extends React.Component {
 
 	onClickTrafficFunctions = (event) => {
 		let elementInfo = {
-			user_id: this.props.user_id,
+			user_id: this.props.user.user_id,
 			interaction: event.target.attributes.interaction.value,
 			element: event.target.attributes.name.value
 		}
@@ -148,6 +162,9 @@ export default class EditProfile extends React.Component {
 	}
 
 	render(){
+
+		console.log('props', this.props)
+		// console.log('state', this.state)
 
 		const errors = (!!this.state.errors) ?
 			( <div className="default_error_report" key={"edit_profile_error_report"}>
@@ -179,8 +196,8 @@ export default class EditProfile extends React.Component {
 							type="text"
 							onChange={ this.onChange }
 							name="edit_user_name"
-							placeholder={ this.props.user_name }
-							value={ (this.state.edit_user_name === "") ? (this.props.user_name) : (this.state.edit_user_name) }
+							placeholder={ this.props.user.user_name }
+							value={ (this.state.edit_user_name === "") ? (this.props.user.user_name) : (this.state.edit_user_name) }
 						/>
 					</div>
 					<div className="edit_div">
@@ -190,8 +207,8 @@ export default class EditProfile extends React.Component {
 							type="text"
 							onChange={ this.onChange }
 							name="edit_email"
-							placeholder={ this.props.email }
-							value={ (this.state.edit_email === "") ? (this.props.email) : (this.state.edit_email) }
+							placeholder={ this.props.user.email }
+							value={ (this.state.edit_email === "") ? (this.props.user.email) : (this.state.edit_email) }
 						/>
 					</div>
 					<div className="edit_div">
@@ -201,16 +218,16 @@ export default class EditProfile extends React.Component {
 							type="text"
 							onChange={ this.onChange }
 							name="edit_first_name"
-							placeholder={ this.props.first_name }
-							value={ (this.state.edit_first_name === "") ? (this.props.first_name) : (this.state.edit_first_name) }
+							placeholder={ this.props.user.first_name }
+							value={ (this.state.edit_first_name === "") ? (this.props.user.first_name) : (this.state.edit_first_name) }
 						/>
 						<br />
 						<input id="edit_last_name"
 							type="text"
 							onChange={ this.onChange }
 							name="edit_last_name"
-							placeholder={ this.props.last_name }
-							value={ (this.state.edit_last_name === "") ? (this.props.last_name) : (this.state.edit_last_name) }
+							placeholder={ this.props.user.last_name }
+							value={ (this.state.edit_last_name === "") ? (this.props.user.last_name) : (this.state.edit_last_name) }
 						/>
 					</div>
 					<div className="edit_div">
@@ -219,7 +236,7 @@ export default class EditProfile extends React.Component {
 						<select id="edit_gender"
 							name="edit_gender"
 							onChange={ this.onChange }
-							value={ (this.state.edit_gender === "") ? (this.props.gender) : (this.state.edit_gender) }
+							value={ (this.state.edit_gender === "") ? (this.props.user.gender) : (this.state.edit_gender) }
 							>
 							<option value="Male">Male</option>
 							<option value="Female">Female</option>
@@ -232,7 +249,7 @@ export default class EditProfile extends React.Component {
 						<select id="edit_birth_month"
 							name="edit_birth_month"
 							onChange={ this.onChange }
-							value={ (this.state.edit_birth_month === "") ? (this.props.birth_month) : (this.state.edit_birth_month) }
+							value={ (this.state.edit_birth_month === "") ? (this.props.user.birth_month) : (this.state.edit_birth_month) }
 							>
 							<option value="January">January</option>
 							<option value="Februrary">Februrary</option>
@@ -254,8 +271,8 @@ export default class EditProfile extends React.Component {
 							max="31"
 							onChange={ this.onChange }
 							name="edit_birth_day"
-							placeholder={ this.props.birth_day }
-							value={ (this.state.edit_birth_day === "") ? (this.props.birth_day) : (this.state.edit_birth_day) }
+							placeholder={ this.props.user.birth_day }
+							value={ (this.state.edit_birth_day === "") ? (this.props.user.birth_day) : (this.state.edit_birth_day) }
 						/>
 						<br />
 						<input id="edit_birth_year"
@@ -264,8 +281,8 @@ export default class EditProfile extends React.Component {
 							max="2001"
 							onChange={ this.onChange }
 							name="edit_birth_year"
-							placeholder={ this.props.birth_year }
-							value={ (this.state.edit_birth_year === "") ? (this.props.birth_year) : (this.state.edit_birth_year) }
+							placeholder={ this.props.user.birth_year }
+							value={ (this.state.edit_birth_year === "") ? (this.props.user.birth_year) : (this.state.edit_birth_year) }
 					/>
 					</div>
 					<div className="edit_div">
@@ -277,30 +294,30 @@ export default class EditProfile extends React.Component {
 							max="9999"
 							onChange={ this.onChange }
 							name="edit_house_number"
-							placeholder={ this.props.house_number }
-							value={ (this.state.edit_house_number === "") ? (this.props.house_number) : (this.state.edit_house_number) }
+							placeholder={ this.props.user.house_number }
+							value={ (this.state.edit_house_number === "") ? (this.props.user.house_number) : (this.state.edit_house_number) }
 						/>
 						<br />
 						<input id="edit_street_name"
 							type="text"
 							onChange={ this.onChange }
 							name="edit_street_name"
-							placeholder={ this.props.street_name }
-							value={ (this.state.edit_street_name === "") ? (this.props.street_name) : (this.state.edit_street_name) }
+							placeholder={ this.props.user.street_name }
+							value={ (this.state.edit_street_name === "") ? (this.props.user.street_name) : (this.state.edit_street_name) }
 						/>
 						<br />
 						<input id="edit_city_town"
 							type="text"
 							onChange={ this.onChange }
 							name="edit_city_town"
-							placeholder={ this.props.city_town }
-							value={ (this.state.edit_city_town === "") ? (this.props.city_town) : (this.state.edit_city_town) }
+							placeholder={ this.props.user.city_town }
+							value={ (this.state.edit_city_town === "") ? (this.props.user.city_town) : (this.state.edit_city_town) }
 						/>
 						<br />
 						<select id="edit_state"
 							name="edit_state"
 							onChange={ this.onChange }
-							value={ (this.state.edit_state === "") ? (this.props.state) : (this.state.edit_state) }
+							value={ (this.state.edit_state === "") ? (this.props.user.state) : (this.state.edit_state) }
 							>
 							<option value="Alabama">Alabama</option>
 							<option value="Alaska">Alaska</option>
@@ -360,8 +377,8 @@ export default class EditProfile extends React.Component {
 							max="99999"
 							onChange={ this.onChange }
 							name="edit_zip_code"
-							placeholder={ this.props.zip_code }
-							value={ (this.state.edit_zip_code === "") ? (this.props.zip_code) : (this.state.edit_zip_code) }
+							placeholder={ this.props.user.zip_code }
+							value={ (this.state.edit_zip_code === "") ? (this.props.user.zip_code) : (this.state.edit_zip_code) }
 						/>
 					</div>
 					<div className="edit_buttons_container">
