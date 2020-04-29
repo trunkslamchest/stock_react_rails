@@ -149,11 +149,6 @@
 }
 
 .dashboard_tabs li:active {
-	color:rgb(40, 44, 52, 1);
-	background-color: rgba(211, 143, 57, 1);
-	transition-property: color, background-color;
-	transition-duration: .2s, .2s;
-	transition-timing-function: ease-in-out;
 	animation: scale_out .1s ease-in-out 1, blur_out .1s ease-in-out 1;
 }
 

@@ -11,7 +11,7 @@ const RTVpagesList = (props) => {
 	)
 
 	const RTVpages_table =
-	<table className="RTVpages_table">
+	<table className="RTV_table">
 		<tbody>
 			<tr>
 				<th>User ID</th>

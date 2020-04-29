@@ -15,7 +15,7 @@
 }
 
 .DBedit_navbar {
-	background-image: linear-gradient(rgb(81, 88, 102, 1),  rgb(40, 44, 52, 1) );
+	background-color: rgba(51, 51, 51, 1);
 	color: #FFF;
 	display: flex;
 	flex-direction: row;
@@ -24,7 +24,8 @@
 	align-items: baseline;
 	padding: 0px 0px 0px 0px;
 	margin: 0px 0px 0px 0px;
-	box-shadow: 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 2.5px 0 rgba(0, 0, 0, 0.25);
+	border: 1px solid rgba(51, 51, 51, 1);
+	box-sizing: border-box;
 }
 
 .DBedit_navbar_item {
@@ -44,20 +45,10 @@
 .DBedit_navbar_item:hover {
 	cursor: pointer;
 	color: rgb(40, 44, 52, 1);
-	background-image: linear-gradient(rgb(255, 255, 255, 1),  rgb(219, 219, 219, 1) );
-	transition-property: color;
-	transition-duration: .2s, .2s;
-	transition-timing-function: ease-in-out;
-	animation: fade_in .1s ease-in-out 1;
-
+	background-color: rgb(255, 255, 255, 1);
 }
 
 .DBedit_navbar_item:active {
-	color:rgb(40, 44, 52, 1);
-	background-image: linear-gradient(rgb(245, 167, 66, 1),  rgb(212, 144, 57, 1) );
-	transition-property: color;
-	transition-duration: .2s, .2s;
-	transition-timing-function: ease-in-out;
 	animation: scale_out .1s ease-in-out 1, blur_out .1s ease-in-out 1;
 }
 
@@ -65,7 +56,7 @@
 	width: 100%;
 	padding: 0px 0px 0px 0px;
 	margin: 0px 0px 10px 0px;
-    border-spacing: 0px;
+	border-spacing: 0px;
 }
 
 .DBedit_table th {
@@ -76,7 +67,7 @@
 	font-weight: 400;
 	padding: 3px;
 	margin: 0px 0px 0px 0px;
-	background-image: linear-gradient(rgb(81, 88, 102, 1),  rgb(40, 44, 52, 1) );
+	background-color: rgba(51, 51, 51, 1);
 }
 
 .DBedit_table tr {
@@ -86,24 +77,17 @@
 	font-family: Roboto;
 	padding: 0px 0px 0px 0px;
 	margin: 0px 0px 0px 0px;
-	box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.25), 0 0 1px 0 rgba(0, 0, 0, 0.25), 0 0 1px 0 rgba(0, 0, 0, 0.25);
-	background-image: linear-gradient(rgb(255, 255, 255, 1),  rgb(219, 219, 219, 1) );
+	border: 1px solid rgb(200, 200, 200, 1);
+	box-sizing: border-box;
+	background-image: linear-gradient(rgb(255, 255, 255, 1), rgb(219, 219, 219, 1) );
 }
 
 .DBedit_table tr:hover {
 	color: #dbdbdb;
-	background-image: linear-gradient(rgb(81, 88, 102, 1),  rgb(40, 44, 52, 1) );
-	transition-property: color;
-	transition-duration: .1s, .1s;
-	transition-timing-function: ease-in-out;
+	background-image: linear-gradient(rgba(51, 51, 51, 1), rgba(51, 51, 51, 1));
 }
 
 .DBedit_table tr:active {
-	color:rgb(40, 44, 52, 1);
-	background-image: linear-gradient(rgb(245, 167, 66, 1),  rgb(212, 144, 57, 1) );
-	transition-property: color;
-	transition-duration: .2s, .2s;
-	transition-timing-function: ease-in-out;
 	animation: scale_out .1s ease-in-out 1, blur_out .1s ease-in-out 1;
 }
 
@@ -133,10 +117,11 @@
 
 .DBedit_default_wrapper h3 {
 	text-align: center;
-	background-image: linear-gradient(rgb(255, 255, 255, 1),  rgb(219, 219, 219, 1) );
+	background-color: (rgb(255, 255, 255, 1));
 	padding: 10px;
 	margin: 0px 0px 0px 0px;
-	box-shadow: 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 2.5px 0 rgba(0, 0, 0, 0.25);
+	border: 1px solid rgb(200, 200, 200, 1);
+	box-sizing: border-box;
 }
 
 .DBedit_default_wrapper ul {
