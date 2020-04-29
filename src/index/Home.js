@@ -33,9 +33,7 @@ const Home = (props) => {
 	useEffect(() => {onPageLoadFunctions()}, [onPageLoadFunctions])
 
 	const loggedIn =
-		<h3>
-			Index Template
-		</h3>
+		<h3> Index Template </h3>
 
 	const logInButton =
 		<NavLink
