@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Redirect } from 'react-router-dom'
 
-import SubmitButton from '../../../UI/buttons/submitButton'
+// import SubmitButton from '../../../UI/buttons/submitButton'
 
 import userFunctions from '../../../utility/userFunctions'
 
@@ -107,10 +107,10 @@ export default class DBeditEditUser extends React.Component {
 	componentWillUnmount(){ this.setState({ editUserSuccess: false }) }
 
 	render(){
-		console.log(this.props)
+		// console.log(this.props)
 		// console.log(this.state)
 		const usersURL = '/backroom/DBedit/users/'
-		const userURL = '/backroom/DBedit/users/' + this.props.user.id
+		// const userURL = '/backroom/DBedit/users/' + this.props.user.id
 
 		const editUserForm =
 			<form

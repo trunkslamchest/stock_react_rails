@@ -3,7 +3,7 @@ import React from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom'
 
 import BackroomIndex from './BackroomIndex'
-import RTVsidebar from './rtv/RTVsidebar'
+import BackroomNavBar from './BackroomNavBar'
 import RTVusersContainer from './rtv/RTVusersContainer'
 import RTVpagesContainer from './rtv/RTVpagesContainer'
 import DBeditMainContainer from './db_edit/DBeditMainContainer'
@@ -40,7 +40,7 @@ const Backroom = (props) => {
 	return(
 		<div className="backroom_wrapper">
 			<div className="side_window">
-				<RTVsidebar />
+				<BackroomNavBar />
 			</div>
 
 			<div className="main_window">

@@ -2,9 +2,9 @@ import React from 'react'
 
 import { useHistory } from 'react-router-dom'
 
-import './RTVsidebar.css'
+import './BackroomNavBar.css'
 
-const RTVsidebar = (props) => {
+const BackroomNavBar = (props) => {
 
 	let history = useHistory()
 
@@ -37,4 +37,4 @@ const RTVsidebar = (props) => {
 
 }
 
-export default RTVsidebar
+export default BackroomNavBar

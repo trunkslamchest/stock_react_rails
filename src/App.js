@@ -8,9 +8,9 @@ import LogIn from './user/LogIn'
 import SignUp from './user/SignUp'
 import LogOut from './user/LogOut'
 
-import Dashboard from './user/dashboard/Dashboard'
-import EditProfile from './user/dashboard/EditProfile'
-import DeleteProfile from './user/dashboard/DeleteProfile'
+import DashboardContainer from './user/dashboard/DashboardContainer'
+// import EditProfile from './user/dashboard/EditProfile'
+// import DeleteProfile from './user/dashboard/DeleteProfile'
 
 import TermsOfService from './docs/TermsOfService'
 import Privacy from './docs/Privacy'
@@ -233,8 +233,9 @@ export default class App extends React.Component {
 								updateLogin={ this.updateLogin }
 							/>
 						</Route>
-						<Route exact path='/dashboard'>
-							<Dashboard
+						<Route path='/dashboard'>
+							<DashboardContainer
+								setToken={ this.setToken }
 								user_id= {this.state.user_id }
 								user_name={ this.state.user_name }
 								email={ this.state.email }
@@ -259,7 +260,7 @@ export default class App extends React.Component {
 								join_year={this.state.join_year}
 							/>
 						</Route>
-						<Route exact path='/edit_profile'>
+						{/* <Route exact path='/edit_profile'>
 							<EditProfile
 								setToken={ this.setToken }
 								// ~~~~~~~~~~~~~~~~~~~~
@@ -290,7 +291,7 @@ export default class App extends React.Component {
 								access={ this.state.access }
 								logOut={ this.logOut }
 							/>
-						</Route>
+						</Route> */}
 						<Route exact path='/log_out'>
 							<LogOut
 								token={ this.state.token }

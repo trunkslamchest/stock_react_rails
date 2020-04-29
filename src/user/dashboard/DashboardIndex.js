@@ -4,7 +4,7 @@ const DashboardIndex = (props) => {
 	return(
 		<div className="dasboard_index">
 			<div className="alt_header">
-				<h3>Welcome, {props.first_name}!</h3>
+				<h3>Welcome, {props.firstName}!</h3>
 			</div>
 		</div>
 	)

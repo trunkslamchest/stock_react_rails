@@ -57,7 +57,7 @@ const DashboardUserInfo = (props) => {
 	const dashboard_edit_buttons = [
 		<Link
 			key={ "dashboard_edit_profile" }
-			to='/edit_profile'
+			to='/dashboard/profile/edit'
 			name="edit_profile_button"
 			interaction="click"
 			className="alt_button"
@@ -67,7 +67,7 @@ const DashboardUserInfo = (props) => {
 		</Link>,
 		<Link
 			key={ "dashboard_delete_profile" }
-			to='/delete_profile'
+			to='/dashboard/profile/delete'
 			name="delete_profile_button"
 			interaction="click"
 			className="alt_button"
