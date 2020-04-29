@@ -20,8 +20,7 @@ import './Dashboard.css'
 export default class Dashboard extends React.Component{
 
 	state = {
-		display: '',
-		user: [],
+		user: {},
 		mounted: false,
 		updated_user: false,
 	}
@@ -80,7 +79,7 @@ export default class Dashboard extends React.Component{
 					firstName={this.props.first_name}
 				/>
 			</Route>
-			<Route path='/dashboard/profile'>
+			<Route exact path='/dashboard/profile'>
 				<DashboardUserInfo
 					user_id= {this.props.user_id }
 					user_name={ this.props.user_name }
@@ -110,11 +109,16 @@ export default class Dashboard extends React.Component{
 				<EditProfile />
 			</Route>
 			<Route path='/dashboard/profile/delete'>
-				<DeleteProfile />
+				<DeleteProfile
+					setToken={ this.props.setToken }
+					user_id={this.props.user_id }
+					access={ this.props.access }
+					logOut={ this.props.logOut }
+				/>
 			</Route>
 		</Switch>
 
-		console.log(routes)
+		// console.log(routes)
 
 		const loading =
 			<div className="loading_container">

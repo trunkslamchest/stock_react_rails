@@ -236,6 +236,8 @@ export default class App extends React.Component {
 						<Route path='/dashboard'>
 							<DashboardContainer
 								setToken={ this.setToken }
+								logOut={ this.logOut }
+								// ~~~~~~~~~~~~~~~~~~~~
 								user_id= {this.state.user_id }
 								user_name={ this.state.user_name }
 								email={ this.state.email }

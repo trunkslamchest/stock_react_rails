@@ -57,7 +57,9 @@ export default class DBeditUsersContainer extends React.Component{
 						/>
 					</Route>
 					<Route exact path={userURL}>
-						<DBeditUsersInfo user={this.state.user} />
+						<DBeditUsersInfo
+							user={this.state.user}
+						/>
 					</Route>
 					<Route path={addUserURL}>
 						<DBeditAddUser

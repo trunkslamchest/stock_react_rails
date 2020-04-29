@@ -1,6 +1,14 @@
 import React, { useEffect, useCallback } from 'react'
 
-import { Link } from 'react-router-dom'
+import {
+	Link,
+	// Switch,
+	// Route,
+	// useHistory
+} from 'react-router-dom'
+
+// import EditProfile from './EditProfile'
+// import DeleteProfile from './DeleteProfile'
 
 import trafficFunctions from '../../utility/trafficFunctions'
 
@@ -8,7 +16,12 @@ import './DashboardUserInfo.css'
 
 const DashboardUserInfo = (props) => {
 
-	const onClickEditProfileFunctions = (event) => { onClickTrafficFunctions(event) }
+	// let history = useHistory()
+
+	const onClickEditProfileFunctions = (event) => {
+		// history.push('/dashboard/profile/edit')
+		onClickTrafficFunctions(event)
+	}
 
 	const onClickDeleteProfileFunctions = (event) => { onClickTrafficFunctions(event) }
 
@@ -78,7 +91,17 @@ const DashboardUserInfo = (props) => {
 	]
 
 	return(
+			<>
+				{/* <Switch>
+					<Route path='/dashboard/profile/edit'>
+						<EditProfile />
+					</Route>
+					<Route path='/dashboard/profile/delete'>
+						<DeleteProfile />
+					</Route>
+				</Switch> */}
 		<div className="user_info_wrapper">
+
 			<div className="alt_header">
 				<h3>{ props.user_name }</h3>
 				<h5>{ props.email }</h5>
@@ -107,6 +130,7 @@ const DashboardUserInfo = (props) => {
 			</div>
 			</div>
 		</div>
+		</>
 	)
 }
 

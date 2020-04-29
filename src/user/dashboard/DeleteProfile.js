@@ -58,6 +58,8 @@ export default class DeleteProfile extends React.Component {
 
 	render(){
 
+		console.log(this.props)
+
 		const confirmation_buttons = [
 			<button
 				key={"b1"}
@@ -89,7 +91,7 @@ export default class DeleteProfile extends React.Component {
 			<div className="delete_buttons_container">
 				{
 					{
-						true: <Redirect to="/dashboard" />,
+						true: <Redirect to="/dashboard/profile" />,
 						false: (() => {
 							switch(this.state.deleteSuccess) {
 								case true: return <Redirect to="/" />;

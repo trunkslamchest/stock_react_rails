@@ -374,17 +374,17 @@ export default class EditProfile extends React.Component {
 							/>
 							<button
 								name="edit_profile_form"
-								  interaction="reset"
+								interaction="reset"
 								className="alt_button"
 								onClick={ this.onResetFunctions }
 							>
-								Reset
+								Reset Changes
 							</button>
 							{
 								!(this.state.cancel) ? (
 									<input
 										name="edit_profile_form"
-										  interaction="cancel"
+										interaction="cancel"
 										className="alt_button"
 										type="reset"
 										onClick={ this.onCancelFunctions }
@@ -393,7 +393,7 @@ export default class EditProfile extends React.Component {
 								)
 								:
 								(
-									<Redirect to="/dashboard" />
+									<Redirect to="/dashboard/profile" />
 								)
 							}
 						</div>
