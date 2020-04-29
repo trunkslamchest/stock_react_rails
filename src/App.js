@@ -162,6 +162,8 @@ export default class App extends React.Component {
 				join_day: current_user.join_day,
 				join_month: current_user.join_month,
 				join_year: current_user.join_year,
+				// ~~~~~~~~~~~~~~~~~~~~
+				user: { token, loggedIn: true, ...current_user }
 			})
 		})
 	}
@@ -191,10 +193,23 @@ export default class App extends React.Component {
 		localStorage.join_month = current_user.join_month
 		localStorage.join_year = current_user.join_year
 
-		this.setState({ user: { token, ...current_user } })
+		this.setState({
+			user: {
+				token,
+				loggedIn: true,
+				...current_user
+			}
+		})
 	}
 
-	updateLogin = () => { this.setState({ loggedIn: !this.state.loggedIn }) }
+	updateLogin = () => {
+		this.setState({
+			user: {
+				...this.state.user,
+				loggedIn: !this.state.loggedIn
+			}
+		})
+	}
 
 	logOut = () => {
 		localStorage.clear()
@@ -231,6 +246,8 @@ export default class App extends React.Component {
 	}
 
 	render(){
+
+		console.log(this.state.user)
 		return (
 			<>
 				<div className="header">
