@@ -18,38 +18,15 @@ import './Dashboard.css'
 
 export default class Dashboard extends React.Component{
 
-	state = {
-		mounted: false
-	}
+	state = { mounted: false }
 
 	componentDidMount(){
 		this.setState({ mounted: true })
-
 		this.onPageLoadFunctions()
 	}
 
 	componentDidUpdate(){
 		if (this.state.mounted && this.props.user.id && !this.state.loaded){ this.setState({ loaded: true }) }
-	}
-
-	onClickTrafficFunctions = (event) => {
-		let elementInfo = {
-			user_id: this.props.user.user_id,
-			interaction: event.target.attributes.interaction.value,
-			element: event.target.name
-		}
-
-		trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
-	}
-
-	onClickTrafficFunctionsLI = (event) => {
-		let elementInfo = {
-			user_id: this.props.user.user_id,
-			interaction: event.target.attributes.interaction.value,
-			element: event.target.attributes.name.value
-		}
-
-		trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
 	}
 
 	onPageLoadFunctions = () => {
@@ -84,7 +61,7 @@ export default class Dashboard extends React.Component{
 			<Route path='/dashboard/profile/delete'>
 				<DeleteProfile
 					setToken={ this.props.setToken }
-					user_id={this.props.user.user_id }
+					user_id={this.props.user.id }
 					access={ this.props.user.access }
 					logOut={ this.props.logOut }
 				/>

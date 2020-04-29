@@ -8,8 +8,6 @@ import './Header.css'
 
 const Header = (props) => {
 
-	console.log(props)
-
 	const onClickHomeFunctions = (event) => { onClickTrafficFunctions(event) }
 
 	const onClickSignUpFunctions = (event) => { onClickTrafficFunctions(event) }

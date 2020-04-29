@@ -116,7 +116,7 @@ export default class EditProfile extends React.Component {
 
 	onClickTrafficFunctions = (event) => {
 		let elementInfo = {
-			user_id: this.props.user.user_id,
+			user_id: this.props.user.id,
 			interaction: event.target.attributes.interaction.value,
 			element: event.target.attributes.name.value
 		}
@@ -126,7 +126,7 @@ export default class EditProfile extends React.Component {
 
 	onSubmitTrafficFunctions = (event, res_obj) => {
 		let elementInfo = {
-			user_id: res_obj.user_id,
+			user_id: this.props.user.id,
 			interaction: event.target.attributes.interaction.value,
 			element: event.target.name
 		}
