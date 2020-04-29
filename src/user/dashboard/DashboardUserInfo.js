@@ -8,8 +8,6 @@ import './DashboardUserInfo.css'
 
 const DashboardUserInfo = (props) => {
 
-	// console.log(props)
-
 	const onClickEditProfileFunctions = (event) => { onClickTrafficFunctions(event) }
 
 	const onClickDeleteProfileFunctions = (event) => { onClickTrafficFunctions(event) }

@@ -8,8 +8,6 @@ import './Header.css'
 
 const Header = (props) => {
 
-	console.log(props)
-
 	const onClickHomeFunctions = (event) => { onClickTrafficFunctions(event) }
 
 	const onClickSignUpFunctions = (event) => { onClickTrafficFunctions(event) }
@@ -24,7 +22,7 @@ const Header = (props) => {
 
 	const onClickTrafficFunctions = (event) => {
 		let elementInfo = {
-			user_id: props.user.id,
+			user_id: props.user_id,
 			interaction: event.target.attributes.interaction.value,
 			element: event.target.name
 		}

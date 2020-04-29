@@ -76,28 +76,10 @@ export default class EditProfile extends React.Component {
 			zip_code: event.target["edit_zip_code"].value
 		}
 
-		// let userObj = {
-		// 	user_name: this.state.edit_user_name,
-		// 	email: this.state.edit_email,
-		// 	first_name: this.state.edit_first_name,
-		// 	last_name: this.state.edit_last_name,
-		// 	gender: this.state.edit_gender,
-		// 	birth_day: this.state.edit_birth_day,
-		// 	birth_month: this.state.edit_birth_month,
-		// 	birth_year: this.state.edit_birth_year,
-		// 	house_number: this.state.edit_house_number,
-		// 	street_name: this.state.edit_street_name,
-		// 	city_town: this.state.edit_city_town,
-		// 	state: this.state.edit_state,
-		// 	zip_code: this.state.edit_zip_code
-		// }
-
-
 		userFunctions('patch', `http://localhost:3001/users/${this.props.user.id}`, userObj)
 		.then(res_obj => {
 			if (res_obj.errors) this.setState({ errors: res_obj.errors })
 			else {
-				console.log(res_obj)
 				this.onSubmitTrafficFunctions(event, res_obj)
 				this.props.setUser(res_obj, this.props.user.token)
 				this.setState({ updateSuccess: true })
@@ -162,9 +144,6 @@ export default class EditProfile extends React.Component {
 	}
 
 	render(){
-
-		console.log('props', this.props)
-		// console.log('state', this.state)
 
 		const errors = (!!this.state.errors) ?
 			( <div className="default_error_report" key={"edit_profile_error_report"}>

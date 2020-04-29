@@ -1,7 +1,6 @@
 import React from 'react'
 
 import {
-	// Redirect,
 	Switch,
 	Route
 } from 'react-router-dom'
@@ -20,9 +19,7 @@ import './Dashboard.css'
 export default class Dashboard extends React.Component{
 
 	state = {
-		user: {},
-		mounted: false,
-		updated_user: false,
+		mounted: false
 	}
 
 	componentDidMount(){
@@ -32,11 +29,7 @@ export default class Dashboard extends React.Component{
 	}
 
 	componentDidUpdate(){
-		if (this.state.mounted && this.props.user.id && !this.state.loaded){
-			this.setState({
-				loaded: true
-			})
-		}
+		if (this.state.mounted && this.props.user.id && !this.state.loaded){ this.setState({ loaded: true }) }
 	}
 
 	onClickTrafficFunctions = (event) => {
@@ -70,8 +63,6 @@ export default class Dashboard extends React.Component{
 
 	render(){
 
-		// console.log(this.props)
-
 		const routes =
 		<Switch>
 			<Route exact path='/dashboard'>
@@ -81,59 +72,12 @@ export default class Dashboard extends React.Component{
 			</Route>
 			<Route exact path='/dashboard/profile'>
 				<DashboardUserInfo
-					user_id= {this.props.user_id }
-					user_name={ this.props.user_name }
-					email={ this.props.email }
-					access={ this.props.access }
-					// ~~~~~~~~~~~~~~~~~~~~
-					first_name={ this.props.first_name }
-					last_name={ this.props.last_name }
-					gender={ this.props.gender }
-					// ~~~~~~~~~~~~~~~~~~~~
-					birth_day={ this.props.birth_day }
-					birth_month={ this.props.birth_month }
-					birth_year={ this.props.birth_year }
-					// ~~~~~~~~~~~~~~~~~~~~
-					house_number={ this.props.house_number }
-					street_name={ this.props.street_name }
-					city_town={ this.props.city_town }
-					state={ this.props.state }
-					zip_code={ this.props.zip_code }
-					// ~~~~~~~~~~~~~~~~~~~~
-					join_day={this.props.join_day}
-					join_month={this.props.join_month}
-					join_year={this.props.join_year}
-					// ~~~~~~~~~~~~~~~~~~~~
 					user={this.props.user}
 				/>
 			</Route>
 			<Route path='/dashboard/profile/edit'>
 				<EditProfile
 					setUser={ this.props.setUser }
-					// ~~~~~~~~~~~~~~~~~~~~
-					// user_id= {this.props.user_id }
-					// user_name={ this.props.user_name }
-					// email={ this.props.email }
-					// access={ this.props.access }
-					// // ~~~~~~~~~~~~~~~~~~~~
-					// first_name={ this.props.first_name }
-					// last_name={ this.props.last_name }
-					// gender={ this.props.gender }
-					// // ~~~~~~~~~~~~~~~~~~~~
-					// birth_day={ this.props.birth_day }
-					// birth_month={ this.props.birth_month }
-					// birth_year={ this.props.birth_year }
-					// // ~~~~~~~~~~~~~~~~~~~~
-					// house_number={ this.props.house_number }
-					// street_name={ this.props.street_name }
-					// city_town={ this.props.city_town }
-					// state={ this.props.state }
-					// zip_code={ this.props.zip_code }
-					// // ~~~~~~~~~~~~~~~~~~~~
-					// join_day={this.props.join_day}
-					// join_month={this.props.join_month}
-					// join_year={this.props.join_year}
-					// // ~~~~~~~~~~~~~~~~~~~~
 					user={this.props.user}
 				/>
 			</Route>

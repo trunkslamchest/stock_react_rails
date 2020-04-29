@@ -58,8 +58,6 @@ export default class DeleteProfile extends React.Component {
 
 	render(){
 
-		console.log(this.props)
-
 		const confirmation_buttons = [
 			<button
 				key={"b1"}
