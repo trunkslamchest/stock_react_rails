@@ -7,7 +7,6 @@ const FooterLink = (props) => {
     <NavLink
       exact to={props.link}
       name={props.name}
-      key={props.key}
       interaction='click'
       className='footer_link'
       activeClassName='footer_link_active'
