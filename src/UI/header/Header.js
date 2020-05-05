@@ -1,6 +1,8 @@
 import React from 'react'
 
-import GuestHeader from './guestHeader'
+import GuestHeader from './headers/guestHeader'
+import NormalHeader from './headers/normalHeader'
+
 
 import HeaderButton from './headerButton'
 
@@ -63,14 +65,6 @@ const Header = (props) => {
       </HeaderButton>
     </>
 
-  const normal_header =
-    <>
-      { user_greeting }
-      <div className="header_nav_links">
-        {logged_in_links}
-      </div>
-    </>
-
   const admin_header =
     <>
       { user_greeting }
@@ -97,7 +91,7 @@ const Header = (props) => {
             false: <GuestHeader onClickTrafficFunctions={ onClickTrafficFunctions } />,
             true: (() => {
               switch(localStorage.access) {
-                case 'normal': return normal_header;
+                case 'normal': return <NormalHeader user_name={props.user_name} onClickTrafficFunctions={ onClickTrafficFunctions } />;
                 case 'admin': return admin_header;
                 default: return blank;
               }

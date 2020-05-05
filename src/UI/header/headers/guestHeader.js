@@ -1,9 +1,9 @@
 import React from 'react'
 
-import HeaderButton from './headerButton'
+import HeaderButton from '../headerButton'
 
-import './Header.css'
-import './headerButton.css'
+import '../Header.css'
+import '../headerButton.css'
 
 const GuestHeader = (props) => {
   return(
