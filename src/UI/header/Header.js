@@ -1,5 +1,7 @@
 import React from 'react'
 
+import GuestHeader from './guestHeader'
+
 import HeaderButton from './headerButton'
 
 import trafficFunctions from '../../utility/trafficFunctions'
@@ -9,10 +11,6 @@ import './Header.css'
 const Header = (props) => {
 
   const onClickHomeFunctions = (event) => { onClickTrafficFunctions(event) }
-
-  const onClickSignUpFunctions = (event) => { onClickTrafficFunctions(event) }
-
-  const onClickLogInFunctions = (event) => { onClickTrafficFunctions(event) }
 
   const onClickLogOutFunctions = (event) => { onClickTrafficFunctions(event) }
 
@@ -65,29 +63,6 @@ const Header = (props) => {
       </HeaderButton>
     </>
 
-  const logged_out_links =
-    <>
-      <HeaderButton
-        link="/log_in"
-        name="header_log_in_button"
-        onClick={ onClickLogInFunctions }
-      >
-        Login
-      </HeaderButton>
-      <HeaderButton
-        link="/sign_up"
-        name="header_sign_up_button"
-        onClick={ onClickSignUpFunctions }
-      >
-        Sign Up
-      </HeaderButton>
-    </>
-
-  const guest_header =
-    <div className="header_nav_links">
-      {logged_out_links}
-    </div>
-
   const normal_header =
     <>
       { user_greeting }
@@ -119,7 +94,7 @@ const Header = (props) => {
       <div className="header_right">
         {
           {
-            false: guest_header,
+            false: <GuestHeader onClickTrafficFunctions={ onClickTrafficFunctions } />,
             true: (() => {
               switch(localStorage.access) {
                 case 'normal': return normal_header;
