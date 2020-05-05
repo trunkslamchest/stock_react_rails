@@ -139,32 +139,7 @@ export default class App extends React.Component {
 			localStorage.join_month = current_user.join_month
 			localStorage.join_year = current_user.join_year
 
-			this.setState({
-				user_id: user_id,
-				user_name: current_user.user_name,
-				email: current_user.email,
-				access: current_user.access,
-				// ~~~~~~~~~~~~~~~~~~~~
-				first_name: current_user.first_name,
-				last_name: current_user.last_name,
-				gender: current_user.gender,
-				// ~~~~~~~~~~~~~~~~~~~~
-				birth_day: current_user.birth_day,
-				birth_month: current_user.birth_month,
-				birth_year: current_user.birth_year,
-				// ~~~~~~~~~~~~~~~~~~~~
-				house_number: current_user.house_number,
-				street_name: current_user.street_name,
-				city_town: current_user.city_town,
-				state: current_user.state,
-				zip_code: current_user.zip_code,
-				// ~~~~~~~~~~~~~~~~~~~~
-				join_day: current_user.join_day,
-				join_month: current_user.join_month,
-				join_year: current_user.join_year,
-				// ~~~~~~~~~~~~~~~~~~~~
-				user: { token, loggedIn: true, ...current_user }
-			})
+			this.setState({ user: { token, loggedIn: true, ...current_user } })
 		})
 	}
 
@@ -287,8 +262,7 @@ export default class App extends React.Component {
 						<Route exact path='/log_out'>
 							<LogOut
 								logOut={ this.logOut }
-								// ~~~~~~~~~~~~~~~~~~~~
-								token={ this.state.token }
+								token={ this.state.user.token }
 								user_id={ this.state.user.id }
 								user_name={ this.state.user.user_name }
 								access={ this.state.user.access }
@@ -305,7 +279,7 @@ export default class App extends React.Component {
 						</Route>
 						<Route path='/backroom'>
 							<Backroom
-								token={ this.state.token }
+								token={ this.state.user.token }
 								user_name={ this.state.user.user_name }
 								access={ this.state.user.access }
 							/>
