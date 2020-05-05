@@ -2,7 +2,7 @@ import React from 'react'
 
 import GuestHeader from './headers/guestHeader'
 import NormalHeader from './headers/normalHeader'
-
+import AdminHeader from './headers/adminHeader'
 
 import HeaderButton from './headerButton'
 
@@ -13,12 +13,6 @@ import './Header.css'
 const Header = (props) => {
 
   const onClickHomeFunctions = (event) => { onClickTrafficFunctions(event) }
-
-  const onClickLogOutFunctions = (event) => { onClickTrafficFunctions(event) }
-
-  const onClickDashboardFunctions = (event) => { onClickTrafficFunctions(event) }
-
-  const onClickBackroomFunctions = (event) => { onClickTrafficFunctions(event) }
 
   const onClickTrafficFunctions = (event) => {
     let elementInfo = {
@@ -32,12 +26,6 @@ const Header = (props) => {
 
   const blank = <></>
 
-  const user_greeting =
-    <span
-      className="header_greeting">
-      Logged In: { props.user_name }
-    </span>
-
   const home_link =
     <HeaderButton
       link="/"
@@ -46,39 +34,6 @@ const Header = (props) => {
     >
       Home
     </HeaderButton>
-
-  const logged_in_links =
-    <>
-      <HeaderButton
-        link="/dashboard"
-        name="header_dashboard_button"
-        onClick={ onClickDashboardFunctions }
-      >
-        Dashboard
-      </HeaderButton>
-      <HeaderButton
-        link="/log_out"
-        name="header_log_out_button"
-        onClick={ onClickLogOutFunctions }
-      >
-        Log Out
-      </HeaderButton>
-    </>
-
-  const admin_header =
-    <>
-      { user_greeting }
-      <div className="header_nav_links">
-        <HeaderButton
-          link="/backroom"
-          name="header_backroom_button"
-          onClick={ onClickBackroomFunctions }
-        >
-          Admin Panel
-        </HeaderButton>
-        {logged_in_links}
-      </div>
-    </>
 
   return(
     <div className="header">
@@ -92,7 +47,7 @@ const Header = (props) => {
             true: (() => {
               switch(localStorage.access) {
                 case 'normal': return <NormalHeader user_name={props.user_name} onClickTrafficFunctions={ onClickTrafficFunctions } />;
-                case 'admin': return admin_header;
+                case 'admin': return <AdminHeader user_name={props.user_name} onClickTrafficFunctions={ onClickTrafficFunctions } />;
                 default: return blank;
               }
             })()
