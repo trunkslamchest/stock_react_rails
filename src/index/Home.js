@@ -67,7 +67,7 @@ const Home = (props) => {
 
 	return(
 		<div className="default_wrapper">
-			{ localStorage.length === 0 ? loggedOut : loggedIn }
+			{ localStorage.access === 'guest' ? loggedOut : loggedIn }
 		</div>
 	)
 }

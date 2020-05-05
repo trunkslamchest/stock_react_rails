@@ -34,7 +34,6 @@ const Header = (props) => {
 
   const user_greeting =
     <span
-      key={"h_user_greeting"}
       className="header_greeting">
       Logged In: { props.user_name }
     </span>
@@ -84,6 +83,11 @@ const Header = (props) => {
       </HeaderButton>
     </>
 
+  const guest_header =
+    <div className="header_nav_links">
+      {logged_out_links}
+    </div>
+
   const normal_header =
     <>
       { user_greeting }
@@ -115,10 +119,9 @@ const Header = (props) => {
       <div className="header_right">
         {
           {
-            false: blank,
+            false: guest_header,
             true: (() => {
               switch(localStorage.access) {
-                case false: return logged_out_links;
                 case 'normal': return normal_header;
                 case 'admin': return admin_header;
                 default: return blank;

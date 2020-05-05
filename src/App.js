@@ -65,6 +65,7 @@ export default class App extends React.Component {
   componentDidMount(){
     if (!localStorage.token)  {
       localStorage.clear()
+      localStorage.access = 'guest'
     } else {
       this.setState({
         user: {
@@ -172,6 +173,8 @@ export default class App extends React.Component {
 
   logOut = () => {
     localStorage.clear()
+
+    localStorage.access = 'guest'
 
     this.setState({
       user: {
