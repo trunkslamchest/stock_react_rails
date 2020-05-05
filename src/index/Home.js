@@ -1,15 +1,13 @@
 import React, { useEffect, useCallback } from 'react'
-import { NavLink } from 'react-router-dom'
+
+import HomeLoginSignup from './homeLoginSignup'
+import HomeLoggedIn from './homeLoggedIn'
 
 import trafficFunctions from '../utility/trafficFunctions'
 
 import './Home.css'
 
 const Home = (props) => {
-
-	const onClickLogInFunctions = (event) => { onClickTrafficFunctions(event) }
-
-	const onClickSignUpFunctions = (event) => { onClickTrafficFunctions(event) }
 
 	const onClickTrafficFunctions = (event) => {
 		let elementInfo = {
@@ -32,42 +30,13 @@ const Home = (props) => {
 
 	useEffect(() => {onPageLoadFunctions()}, [onPageLoadFunctions])
 
-	const loggedIn =
-		<h3> Index Template </h3>
-
-	const logInButton =
-		<NavLink
-			exact to="/log_in"
-			key={"log_in_link"}
-			name="log_in_button"
-			interaction="click"
-			className="log_in_button"
-			onClick={ onClickLogInFunctions }
-		>
-			Log In
-		</NavLink>
-
-	const signUpButton =
-		<NavLink
-			exact to="/sign_up"
-			key={"sign_up_link"}
-			name="sign_up_button"
-			interaction="click"
-			className="sign_up_button"
-			onClick={ onClickSignUpFunctions }
-		>
-			Sign Up
-		</NavLink>
-
-	const loggedOut =
-		<div className="log_in_sign_up_container">
-			{ logInButton }
-			{ signUpButton }
-		</div>
-
 	return(
 		<div className="default_wrapper">
-			{ localStorage.access === 'guest' ? loggedOut : loggedIn }
+			{ localStorage.access === 'guest' ?
+          <HomeLoginSignup onClickTrafficFunctions={ onClickTrafficFunctions } />
+        :
+          <HomeLoggedIn />
+      }
 		</div>
 	)
 }
