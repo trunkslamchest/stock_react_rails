@@ -1,4 +1,32 @@
 
+.loading_container {
+	width: 100wh !important;
+	min-height: 50vh !important;
+	margin: 0px auto 0px auto;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.loading_header {
+	width: 100%;
+	padding: 10px 0px 10px 0px;
+	animation: loading_pulse 2s linear infinite;
+	z-index:8;
+}
+
+.loading_header h3 {
+	font: 300 25pt 'Lato', sans-serif !important;
+}
+
+.loading_animation_container {
+	margin: 0px auto 0px auto !important;
+	animation: loading_pulse 1.2s ease-in-out infinite !important;
+}
+
 /* <div class="lds-ring"><div></div><div></div><div></div><div></div></div> */
 
 .lds-ring {
