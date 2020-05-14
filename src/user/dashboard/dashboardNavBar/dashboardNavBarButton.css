@@ -33,3 +33,17 @@
   cursor: pointer;
   background-color: rgb(245, 167, 66, 1);
 }
+
+.dashboard_navbar_button_disabled, hover, active {
+  text-align: center;
+  font-size: 12pt;
+  cursor: pointer;
+  padding: 15px 30px 15px 30px;
+  margin: 0px;
+  flex-grow: 1;
+  border: 1px solid rgb(200, 200, 200, 1);
+  box-sizing: border-box;
+  color: rgb(40, 44, 52, 1);
+  font: 300 15pt 'Lato', sans-serif;
+  text-decoration: none;
+}

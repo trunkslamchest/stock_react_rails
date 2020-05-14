@@ -1,10 +1,8 @@
-import React, { useEffect, useCallback } from 'react'
+import React, { useEffect } from 'react'
 
 import { Link } from 'react-router-dom'
 
 // import DefaultButton from '../../UI/buttons/defaultButton'
-
-import trafficFunctions from '../../../utility/trafficFunctions'
 
 import './dashboardProfileContainer.css'
 

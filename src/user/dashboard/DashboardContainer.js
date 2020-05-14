@@ -6,6 +6,8 @@ import DashboardNavBarContainer from './dashboardNavBar/dashboardNavBarContainer
 import DashboardIndex from './dashboardIndex'
 import DashboardProfileContainer from './dashboardProfile/dashboardProfileContainer'
 
+import DashboardTest from './dashboardTest'
+
 import EditProfile from './EditProfile'
 import DeleteProfile from './DeleteProfile'
 
@@ -20,7 +22,6 @@ export default class Dashboard extends React.Component{
   componentDidUpdate(){ if (this.state.mounted && this.props.user.id && !this.state.loaded){ this.setState({ loaded: true }) } }
 
   render(){
-
     const routes =
     <Switch>
       <Route exact path='/dashboard'>
@@ -49,6 +50,9 @@ export default class Dashboard extends React.Component{
           access={ this.props.user.access }
           logOut={ this.props.logOut }
         />
+      </Route>
+    <Route path='/dashboard/test'>
+        <DashboardTest />
       </Route>
     </Switch>
 
