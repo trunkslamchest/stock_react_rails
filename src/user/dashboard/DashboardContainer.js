@@ -8,8 +8,8 @@ import DashboardProfileContainer from './dashboardProfile/dashboardProfileContai
 
 import DashboardTest from './dashboardTest'
 
-import EditProfile from './editProfile/editProfile'
-import DeleteProfile from './deleteProfile/deleteProfile'
+import DashboardEditProfile from './dashboardEditProfile/dashboardEditProfile'
+import DashboardDeleteProfile from './dashboardDeleteProfile/dashboardDeleteProfile'
 
 import './dashboardContainer.css'
 
@@ -38,7 +38,7 @@ export default class Dashboard extends React.Component{
         />
       </Route>
       <Route path='/dashboard/profile/edit'>
-        <EditProfile
+        <DashboardEditProfile
           setUser={ this.props.setUser }
           user={this.props.user}
           onPageLoadFunctions={ this.props.onPageLoadFunctions }
@@ -46,7 +46,7 @@ export default class Dashboard extends React.Component{
         />
       </Route>
       <Route path='/dashboard/profile/delete'>
-        <DeleteProfile
+        <DashboardDeleteProfile
           setToken={ this.props.setToken }
           user_id={this.props.user.id }
           access={ this.props.user.access }

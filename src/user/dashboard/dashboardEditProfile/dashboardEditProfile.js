@@ -3,9 +3,9 @@ import { Redirect } from 'react-router'
 
 import userFunctions from '../../../utility/userFunctions'
 
-import './editProfile.css'
+import './dashboardEditProfile.css'
 
-export default class EditProfile extends React.Component {
+export default class DashboardEditProfile extends React.Component {
 
   state = {
     updateSuccess: false,
