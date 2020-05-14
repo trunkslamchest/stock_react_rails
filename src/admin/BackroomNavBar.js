@@ -6,34 +6,34 @@ import './BackroomNavBar.css'
 
 const BackroomNavBar = (props) => {
 
-	let history = useHistory()
+  let history = useHistory()
 
-	const onClickRTVusersFunctions = () => { history.push('/backroom/RTVusers') }
+  const onClickRTVusersFunctions = () => { history.push('/backroom/RTVusers') }
 
-	const onClickRTVpagesFunctions = () => { history.push('/backroom/RTVpages') }
+  const onClickRTVpagesFunctions = () => { history.push('/backroom/RTVpages') }
 
-	const onClickDBeditFunctions = () => { history.push('/backroom/DBedit') }
+  const onClickDBeditFunctions = () => { history.push('/backroom/DBedit') }
 
-	const onClickSTAnalyticsFunctions = () => { history.push('/backroom/STAnalytics') }
+  const onClickSTAnalyticsFunctions = () => { history.push('/backroom/STAnalytics') }
 
-	return(
-		<div className="side_bar">
-			<ul>
-				<li onClick={ onClickRTVusersFunctions }>
-					Real Time User Traffic
-				</li>
-				<li onClick={ onClickRTVpagesFunctions }>
-					Real Time Page Traffic
-				</li>
-				<li onClick={ onClickDBeditFunctions }>
-					Database Editor
-				</li>
-				<li onClick={ onClickSTAnalyticsFunctions }>
-					Statistical Analytics
-				</li>
-			</ul>
-		</div>
-	)
+  return(
+    <div className="side_bar">
+      <ul>
+        <li onClick={ onClickRTVusersFunctions }>
+          Real Time User Traffic
+        </li>
+        <li onClick={ onClickRTVpagesFunctions }>
+          Real Time Page Traffic
+        </li>
+        <li onClick={ onClickDBeditFunctions }>
+          Database Editor
+        </li>
+        <li onClick={ onClickSTAnalyticsFunctions }>
+          Statistical Analytics
+        </li>
+      </ul>
+    </div>
+  )
 
 }
 

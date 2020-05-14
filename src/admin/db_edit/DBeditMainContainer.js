@@ -11,21 +11,21 @@ import './DBedit.css'
 
 const DBeditMainContainer = (props) => {
 
-		return(
-			<>
-				<div className="DBedit_navbar">
-					<DBeditNavBar />
-				</div>
-				<Switch>
-					<Route exact path='/backroom/DBedit'>
-						<DBeditIndex />
-					</Route>
-					<Route path='/backroom/DBedit/users'>
-						<DBeditUsersContainer />
-					</Route>
-				</Switch>
-			</>
-		)
+    return(
+      <>
+        <div className="DBedit_navbar">
+          <DBeditNavBar />
+        </div>
+        <Switch>
+          <Route exact path='/backroom/DBedit'>
+            <DBeditIndex />
+          </Route>
+          <Route path='/backroom/DBedit/users'>
+            <DBeditUsersContainer />
+          </Route>
+        </Switch>
+      </>
+    )
 
 }
 

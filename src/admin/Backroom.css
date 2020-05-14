@@ -1,63 +1,63 @@
 .backroom_wrapper {
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	align-items: flex-start;
-	align-content: flex-start;
-	padding-top: 0px;
-	padding-bottom: 0px;
-	padding-left: 0px;
-	padding-right: 0px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-	margin-right: 0px;
-	min-height: 85.75vh;
-	border: 1px solid rgb(200, 200, 200, 1);
-	box-sizing: border-box;
-	z-index: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  min-height: 85.75vh;
+  border: 1px solid rgb(200, 200, 200, 1);
+  box-sizing: border-box;
+  z-index: 0;
 }
 
 .main_window {
-	background-color: #FFF;
-	padding-top: 0px;
-	padding-bottom: 0px;
-	padding-left: 0px;
-	padding-right: 0px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-	margin-right: 0px;
-	flex-grow: 1;
-	flex-shrink: 2;
-	z-index: 1
+  background-color: #FFF;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  flex-grow: 1;
+  flex-shrink: 2;
+  z-index: 1
 }
 
 .main_window_header {
-	background-color: rgba(51, 51, 51, 1);
-	color: #FFF;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	align-items: baseline;
-	padding: 0px 0px 0px 0px;
-	margin: 0px 0px 0px 0px;
+  background-color: rgba(51, 51, 51, 1);
+  color: #FFF;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: baseline;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
 }
 
 .main_window h3 {
-	font-size: 12pt;
-	text-align: center;
-	padding: 10px;
-	margin: 0px 0px 0px 0px;
+  font-size: 12pt;
+  text-align: center;
+  padding: 10px;
+  margin: 0px 0px 0px 0px;
 }
 
 .main_window p {
-	font-size: 12pt;
-	text-align: center;
-	padding: 10px;
-	margin: 0px 0px 0px 0px;
+  font-size: 12pt;
+  text-align: center;
+  padding: 10px;
+  margin: 0px 0px 0px 0px;
 }
 

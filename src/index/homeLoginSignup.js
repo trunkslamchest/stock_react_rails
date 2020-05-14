@@ -6,7 +6,7 @@ import './homeLoginSignup.css'
 
 const HomeLoginSignup = (props) => {
   return(
-		<div className="login_signup_container">
+    <div className="login_signup_container">
       <HomeLoginSignupButton
         link="/log_in"
         name="log_in_button"
@@ -21,7 +21,7 @@ const HomeLoginSignup = (props) => {
       >
         Sign Up
       </HomeLoginSignupButton>
-		</div>
+    </div>
   )
 }
 

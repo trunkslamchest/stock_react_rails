@@ -6,13 +6,13 @@ const DashboardIndex = (props) => {
 
   useEffect(() => { onPageLoadFunctions('user_dashboard') }, [onPageLoadFunctions])
 
-	return(
-		<div className="dasboard_index">
-			<div className="alt_header">
-				<h3>Welcome, {props.firstName}!</h3>
-			</div>
-		</div>
-	)
+  return(
+    <div className="dasboard_index">
+      <div className="alt_header">
+        <h3>Welcome, {props.firstName}!</h3>
+      </div>
+    </div>
+  )
 }
 
 export default DashboardIndex

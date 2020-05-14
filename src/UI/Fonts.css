@@ -1,7 +1,7 @@
 @font-face {
-font-family: "Helvetica";
-src: url("../assets/Helvetica.otf") format("opentype"),
-url("../assets/Helvetica.otf") format("opentype"),
+  font-family: "Helvetica";
+  src: url("../assets/Helvetica.otf") format("opentype"),
+  url("../assets/Helvetica.otf") format("opentype"),
 }
 
 /* Helvetica: 100,400,600 */

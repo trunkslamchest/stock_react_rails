@@ -1,34 +1,34 @@
 .STAT_table {
-	width: 100%;
-	padding: 0px 0px 0px 0px;
-	margin: 0px 0px 0px 0px;
-	border-spacing: 0px;
+  width: 100%;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  border-spacing: 0px;
 }
 
 .STAT_table th {
-	color: #dbdbdb;
-	text-align:center;
-	font-size: 12pt;
-	font-weight: 400;
-	padding: 10px;
-	background-color: rgba(51, 51, 51, 1);
-	border: 1px solid rgba(51, 51, 51, 1);
-	box-sizing: border-box;
+  color: #dbdbdb;
+  text-align:center;
+  font-size: 12pt;
+  font-weight: 400;
+  padding: 10px;
+  background-color: rgba(51, 51, 51, 1);
+  border: 1px solid rgba(51, 51, 51, 1);
+  box-sizing: border-box;
 }
 
 .STAT_table tr {
-	width: 100%;
-	text-align:center;
-	padding: 5px;
-	margin: 0px 0px 0px 0px;
-	background-image: linear-gradient(rgb(255, 255, 255, 1),  rgb(219, 219, 219, 1) );
+  width: 100%;
+  text-align:center;
+  padding: 5px;
+  margin: 0px 0px 0px 0px;
+  background-image: linear-gradient(rgb(255, 255, 255, 1),  rgb(219, 219, 219, 1) );
 }
 
 .STAT_table td {
-	text-align:center;
-	font-size: 10pt;
-	font-family: Roboto;
-	font-weight: 400;
-	padding: 5px;
-	margin: 0px 0px 0px 0px;
+  text-align:center;
+  font-size: 10pt;
+  font-family: Roboto;
+  font-weight: 400;
+  padding: 5px;
+  margin: 0px 0px 0px 0px;
 }

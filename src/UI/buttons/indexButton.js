@@ -4,17 +4,17 @@ import { NavLink } from 'react-router-dom'
 import './indexButton.css'
 
 const indexButton = (props) => {
-	return(
-		<NavLink
-			exact to={props.link}
-			name={props.buttonName}
-			interaction={props.interaction}
-			className={props.classType}
-			onClick={props.onClick}
-		>
-			{props.children}
-		</NavLink>
-	)
+  return(
+    <NavLink
+      exact to={props.link}
+      name={props.buttonName}
+      interaction={props.interaction}
+      className={props.classType}
+      onClick={props.onClick}
+    >
+      {props.children}
+    </NavLink>
+  )
 }
 
 export default indexButton

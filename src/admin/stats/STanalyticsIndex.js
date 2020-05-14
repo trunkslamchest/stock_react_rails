@@ -4,30 +4,30 @@ import './STanalytics.css'
 
 export default class STanalyticsIndex extends React.Component{
 
-	state = {
-	}
+  state = {
+  }
 
-	componentDidMount(){
-	}
+  componentDidMount(){
+  }
 
-	componentWillUnmount(){
-	}
+  componentWillUnmount(){
+  }
 
-	render(){
-		return(
-			<>
-				<table className="STAT_table">
-					<tbody>
-						<tr>
-							<th>Column1</th>
-							<th>Column2</th>
-							<th>Column3</th>
-							<th>Column4</th>
-						</tr>
-					</tbody>
-				</table>
-				<h3>Statistical Analytics Template</h3>
-			</>
-		)
-	}
+  render(){
+    return(
+      <>
+        <table className="STAT_table">
+          <tbody>
+            <tr>
+              <th>Column1</th>
+              <th>Column2</th>
+              <th>Column3</th>
+              <th>Column4</th>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Statistical Analytics Template</h3>
+      </>
+    )
+  }
 }

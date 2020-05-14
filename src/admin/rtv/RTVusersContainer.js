@@ -8,22 +8,22 @@ import './RTV.css'
 
 export default class RTVusersContainer extends React.Component{
 
-	state = { RTV_users_data: [] }
+  state = { RTV_users_data: [] }
 
-	componentDidMount(){ this.RTVinterval = setInterval(this.updateRTVusers, 1000) }
+  componentDidMount(){ this.RTVinterval = setInterval(this.updateRTVusers, 1000) }
 
-	updateRTVusers = () => {
-		trafficFunctions('get', 'http://localhost:3001/traffics')
-		.then(res_obj => this.setState({ RTV_users_data: res_obj.data }) )
-	}
+  updateRTVusers = () => {
+    trafficFunctions('get', 'http://localhost:3001/traffics')
+    .then(res_obj => this.setState({ RTV_users_data: res_obj.data }) )
+  }
 
-	componentWillUnmount(){ clearInterval(this.RTVinterval) }
+  componentWillUnmount(){ clearInterval(this.RTVinterval) }
 
-	render(){
-		return(
-			<RTVusersList
-				RTV_users_data={this.state.RTV_users_data}
-			/>
-		)
-	}
+  render(){
+    return(
+      <RTVusersList
+        RTV_users_data={this.state.RTV_users_data}
+      />
+    )
+  }
 }
