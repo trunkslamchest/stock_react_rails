@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
 
-import { Link } from 'react-router-dom'
-
-// import DefaultButton from '../../UI/buttons/defaultButton'
+import DashboardProfileContainerButtons from './dashboardProfileContainerButtons'
 
 import './dashboardProfileContainer.css'
 
@@ -29,35 +27,9 @@ const DashboardProfileContainer = (props) => {
     }
   }
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-    onPageLoadFunctions('user_profile')
-  }, [onPageLoadFunctions])
+  useEffect(() => { onPageLoadFunctions('user_profile') }, [onPageLoadFunctions])
 
-  const age = 2019 - props.user.birth_year
-
-  const dashboard_edit_buttons = [
-    <Link
-      key={ "dashboard_edit_profile" }
-      to='/dashboard/profile/edit'
-      name="edit_profile_button"
-      interaction="click"
-      className="alt_button"
-      onClick={ props.onClickTrafficFunctions }
-    >
-      Edit Profile
-    </Link>,
-    <Link
-      key={ "dashboard_delete_profile" }
-      to='/dashboard/profile/delete'
-      name="delete_profile_button"
-      interaction="click"
-      className="alt_button"
-      onClick={ props.onClickTrafficFunctions }
-    >
-      Delete Profile
-    </Link>
-  ]
+  const age = new Date().getFullYear() - props.user.birth_year
 
   return(
     <>
@@ -85,9 +57,7 @@ const DashboardProfileContainer = (props) => {
             <li>Join Date</li>
             <li>{ props.user.join_month } { formatDate(props.user.join_day) }, { props.user.join_year }</li>
           </ul>
-          <div className="user_info_buttons_container">
-            { dashboard_edit_buttons }
-          </div>
+            <DashboardProfileContainerButtons onClickTrafficFunctions={props.onClickTrafficFunctions} />
         </div>
       </div>
     </>
