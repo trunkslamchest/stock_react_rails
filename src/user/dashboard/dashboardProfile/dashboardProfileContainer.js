@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-import DashboardProfileContainerButtons from './dashboardProfileContainerButtons'
+import DashboardProfileButtonsContainer from './dashboardProfileButtonsContainer'
 
 import './dashboardProfileContainer.css'
 
@@ -33,12 +33,12 @@ const DashboardProfileContainer = (props) => {
 
   return(
     <>
-      <div className="user_info_wrapper">
-        <div className="alt_header">
+      <div className='dashboard_profile_wrapper'>
+        <div className='alt_header'>
           <h3>{ props.user.user_name }</h3>
           <h5>{ props.user.email }</h5>
         </div>
-        <div className="user_info_body">
+        <div className='dashboard_profile_body'>
           <ul>
             <li>{ props.user.first_name }</li>
             <li>{ props.user.last_name }</li>
@@ -57,7 +57,7 @@ const DashboardProfileContainer = (props) => {
             <li>Join Date</li>
             <li>{ props.user.join_month } { formatDate(props.user.join_day) }, { props.user.join_year }</li>
           </ul>
-            <DashboardProfileContainerButtons onClickTrafficFunctions={props.onClickTrafficFunctions} />
+            <DashboardProfileButtonsContainer onClickTrafficFunctions={props.onClickTrafficFunctions} />
         </div>
       </div>
     </>

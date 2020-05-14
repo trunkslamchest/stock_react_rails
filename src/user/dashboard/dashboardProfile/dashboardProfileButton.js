@@ -2,9 +2,9 @@ import React from 'react'
 
 import { NavLink } from 'react-router-dom'
 
-import './dashboardProfileContainerButton.css'
+import './dashboardProfileButton.css'
 
-const dashboardProfileContainerButton = (props) => {
+const dashboardProfileButton = (props) => {
 
   return(
     <NavLink
@@ -19,4 +19,4 @@ const dashboardProfileContainerButton = (props) => {
   )
 }
 
-export default dashboardProfileContainerButton
+export default dashboardProfileButton

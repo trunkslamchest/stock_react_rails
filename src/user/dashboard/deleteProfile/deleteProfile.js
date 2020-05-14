@@ -1,10 +1,10 @@
 import React from 'react'
 import { Redirect } from 'react-router'
 
-import trafficFunctions from '../../utility/trafficFunctions'
-import userFunctions from '../../utility/userFunctions'
+import trafficFunctions from '../../../utility/trafficFunctions'
+import userFunctions from '../../../utility/userFunctions'
 
-import './EditProfile.css'
+import './deleteProfile.css'
 
 export default class DeleteProfile extends React.Component {
 

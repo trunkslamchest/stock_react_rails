@@ -36,25 +36,6 @@ select:not(:-internal-list-box) {
 	border: 0px;
 }
 
-/* .edit_div select {
-	text-rendering: auto;
-	letter-spacing: normal;
-	word-spacing: normal;
-	text-transform: none;
-	text-indent: 0px;
-	text-shadow: none;
-	text-align: start;
-	box-sizing: unset;
-	align-items: center;
-	white-space: normal;
-	background-color: #fff;
-	cursor: pointer;
-	color: #000;
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	appearance: none;
-} */
-
 .edit_buttons_container {
 	display: flex;
 	flex-direction: row;
