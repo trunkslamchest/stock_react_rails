@@ -1,87 +1,69 @@
 import React from 'react'
 
-import {
-	Switch,
-	Route
-} from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
-import DashboardNavBar from './DashboardNavBar'
-import DashboardIndex from './DashboardIndex'
-import DashboardUserInfo from './DashboardUserInfo'
+import DashboardNavBarContainer from './dashboardNavBar/dashboardNavBarContainer'
+import DashboardIndex from './dashboardIndex'
+import DashboardProfileContainer from './dashboardProfile/dashboardProfileContainer'
 
 import EditProfile from './EditProfile'
 import DeleteProfile from './DeleteProfile'
 
-import trafficFunctions from '../../utility/trafficFunctions'
-
-import './Dashboard.css'
+import './dashboard.css'
 
 export default class Dashboard extends React.Component{
 
-	state = { mounted: false }
+  state = { mounted: false }
 
-	componentDidMount(){
-		this.setState({ mounted: true })
-		this.onPageLoadFunctions()
-	}
+  componentDidMount(){
+    this.setState({ mounted: true })
+    this.props.onPageLoadFunctions('user_dasboard')
+  }
 
-	componentDidUpdate(){
-		if (this.state.mounted && this.props.user.id && !this.state.loaded){ this.setState({ loaded: true }) }
-	}
+  componentDidUpdate(){ if (this.state.mounted && this.props.user.id && !this.state.loaded){ this.setState({ loaded: true }) } }
 
-	onPageLoadFunctions = () => {
-		let pageInfo = {
-			user_id: localStorage.user_id,
-			page_name: 'user_dasboard',
-		}
+  render(){
 
-		trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
-	}
+    const routes =
+    <Switch>
+      <Route exact path='/dashboard'>
+        <DashboardIndex
+          firstName={this.props.user.first_name}
+        />
+      </Route>
+      <Route exact path='/dashboard/profile'>
+        <DashboardProfileContainer
+          user={this.props.user}
+        />
+      </Route>
+      <Route path='/dashboard/profile/edit'>
+        <EditProfile
+          setUser={ this.props.setUser }
+          user={this.props.user}
+        />
+      </Route>
+      <Route path='/dashboard/profile/delete'>
+        <DeleteProfile
+          setToken={ this.props.setToken }
+          user_id={this.props.user.id }
+          access={ this.props.user.access }
+          logOut={ this.props.logOut }
+        />
+      </Route>
+    </Switch>
 
-	render(){
+    const loading =
+      <div className="loading_container">
+        <div className="loading_animation_container">
+          <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
+      </div>
 
-		const routes =
-		<Switch>
-			<Route exact path='/dashboard'>
-				<DashboardIndex
-					firstName={this.props.user.first_name}
-				/>
-			</Route>
-			<Route exact path='/dashboard/profile'>
-				<DashboardUserInfo
-					user={this.props.user}
-				/>
-			</Route>
-			<Route path='/dashboard/profile/edit'>
-				<EditProfile
-					setUser={ this.props.setUser }
-					user={this.props.user}
-				/>
-			</Route>
-			<Route path='/dashboard/profile/delete'>
-				<DeleteProfile
-					setToken={ this.props.setToken }
-					user_id={this.props.user.id }
-					access={ this.props.user.access }
-					logOut={ this.props.logOut }
-				/>
-			</Route>
-		</Switch>
-
-		const loading =
-			<div className="loading_container">
-				<div className="loading_animation_container">
-					<div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-				</div>
-			</div>
-
-		return(
-			<div className="dashboard_wrapper">
-				<div className="dashboard_tabs">
-					<DashboardNavBar />
-				</div>
-				{ this.state.loaded ? routes : loading }
-			</div>
-		)
-	}
+    return(
+      <div className="dashboard_wrapper">
+        <DashboardNavBarContainer onClickTrafficFunctions={ this.props.onClickTrafficFunctions }/>
+        { this.state.loaded ? routes : loading }
+      </div>
+    )
+  }
 }

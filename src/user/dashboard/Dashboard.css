@@ -82,14 +82,14 @@
 	font: 300 12pt 'Lato', sans-serif;
 }
 
-.dashboard_wrapper ul {
+/* .dashboard_wrapper ul {
 	width: 100%;
 	list-style: none;
 	padding: 10px 0px 10px 0px;
 	margin: 0px;
 
 	animation: fade_in .25s ease-in-out 1, blur_in .25s ease-in-out 1, slide_in_from_bottom.25s ease-in-out 1;
-}
+} */
 
 .dashboard_wrapper hr {
 	margin: 0px;
@@ -98,58 +98,6 @@
 
 .dashboard_greeting {
 	animation: fade_in .25s ease-in-out 1, blur_in .25s ease-in-out 1, slide_in_from_bottom.25s ease-in-out 1;
-}
-
-.dashboard_tabs {
-	width: 100%;
-	padding-top: 0px;
-	padding-bottom: 0px;
-	padding-left: 0px;
-	padding-right: 0px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-	margin-right: 0px;
-	z-index: 9;
-}
-
-.dashboard_tabs ul {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: space-between;
-	align-items: flex-start;
-	align-content: flex-start;
-	list-style: none;
-	padding-top: 0px;
-	padding-bottom: 0px;
-	padding-left: 0px;
-	padding-right: 0px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-	margin-right: 0px;
-	animation: fade_in .25s ease-in-out 1, blur_in .25s ease-in-out 1, slide_in_from_top.25s ease-in-out 1;
-}
-
-.dashboard_tabs li {
-	text-align: center;
-	font-size: 12pt;
-	cursor: pointer;
-	padding: 15px 30px 15px 30px;
-	margin: 0px;
-	flex-grow: 1;
-	border: 1px solid rgb(200, 200, 200, 1);
-	box-sizing: border-box;
-}
-
-.dashboard_tabs li:hover {
-	color: #FFF;
-	background-color: rgba(51, 51, 51, 1);
-}
-
-.dashboard_tabs li:active {
-	animation: scale_out .1s ease-in-out 1, blur_out .1s ease-in-out 1;
 }
 
 .dashboard_buttons_container {

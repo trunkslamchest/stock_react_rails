@@ -2,11 +2,13 @@ import React, { useEffect, useCallback } from 'react'
 
 import { Link } from 'react-router-dom'
 
-import trafficFunctions from '../../utility/trafficFunctions'
+// import DefaultButton from '../../UI/buttons/defaultButton'
 
-import './DashboardUserInfo.css'
+import trafficFunctions from '../../../utility/trafficFunctions'
 
-const DashboardUserInfo = (props) => {
+import './dashboardProfileContainer.css'
+
+const DashboardProfileContainer = (props) => {
 
 	const onClickEditProfileFunctions = (event) => { onClickTrafficFunctions(event) }
 
@@ -112,4 +114,4 @@ const DashboardUserInfo = (props) => {
 	)
 }
 
-export default DashboardUserInfo
+export default DashboardProfileContainer

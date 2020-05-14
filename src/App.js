@@ -8,7 +8,7 @@ import LogIn from './user/LogIn'
 import SignUp from './user/SignUp'
 import LogOut from './user/LogOut'
 
-import DashboardContainer from './user/dashboard/DashboardContainer'
+import DashboardContainer from './user/dashboard/dashboardContainer'
 
 import TermsOfService from './docs/TermsOfService'
 import Privacy from './docs/Privacy'
@@ -19,6 +19,7 @@ import Backroom from './admin/Backroom'
 import E404 from './error/E404'
 
 import userFunctions from './utility/userFunctions'
+import trafficFunctions from './utility/trafficFunctions'
 
 import {
 	// NavLink,
@@ -202,6 +203,25 @@ export default class App extends React.Component {
     })
   }
 
+  onPageLoadFunctions = ( page ) => {
+    let pageInfo = {
+      user_id: localStorage.user_id,
+      page_name: page,
+    }
+
+    trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
+  }
+
+  onClickTrafficFunctions = (event) => {
+    let elementInfo = {
+      user_id: this.state.user.id,
+      interaction: event.target.attributes.interaction.value,
+      element: event.target.name
+    }
+
+    trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
+  }
+
   render(){
     return (
       <>
@@ -238,6 +258,8 @@ export default class App extends React.Component {
                 setToken={ this.setToken }
                 setUser={ this.setUser }
                 logOut={ this.logOut }
+                onPageLoadFunctions={ this.onPageLoadFunctions }
+                onClickTrafficFunctions={ this.onClickTrafficFunctions }
               />
             </Route>
             <Route exact path='/log_out'>
