@@ -15,10 +15,7 @@ export default class Dashboard extends React.Component{
 
   state = { mounted: false }
 
-  componentDidMount(){
-    this.setState({ mounted: true })
-    this.props.onPageLoadFunctions('user_dasboard')
-  }
+  componentDidMount(){ this.setState({ mounted: true }) }
 
   componentDidUpdate(){ if (this.state.mounted && this.props.user.id && !this.state.loaded){ this.setState({ loaded: true }) } }
 
@@ -29,11 +26,14 @@ export default class Dashboard extends React.Component{
       <Route exact path='/dashboard'>
         <DashboardIndex
           firstName={this.props.user.first_name}
+          onPageLoadFunctions={ this.props.onPageLoadFunctions }
         />
       </Route>
       <Route exact path='/dashboard/profile'>
         <DashboardProfileContainer
           user={this.props.user}
+          onPageLoadFunctions={ this.props.onPageLoadFunctions }
+          onClickTrafficFunctions={ this.props.onClickTrafficFunctions }
         />
       </Route>
       <Route path='/dashboard/profile/edit'>
@@ -61,7 +61,7 @@ export default class Dashboard extends React.Component{
 
     return(
       <div className="dashboard_wrapper">
-        <DashboardNavBarContainer onClickTrafficFunctions={ this.props.onClickTrafficFunctions }/>
+        <DashboardNavBarContainer onClickTrafficFunctions={ this.props.onClickTrafficFunctions } />
         { this.state.loaded ? routes : loading }
       </div>
     )

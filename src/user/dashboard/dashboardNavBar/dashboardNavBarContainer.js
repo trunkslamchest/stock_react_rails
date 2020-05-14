@@ -1,18 +1,11 @@
 import React from 'react'
 
-import { Link, useHistory } from 'react-router-dom'
-
 import DashboardNavBarButton from './dashboardNavBarButton'
 
 import './dashboardNavBar.css'
 import './dashboardNavBarButton.css'
 
 const DashboardNavBarContainer = (props) => {
-
-  let history = useHistory()
-
-  const onClickDashboardUserInfo = () => { history.push('/dashboard/profile') }
-
   return(
     <div className="dashboard_navbar">
       <ul>
@@ -27,7 +20,6 @@ const DashboardNavBarContainer = (props) => {
       </ul>
     </div>
   )
-
 }
 
 export default DashboardNavBarContainer
