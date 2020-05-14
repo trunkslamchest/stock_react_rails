@@ -11,7 +11,7 @@ import DashboardTest from './dashboardTest'
 import EditProfile from './editProfile/editProfile'
 import DeleteProfile from './deleteProfile/deleteProfile'
 
-import './dashboard.css'
+import './dashboardContainer.css'
 
 export default class Dashboard extends React.Component{
 
@@ -51,6 +51,8 @@ export default class Dashboard extends React.Component{
           user_id={this.props.user.id }
           access={ this.props.user.access }
           logOut={ this.props.logOut }
+          onPageLoadFunctions={ this.props.onPageLoadFunctions }
+          onClickTrafficFunctions={ this.props.onClickTrafficFunctions }
         />
       </Route>
     <Route path='/dashboard/test'>
