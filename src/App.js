@@ -282,13 +282,19 @@ export default class App extends React.Component {
               />
             </Route>
             <Route exact path='/terms_of_service'>
-              <TermsOfService />
+              <TermsOfService
+                onPageLoadFunctions={ this.onPageLoadFunctions }
+              />
             </Route>
             <Route exact path='/privacy'>
-              <Privacy />
+              <Privacy
+                onPageLoadFunctions={ this.onPageLoadFunctions }
+              />
             </Route>
             <Route exact path='/disclaimer'>
-              <Disclaimer />
+              <Disclaimer
+                onPageLoadFunctions={ this.onPageLoadFunctions }
+              />
             </Route>
             <Route path='/backroom'>
               <Backroom
@@ -297,7 +303,10 @@ export default class App extends React.Component {
                 access={ this.state.user.access }
               />
             </Route>
-            <Route component={ E404 } />
+            <Route
+              component={ E404 }
+              onPageLoadFunctions={ this.onPageLoadFunctions }
+            />
           </Switch>
         </div>
 

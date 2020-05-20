@@ -6,16 +6,18 @@ import './Docs.css'
 
 const Privacy = (props) => {
 
-  const onPageLoadFunctions = useCallback(() => {
-    let pageInfo = {
-      user_id: localStorage.user_id,
-      page_name: 'privacy',
-    }
+  const { onPageLoadFunctions } = props
 
-    trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
-  }, [])
+  // const onPageLoadFunctions = useCallback(() => {
+  //   let pageInfo = {
+  //     user_id: localStorage.user_id,
+  //     page_name: 'privacy',
+  //   }
 
-  useEffect(() => {onPageLoadFunctions()}, [onPageLoadFunctions])
+  //   trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
+  // }, [])
+
+  useEffect(() => {onPageLoadFunctions('privacy')}, [onPageLoadFunctions])
 
   return(
     <div className="terms_wrapper">

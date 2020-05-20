@@ -65,19 +65,6 @@ export default class SignUp extends React.Component {
         zip_code: this.state.sign_up_zip_code
       }
 
-      // userFunctions('signUp', 'http://localhost:3001/users', signUpObj)
-      // .then(res_obj => {
-      //   if (res_obj.errors) {
-      //     this.setState({ errors: res_obj.errors })
-      //   } else {
-      //     console.log(res_obj)
-      //     this.props.onClickTrafficFunctions(event)
-      //     this.props.setToken(res_obj)
-      //     this.props.updateLogin()
-      //     this.setState({ loggedIn: true })
-      //   }
-      // })
-
 
       userFunctions('signUp', 'http://localhost:3001/users', signUpObj)
       .then(res_obj => {
@@ -88,8 +75,6 @@ export default class SignUp extends React.Component {
             user_name: this.state.sign_up_user_name,
             password: this.state.sign_up_password
           }
-          
-          // console.log(logInObj)
           authFunctions('logIn', 'http://localhost:3001/login', logInObj)
           .then(res_obj => {
             if (res_obj.errors) this.setState({ errors: res_obj.errors })
@@ -102,27 +87,6 @@ export default class SignUp extends React.Component {
           })
         }
       })
-
-
-
-    // let logInObj = {
-    //   user_name: this.state.user_name,
-    //   password: this.state.password
-    // }
-
-    // authFunctions('logIn', 'http://localhost:3001/login', logInObj)
-    // .then(res_obj => {
-    //   if (res_obj.errors) this.setState({ errors: res_obj.errors })
-    //   else {
-    //     this.props.onClickTrafficFunctions(event)
-    //     this.props.setToken(res_obj)
-    //     this.props.updateLogin()
-    //     this.setState({ loggedIn: true })
-    //   }
-    // })
-
-
-
     }
   }
 
