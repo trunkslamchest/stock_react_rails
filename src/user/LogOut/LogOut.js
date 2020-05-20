@@ -1,7 +1,6 @@
 import React from 'react'
-import { Redirect } from 'react-router'
 
-import trafficFunctions from '../../utility/trafficFunctions'
+import { Redirect } from 'react-router'
 
 import './LogOut.css'
 
@@ -14,16 +13,16 @@ export default class LogOut extends React.Component {
     cancel: false
   }
 
-  componentDidMount(){ this.onPageLoadFunctions() }
+  componentDidMount(){ this.props.onPageLoadFunctions('log_out') }
 
   onClickConfirm = (event) => {
-    this.onClickTrafficFunctions(event)
+    this.props.onClickTrafficFunctions(event)
     this.props.logOut(this.props.token)
     this.setState({ logOutSuccess: true })
   }
 
   onClickCancel = (event) => {
-    this.onClickTrafficFunctions(event)
+    this.props.onClickTrafficFunctions(event)
     this.setState({ cancel: true })
   }
 
@@ -34,25 +33,6 @@ export default class LogOut extends React.Component {
   onHoverCancel = () => { this.setState({ hoverCancel: true }) }
 
   offHoverCancel = () => { this.setState({ hoverCancel: false }) }
-
-  onClickTrafficFunctions = (event) => {
-    let elementInfo = {
-      user_id: this.props.user_id,
-      interaction: event.target.attributes.interaction.value,
-      element: event.target.name
-    }
-
-    trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
-  }
-
-  onPageLoadFunctions = () => {
-    let pageInfo = {
-      user_id: localStorage.user_id,
-      page_name: 'log_out',
-    }
-
-    trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
-  }
 
   render(){
 

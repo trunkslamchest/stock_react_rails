@@ -271,6 +271,8 @@ export default class App extends React.Component {
                 user_id={ this.state.user.id }
                 user_name={ this.state.user.user_name }
                 access={ this.state.user.access }
+                onPageLoadFunctions={ this.onPageLoadFunctions }
+                onClickTrafficFunctions={ this.onClickTrafficFunctions }
               />
             </Route>
             <Route exact path='/terms_of_service'>
