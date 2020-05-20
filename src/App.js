@@ -303,10 +303,11 @@ export default class App extends React.Component {
                 access={ this.state.user.access }
               />
             </Route>
-            <Route
-              component={ E404 }
-              onPageLoadFunctions={ this.onPageLoadFunctions }
-            />
+            <Route>
+              <E404
+                onPageLoadFunctions={ this.onPageLoadFunctions }
+              />
+            </Route>
           </Switch>
         </div>
 
