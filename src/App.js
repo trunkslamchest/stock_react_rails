@@ -238,6 +238,8 @@ export default class App extends React.Component {
             <Route exact path='/'>
               <Home
                 user_id={ this.state.user.id }
+                onPageLoadFunctions={ this.onPageLoadFunctions }
+                onClickTrafficFunctions={ this.onClickTrafficFunctions }
               />
             </Route>
             <Route exact path='/log_in'>
@@ -252,6 +254,8 @@ export default class App extends React.Component {
               <SignUp
                 setToken={ this.setToken }
                 updateLogin={ this.updateLogin }
+                onPageLoadFunctions={ this.onPageLoadFunctions }
+                onClickTrafficFunctions={ this.onClickTrafficFunctions }
               />
             </Route>
             <Route path='/dashboard'>
