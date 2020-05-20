@@ -2,8 +2,9 @@ import React from 'react'
 
 import { Link, Redirect } from 'react-router-dom'
 
-import trafficFunctions from '../../utility/trafficFunctions'
 import userFunctions from '../../utility/userFunctions'
+
+import authFunctions from '../../utility/authFunctions'
 
 import './SignUp.css'
 
@@ -30,23 +31,13 @@ export default class SignUp extends React.Component {
     errors: []
   }
 
-  pageInfo = {
-    user_id: this.props.user_id,
-    page_name: 'sign_up',
-  }
-
-  componentDidMount(){ this.onPageLoadFunctions() }
+  componentDidMount(){ this.props.onPageLoadFunctions('sign_up') }
 
   onChange = (event) => { this.setState({ [event.target.name]: event.target.value }) }
 
   onChecked = (event) => {
-    let flip_checked = !event.target.checked
-    this.setState({ TOSagreement: !flip_checked })
-  }
-
-  onSubmitSignUpFunctions = (event) => {
-    this.signUpSubmitted(event)
-    this.props.updateLogin()
+    let flipChecked = !event.target.checked
+    this.setState({ TOSagreement: !flipChecked })
   }
 
   signUpSubmitted = (event) => {
@@ -74,16 +65,64 @@ export default class SignUp extends React.Component {
         zip_code: this.state.sign_up_zip_code
       }
 
+      // userFunctions('signUp', 'http://localhost:3001/users', signUpObj)
+      // .then(res_obj => {
+      //   if (res_obj.errors) {
+      //     this.setState({ errors: res_obj.errors })
+      //   } else {
+      //     console.log(res_obj)
+      //     this.props.onClickTrafficFunctions(event)
+      //     this.props.setToken(res_obj)
+      //     this.props.updateLogin()
+      //     this.setState({ loggedIn: true })
+      //   }
+      // })
+
+
       userFunctions('signUp', 'http://localhost:3001/users', signUpObj)
       .then(res_obj => {
-        if (res_obj.errors) {
-          this.setState({ errors: res_obj.errors })
-        } else {
-          this.onSubmitTrafficFunctions(event, res_obj)
-          this.props.setToken(res_obj)
-          this.setState({ loggedIn: true })
+        if (res_obj.errors) this.setState({ errors: res_obj.errors })
+        else {
+
+          let logInObj = {
+            user_name: this.state.sign_up_user_name,
+            password: this.state.sign_up_password
+          }
+          
+          // console.log(logInObj)
+          authFunctions('logIn', 'http://localhost:3001/login', logInObj)
+          .then(res_obj => {
+            if (res_obj.errors) this.setState({ errors: res_obj.errors })
+            else {
+              this.props.onClickTrafficFunctions(event)
+              this.props.setToken(res_obj)
+              this.props.updateLogin()
+              this.setState({ loggedIn: true })
+            }
+          })
         }
       })
+
+
+
+    // let logInObj = {
+    //   user_name: this.state.user_name,
+    //   password: this.state.password
+    // }
+
+    // authFunctions('logIn', 'http://localhost:3001/login', logInObj)
+    // .then(res_obj => {
+    //   if (res_obj.errors) this.setState({ errors: res_obj.errors })
+    //   else {
+    //     this.props.onClickTrafficFunctions(event)
+    //     this.props.setToken(res_obj)
+    //     this.props.updateLogin()
+    //     this.setState({ loggedIn: true })
+    //   }
+    // })
+
+
+
     }
   }
 
@@ -91,7 +130,7 @@ export default class SignUp extends React.Component {
     event.persist()
     event.preventDefault()
 
-    this.onClickTrafficFunctions(event)
+    this.props.onClickTrafficFunctions(event)
 
     this.setState({
       sign_up_user_name: "",
@@ -112,37 +151,8 @@ export default class SignUp extends React.Component {
   }
 
   onCancelFunctions = (event) => {
-    this.onClickTrafficFunctions(event)
+    this.props.onClickTrafficFunctions(event)
     this.setState({ cancel: true })
-  }
-
-  onClickTrafficFunctions = (event) => {
-    let elementInfo = {
-      user_id: this.props.user_id,
-      interaction: event.target.attributes.interaction.value,
-      element: event.target.name
-    }
-
-    trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
-  }
-
-  onSubmitTrafficFunctions = (event, res_obj) => {
-    let elementInfo = {
-      user_id: res_obj.user_id,
-      interaction: event.target.attributes.interaction.value,
-      element: event.target.name
-    }
-
-    trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
-  }
-
-  onPageLoadFunctions = () => {
-    let pageInfo = {
-      user_id: localStorage.user_id,
-      page_name: 'sign_up',
-    }
-
-    trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
   }
 
   render(){
@@ -169,7 +179,7 @@ export default class SignUp extends React.Component {
               name="sign_up_form"
               interaction="submit"
               className="sign_up_form"
-              onSubmit={ this.onSubmitSignUpFunctions }
+              onSubmit={ this.signUpSubmitted }
             >
             { errors }
               <div className="sign_up_div">
