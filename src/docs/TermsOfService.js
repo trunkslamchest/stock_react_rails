@@ -1,21 +1,12 @@
-import React, { useEffect, useCallback } from 'react'
-
-import trafficFunctions from '../utility/trafficFunctions'
+import React, { useEffect } from 'react'
 
 import './Docs.css'
 
 const TermsOfService = (props) => {
 
-  const onPageLoadFunctions = useCallback(() => {
-    let pageInfo = {
-      user_id: localStorage.user_id,
-      page_name: 'terms_of_service',
-    }
+  const { onPageLoadFunctions } = props
 
-    trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
-  }, [])
-
-  useEffect(() => {onPageLoadFunctions()}, [onPageLoadFunctions])
+  useEffect(() => {onPageLoadFunctions('terms_of_service')}, [onPageLoadFunctions])
 
   return(
     <div className="terms_wrapper">
