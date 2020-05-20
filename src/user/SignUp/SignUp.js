@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
 
-import trafficFunctions from '../utility/trafficFunctions'
-import userFunctions from '../utility/userFunctions'
+import trafficFunctions from '../../utility/trafficFunctions'
+import userFunctions from '../../utility/userFunctions'
 
 import './SignUp.css'
 

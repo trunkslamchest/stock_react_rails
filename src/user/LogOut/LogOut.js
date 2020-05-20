@@ -1,7 +1,7 @@
 import React from 'react'
 import { Redirect } from 'react-router'
 
-import trafficFunctions from '../utility/trafficFunctions'
+import trafficFunctions from '../../utility/trafficFunctions'
 
 import './LogOut.css'
 

@@ -4,9 +4,9 @@ import Header from './UI/header/Header'
 import Home from './index/Home'
 import Footer from './UI/footer/Footer'
 
-import LogIn from './user/LogIn'
-import SignUp from './user/SignUp'
-import LogOut from './user/LogOut'
+import LogIn from './user/LogIn/LogIn'
+import LogOut from './user/LogOut/LogOut'
+import SignUp from './user/SignUp/SignUp'
 
 import DashboardContainer from './user/dashboard/dashboardContainer'
 
@@ -244,6 +244,8 @@ export default class App extends React.Component {
               <LogIn
                 setToken={ this.setToken }
                 updateLogin={ this.updateLogin }
+                onPageLoadFunctions={ this.onPageLoadFunctions }
+                onClickTrafficFunctions={ this.onClickTrafficFunctions }
               />
             </Route>
             <Route exact path='/sign_up'>
