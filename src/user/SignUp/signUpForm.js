@@ -24,7 +24,7 @@ const SignUpForm = (props) => {
         name='sign_up_form'
         className='sign_up_form'
       >
-        <ErrorContainer errors={props.errors}/>
+        <ErrorContainer errors={props.errors} />
           <div className='sign_up_div'>
             <label>Basics</label>
             <SignUpFormInput
