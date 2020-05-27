@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { Redirect } from 'react-router'
-
 import LogInFormContainer from './logInFormContainer'
 
 import authFunctions from '../../utility/authFunctions'
@@ -11,18 +9,16 @@ import './logIn.css'
 export default class LogIn extends React.Component {
 
   state = {
-    loggedIn: false,
-    cancel: false,
-    user_name: "",
-    password: "",
     errors: [],
+    user_name: "",
+    password: ""
   }
 
   componentDidMount(){ this.props.onPageLoadFunctions('log_in') }
 
   onChange = (event) => { this.setState({ [event.target.name]: event.target.value }) }
 
-  logInSubmitted = (event) => {
+  onSubmit = (event) => {
     event.preventDefault()
     event.persist()
     let logInObj = {
@@ -37,38 +33,27 @@ export default class LogIn extends React.Component {
         this.props.setToken(res_obj)
         this.props.updateLogin()
         this.props.onClickTrafficFunctions(event, res_obj.user_id)
-        this.setState({ loggedIn: true })
+        this.props.history.push('/dashboard')
       }
     })
   }
 
   onCancel = (event) => {
     this.props.onClickTrafficFunctions(event)
-    this.setState({ cancel: true })
+    this.props.history.push('/')
   }
 
   render(){
     return (
       <>
-        {
-          {
-            true: (() => {
-              switch(this.state.cancel) {
-                case true: return <Redirect to='/' />
-                case false: return <LogInFormContainer
-                                     onChange={this.onChange}
-                                     onCancel={this.onCancel}
-                                     logInSubmitted={this.logInSubmitted}
-                                     user_name={this.state.user_name}
-                                     password={this.state.password}
-                                     errors={this.state.errors}
-                                   />
-                default: return null;
-              }
-            })(),
-            false: <Redirect to='/' />
-          }[!(this.state.loggedIn)]
-        }
+        <LogInFormContainer
+          errors={this.state.errors}
+          user_name={this.state.user_name}
+          password={this.state.password}
+          onChange={this.onChange}
+          onSubmit={this.onSubmit}
+          onCancel={this.onCancel}
+        />
       </>
     )
   }
