@@ -272,11 +272,12 @@ export default class App extends React.Component {
             </Route>
             <Route exact path='/log_out'>
               <LogOut
-                logOut={ this.logOut }
                 token={ this.state.user.token }
                 user_id={ this.state.user.id }
                 user_name={ this.state.user.user_name }
                 access={ this.state.user.access }
+                history={this.props.history}
+                logOut={ this.logOut }
                 onPageLoadFunctions={ this.onPageLoadFunctions }
                 onClickTrafficFunctions={ this.onClickTrafficFunctions }
               />
