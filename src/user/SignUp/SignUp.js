@@ -2,6 +2,8 @@ import React from 'react'
 
 import { Link, Redirect } from 'react-router-dom'
 
+import ErrorContainer from 'error/errorContainer'
+
 import userFunctions from '../../utility/userFunctions'
 
 import authFunctions from '../../utility/authFunctions'
@@ -120,18 +122,6 @@ export default class SignUp extends React.Component {
   }
 
   render(){
-
-    const errors = (!!this.state.errors) ?
-      ( <div className="default_error_report" key={"sign_up_error_report"}>
-          { this.state.errors.map( error =>
-            <div className="default_error_item">
-              { error }
-            </div>
-          )}
-        </div> )
-      :
-      ( "" )
-
     return (
       <div className="default_wrapper" key={"sign_up_form"}>
         <div className="alt_header">
@@ -145,7 +135,7 @@ export default class SignUp extends React.Component {
               className="sign_up_form"
               onSubmit={ this.signUpSubmitted }
             >
-            { errors }
+              <ErrorContainer errors={ this.state.errors }/>
               <div className="sign_up_div">
                 <label htmlFor="sign_up_user_name">Username</label>
                 <br />

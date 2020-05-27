@@ -96,8 +96,6 @@ export default class App extends React.Component {
   }
 
   setToken = ({ token, user_id })  => {
-    console.log(token)
-    console.log(user_id)
 
     localStorage.user_id = user_id
     localStorage.token = token

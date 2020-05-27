@@ -1,5 +1,7 @@
 import React from 'react'
 
+import ErrorContainer from 'error/errorContainer'
+
 const LogInFormContainer = (props) => {
 
   const submitFunctions = (event) => { props.logInSubmitted(event) }
@@ -8,17 +10,17 @@ const LogInFormContainer = (props) => {
 
   const onCancelFunctions = (event) => { props.onCancel(event) }
 
-  let errors = []
+  // let errors = []
 
-  if(!!props.errors) {
-    errors = <div className="default_error_report" key={"log_in_error_report"}>
-      { props.errors.map( error =>
-        <div className="default_error_item" key={"log_in_error_item"}>
-          { error }
-        </div>
-      )}
-    </div>
-  }
+  // if(!!props.errors) {
+  //   errors = <div className="default_error_report" key={"log_in_error_report"}>
+  //     { props.errors.map( error =>
+  //       <div className="default_error_item" key={"log_in_error_item"}>
+  //         { error }
+  //       </div>
+  //     )}
+  //   </div>
+  // }
 
   return(
     <div className="default_wrapper">
@@ -31,7 +33,7 @@ const LogInFormContainer = (props) => {
         className="log_in_form"
         onSubmit={ submitFunctions }
       >
-        { errors }
+        <ErrorContainer errors={ props.errors }/>
         <div className="log_in_div">
           <label htmlFor="log_in_user_name">User Name</label>
           <br />
@@ -55,8 +57,8 @@ const LogInFormContainer = (props) => {
         </div>
         <div className="log_in_buttons_container">
           <input
-            className="alt_button"
             type="submit"
+            className="alt_button"
           />
           <input
             type="reset"

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Redirect } from 'react-router'
 
+import ErrorContainer from 'error/errorContainer'
+
 import userFunctions from '../../../utility/userFunctions'
 
 import './dashboardEditProfile.css'
@@ -118,29 +120,30 @@ export default class DashboardEditProfile extends React.Component {
 
   render(){
 
-    const errors = (!!this.state.errors) ?
-      ( <div className="default_error_report" key={"edit_profile_error_report"}>
-          { this.state.errors.map( error =>
-            <div className="default_error_item">
-              { error }
-            </div>
-          )}
-        </div> )
-    :
-      ( "" )
+    // const errors = (!!this.state.errors) ?
+    //   ( <div className="default_error_report" key={"edit_profile_error_report"}>
+    //       { this.state.errors.map( error =>
+    //         <div className="default_error_item">
+    //           { error }
+    //         </div>
+    //       )}
+    //     </div> )
+    // :
+    //   ( "" )
 
     const edit_form = !(this.state.updateSuccess) ?
     <div className="default_wrapper" key={"edit_profile_form"}>
       <div className="alt_header">
         <h3>Edit Profile</h3>
       </div>
-      { errors }
+      {/* { errors } */}
         <form
           name="edit_profile_form"
           interaction="submit"
           className="edit_form"
           onSubmit={ this.onSubmitEditProfileFunctions }
         >
+          <ErrorContainer errors={ this.state.errors }/>
           <div className="edit_div">
             <label htmlFor="edit_user_name">Username</label>
             <br />
