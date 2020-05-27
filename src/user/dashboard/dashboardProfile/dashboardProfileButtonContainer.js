@@ -2,9 +2,9 @@ import React from 'react'
 
 import DashboardProfileButton from './dashboardProfileButton'
 
-import './dashboardProfileButtonsContainer.css'
+import './dashboardProfileButtonContainer.css'
 
-const DashboardProfileButtonsContainer = (props) => {
+const DashboardProfileButtonContainer = (props) => {
   return(
     <>
       <div className='dashboard_profile_buttons_container'>
@@ -27,4 +27,4 @@ const DashboardProfileButtonsContainer = (props) => {
   )
 }
 
-export default DashboardProfileButtonsContainer
+export default DashboardProfileButtonContainer

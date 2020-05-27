@@ -45,16 +45,14 @@ export default class LogIn extends React.Component {
 
   render(){
     return (
-      <>
-        <LogInFormContainer
-          errors={this.state.errors}
-          user_name={this.state.user_name}
-          password={this.state.password}
-          onChange={this.onChange}
-          onSubmit={this.onSubmit}
-          onCancel={this.onCancel}
-        />
-      </>
+      <LogInFormContainer
+        errors={this.state.errors}
+        onChange={this.onChange}
+        onSubmit={this.onSubmit}
+        onCancel={this.onCancel}
+        user_name={this.state.user_name}
+        password={this.state.password}
+      />
     )
   }
 }

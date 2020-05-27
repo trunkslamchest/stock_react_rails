@@ -1,6 +1,6 @@
 import React from 'react'
 
-import DashboardDeleteProfileButtons from './dashboardDeleteProfileButtons'
+import DashboardDeleteProfileButtonContainer from './dashboardDeleteProfileButtonContainer'
 
 import userFunctions from '../../../utility/userFunctions'
 
@@ -26,7 +26,7 @@ export default class DashboardDeleteProfile extends React.Component {
         <div className="alt_header">
           <h3>Are you sure you want to delete your profile?</h3>
         </div>
-          <DashboardDeleteProfileButtons confirm={ this.onClickConfirm } cancel={ this.onClickCancel } />
+          <DashboardDeleteProfileButtonContainer confirm={ this.onClickConfirm } cancel={ this.onClickCancel } />
       </div>
     )
   }

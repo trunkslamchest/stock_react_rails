@@ -2,7 +2,7 @@ import React from 'react'
 
 import LogInFormButton from './logInFormButton'
 
-const LogInFormButtons = (props) => {
+const LogInFormButtonContainer = (props) => {
   return(
     <div className="log_in_buttons_container">
       <LogInFormButton
@@ -23,4 +23,4 @@ const LogInFormButtons = (props) => {
   )
 }
 
-export default LogInFormButtons
+export default LogInFormButtonContainer

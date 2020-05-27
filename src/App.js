@@ -255,6 +255,7 @@ export default class App extends React.Component {
               <SignUp
                 setToken={ this.setToken }
                 updateLogin={ this.updateLogin }
+                history={this.props.history}
                 onPageLoadFunctions={ this.onPageLoadFunctions }
                 onClickTrafficFunctions={ this.onClickTrafficFunctions }
               />

@@ -2,9 +2,9 @@ import React from 'react'
 
 import DashboardDeleteProfileButton from './dashboardDeleteProfileButton'
 
-import './dashboardDeleteProfileButtons.css'
+import './dashboardDeleteProfileButtonContainer.css'
 
-export default class DashboardDeleteProfileButtons extends React.Component {
+export default class DashboardDeleteProfileButtonContainer extends React.Component {
 
   state = {
     hoverConfirm: false,

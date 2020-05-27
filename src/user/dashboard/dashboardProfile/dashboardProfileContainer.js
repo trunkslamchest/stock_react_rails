@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-import DashboardProfileButtonsContainer from './dashboardProfileButtonsContainer'
+import DashboardProfileButtonContainer from './dashboardProfileButtonContainer'
 
 import './dashboardProfileContainer.css'
 
@@ -57,7 +57,7 @@ const DashboardProfileContainer = (props) => {
             <li>Join Date</li>
             <li>{ props.user.join_month } { formatDate(props.user.join_day) }, { props.user.join_year }</li>
           </ul>
-            <DashboardProfileButtonsContainer onClickTrafficFunctions={props.onClickTrafficFunctions} />
+            <DashboardProfileButtonContainer onClickTrafficFunctions={props.onClickTrafficFunctions} />
         </div>
       </div>
     </>
