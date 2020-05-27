@@ -25,7 +25,6 @@ export default class LogIn extends React.Component {
   logInSubmitted = (event) => {
     event.preventDefault()
     event.persist()
-
     let logInObj = {
       user_name: this.state.user_name,
       password: this.state.password
@@ -35,9 +34,9 @@ export default class LogIn extends React.Component {
     .then(res_obj => {
       if (res_obj.errors) this.setState({ errors: res_obj.errors })
       else {
-        this.props.onClickTrafficFunctions(event)
         this.props.setToken(res_obj)
         this.props.updateLogin()
+        this.props.onClickTrafficFunctions(event, res_obj.user_id)
         this.setState({ loggedIn: true })
       }
     })

@@ -212,9 +212,9 @@ export default class App extends React.Component {
     trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
   }
 
-  onClickTrafficFunctions = (event) => {
+  onClickTrafficFunctions = (event, user) => {
     let elementInfo = {
-      user_id: this.state.user.id,
+      user_id: this.state.user.id || user,
       interaction: event.target.attributes.interaction.value,
       element: event.target.name
     }
