@@ -1,18 +1,18 @@
 import React from 'react'
 
-import Header from './UI/header/Header'
+import Header from './UI/header/header'
 import Home from './index/Home'
-import Footer from './UI/footer/Footer'
+import Footer from './UI/footer/footer'
 
-import LogIn from './user/LogIn/LogIn'
-import LogOut from './user/LogOut/LogOut'
-import SignUp from './user/SignUp/SignUp'
+import LogIn from './user/logIn/logIn'
+import LogOut from './user/logOut/logOut'
+import SignUp from './user/signUp/signUp'
 
 import DashboardContainer from './user/dashboard/dashboardContainer'
 
-import TermsOfService from './docs/TermsOfService'
-import Privacy from './docs/Privacy'
-import Disclaimer from './docs/Disclaimer'
+import TermsOfService from './docs/termsOfService'
+import Privacy from './docs/privacy'
+import Disclaimer from './docs/disclaimer'
 
 import Backroom from './admin/Backroom'
 

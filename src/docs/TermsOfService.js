@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-import './Docs.css'
+import './docs.css'
 
 const TermsOfService = (props) => {
 

@@ -2,7 +2,7 @@ import React from 'react'
 
 import HeaderButton from '../headerButton'
 
-import '../Header.css'
+import '../header.css'
 import '../headerButton.css'
 
 const NormalHeader = (props) => {

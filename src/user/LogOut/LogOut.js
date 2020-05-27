@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Redirect } from 'react-router'
 
-import './LogOut.css'
+import './logOut.css'
 
 export default class LogOut extends React.Component {
 

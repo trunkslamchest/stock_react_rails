@@ -2,11 +2,11 @@ import React from 'react'
 
 import { Redirect } from 'react-router'
 
-import LogInForm from './LogInForm'
+import LogInFormContainer from './logInFormContainer'
 
 import authFunctions from '../../utility/authFunctions'
 
-import './LogIn.css'
+import './logIn.css'
 
 export default class LogIn extends React.Component {
 
@@ -43,7 +43,7 @@ export default class LogIn extends React.Component {
     })
   }
 
-  onCancelFunctions = (event) => {
+  onCancel = (event) => {
     this.props.onClickTrafficFunctions(event)
     this.setState({ cancel: true })
   }
@@ -56,9 +56,9 @@ export default class LogIn extends React.Component {
             true: (() => {
               switch(this.state.cancel) {
                 case true: return <Redirect to='/' />
-                case false: return <LogInForm
+                case false: return <LogInFormContainer
                                      onChange={this.onChange}
-                                     onCancelFunctions={this.onCancelFunctions}
+                                     onCancel={this.onCancel}
                                      logInSubmitted={this.logInSubmitted}
                                      user_name={this.state.user_name}
                                      password={this.state.password}

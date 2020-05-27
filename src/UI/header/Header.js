@@ -8,7 +8,7 @@ import HeaderButton from './headerButton'
 
 import trafficFunctions from '../../utility/trafficFunctions'
 
-import './Header.css'
+import './header.css'
 
 const Header = (props) => {
 

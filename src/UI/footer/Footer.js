@@ -6,7 +6,7 @@ import FooterFinePrint from './footerFinePrint'
 
 import trafficFunctions from '../../utility/trafficFunctions'
 
-import './Footer.css'
+import './footer.css'
 
 const Footer = (props) => {
 

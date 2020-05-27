@@ -6,7 +6,7 @@ import userFunctions from '../../utility/userFunctions'
 
 import authFunctions from '../../utility/authFunctions'
 
-import './SignUp.css'
+import './signUp.css'
 
 export default class SignUp extends React.Component {
 
