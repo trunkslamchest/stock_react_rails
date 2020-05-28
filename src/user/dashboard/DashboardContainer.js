@@ -32,27 +32,29 @@ export default class Dashboard extends React.Component{
       </Route>
       <Route exact path='/dashboard/profile'>
         <DashboardProfileContainer
-          user={this.props.user}
-          onPageLoadFunctions={this.props.onPageLoadFunctions}
           onClickTrafficFunctions={this.props.onClickTrafficFunctions}
+          onPageLoadFunctions={this.props.onPageLoadFunctions}
+          user={this.props.user}
         />
       </Route>
       <Route path='/dashboard/profile/edit'>
         <DashboardEditProfile
+          history={this.props.history}
+          onClickTrafficFunctions={this.props.onClickTrafficFunctions}
+          onPageLoadFunctions={this.props.onPageLoadFunctions}
           setUser={this.props.setUser}
           user={this.props.user}
-          onPageLoadFunctions={this.props.onPageLoadFunctions}
-          onClickTrafficFunctions={this.props.onClickTrafficFunctions}
         />
       </Route>
       <Route path='/dashboard/profile/delete'>
         <DashboardDeleteProfile
-          setToken={this.props.setToken}
-          user_id={this.props.user.id}
           access={this.props.user.access}
+          history={this.props.history}
           logOut={this.props.logOut}
-          onPageLoadFunctions={this.props.onPageLoadFunctions}
           onClickTrafficFunctions={this.props.onClickTrafficFunctions}
+          onPageLoadFunctions={this.props.onPageLoadFunctions}
+          user_id={this.props.user.id}
+          setToken={this.props.setToken}
         />
       </Route>
     <Route path='/dashboard/test'>

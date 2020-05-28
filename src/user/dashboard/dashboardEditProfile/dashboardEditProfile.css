@@ -2,7 +2,7 @@ select:not(:-internal-list-box) {
   overflow: hidden !important;
 }
 
-.edit_form {
+.edit_profile_form {
   width: 100%;
   text-align: center;
   margin: 0 auto 0px auto;
@@ -11,7 +11,7 @@ select:not(:-internal-list-box) {
   animation: fade_in .25s ease-in-out 1, blur_in .25s ease-in-out 1, slide_in_from_bottom.25s ease-in-out 1;
 }
 
-.edit_form label {
+.edit_profile_form label {
   animation: fade_in .4s ease-in-out 1, blur_in .2s ease-in-out 1;
 }
 

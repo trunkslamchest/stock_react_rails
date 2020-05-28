@@ -226,60 +226,61 @@ export default class App extends React.Component {
     return (
       <>
         <Header
-          user_token={this.state.user.token}
+          logOut={this.logOut}
+          user_access={this.state.user.access}
           user_id={this.state.user.id}
           user_name={this.state.user.user_name}
-          user_access={this.state.user.access}
-          logOut={this.logOut}
+          user_token={this.state.user.token}
         />
 
         <div className='main_container'>
           <Switch>
             <Route exact path='/'>
               <Home
-                user_id={this.state.user.id}
                 onPageLoadFunctions={this.onPageLoadFunctions}
                 onClickTrafficFunctions={this.onClickTrafficFunctions}
+                user_id={this.state.user.id}
               />
             </Route>
             <Route exact path='/log_in'>
               <LogIn
-                setToken={this.setToken}
-                updateLogin={this.updateLogin}
                 history={this.props.history}
                 onPageLoadFunctions={this.onPageLoadFunctions}
                 onClickTrafficFunctions={this.onClickTrafficFunctions}
+                setToken={this.setToken}
+                updateLogin={this.updateLogin}
               />
             </Route>
             <Route exact path='/sign_up'>
               <SignUp
-                setToken={this.setToken}
-                updateLogin={this.updateLogin}
                 history={this.props.history}
                 onPageLoadFunctions={this.onPageLoadFunctions}
                 onClickTrafficFunctions={this.onClickTrafficFunctions}
+                setToken={this.setToken}
+                updateLogin={this.updateLogin}
               />
             </Route>
             <Route path='/dashboard'>
               <DashboardContainer
-                user={this.state.user}
-                setToken={this.setToken}
-                setUser={this.setUser}
+                history={this.props.history}
                 logOut={this.logOut}
                 onPageLoadFunctions={this.onPageLoadFunctions}
                 onClickTrafficFunctions={this.onClickTrafficFunctions}
+                setToken={this.setToken}
+                setUser={this.setUser}
+                user={this.state.user}
               />
             </Route>
             <Route exact path='/log_out'>
               <LogOut
-                token={this.state.user.token}
-                user_id={this.state.user.id}
-                user_name={this.state.user.user_name}
                 access={this.state.user.access}
                 history={this.props.history}
                 logOut={this.logOut}
                 onPageLoadFunctions={this.onPageLoadFunctions}
                 onClickTrafficFunctions={this.onClickTrafficFunctions}
+                token={this.state.user.token}
+                user_id={this.state.user.id}
+                user_name={this.state.user.user_name}
               />
             </Route>
             <Route exact path='/terms_of_service'>
@@ -299,9 +300,9 @@ export default class App extends React.Component {
             </Route>
             <Route path='/backroom'>
               <Backroom
+                access={this.state.user.access}
                 token={this.state.user.token}
                 user_name={this.state.user.user_name}
-                access={this.state.user.access}
               />
             </Route>
             <Route>

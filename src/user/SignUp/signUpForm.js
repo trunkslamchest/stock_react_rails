@@ -87,7 +87,6 @@ const SignUpForm = (props) => {
               type='number'
               id='sign_up_birth_day'
               name='sign_up_birth_day'
-              placeholder='Day'
               min='1'
               max='31'
               onChange={props.onChange}
@@ -105,7 +104,6 @@ const SignUpForm = (props) => {
               type='number'
               id='sign_up_birth_year'
               name='sign_up_birth_year'
-              placeholder='Year'
               min='1900'
               max='2020'
               onChange={props.onChange}
@@ -118,7 +116,6 @@ const SignUpForm = (props) => {
               type='number'
               id='sign_up_house_number'
               name='sign_up_house_number'
-              placeholder='Apt./House Number'
               min='1'
               max='9999'
               onChange={props.onChange}
@@ -152,7 +149,6 @@ const SignUpForm = (props) => {
               type='number'
               id='sign_up_zip_code'
               name='sign_up_zip_code'
-              placeholder='Zip Code'
               min='10000'
               max='99999'
               onChange={props.onChange}
