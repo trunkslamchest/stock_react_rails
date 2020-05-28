@@ -2,6 +2,17 @@ select:not(:-internal-list-box) {
   overflow: hidden !important;
 }
 
+.login_wrapper {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  /* margin: 0px auto 0px auto; */
+  padding: 0px 0px 0px 0px;
+  border: 1px solid rgb(200, 200, 200, 1);
+  box-sizing: border-box;
+}
+
 .log_in_form {
   width: 100%;
   text-align: center;

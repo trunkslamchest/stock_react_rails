@@ -4,6 +4,8 @@ import Header from './UI/header/header'
 import Home from './index/Home'
 import Footer from './UI/footer/footer'
 
+import LogIn from './user/logIn/logIn'
+import SignUp from './user/signUp/signUp'
 import LogOut from './user/logOut/logOut'
 
 import DashboardContainer from './user/dashboard/dashboardContainer'
@@ -13,6 +15,8 @@ import Privacy from './docs/privacy'
 import Disclaimer from './docs/disclaimer'
 
 import Backroom from './admin/Backroom'
+
+import Modal from 'UI/modal/modal'
 
 import E404 from './error/E404'
 
@@ -60,7 +64,8 @@ export default class App extends React.Component {
       join_year: null,
     },
     showLogInModal: false,
-    showSignUpModal: false
+    showSignUpModal: false,
+    showLogOutModal: false
   }
 
   componentDidMount(){
@@ -213,6 +218,11 @@ export default class App extends React.Component {
     this.setState({showSignUpModal: switchModal})
   }
 
+  showLogOutModal = () => {
+    let switchModal = !this.state.showLogOutModal
+    this.setState({showLogOutModal: switchModal})
+  }
+
   onPageLoadFunctions = ( page ) => {
     let pageInfo = {
       user_id: localStorage.user_id,
@@ -238,19 +248,69 @@ export default class App extends React.Component {
   }
 
   render(){
+
+  const logInModal =
+    <Modal
+      showModal={ this.state.showLogInModal }
+    >
+      <LogIn
+        history={this.props.history}
+        onClickTrafficFunctions={this.onClickTrafficFunctions}
+        setToken={this.setToken}
+        showLogInModal={this.showLogInModal}
+        updateLogin={this.updateLogin}
+      />
+    </Modal>
+
+  const signUpModal =
+    <Modal
+      showModal={ this.state.showSignUpModal }
+    >
+      <SignUp
+        history={this.props.history}
+        onClickTrafficFunctions={this.onClickTrafficFunctions}
+        setToken={this.setToken}
+        showSignUpModal={this.showSignUpModal}
+        updateLogin={this.updateLogin}
+      />
+    </Modal>
+
+  const logOutModal =
+    <Modal
+      showModal={ this.state.showLogOutModal }
+    >
+    <LogOut
+        access={this.state.user.access}
+        history={this.props.history}
+        logOut={this.logOut}
+        onPageLoadFunctions={this.onPageLoadFunctions}
+        onClickTrafficFunctions={this.onClickTrafficFunctions}
+        showLogOutModal={this.showLogOutModal}
+        token={this.state.user.token}
+        user_id={this.state.user.id}
+        user_name={this.state.user.user_name}
+      />
+    </Modal>
+
     return (
       <>
         <Header
           logOut={this.logOut}
           showLogInModal={this.showLogInModal}
           showSignUpModal={this.showSignUpModal}
+          showLogOutModal={this.showLogOutModal}
+          showModal={this.showModal}
           user_access={this.state.user.access}
           user_id={this.state.user.id}
           user_name={this.state.user.user_name}
           user_token={this.state.user.token}
         />
 
+
         <div className='main_container'>
+          {this.state.showLogInModal ? logInModal : null }
+          {this.state.showSignUpModal ? signUpModal : null }
+          {this.state.showLogOutModal ? logOutModal : null }
           <Switch>
             <Route exact path='/'>
               <Home
@@ -260,10 +320,9 @@ export default class App extends React.Component {
                 setToken={this.setToken}
                 user_id={this.state.user.id}
                 updateLogin={this.updateLogin}
-                logInModal={this.state.showLogInModal}
                 showLogInModal={this.showLogInModal}
-                signUpModal={this.state.showSignUpModal}
                 showSignUpModal={this.showSignUpModal}
+                showModal={this.showModal}
               />
             </Route>
             <Route path='/dashboard'>
@@ -275,18 +334,6 @@ export default class App extends React.Component {
                 setToken={this.setToken}
                 setUser={this.setUser}
                 user={this.state.user}
-              />
-            </Route>
-            <Route exact path='/log_out'>
-              <LogOut
-                access={this.state.user.access}
-                history={this.props.history}
-                logOut={this.logOut}
-                onPageLoadFunctions={this.onPageLoadFunctions}
-                onClickTrafficFunctions={this.onClickTrafficFunctions}
-                token={this.state.user.token}
-                user_id={this.state.user.id}
-                user_name={this.state.user.user_name}
               />
             </Route>
             <Route exact path='/terms_of_service'>

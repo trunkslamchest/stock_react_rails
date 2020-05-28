@@ -2,10 +2,18 @@ import React from 'react'
 
 import HeaderButton from '../headerButton'
 
+import HeaderButton2 from '../headerButton2'
+
 import '../header.css'
 import '../headerButton.css'
+import '../headerButton2.css'
 
 const NormalHeader = (props) => {
+
+  const showLogOutModal = () => {
+    props.showLogOutModal()
+  }
+
   return(
     <>
       <span
@@ -20,13 +28,12 @@ const NormalHeader = (props) => {
         >
           Dashboard
         </HeaderButton>
-        <HeaderButton
-          link='/log_out'
-          name='header_log_out_button'
-          onClick={props.onClickTrafficFunctions}
+        <HeaderButton2
+          name='log_out_button'
+          onClick={showLogOutModal}
         >
           Log Out
-        </HeaderButton>
+        </HeaderButton2>
       </div>
     </>
   )

@@ -144,14 +144,16 @@
 
 @keyframes modal_slide_in_from_top {
   0% {
-    /* filter: blur(2.5px); */
+    left: 50%;
     opacity: 0;
-    transform: translateY(-250px);
+    top:-100%;
+    transform: translateX(-50%);
   }
   100% {
-    /* filter: blur(0px); */
+    left: 50%;
     opacity: 1;
-    transform: translateY(0px);
+    top: 5%;
+    transform: translateX(-50%);
   }
 }
 

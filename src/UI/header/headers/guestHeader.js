@@ -2,8 +2,7 @@ import React from 'react'
 
 import HeaderButton2 from '../headerButton2'
 
-import '../header.css'
-import '../headerButton.css'
+import '../headerButton2.css'
 
 const GuestHeader = (props) => {
 

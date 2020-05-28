@@ -4,30 +4,31 @@ import Backdrop from '../backdrop/backdrop'
 
 import './modal.css'
 
-export default class Modal extends React.Component {
-  render() {
-    const modal =
-      <>
-        <Backdrop
-          showModal={this.props.showModal}
-        />
-        <div className={this.props.showModal ? 'show_modal_wrapper' : 'hide_modal_wrapper'}>
-          {/* <div
-                className='modal_wrapper'
-              style={{
-                transform: this.props.showLogInModal ? 'translateY(0)' : 'translateY(-100vh)',
-                  opacity: this.props.showLogInModal ? '1': '0'
-                }}
-            > */}
-          {this.props.children}
-        </div>
-      </>
+const Modal = (props) => {
 
-    return(
-      <>
-        {/* { modal } */}
-        { this.props.showModal ? modal : null }
-      </>
-    )
-  }
+  const modal =
+    <>
+      <Backdrop
+        showModal={props.showModal}
+      />
+      <div className='modal_wrapper'>
+        {/* <div
+              className='modal_wrapper'
+            style={{
+              transform: this.props.showLogInModal ? 'translateY(0)' : 'translateY(-100vh)',
+                opacity: this.props.showLogInModal ? '1': '0'
+              }}
+          > */}
+        {props.children}
+      </div>
+    </>
+
+  return(
+    <>
+      {/* { modal } */}
+      { props.showModal ? modal : null }
+    </>
+  )
 }
+
+export default Modal

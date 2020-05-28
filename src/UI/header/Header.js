@@ -24,8 +24,6 @@ const Header = (props) => {
     trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
   }
 
-  const blank = <></>
-
   const home_link =
     <HeaderButton
       link='/'
@@ -38,21 +36,27 @@ const Header = (props) => {
   return(
     <div className='header'>
       <div className='header_left'>
-        {!!props.user_token ? home_link : blank}
+        {!!props.user_token ? home_link : null}
       </div>
       <div className='header_right'>
         {
           {
             false: <GuestHeader
                       onClickTrafficFunctions={onClickTrafficFunctions}
+                      showModal={props.showModal}
                       showLogInModal={props.showLogInModal}
                       showSignUpModal={props.showSignUpModal}
                     />,
             true: (() => {
               switch(localStorage.access) {
-                case 'normal': return <NormalHeader user_name={props.user_name} onClickTrafficFunctions={onClickTrafficFunctions} />;
+                case 'normal': return <NormalHeader
+                                        user_name={props.user_name}
+                                        showModal={props.showModal}
+                                        showLogOutModal={props.showLogOutModal}
+                                        onClickTrafficFunctions={onClickTrafficFunctions}
+                                      />;
                 case 'admin': return <AdminHeader user_name={props.user_name} onClickTrafficFunctions={onClickTrafficFunctions} />;
-                default: return blank;
+                default: return null;
               }
             })()
           }[!!props.user_token]

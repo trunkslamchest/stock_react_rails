@@ -2,38 +2,47 @@ import React from 'react'
 
 import LogOutButton from './logOutButton'
 
-const LogOutButtonContainer = (props) => {
-  return(
-    <div className='default_wrapper'>
-      <div className='alt_header'>
-        <h3>Are you sure you want to log out?</h3>
-      </div>
+export default class LogOutButtonContainer extends React.Component {
+
+  state={
+    hoverConfirm: false,
+    hoverCancel: false
+  }
+
+  onHoverConfirm = () => {this.setState({ hoverConfirm: true })}
+
+  offHoverConfirm = () => {this.setState({ hoverConfirm: false })}
+
+  onHoverCancel = () => {this.setState({ hoverCancel: true })}
+
+  offHoverCancel = () => {this.setState({ hoverCancel: false })}
+
+  render(){
+    return(
       <div className='default_centered_buttons_container'>
         <LogOutButton
           id='log_out_form_confirm'
           name='log_out_form_confirm'
           className='confirm_button'
           interaction='confirm'
-          onClick={props.onClickConfirm}
-          onMouseEnter={props.onHoverConfirm}
-          onMouseLeave={props.offHoverConfirm}
+          onClick={this.props.onConfirm}
+          onMouseEnter={this.onHoverConfirm}
+          onMouseLeave={this.offHoverConfirm}
         >
-          {props.hoverConfirm ? '✔' : 'Yes'}
+          {this.state.hoverConfirm ? '✔' : 'Yes'}
         </LogOutButton>
         <LogOutButton
           id='log_out_form_cancel'
           name='log_out_form_cancel'
           className='cancel_button'
           interaction='cancel'
-          onClick={props.onClickCancel}
-          onMouseEnter={props.onHoverCancel}
-          onMouseLeave={props.offHoverCancel}
+          onClick={this.props.onCancel}
+          onMouseEnter={this.onHoverCancel}
+          onMouseLeave={this.offHoverCancel}
         >
-          {props.hoverCancel ? '✘' : 'No'}
+          {this.state.hoverCancel ? '✘' : 'No'}
         </LogOutButton>
       </div>
-    </div>
-  )
+    )
+  }
 }
-
-export default LogOutButtonContainer

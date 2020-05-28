@@ -21,27 +21,33 @@ export default class LogOut extends React.Component {
 
   offHoverCancel = () => {this.setState({ hoverCancel: false })}
 
-  onClickConfirm = (event) => {
+  onConfirm = (event) => {
     this.props.onClickTrafficFunctions(event)
+    this.props.showLogOutModal()
     this.props.logOut(this.props.token)
     this.props.history.push('/')
   }
 
-  onClickCancel = (event) => {
+  onCancel = (event) => {
     this.props.onClickTrafficFunctions(event)
-    this.props.history.push('/dashboard')
+    this.props.showLogOutModal()
   }
 
   render(){
     return(
-      <LogOutButtonContainer
-        onHoverConfirm={this.onHoverConfirm}
-        offHoverConfirm={this.offHoverConfirm}
-        onHoverCancel={this.onHoverCancel}
-        offHoverCancel={this.offHoverCancel}
-        onClickConfirm={this.onClickConfirm}
-        onClickCancel={this.onClickCancel}
-      />
+      <>
+        <div className='alt_header'>
+          <h3>Are you sure you want to log out?</h3>
+        </div>
+        <LogOutButtonContainer
+          onHoverConfirm={this.onHoverConfirm}
+          offHoverConfirm={this.offHoverConfirm}
+          onHoverCancel={this.onHoverCancel}
+          offHoverCancel={this.offHoverCancel}
+          onConfirm={this.onConfirm}
+          onCancel={this.onCancel}
+        />
+      </>
     )
   }
 }

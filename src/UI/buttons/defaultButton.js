@@ -7,7 +7,6 @@ const DefaultButton = (props) => {
     <button
       id={props.id}
       name={props.name}
-      // interaction='click'
       className='def_button'
       onClick={props.onClick}
     >
