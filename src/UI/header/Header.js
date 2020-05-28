@@ -28,26 +28,26 @@ const Header = (props) => {
 
   const home_link =
     <HeaderButton
-      link="/"
-      name="header_home_button"
-      onClick={ onClickHomeFunctions }
+      link='/'
+      name='header_home_button'
+      onClick={onClickHomeFunctions}
     >
       Home
     </HeaderButton>
 
   return(
-    <div className="header">
-      <div className="header_left">
-        { !!props.user_token ? home_link : blank }
+    <div className='header'>
+      <div className='header_left'>
+        {!!props.user_token ? home_link : blank}
       </div>
-      <div className="header_right">
+      <div className='header_right'>
         {
           {
-            false: <GuestHeader onClickTrafficFunctions={ onClickTrafficFunctions } />,
+            false: <GuestHeader onClickTrafficFunctions={onClickTrafficFunctions} />,
             true: (() => {
               switch(localStorage.access) {
-                case 'normal': return <NormalHeader user_name={props.user_name} onClickTrafficFunctions={ onClickTrafficFunctions } />;
-                case 'admin': return <AdminHeader user_name={props.user_name} onClickTrafficFunctions={ onClickTrafficFunctions } />;
+                case 'normal': return <NormalHeader user_name={props.user_name} onClickTrafficFunctions={onClickTrafficFunctions} />;
+                case 'admin': return <AdminHeader user_name={props.user_name} onClickTrafficFunctions={onClickTrafficFunctions} />;
                 default: return blank;
               }
             })()

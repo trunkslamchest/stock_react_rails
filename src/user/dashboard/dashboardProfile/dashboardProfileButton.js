@@ -10,9 +10,9 @@ const dashboardProfileButton = (props) => {
     <NavLink
       exact to={props.link}
       name={props.name}
-      interaction="click"
+      interaction='click'
       className={'alt_button'}
-      onClick={ props.onClick }
+      onClick={props.onClick}
     >
       {props.children}
     </NavLink>

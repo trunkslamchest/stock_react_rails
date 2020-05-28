@@ -8,16 +8,16 @@ import './RTV.css'
 
 export default class RTVpagesContainer extends React.Component{
 
-  state = { RTV_page_data: [] }
+  state = {RTV_page_data: []}
 
-  componentDidMount(){ this.RTVinterval = setInterval(this.updateRTVpages, 1000) }
+  componentDidMount(){this.RTVinterval = setInterval(this.updateRTVpages, 1000)}
 
   updateRTVpages = () => {
     trafficFunctions('get', 'http://localhost:3001/pages')
-    .then(res_obj => this.setState({ RTV_page_data: res_obj.data }) )
+    .then(res_obj => this.setState({ RTV_page_data: res_obj.data }))
   }
 
-  componentWillUnmount(){ clearInterval(this.RTVinterval) }
+  componentWillUnmount(){clearInterval(this.RTVinterval)}
 
   render(){
     return(

@@ -13,9 +13,9 @@ const DBeditUsersInfo = (props) => {
   const editUserURL = '/backroom/DBedit/users/' + user.id + '/edit'
   const deleteUserURL = '/backroom/DBedit/users/' + user.id + '/delete'
 
-  const editUserFunctions = () => { history.push(editUserURL) }
+  const editUserFunctions = () => {history.push(editUserURL)}
 
-  const deleteUserFunctions = () => { history.push(deleteUserURL) }
+  const deleteUserFunctions = () => {history.push(deleteUserURL)}
 
   const user_info =
     <ul>
@@ -44,31 +44,31 @@ const DBeditUsersInfo = (props) => {
     </ul>
 
   const buttons = [
-      <AltButton
-        link={ editUserURL }
-        key={"DBe_edit_user"}
-        name="DBedit_edit_user_button"
-        onClick={ editUserFunctions }
-      >
-        Edit User
-      </AltButton>,
-      <AltButton
-        link={ deleteUserURL }
-        key={"DBe_delete_user"}
-        name="DBedit_delete_user_button"
-        onClick={ deleteUserFunctions }
-      >
-        Delete User
-      </AltButton>
+    <AltButton
+      link={editUserURL}
+      key={'DBe_edit_user'}
+      name='DBedit_edit_user_button'
+      onClick={editUserFunctions}
+    >
+      Edit User
+    </AltButton>,
+    <AltButton
+      link={deleteUserURL}
+      key={'DBe_delete_user'}
+      name='DBedit_delete_user_button'
+      onClick={deleteUserFunctions}
+    >
+      Delete User
+    </AltButton>
   ]
 
   return(
-    <div className="DBedit_default_wrapper">
+    <div className='DBedit_default_wrapper'>
       <h3>User Info</h3>
-        { user_info }
+        {user_info}
       <hr />
-      <div className="DBedit_default_buttons_container">
-        { buttons }
+      <div className='DBedit_default_buttons_container'>
+        {buttons}
       </div>
     </div>
   )

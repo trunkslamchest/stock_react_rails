@@ -6,8 +6,8 @@ const SignUpFormButton = (props) => {
       type={props.type}
       id={props.id}
       name={props.name}
-      className="alt_button"
-      interaction="click"
+      className='alt_button'
+      interaction='click'
       onClick={props.onClick}
       value={props.value}
     />

@@ -16,7 +16,7 @@ export default class STanalyticsIndex extends React.Component{
   render(){
     return(
       <>
-        <table className="STAT_table">
+        <table className='STAT_table'>
           <tbody>
             <tr>
               <th>Column1</th>

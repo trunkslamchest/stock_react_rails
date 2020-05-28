@@ -8,23 +8,23 @@ const FooterLinks = (props) => {
   return(
     <div className='footer_links'>
       <FooterLink
-        link="/terms_of_service"
-        name="footer_tos_button"
-        onClick={ props.onClickUpdateTrafficFunctions }
+        link='/terms_of_service'
+        name='footer_tos_button'
+        onClick={props.onClickUpdateTrafficFunctions}
       >
         Terms Of Service
       </FooterLink>
       <FooterLink
-        link="/privacy"
-        name="footer_privacy_button"
-        onClick={ props.onClickUpdateTrafficFunctions }
+        link='/privacy'
+        name='footer_privacy_button'
+        onClick={props.onClickUpdateTrafficFunctions}
       >
         Privacy
       </FooterLink>
       <FooterLink
-        link="/disclaimer"
-        name="footer_disclaimer_button"
-        onClick={ props.onClickUpdateTrafficFunctions }
+        link='/disclaimer'
+        name='footer_disclaimer_button'
+        onClick={props.onClickUpdateTrafficFunctions}
       >
         Disclaimer
       </FooterLink>

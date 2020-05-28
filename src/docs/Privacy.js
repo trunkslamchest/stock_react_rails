@@ -4,12 +4,12 @@ import './docs.css'
 
 const Privacy = (props) => {
 
-  const { onPageLoadFunctions } = props
+  const {onPageLoadFunctions} = props
 
   useEffect(() => {onPageLoadFunctions('privacy')}, [onPageLoadFunctions])
 
   return(
-    <div className="terms_wrapper">
+    <div className='terms_wrapper'>
       <h1>PRIVACY POLICY</h1>
 
       <span>Last updated Last updated December 28, 2019</span>
@@ -30,7 +30,7 @@ const Privacy = (props) => {
       </p>
       <p>
       This privacy policy applies to all information collected through our and/or any related services, sales, marketing or 
-      events (we refer to them collectively in this privacy policy as the "Services"). 
+      events (we refer to them collectively in this privacy policy as the 'Services'). 
       </p>
       <p>
       Please read this privacy policy carefully as it will help you make informed decisions about sharing your personal information with us. 
@@ -51,7 +51,7 @@ const Privacy = (props) => {
       <h3>Social Media Login Data</h3>
       <p>
       We provide you with the option to register using social media account details. 
-      If you choose to register in this way, we will collect the Information described in the section called "HOW DO WE HANDLE YOUR SOCIAL LOGINS" below.
+      If you choose to register in this way, we will collect the Information described in the section called 'HOW DO WE HANDLE YOUR SOCIAL LOGINS' below.
       All personal information that you provide to us must be true, complete and accurate, and you must notify us of any changes to such personal information. 
       </p>
 
@@ -167,7 +167,7 @@ const Privacy = (props) => {
       <p>
       Our servers are located on Mars. If you are accessing our from outside, 
       please be aware that your information may be transferred to, stored, and processed by us in our facilities 
-      and by those third parties with whom we may share your personal information (see "WILL YOUR INFORMATION BE SHARED WITH ANYONE?" above), 
+      and by those third parties with whom we may share your personal information (see 'WILL YOUR INFORMATION BE SHARED WITH ANYONE?' above), 
       on other planets.
       </p>
       <p>
@@ -287,7 +287,6 @@ const Privacy = (props) => {
       </p>
     </div>
   )
-
 }
 
 export default Privacy

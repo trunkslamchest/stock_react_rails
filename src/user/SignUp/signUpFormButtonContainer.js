@@ -23,8 +23,8 @@ const SignUpFormButtonContainer = (props) => {
       </SignUpFormButton>
       <SignUpFormButton
         type='button'
-        id="sign_up_form_cancel"
-        name="sign_up_form_cancel"
+        id='sign_up_form_cancel'
+        name='sign_up_form_cancel'
         onClick={props.onCancel}
         value='Cancel'
       />

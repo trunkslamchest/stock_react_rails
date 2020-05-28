@@ -12,36 +12,36 @@ export default class SignUp extends React.Component {
   state = {
     errors: [],
     TOSagreement: false,
-    sign_up_user_name: "",
-    sign_up_password: "",
-    sign_up_email: "",
-    sign_up_first_name: "",
-    sign_up_last_name: "",
-    sign_up_gender: "",
-    sign_up_birth_day: "",
-    sign_up_birth_month: "",
-    sign_up_birth_year: "",
-    sign_up_house_number: "",
-    sign_up_street_name: "",
-    sign_up_city_town: "",
-    sign_up_state: "",
-    sign_up_zip_code: ""
+    sign_up_user_name: '',
+    sign_up_password: '',
+    sign_up_email: '',
+    sign_up_first_name: '',
+    sign_up_last_name: '',
+    sign_up_gender: '',
+    sign_up_birth_day: '',
+    sign_up_birth_month: '',
+    sign_up_birth_year: '',
+    sign_up_house_number: '',
+    sign_up_street_name: '',
+    sign_up_city_town: '',
+    sign_up_state: '',
+    sign_up_zip_code: ''
   }
 
-  componentDidMount(){ this.props.onPageLoadFunctions('sign_up') }
+  componentDidMount(){this.props.onPageLoadFunctions('sign_up')}
 
-  onChange = (event) => { this.setState({ [event.target.name]: event.target.value }) }
+  onChange = (event) => {this.setState({[event.target.name]: event.target.value})}
 
   onChecked = (event) => {
     let flipChecked = !event.target.checked
-    this.setState({ TOSagreement: !flipChecked })
+    this.setState({TOSagreement: !flipChecked})
   }
 
   onSubmit = (event) => {
     event.persist()
     event.preventDefault()
 
-    if (!this.state.TOSagreement) alert("You must agree to the Terms of Service Agreement in order to make a new account.")
+    if (!this.state.TOSagreement) alert('You must agree to the Terms of Service Agreement in order to make a new account.')
     else {
 
       let signUpObj = {
@@ -63,7 +63,7 @@ export default class SignUp extends React.Component {
 
       userFunctions('signUp', 'http://localhost:3001/users', signUpObj)
       .then(res_obj => {
-        if (res_obj.errors) this.setState({ errors: res_obj.errors })
+        if (res_obj.errors) this.setState({errors: res_obj.errors})
         else {
 
           let logInObj = {
@@ -73,7 +73,7 @@ export default class SignUp extends React.Component {
 
           authFunctions('logIn', 'http://localhost:3001/login', logInObj)
           .then(res_obj => {
-            if (res_obj.errors) this.setState({ errors: res_obj.errors })
+            if (res_obj.errors) this.setState({errors: res_obj.errors})
             else {
               this.props.setToken(res_obj)
               this.props.updateLogin()
@@ -93,20 +93,20 @@ export default class SignUp extends React.Component {
     this.props.onClickTrafficFunctions(event)
 
     this.setState({
-      sign_up_user_name: "",
-      sign_up_password: "",
-      sign_up_email: "",
-      sign_up_first_name: "",
-      sign_up_last_name: "",
-      sign_up_gender: "",
-      sign_up_birth_day: "",
-      sign_up_birth_month: "",
-      sign_up_birth_year: "",
-      sign_up_house_number: "",
-      sign_up_street_name: "",
-      sign_up_city_town: "",
-      sign_up_state: "",
-      sign_up_zip_code: "",
+      sign_up_user_name: '',
+      sign_up_password: '',
+      sign_up_email: '',
+      sign_up_first_name: '',
+      sign_up_last_name: '',
+      sign_up_gender: '',
+      sign_up_birth_day: '',
+      sign_up_birth_month: '',
+      sign_up_birth_year: '',
+      sign_up_house_number: '',
+      sign_up_street_name: '',
+      sign_up_city_town: '',
+      sign_up_state: '',
+      sign_up_zip_code: '',
     })
   }
 

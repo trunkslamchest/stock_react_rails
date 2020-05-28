@@ -4,12 +4,12 @@ import './docs.css'
 
 const Disclaimer = (props) => {
 
-  const { onPageLoadFunctions } = props
+  const {onPageLoadFunctions} = props
 
   useEffect(() => {onPageLoadFunctions('disclaimer')}, [onPageLoadFunctions])
 
   return(
-    <div className="terms_wrapper">
+    <div className='terms_wrapper'>
       <h1>DISCLAIMER</h1>
 
       <span>Last updated December 28, 2019</span>
@@ -78,7 +78,6 @@ const Disclaimer = (props) => {
       </p>
     </div>
   )
-
 }
 
 export default Disclaimer

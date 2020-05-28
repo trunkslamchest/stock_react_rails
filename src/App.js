@@ -184,7 +184,7 @@ export default class App extends React.Component {
         id: null,
         user_name: null,
         email: null,
-        access: "guest",
+        access: 'guest',
         first_name: null,
         last_name: null,
         gender: null,
@@ -226,87 +226,87 @@ export default class App extends React.Component {
     return (
       <>
         <Header
-          user_token={ this.state.user.token }
-          user_id={ this.state.user.id }
-          user_name={ this.state.user.user_name }
-          user_access={ this.state.user.access }
-          logOut={ this.logOut }
+          user_token={this.state.user.token}
+          user_id={this.state.user.id}
+          user_name={this.state.user.user_name}
+          user_access={this.state.user.access}
+          logOut={this.logOut}
         />
 
-        <div className="main_container">
+        <div className='main_container'>
           <Switch>
             <Route exact path='/'>
               <Home
-                user_id={ this.state.user.id }
-                onPageLoadFunctions={ this.onPageLoadFunctions }
-                onClickTrafficFunctions={ this.onClickTrafficFunctions }
+                user_id={this.state.user.id}
+                onPageLoadFunctions={this.onPageLoadFunctions}
+                onClickTrafficFunctions={this.onClickTrafficFunctions}
               />
             </Route>
             <Route exact path='/log_in'>
               <LogIn
-                setToken={ this.setToken }
-                updateLogin={ this.updateLogin }
+                setToken={this.setToken}
+                updateLogin={this.updateLogin}
                 history={this.props.history}
-                onPageLoadFunctions={ this.onPageLoadFunctions }
-                onClickTrafficFunctions={ this.onClickTrafficFunctions }
+                onPageLoadFunctions={this.onPageLoadFunctions}
+                onClickTrafficFunctions={this.onClickTrafficFunctions}
               />
             </Route>
             <Route exact path='/sign_up'>
               <SignUp
-                setToken={ this.setToken }
-                updateLogin={ this.updateLogin }
+                setToken={this.setToken}
+                updateLogin={this.updateLogin}
                 history={this.props.history}
-                onPageLoadFunctions={ this.onPageLoadFunctions }
-                onClickTrafficFunctions={ this.onClickTrafficFunctions }
+                onPageLoadFunctions={this.onPageLoadFunctions}
+                onClickTrafficFunctions={this.onClickTrafficFunctions}
               />
             </Route>
             <Route path='/dashboard'>
               <DashboardContainer
                 user={this.state.user}
-                setToken={ this.setToken }
-                setUser={ this.setUser }
-                logOut={ this.logOut }
-                onPageLoadFunctions={ this.onPageLoadFunctions }
-                onClickTrafficFunctions={ this.onClickTrafficFunctions }
+                setToken={this.setToken}
+                setUser={this.setUser}
+                logOut={this.logOut}
+                onPageLoadFunctions={this.onPageLoadFunctions}
+                onClickTrafficFunctions={this.onClickTrafficFunctions}
               />
             </Route>
             <Route exact path='/log_out'>
               <LogOut
-                token={ this.state.user.token }
-                user_id={ this.state.user.id }
-                user_name={ this.state.user.user_name }
-                access={ this.state.user.access }
+                token={this.state.user.token}
+                user_id={this.state.user.id}
+                user_name={this.state.user.user_name}
+                access={this.state.user.access}
                 history={this.props.history}
-                logOut={ this.logOut }
-                onPageLoadFunctions={ this.onPageLoadFunctions }
-                onClickTrafficFunctions={ this.onClickTrafficFunctions }
+                logOut={this.logOut}
+                onPageLoadFunctions={this.onPageLoadFunctions}
+                onClickTrafficFunctions={this.onClickTrafficFunctions}
               />
             </Route>
             <Route exact path='/terms_of_service'>
               <TermsOfService
-                onPageLoadFunctions={ this.onPageLoadFunctions }
+                onPageLoadFunctions={this.onPageLoadFunctions}
               />
             </Route>
             <Route exact path='/privacy'>
               <Privacy
-                onPageLoadFunctions={ this.onPageLoadFunctions }
+                onPageLoadFunctions={this.onPageLoadFunctions}
               />
             </Route>
             <Route exact path='/disclaimer'>
               <Disclaimer
-                onPageLoadFunctions={ this.onPageLoadFunctions }
+                onPageLoadFunctions={this.onPageLoadFunctions}
               />
             </Route>
             <Route path='/backroom'>
               <Backroom
-                token={ this.state.user.token }
-                user_name={ this.state.user.user_name }
-                access={ this.state.user.access }
+                token={this.state.user.token}
+                user_name={this.state.user.user_name}
+                access={this.state.user.access}
               />
             </Route>
             <Route>
               <E404
-                onPageLoadFunctions={ this.onPageLoadFunctions }
+                onPageLoadFunctions={this.onPageLoadFunctions}
               />
             </Route>
           </Switch>

@@ -18,9 +18,9 @@
 
     page: function(url, pageInfo) {
       fetch(url, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json"
+          'Content-Type': 'application/json'
         },
           body: JSON.stringify(pageInfo)
       })
@@ -28,9 +28,9 @@
 
     element: function(url, elementInfo) {
       fetch(url, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json"
+          'Content-Type': 'application/json'
         },
           body: JSON.stringify(elementInfo)
       })
@@ -44,4 +44,4 @@
 
   module.exports = trafficFunctions
 
-})(typeof window === "undefined" ? global : window)
+})(typeof window === 'undefined' ? global : window)

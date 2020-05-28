@@ -15,7 +15,7 @@ const SignUpFormContainer = (props) => {
   const onReset = (event) =>{props.onReset(event)}
 
   return(
-    <div className="default_wrapper">
+    <div className='default_wrapper'>
       <SignUpForm
         errors={props.errors}
         onChange={onChange}

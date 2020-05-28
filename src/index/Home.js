@@ -7,14 +7,14 @@ import './Home.css'
 
 const Home = (props) => {
 
-  const { onPageLoadFunctions, onClickTrafficFunctions } = props
+  const {onPageLoadFunctions, onClickTrafficFunctions} = props
 
   useEffect(() => {onPageLoadFunctions('index')}, [onPageLoadFunctions])
 
   return(
-    <div className="default_wrapper">
-      { localStorage.access === 'guest' ?
-          <HomeLoginSignup onClickTrafficFunctions={ onClickTrafficFunctions } />
+    <div className='default_wrapper'>
+      {localStorage.access === 'guest' ?
+          <HomeLoginSignup onClickTrafficFunctions={onClickTrafficFunctions} />
         :
           <HomeLoggedIn />
       }

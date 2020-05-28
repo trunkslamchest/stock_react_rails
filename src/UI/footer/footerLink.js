@@ -10,7 +10,7 @@ const FooterLink = (props) => {
       interaction='click'
       className='footer_link'
       activeClassName='footer_link_active'
-      target="_blank"
+      target='_blank'
       onClick={props.onClick}
     >
       {props.children}

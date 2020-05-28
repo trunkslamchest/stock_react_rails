@@ -10,13 +10,13 @@ export default class LogIn extends React.Component {
 
   state = {
     errors: [],
-    user_name: "",
-    password: ""
+    user_name: '',
+    password: ''
   }
 
-  componentDidMount(){ this.props.onPageLoadFunctions('log_in') }
+  componentDidMount(){this.props.onPageLoadFunctions('log_in')}
 
-  onChange = (event) => { this.setState({ [event.target.name]: event.target.value }) }
+  onChange = (event) => {this.setState({[event.target.name]: event.target.value})}
 
   onSubmit = (event) => {
     event.preventDefault()

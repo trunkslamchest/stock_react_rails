@@ -21,30 +21,28 @@ export default class DashboardDeleteProfileButtonContainer extends React.Compone
 
   render(){
     return(
-      <>
-        <div className="delete_buttons_container">
-          <DashboardDeleteProfileButton
-            link='/'
-            name='delete_profile_form'
-            className='confirm_button'
-            onClick={ this.props.confirm }
-            onMouseEnter={ this.onHoverConfirm }
-            onMouseLeave={ this.offHoverConfirm }
-          >
-            {this.state.hoverConfirm ? '✔' : 'Yes'}
-          </DashboardDeleteProfileButton>
-          <DashboardDeleteProfileButton
-            link='/dashboard/profile'
-            name='delete_profile_form'
-            className='cancel_button'
-            onClick={ this.props.cancel }
-            onMouseEnter={ this.onHoverCancel }
-            onMouseLeave={ this.offHoverCancel }
-          >
-            {this.state.hoverCancel ? '✘' : 'No'}
-          </DashboardDeleteProfileButton>
-        </div>
-      </>
+      <div className='delete_buttons_container'>
+        <DashboardDeleteProfileButton
+          link='/'
+          name='delete_profile_form'
+          className='confirm_button'
+          onClick={this.props.confirm}
+          onMouseEnter={this.onHoverConfirm}
+          onMouseLeave={this.offHoverConfirm}
+        >
+          {this.state.hoverConfirm ? '✔' : 'Yes'}
+        </DashboardDeleteProfileButton>
+        <DashboardDeleteProfileButton
+          link='/dashboard/profile'
+          name='delete_profile_form'
+          className='cancel_button'
+          onClick={this.props.cancel}
+          onMouseEnter={this.onHoverCancel}
+          onMouseLeave={this.offHoverCancel}
+        >
+          {this.state.hoverCancel ? '✘' : 'No'}
+        </DashboardDeleteProfileButton>
+      </div>
     )
   }
 }

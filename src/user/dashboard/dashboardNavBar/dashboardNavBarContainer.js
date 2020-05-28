@@ -7,21 +7,21 @@ import './dashboardNavBarButton.css'
 
 const DashboardNavBarContainer = (props) => {
   return(
-    <div className="dashboard_navbar">
+    <div className='dashboard_navbar'>
       <ul>
         <DashboardNavBarButton
-          name="dashboard_user_info_button"
-          interaction="click"
+          name='dashboard_user_info_button'
+          interaction='click'
           link='/dashboard/profile'
-          onClick={ props.onClickTrafficFunctions }
+          onClick={props.onClickTrafficFunctions}
         >
           My Profile
         </DashboardNavBarButton>
         <DashboardNavBarButton
-          name="dashboard_test_button"
-          interaction="click"
+          name='dashboard_test_button'
+          interaction='click'
           link='/dashboard/test'
-          onClick={ props.onClickTrafficFunctions }
+          onClick={props.onClickTrafficFunctions}
         >
           Test Page
         </DashboardNavBarButton>

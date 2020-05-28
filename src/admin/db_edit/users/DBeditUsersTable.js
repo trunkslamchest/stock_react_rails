@@ -14,7 +14,7 @@ const DBeditUsersTable = (props) => {
   }
 
   const DBedit_table =
-    <tr onClick={ onClickTableRowFunctions } className="DBedit_sub_row">
+    <tr onClick={onClickTableRowFunctions} className='DBedit_sub_row'>
       <td>{user.id}</td>
       <td>{user.user_name}</td>
       <td>{user.email}</td>
@@ -31,11 +31,11 @@ const DBeditUsersTable = (props) => {
       <td>{user.zip_code}</td>
     </tr>
 
-    return(
-      <>
-        { DBedit_table }
-      </>
-    )
+  return(
+    <>
+      {DBedit_table}
+    </>
+  )
 }
 
 export default DBeditUsersTable

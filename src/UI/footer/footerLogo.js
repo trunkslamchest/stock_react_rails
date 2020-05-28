@@ -4,8 +4,8 @@ const FooterLogo = (props) => {
   return(
     <a
       href={props.link}
-      rel="noopener noreferrer"
-      target="_blank"
+      rel='noopener noreferrer'
+      target='_blank'
     >
       {props.children}
     </a>

@@ -12,9 +12,7 @@ const SignUpFormSelect = (props) => {
         value={props.sign_up_gender}
       >
         <option value='' key='blank'>{props.defaultOption}</option>
-        { props.options.map ( option =>
-          <option value={option} key={props.options.indexOf(option)}>{option}</option>
-        )}
+        { props.options.map ( option => <option value={option} key={props.options.indexOf(option)}>{option}</option> )}
       </select>
     </>
   )

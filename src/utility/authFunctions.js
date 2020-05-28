@@ -13,9 +13,9 @@
 
     logIn: function(url, logInObj) {
       return fetch(url, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json"
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(logInObj)
       })
@@ -30,4 +30,4 @@
 
   module.exports = authFunctions
 
-})(typeof window === "undefined" ? global : window)
+})(typeof window === 'undefined' ? global : window)

@@ -13,7 +13,6 @@ import states from 'datasets/states'
 import ErrorContainer from 'error/errorContainer'
 
 const SignUpForm = (props) => {
-  console.log(props)
   return(
     <>
       <div className='alt_header'>

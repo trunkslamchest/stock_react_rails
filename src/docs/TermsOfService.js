@@ -4,12 +4,12 @@ import './docs.css'
 
 const TermsOfService = (props) => {
 
-  const { onPageLoadFunctions } = props
+  const {onPageLoadFunctions} = props
 
   useEffect(() => {onPageLoadFunctions('terms_of_service')}, [onPageLoadFunctions])
 
   return(
-    <div className="terms_wrapper">
+    <div className='terms_wrapper'>
       <h1>TERMS OF USE</h1>
 
       <span>Last updated December 28, 2019</span>
@@ -17,7 +17,7 @@ const TermsOfService = (props) => {
       <h2>AGREEMENT TO TERMS</h2>
       <p>
       These Terms of Use constitute a legally binding agreement made between you, 
-      whether personally or on behalf of an entity (“you”) and this_project ("Company", “we”, “us”, or “our”), 
+      whether personally or on behalf of an entity (“you”) and this_project ('Company', “we”, “us”, or “our”), 
       concerning your access to and use of the this_project website 
       as well as any other media form, media channel, mobile website or mobile application related, linked, 
       or otherwise connected thereto (collectively, this_project). 
@@ -146,7 +146,7 @@ const TermsOfService = (props) => {
       and may provide you with the opportunity to create, submit, post, display, transmit, perform, publish, distribute, 
       or broadcast content and materials to us or on this_project, 
       including but not limited to text, writings, video, audio, photographs, graphics, comments, suggestions, 
-      or personal information or other material (collectively, "Contributions"). 
+      or personal information or other material (collectively, 'Contributions'). 
       Contributions may be viewable by other users of this_project and through third-party websites. 
       As such, any Contributions you transmit may be treated as non-confidential and non-proprietary.
       </p>
@@ -273,7 +273,7 @@ const TermsOfService = (props) => {
       <h2>SUBMISSIONS</h2>
       <p>
       You acknowledge and agree that any questions, comments, suggestions, ideas, feedback, 
-      or other information regarding this_project ("Submissions") provided by you to us are non-confidential and shall become our sole property. 
+      or other information regarding this_project ('Submissions') provided by you to us are non-confidential and shall become our sole property. 
       We shall own exclusive rights, including all intellectual property rights, 
       and shall be entitled to the unrestricted use and dissemination of these Submissions for any lawful purpose, 
       commercial or otherwise, without acknowledgment or compensation to you. 
@@ -284,9 +284,9 @@ const TermsOfService = (props) => {
 
       <h2>THIRD-PARTY WEBSITES AND CONTENT</h2>
       <p>
-      this_project may contain (or you may be sent via this_project) links to other websites ("Third-Party Websites") 
+      this_project may contain (or you may be sent via this_project) links to other websites ('Third-Party Websites') 
       as well as articles, photographs, text, graphics, pictures, designs, music, sound, video, information, applications, software, 
-      and other content or items belonging to or originating from third parties ("Third-Party Content"). 
+      and other content or items belonging to or originating from third parties ('Third-Party Content'). 
       Such Third-Party Websites and Third-Party Content are not investigated, monitored, or checked for accuracy, appropriateness, or completeness by us, 
       and we are not responsible for any Third-Party Websites accessed through this_project 
       or any Third-Party Content posted on, available through, or installed from this_project, 
@@ -410,7 +410,7 @@ const TermsOfService = (props) => {
       <h3>Informal Negotiations</h3>
       <p>
       To expedite resolution and control the cost of any dispute, controversy, 
-      or claim related to these Terms of Use (each a "Dispute" and collectively, the “Disputes”) 
+      or claim related to these Terms of Use (each a 'Dispute' and collectively, the “Disputes”) 
       brought by either you or us (individually, a “Party” and collectively, the “Parties”), 
       the Parties agree to first attempt to negotiate any Dispute (except those Disputes expressly provided below) 
       informally for at least one (1) days before initiating arbitration. 
@@ -426,8 +426,8 @@ const TermsOfService = (props) => {
       YOU UNDERSTAND THAT WITHOUT THIS PROVISION, YOU WOULD HAVE THE RIGHT TO SUE IN COURT AND HAVE A JURY TRIAL. 
       </p>
       <p>
-      The arbitration shall be commenced and conducted under the Commercial Arbitration Rules of the American Arbitration Association ("AAA") and, 
-      where appropriate, the AAA’s Supplementary Procedures for Consumer Related Disputes ("AAA Consumer Rules"), 
+      The arbitration shall be commenced and conducted under the Commercial Arbitration Rules of the American Arbitration Association ('AAA') and, 
+      where appropriate, the AAA’s Supplementary Procedures for Consumer Related Disputes ('AAA Consumer Rules'), 
       both of which are available at the AAA website www.adr.org. 
       Your arbitration fees and your share of arbitrator compensation shall be governed by the AAA Consumer Rules and, 
       where appropriate, limited by the AAA Consumer Rules. 
@@ -601,7 +601,6 @@ const TermsOfService = (props) => {
       </p>
     </div>
   )
-
 }
 
 export default TermsOfService

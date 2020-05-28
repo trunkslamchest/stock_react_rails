@@ -38,13 +38,12 @@ const Backroom = (props) => {
     </Switch>
 
   return(
-    <div className="backroom_wrapper">
-      <div className="side_window">
+    <div className='backroom_wrapper'>
+      <div className='side_window'>
         <BackroomNavBar />
       </div>
-
-      <div className="main_window">
-        {localStorage.length === 0 || localStorage.access !== 'admin' ? <Redirect to='/' /> : routes }
+      <div className='main_window'>
+        {localStorage.length === 0 || localStorage.access !== 'admin' ? <Redirect to='/' /> : routes}
       </div>
     </div>
   )

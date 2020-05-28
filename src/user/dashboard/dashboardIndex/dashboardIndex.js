@@ -2,13 +2,13 @@ import React, { useEffect } from 'react'
 
 const DashboardIndex = (props) => {
 
-  const { onPageLoadFunctions } = props
+  const {onPageLoadFunctions} = props
 
-  useEffect(() => { onPageLoadFunctions('user_dashboard') }, [onPageLoadFunctions])
+  useEffect(() => {onPageLoadFunctions('user_dashboard') }, [onPageLoadFunctions])
 
   return(
-    <div className="dasboard_index">
-      <div className="alt_header">
+    <div className='dasboard_index'>
+      <div className='alt_header'>
         <h3>Welcome, {props.firstName}!</h3>
       </div>
     </div>

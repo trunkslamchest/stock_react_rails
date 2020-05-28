@@ -17,14 +17,14 @@ const DBeditUsersIndex = (props) => {
   const addButton =
     <AltButton
       link='/backroom/DBedit/users/add'
-      name="DBedit_add_user_button"
+      name='DBedit_add_user_button'
     >
       Add User
     </AltButton>
 
   const DBeditTableFrame =
     <table
-      className="DBedit_table"
+      className='DBedit_table'
     >
       <tbody>
         <tr>
@@ -44,14 +44,14 @@ const DBeditUsersIndex = (props) => {
           <th>Zip Code</th>
           <th>Join Date</th>
         </tr>
-        { distributeUsers }
+        {distributeUsers}
       </tbody>
     </table>
 
   return(
     <>
-      { addButton }
-      { DBeditTableFrame }
+      {addButton}
+      {DBeditTableFrame}
     </>
   )
 }

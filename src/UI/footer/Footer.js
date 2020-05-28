@@ -27,15 +27,14 @@ const Footer = (props) => {
   }
 
   return(
-    <div className="footer">
-      <div className="footer_left">
-        <FooterLinks onClickUpdateTrafficFunctions={ onClickUpdateTrafficFunctions } />
-        <FooterLogos onClickUpdateTrafficFunctions={ onClickUpdateTrafficFunctions } />
+    <div className='footer'>
+      <div className='footer_left'>
+        <FooterLinks onClickUpdateTrafficFunctions={onClickUpdateTrafficFunctions} />
+        <FooterLogos onClickUpdateTrafficFunctions={onClickUpdateTrafficFunctions} />
         <FooterFinePrint />
       </div>
     </div>
   )
-
 }
 
 export default Footer

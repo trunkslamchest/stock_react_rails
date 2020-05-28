@@ -18,9 +18,9 @@
 
     patch: function(url, userObj){
       return fetch(url, {
-        method: "PATCH",
+        method: 'PATCH',
         headers: {
-          "content-type":"application/json"
+          'content-type':'application/json'
         },
         body: JSON.stringify(userObj)
       })
@@ -29,9 +29,9 @@
 
     post: function(url, userObj){
       return fetch(url, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "content-type":"application/json"
+          'content-type':'application/json'
         },
         body: JSON.stringify(userObj)
       })
@@ -40,15 +40,15 @@
 
     delete: function(url) {
       return fetch(url, {
-        method: "DELETE"
+        method: 'DELETE'
       })
     },
 
     signUp: function(url, signUpObj) {
       return fetch(url, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json"
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(signUpObj)
       })
@@ -63,4 +63,4 @@
 
   module.exports = userFunctions
 
-})(typeof window === "undefined" ? global : window)
+})(typeof window === 'undefined' ? global : window)

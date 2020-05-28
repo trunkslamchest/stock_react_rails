@@ -15,18 +15,18 @@ import userFunctions from '../../../utility/userFunctions'
 
 export default class DBeditUsersContainer extends React.Component{
 
-  state = { user: {}, users: [] }
+  state = {user: {}, users: []}
 
-  componentDidMount(){ this.getUsers() }
+  componentDidMount(){this.getUsers()}
 
   getUsers = () => {
     userFunctions('get', 'http://localhost:3001/users')
     .then(res_obj => this.setState({ users: res_obj.data }))
   }
 
-  getUser = (user) => { this.setState({ user: user}) }
+  getUser = (user) => {this.setState({ user: user})}
 
-  addUser = (addedUser) => { this.setState({ users: [...this.state.users, addedUser] }) }
+  addUser = (addedUser) => {this.setState({ users: [...this.state.users, addedUser] })}
 
   editUser = (userObj, attributes) => {
     this.setState({
@@ -35,7 +35,7 @@ export default class DBeditUsersContainer extends React.Component{
     })
   }
 
-  deleteUser = () => { this.setState({ users: this.state.users.filter( user => parseInt(user.id) !== this.state.user.id ) }) }
+  deleteUser = () => {this.setState({ users: this.state.users.filter(user => parseInt(user.id) !== this.state.user.id)})}
 
   render(){
 

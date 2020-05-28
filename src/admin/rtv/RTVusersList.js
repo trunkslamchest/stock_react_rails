@@ -11,7 +11,7 @@ const RTVusersList = (props) => {
   )
 
   const RTVusers_table =
-  <table className="RTV_table">
+  <table className='RTV_table'>
     <tbody>
       <tr>
         <th>User ID</th>
@@ -19,16 +19,15 @@ const RTVusersList = (props) => {
         <th>Element</th>
         <th>Timestamp</th>
       </tr>
-        { distribute_RTV_data }
+        {distribute_RTV_data}
     </tbody>
   </table>
 
   return(
     <>
-      { RTVusers_table }
+      {RTVusers_table}
     </>
   )
-
 }
 
 export default RTVusersList

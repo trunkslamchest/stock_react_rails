@@ -14,26 +14,26 @@ export default class TestTemp extends React.Component{
 
     const img_upload_form =
     <>
-      <form id="img_upload_form"
-        onSubmit={ this.onSubmitFunctions }
+      <form id='img_upload_form'
+        onSubmit={this.onSubmitFunctions}
       >
-        <input type="file"
-          name="img_input_upload"
-          id="img_input_upload"
-          className="img_input_upload"
-          accept="image/*"
+        <input type='file'
+          name='img_input_upload'
+          id='img_input_upload'
+          className='img_input_upload'
+          accept='image/*'
         />
         <input
-          type="submit"
-          value="Submit"
+          type='submit'
+          value='Submit'
         />
       </form>
     </>
 
   const temp_default =
-    <div className="default_wrapper">
+    <div className='default_wrapper'>
 
-      { img_upload_form }
+      {img_upload_form}
 
     </div>
 

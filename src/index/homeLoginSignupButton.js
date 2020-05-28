@@ -7,8 +7,8 @@ const HomeLoginSignupButton = (props) => {
     <NavLink
       exact to={props.link}
       name={props.name}
-      interaction="click"
-      className="login_signup_button"
+      interaction='click'
+      className='login_signup_button'
       onClick={ props.onClick }
     >
       {props.children}
