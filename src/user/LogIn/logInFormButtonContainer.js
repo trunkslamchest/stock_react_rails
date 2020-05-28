@@ -9,6 +9,7 @@ const LogInFormButtonContainer = (props) => {
         type='submit'
         id='log_in_submit'
         name='log_in_submit'
+        interaction='submit'
         onClick={props.onSubmit}
         value='Login'
       />
@@ -16,6 +17,7 @@ const LogInFormButtonContainer = (props) => {
         type='reset'
         id='log_in_cancel'
         name='log_in_cancel'
+        interaction='cancel'
         onClick={props.onCancel}
         value='Cancel'
       />

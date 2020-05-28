@@ -15,7 +15,6 @@ const DashboardEditProfileFormInput = (props) => {
         max={props.max ? props.max : null}
         onChange={props.onChange}
         onClick={props.onClick ? props.onClick : null}
-        checked={props.checked ? props.checked : false}
         value={props.value ? props.value : ''}
       />
     </>

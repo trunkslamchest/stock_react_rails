@@ -14,11 +14,15 @@ export default class DashboardDeleteProfile extends React.Component {
     userFunctions('delete', `http://localhost:3001/users/${this.props.user_id}`)
     .then(
       this.props.logOut(),
-      this.props.onClickTrafficFunctions(event)
+      this.props.onClickTrafficFunctions(event),
+      this.props.history.push('/')
     )
   }
 
-  onClickCancel = (event) => {this.props.onClickTrafficFunctions(event)}
+  onClickCancel = (event) => {
+    this.props.onClickTrafficFunctions(event)
+    this.props.history.push('/dashboard/profile')
+  }
 
   render(){
     return(

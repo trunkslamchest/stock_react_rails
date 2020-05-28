@@ -23,9 +23,10 @@ export default class DashboardDeleteProfileButtonContainer extends React.Compone
     return(
       <div className='delete_buttons_container'>
         <DashboardDeleteProfileButton
-          link='/'
-          name='delete_profile_form'
+          id='delete_profile_form_confirm'
+          name='delete_profile_form_confirm'
           className='confirm_button'
+          interaction='confirm'
           onClick={this.props.confirm}
           onMouseEnter={this.onHoverConfirm}
           onMouseLeave={this.offHoverConfirm}
@@ -33,9 +34,10 @@ export default class DashboardDeleteProfileButtonContainer extends React.Compone
           {this.state.hoverConfirm ? '✔' : 'Yes'}
         </DashboardDeleteProfileButton>
         <DashboardDeleteProfileButton
-          link='/dashboard/profile'
-          name='delete_profile_form'
+          id='delete_profile_form_cancel'
+          name='delete_profile_form_cancel'
           className='cancel_button'
+          interaction='cancel'
           onClick={this.props.cancel}
           onMouseEnter={this.onHoverCancel}
           onMouseLeave={this.offHoverCancel}

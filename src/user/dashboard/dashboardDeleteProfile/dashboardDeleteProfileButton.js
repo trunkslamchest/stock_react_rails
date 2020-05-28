@@ -1,22 +1,21 @@
 import React from 'react'
 
-import { NavLink } from 'react-router-dom'
-
 import './dashboardDeleteProfileButton.css'
 
 const DashboardDeleteProfileButton = (props) => {
   return(
-    <NavLink
-      exact to={props.link}
+    <button
+      type='button'
+      id={props.id}
       name={props.name}
-      interaction='click'
       className={props.className}
+      interaction='click'
       onClick={props.onClick}
       onMouseEnter={props.onMouseEnter}
       onMouseLeave={props.onMouseLeave}
     >
       {props.children}
-    </NavLink>
+    </button>
   )
 }
 

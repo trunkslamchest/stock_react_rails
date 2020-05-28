@@ -28,131 +28,135 @@ const SignUpForm = (props) => {
             <label>Basics</label>
             <SignUpFormInput
               type='text'
-              id='sign_up_user_name'
-              name='sign_up_user_name'
+              id='user_name'
+              name='user_name'
               placeholder='User Name'
               onChange={props.onChange}
-              value={props.sign_up_user_name}
+              value={props.user_name}
             />
             <SignUpFormInput
               type='password'
-              id='sign_up_password'
-              name='sign_up_password'
+              id='password'
+              name='password'
               placeholder='Password'
               onChange={props.onChange}
-              value={props.sign_up_password}
+              value={props.password}
             />
             <SignUpFormInput
               type='text'
-              id='sign_up_email'
-              name='sign_up_email'
+              id='email'
+              name='email'
               placeholder='Email Address'
               onChange={props.onChange}
-              value={props.sign_up_email}
+              value={props.email}
             />
           </div>
           <div className='sign_up_div'>
             <label>Name</label>
             <SignUpFormInput
               type='text'
-              id='sign_up_first_name'
-              name='sign_up_first_name'
+              id='first_name'
+              name='first_name'
               placeholder='First Name'
               onChange={props.onChange}
-              value={props.sign_up_first_name}
+              value={props.first_name}
             />
             <SignUpFormInput
               type='text'
-              id='sign_up_last_name'
-              name='sign_up_last_name'
+              id='last_name'
+              name='last_name'
               placeholder='Last Name'
               onChange={props.onChange}
-              value={props.sign_up_last_name}
+              value={props.last_name}
             />
           </div>
           <div className='sign_up_div'>
             <SignUpFormSelect
               label='Gender'
-              id='sign_up_gender'
-              name='sign_up_gender'
+              id='gender'
+              name='gender'
               defaultOption='Select'
               options={genders}
               onChange={props.onChange}
-              value={props.sign_up_gender}
+              value={props.gender}
             />
           </div>
           <div className='sign_up_div'>
             <label>Date of Birth</label>
             <SignUpFormInput
               type='number'
-              id='sign_up_birth_day'
-              name='sign_up_birth_day'
+              id='birth_day'
+              name='birth_day'
+              placeholder='Day'
               min='1'
               max='31'
               onChange={props.onChange}
-              value={props.sign_up_birth_day}
+              value={props.birth_day}
             />
             <SignUpFormSelect
-              id='sign_up_birth_month'
-              name='sign_up_birth_month'
+              id='birth_month'
+              name='birth_month'
               defaultOption='Month'
               options={months}
               onChange={props.onChange}
-              value={props.sign_up_birth_month}
+              value={props.birth_month}
             />
             <SignUpFormInput
               type='number'
-              id='sign_up_birth_year'
-              name='sign_up_birth_year'
+              id='birth_year'
+              name='birth_year'
+              placeholder='Year'
               min='1900'
               max='2020'
               onChange={props.onChange}
-              value={props.sign_up_birth_year}
+              value={props.birth_year}
             />
           </div>
           <div className='sign_up_div'>
             <label>Address</label>
             <SignUpFormInput
               type='number'
-              id='sign_up_house_number'
-              name='sign_up_house_number'
+              id='house_number'
+              name='house_number'
+              placeholder='Apt./House Number'
               min='1'
               max='9999'
               onChange={props.onChange}
-              value={props.sign_up_house_number}
+              value={props.house_number}
             />
             <SignUpFormInput
               type='text'
-              id='sign_up_street_name'
-              name='sign_up_street_name'
+              id='street_name'
+              name='street_name'
               placeholder='Steet Name'
               onChange={props.onChange}
-              value={props.sign_up_street_name}
+              value={props.street_name}
             />
             <SignUpFormInput
               type='text'
-              id='sign_up_city_town'
-              name='sign_up_city_town'
+              id='city_town'
+              name='city_town'
               placeholder='City/Town'
               onChange={props.onChange}
-              value={props.sign_up_city_town}
+              value={props.city_town}
             />
             <SignUpFormSelect
-              id='sign_up_state'
-              name='sign_up_state'
+              id='state'
+              name='state'
               defaultOption='State'
               options={states}
               onChange={props.onChange}
-              value={props.sign_up_state}
+              value={props.state}
             />
             <SignUpFormInput
               type='number'
-              id='sign_up_zip_code'
-              name='sign_up_zip_code'
+              id='zip_code'
+              name='zip_code'
+              placeholder='Zip Code'
               min='10000'
               max='99999'
               onChange={props.onChange}
-              value={props.sign_up_zip_code}
+              value={props.zip_code}
             />
           </div>
           <hr />

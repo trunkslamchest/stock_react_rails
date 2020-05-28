@@ -57,7 +57,7 @@ export default class Dashboard extends React.Component{
           setToken={this.props.setToken}
         />
       </Route>
-    <Route path='/dashboard/test'>
+      <Route path='/dashboard/test'>
         <DashboardTest />
       </Route>
     </Switch>

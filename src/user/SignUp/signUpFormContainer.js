@@ -23,20 +23,20 @@ const SignUpFormContainer = (props) => {
         onSubmit={onSubmit}
         onCancel={onCancel}
         onReset={onReset}
-        sign_up_user_name={props.sign_up_user_name}
-        sign_up_password={props.sign_up_password}
-        sign_up_email={props.sign_up_email}
-        sign_up_first_name={props.sign_up_first_name}
-        sign_up_last_name={props.sign_up_last_name}
-        sign_up_gender={props.sign_up_gender}
-        sign_up_birth_day={props.sign_up_birth_day}
-        sign_up_birth_month={props.sign_up_birth_month}
-        sign_up_birth_year={props.sign_up_birth_year}
-        sign_up_house_number={props.sign_up_house_number}
-        sign_up_street_name={props.sign_up_street_name}
-        sign_up_city_town={props.sign_up_city_town}
-        sign_up_state={props.sign_up_state}
-        sign_up_zip_code={props.sign_up_zip_code}
+        user_name={props.user_name}
+        password={props.password}
+        email={props.email}
+        first_name={props.first_name}
+        last_name={props.last_name}
+        gender={props.gender}
+        birth_day={props.birth_day}
+        birth_month={props.birth_month}
+        birth_year={props.birth_year}
+        house_number={props.house_number}
+        street_name={props.street_name}
+        city_town={props.city_town}
+        state={props.state}
+        zip_code={props.zip_code}
         TOSagreement={props.TOSagreement}
       />
     </div>

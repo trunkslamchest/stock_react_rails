@@ -1,7 +1,5 @@
 import React from 'react'
 
-// import { Redirect } from 'react-router'
-
 import DashboardEditProfileFormContainer from './dashboardEditProfileFormContainer'
 
 import userFunctions from '../../../utility/userFunctions'

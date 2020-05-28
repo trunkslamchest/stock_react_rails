@@ -12,20 +12,20 @@ export default class SignUp extends React.Component {
   state = {
     errors: [],
     TOSagreement: false,
-    sign_up_user_name: '',
-    sign_up_password: '',
-    sign_up_email: '',
-    sign_up_first_name: '',
-    sign_up_last_name: '',
-    sign_up_gender: '',
-    sign_up_birth_day: '',
-    sign_up_birth_month: '',
-    sign_up_birth_year: '',
-    sign_up_house_number: '',
-    sign_up_street_name: '',
-    sign_up_city_town: '',
-    sign_up_state: '',
-    sign_up_zip_code: ''
+    user_name: '',
+    password: '',
+    email: '',
+    first_name: '',
+    last_name: '',
+    gender: '',
+    birth_day: '',
+    birth_month: '',
+    birth_year: '',
+    house_number: '',
+    street_name: '',
+    city_town: '',
+    state: '',
+    zip_code: ''
   }
 
   componentDidMount(){this.props.onPageLoadFunctions('sign_up')}
@@ -45,20 +45,20 @@ export default class SignUp extends React.Component {
     else {
 
       let signUpObj = {
-        user_name: this.state.sign_up_user_name,
-        password: this.state.sign_up_password,
-        email: this.state.sign_up_email,
-        first_name: this.state.sign_up_first_name,
-        last_name: this.state.sign_up_last_name,
-        gender: this.state.sign_up_gender,
-        birth_month: this.state.sign_up_birth_month,
-        birth_day: this.state.sign_up_birth_day,
-        birth_year: this.state.sign_up_birth_year,
-        house_number: this.state.sign_up_house_number,
-        street_name: this.state.sign_up_street_name,
-        city_town: this.state.sign_up_city_town,
-        state: this.state.sign_up_state,
-        zip_code: this.state.sign_up_zip_code
+        user_name: this.state.user_name,
+        password: this.state.password,
+        email: this.state.email,
+        first_name: this.state.first_name,
+        last_name: this.state.last_name,
+        gender: this.state.gender,
+        birth_month: this.state.birth_month,
+        birth_day: this.state.birth_day,
+        birth_year: this.state.birth_year,
+        house_number: this.state.house_number,
+        street_name: this.state.street_name,
+        city_town: this.state.city_town,
+        state: this.state.state,
+        zip_code: this.state.zip_code
       }
 
       userFunctions('signUp', 'http://localhost:3001/users', signUpObj)
@@ -67,8 +67,8 @@ export default class SignUp extends React.Component {
         else {
 
           let logInObj = {
-            user_name: this.state.sign_up_user_name,
-            password: this.state.sign_up_password
+            user_name: this.state.user_name,
+            password: this.state.password
           }
 
           authFunctions('logIn', 'http://localhost:3001/login', logInObj)
@@ -93,20 +93,20 @@ export default class SignUp extends React.Component {
     this.props.onClickTrafficFunctions(event)
 
     this.setState({
-      sign_up_user_name: '',
-      sign_up_password: '',
-      sign_up_email: '',
-      sign_up_first_name: '',
-      sign_up_last_name: '',
-      sign_up_gender: '',
-      sign_up_birth_day: '',
-      sign_up_birth_month: '',
-      sign_up_birth_year: '',
-      sign_up_house_number: '',
-      sign_up_street_name: '',
-      sign_up_city_town: '',
-      sign_up_state: '',
-      sign_up_zip_code: '',
+      user_name: '',
+      password: '',
+      email: '',
+      first_name: '',
+      last_name: '',
+      gender: '',
+      birth_day: '',
+      birth_month: '',
+      birth_year: '',
+      house_number: '',
+      street_name: '',
+      city_town: '',
+      state: '',
+      zip_code: '',
     })
   }
 
@@ -124,20 +124,20 @@ export default class SignUp extends React.Component {
         onSubmit={this.onSubmit}
         onCancel={this.onCancel}
         onReset={this.onReset}
-        sign_up_user_name={this.state.sign_up_user_name}
-        sign_up_password={this.state.sign_up_password}
-        sign_up_email={this.state.sign_up_email}
-        sign_up_first_name={this.state.sign_up_first_name}
-        sign_up_last_name={this.state.sign_up_last_name}
-        sign_up_gender={this.state.sign_up_gender}
-        sign_up_birth_day={this.state.sign_up_birth_day}
-        sign_up_birth_month={this.state.sign_up_birth_month}
-        sign_up_birth_year={this.state.sign_up_birth_year}
-        sign_up_house_number={this.state.sign_up_house_number}
-        sign_up_street_name={this.state.sign_up_street_name}
-        sign_up_city_town={this.state.sign_up_city_town}
-        sign_up_state={this.state.sign_up_state}
-        sign_up_zip_code={this.state.sign_up_zip_code}
+        user_name={this.state.user_name}
+        password={this.state.password}
+        email={this.state.email}
+        first_name={this.state.first_name}
+        last_name={this.state.last_name}
+        gender={this.state.gender}
+        birth_day={this.state.birth_day}
+        birth_month={this.state.birth_month}
+        birth_year={this.state.birth_year}
+        house_number={this.state.house_number}
+        street_name={this.state.street_name}
+        city_town={this.state.city_town}
+        state={this.state.state}
+        zip_code={this.state.zip_code}
         TOSagreement={this.state.TOSagreement}
       />
     )
