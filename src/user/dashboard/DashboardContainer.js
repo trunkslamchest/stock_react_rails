@@ -32,6 +32,7 @@ export default class Dashboard extends React.Component{
       </Route>
       <Route exact path='/dashboard/profile'>
         <DashboardProfileContainer
+          history={this.props.history}
           onClickTrafficFunctions={this.props.onClickTrafficFunctions}
           onPageLoadFunctions={this.props.onPageLoadFunctions}
           user={this.props.user}

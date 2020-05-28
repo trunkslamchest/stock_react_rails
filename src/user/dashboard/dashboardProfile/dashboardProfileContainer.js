@@ -57,7 +57,7 @@ const DashboardProfileContainer = (props) => {
             <li>Join Date</li>
             <li>{props.user.join_month} {formatDate(props.user.join_day)}, {props.user.join_year}</li>
           </ul>
-            <DashboardProfileButtonContainer onClickTrafficFunctions={props.onClickTrafficFunctions} />
+            <DashboardProfileButtonContainer history={props.history} onClickTrafficFunctions={props.onClickTrafficFunctions} />
         </div>
       </div>
     </>

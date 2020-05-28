@@ -21,7 +21,7 @@ const LogInForm = (props) => {
           <LogInFormInput
             type='text'
             label='User Name'
-            id='log_in_user_name'
+            id='user_name'
             name='user_name'
             onChange={props.onChange}
             value={props.user_name}
@@ -30,7 +30,7 @@ const LogInForm = (props) => {
           <LogInFormInput
             type='password'
             label='Password'
-            id='log_in_password'
+            id='password'
             name='password'
             onChange={props.onChange}
             value={props.password}

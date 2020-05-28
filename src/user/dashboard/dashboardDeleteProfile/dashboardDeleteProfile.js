@@ -10,7 +10,7 @@ export default class DashboardDeleteProfile extends React.Component {
 
   componentDidMount(){this.props.onPageLoadFunctions('delete_profile')}
 
-  onClickConfirm = (event) => {
+  onConfirm = (event) => {
     userFunctions('delete', `http://localhost:3001/users/${this.props.user_id}`)
     .then(
       this.props.logOut(),
@@ -19,7 +19,7 @@ export default class DashboardDeleteProfile extends React.Component {
     )
   }
 
-  onClickCancel = (event) => {
+  onCancel = (event) => {
     this.props.onClickTrafficFunctions(event)
     this.props.history.push('/dashboard/profile')
   }
@@ -30,7 +30,10 @@ export default class DashboardDeleteProfile extends React.Component {
         <div className='alt_header'>
           <h3>Are you sure you want to delete your profile?</h3>
         </div>
-          <DashboardDeleteProfileButtonContainer confirm={this.onClickConfirm} cancel={this.onClickCancel} />
+          <DashboardDeleteProfileButtonContainer
+            onClickConfirm={this.onConfirm}
+            onClickCancel={this.onCancel}
+          />
       </div>
     )
   }
