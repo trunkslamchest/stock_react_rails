@@ -4,7 +4,7 @@ import './backdrop.css'
 
 const Backdrop = (props) => {
   return(
-    props.logInModal ? <div className='backdrop' onClick={props.clicked}></div> : null
+    props.showModal ? <div className='backdrop'></div> : null
   )
 }
 

@@ -28,8 +28,6 @@ export default class SignUp extends React.Component {
     zip_code: ''
   }
 
-  componentDidMount(){this.props.onPageLoadFunctions('sign_up')}
-
   onChange = (event) => {this.setState({[event.target.name]: event.target.value})}
 
   onChecked = (event) => {
@@ -77,6 +75,7 @@ export default class SignUp extends React.Component {
             else {
               this.props.setToken(res_obj)
               this.props.updateLogin()
+              this.props.showSignUpModal()
               this.props.onClickTrafficFunctions(event)
               this.props.history.push('/dashboard')
             }
@@ -112,7 +111,7 @@ export default class SignUp extends React.Component {
 
   onCancel = (event) => {
     this.props.onClickTrafficFunctions(event)
-    this.props.history.push('/')
+    this.props.showSignUpModal()
   }
 
   render(){

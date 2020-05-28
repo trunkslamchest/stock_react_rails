@@ -43,7 +43,11 @@ const Header = (props) => {
       <div className='header_right'>
         {
           {
-            false: <GuestHeader onClickTrafficFunctions={onClickTrafficFunctions} showLogInModal={props.showLogInModal} />,
+            false: <GuestHeader
+                      onClickTrafficFunctions={onClickTrafficFunctions}
+                      showLogInModal={props.showLogInModal}
+                      showSignUpModal={props.showSignUpModal}
+                    />,
             true: (() => {
               switch(localStorage.access) {
                 case 'normal': return <NormalHeader user_name={props.user_name} onClickTrafficFunctions={onClickTrafficFunctions} />;

@@ -14,13 +14,12 @@ export default class LogIn extends React.Component {
     password: ''
   }
 
-  componentDidMount(){this.props.onPageLoadFunctions('log_in')}
-
   onChange = (event) => {this.setState({[event.target.name]: event.target.value})}
 
   onSubmit = (event) => {
     event.preventDefault()
     event.persist()
+
     let logInObj = {
       user_name: this.state.user_name,
       password: this.state.password
@@ -32,6 +31,7 @@ export default class LogIn extends React.Component {
       else {
         this.props.setToken(res_obj)
         this.props.updateLogin()
+        this.props.showLogInModal()
         this.props.onClickTrafficFunctions(event, res_obj.user_id)
         this.props.history.push('/dashboard')
       }

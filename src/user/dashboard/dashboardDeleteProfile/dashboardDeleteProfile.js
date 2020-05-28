@@ -31,8 +31,8 @@ export default class DashboardDeleteProfile extends React.Component {
           <h3>Are you sure you want to delete your profile?</h3>
         </div>
           <DashboardDeleteProfileButtonContainer
-            onClickConfirm={this.onConfirm}
-            onClickCancel={this.onCancel}
+            onConfirm={this.onConfirm}
+            onCancel={this.onCancel}
           />
       </div>
     )

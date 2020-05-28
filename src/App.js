@@ -5,7 +5,6 @@ import Home from './index/Home'
 import Footer from './UI/footer/footer'
 
 import LogOut from './user/logOut/logOut'
-import SignUp from './user/signUp/signUp'
 
 import DashboardContainer from './user/dashboard/dashboardContainer'
 
@@ -60,7 +59,8 @@ export default class App extends React.Component {
       join_month: null,
       join_year: null,
     },
-    showLogInModal: false
+    showLogInModal: false,
+    showSignUpModal: false
   }
 
   componentDidMount(){
@@ -126,7 +126,7 @@ export default class App extends React.Component {
         user: {
           token,
           loggedIn: true,
-          ...current_user
+          ...current_user,
         }
       })
     })
@@ -199,13 +199,18 @@ export default class App extends React.Component {
         join_day: null,
         join_month: null,
         join_year: null
-      }
+      },
     })
   }
 
   showLogInModal = () => {
     let switchModal = !this.state.showLogInModal
     this.setState({showLogInModal: switchModal})
+  }
+
+  showSignUpModal = () => {
+    let switchModal = !this.state.showSignUpModal
+    this.setState({showSignUpModal: switchModal})
   }
 
   onPageLoadFunctions = ( page ) => {
@@ -227,12 +232,18 @@ export default class App extends React.Component {
     trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
   }
 
+  componentWillUnmount(){
+    this.setState({showLogInModal: false})
+    this.setState({showSignUpModal: false})
+  }
+
   render(){
     return (
       <>
         <Header
           logOut={this.logOut}
           showLogInModal={this.showLogInModal}
+          showSignUpModal={this.showSignUpModal}
           user_access={this.state.user.access}
           user_id={this.state.user.id}
           user_name={this.state.user.user_name}
@@ -244,22 +255,15 @@ export default class App extends React.Component {
             <Route exact path='/'>
               <Home
                 history={this.props.history}
-                logInModal={this.state.showLogInModal}
                 onPageLoadFunctions={this.onPageLoadFunctions}
                 onClickTrafficFunctions={this.onClickTrafficFunctions}
                 setToken={this.setToken}
-                showLogInModal={this.showLogInModal}
                 user_id={this.state.user.id}
                 updateLogin={this.updateLogin}
-              />
-            </Route>
-            <Route exact path='/sign_up'>
-              <SignUp
-                history={this.props.history}
-                onPageLoadFunctions={this.onPageLoadFunctions}
-                onClickTrafficFunctions={this.onClickTrafficFunctions}
-                setToken={this.setToken}
-                updateLogin={this.updateLogin}
+                logInModal={this.state.showLogInModal}
+                showLogInModal={this.showLogInModal}
+                signUpModal={this.state.showSignUpModal}
+                showSignUpModal={this.showSignUpModal}
               />
             </Route>
             <Route path='/dashboard'>

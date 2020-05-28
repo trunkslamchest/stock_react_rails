@@ -1,8 +1,6 @@
 import React from 'react'
 
-import HeaderButton from '../headerButton'
 import HeaderButton2 from '../headerButton2'
-
 
 import '../header.css'
 import '../headerButton.css'
@@ -14,6 +12,11 @@ const GuestHeader = (props) => {
     props.onClickTrafficFunctions(event)
   }
 
+  const signUpButtonFunctions = (event) => {
+    props.showSignUpModal()
+    props.onClickTrafficFunctions(event)
+  }
+
   return(
     <div className='header_nav_links'>
       <HeaderButton2
@@ -22,13 +25,12 @@ const GuestHeader = (props) => {
       >
         Login
       </HeaderButton2>
-      <HeaderButton
-        link='/sign_up'
+      <HeaderButton2
         name='header_sign_up_button'
-        onClick={props.onClickTrafficFunctions}
+        onClick={signUpButtonFunctions}
       >
         Sign Up
-      </HeaderButton>
+      </HeaderButton2>
     </div>
   )
 }
