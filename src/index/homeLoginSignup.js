@@ -35,12 +35,6 @@ export default class HomeLoginSignup extends React.Component {
         >
           Sign Up
         </Button3>
-        <Button3
-          name='testModal'
-          onClick={this.onTestModal}
-        >
-          Test Modal
-        </Button3>
       </div>
     )
   }
