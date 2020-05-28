@@ -14,9 +14,9 @@ import TermsOfService from './docs/termsOfService'
 import Privacy from './docs/privacy'
 import Disclaimer from './docs/disclaimer'
 
-import Backroom from './admin/Backroom'
-
 import Modal from 'UI/modal/modal'
+
+import Backroom from './admin/Backroom'
 
 import E404 from './error/E404'
 
@@ -245,6 +245,7 @@ export default class App extends React.Component {
   componentWillUnmount(){
     this.setState({showLogInModal: false})
     this.setState({showSignUpModal: false})
+    this.setState({showLogOutModal: false})
   }
 
   render(){
