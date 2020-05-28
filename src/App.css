@@ -110,7 +110,7 @@ input[type=number]::-webkit-outer-spin-button {
 .main_container {
   margin: 0 auto 0 auto;
   background-color: #fff;
-  animation: fade_in .1s ease-in-out 1, blur_in .05s ease-in-out 1;
+  /* animation: fade_in .1s ease-in-out 1, blur_in .05s ease-in-out 1; */
   z-index: 0;
 }
 
@@ -131,7 +131,7 @@ input[type=number]::-webkit-outer-spin-button {
   border: 1px solid rgb(200, 200, 200, 1);
   box-sizing: border-box;
   min-height: 85.75vh;
-  animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1;
+  /* animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1; */
 }
 
 .default_wrapper h3 {
@@ -145,7 +145,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin-bottom: 0px;
   margin-left: 0px;
   margin-right: 0px;
-  animation: fade_in .25s ease-in-out 1, blur_in .25s ease-in-out 1, slide_in_from_top.25s ease-in-out 1;
+  /* animation: fade_in .25s ease-in-out 1, blur_in .25s ease-in-out 1, slide_in_from_top.25s ease-in-out 1; */
 }
 
 .default_header {
@@ -164,7 +164,7 @@ input[type=number]::-webkit-outer-spin-button {
   font-family: Lato;
   color: #000;
   text-decoration: none;
-  animation: fade_in .2s ease-in-out 1, blur_in .1s ease-in-out 1;
+  /* animation: fade_in .2s ease-in-out 1, blur_in .1s ease-in-out 1; */
 }
 
 .default_link:hover {
@@ -176,38 +176,38 @@ input[type=number]::-webkit-outer-spin-button {
 
 .default_edit_form {
   padding: 10px;
-  animation: fade_in .25s ease-in-out 1, blur_in .25s ease-in-out 1, slide_in_from_bottom.25s ease-in-out 1;
+  /* animation: fade_in .25s ease-in-out 1, blur_in .25s ease-in-out 1, slide_in_from_bottom.25s ease-in-out 1; */
 }
 
 .default_form {
   text-align: center;
   margin: 0 auto 0 auto;
-  animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1;
+  /* animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1; */
 }
 
 .default_form label {
   padding: 5px;
   margin: 5px;
   font-family: Lato;
-  animation: fade_in .4s ease-in-out 1, blur_in .2s ease-in-out 1;
+  /* animation: fade_in .4s ease-in-out 1, blur_in .2s ease-in-out 1; */
 }
 
 .default_form input {
   display: block;
   border-radius: 5px;
   margin: 0 auto 0 auto;
-  animation: fade_in .5s ease-in-out 1, blur_in .25s ease-in-out 1;
+  /* animation: fade_in .5s ease-in-out 1, blur_in .25s ease-in-out 1; */
 }
 
 .default_form select {
   margin: 0 auto 0 auto;
-  animation: fade_in .5s ease-in-out 1, blur_in .25s ease-in-out 1;
+  /* animation: fade_in .5s ease-in-out 1, blur_in .25s ease-in-out 1; */
   border: 2px solid rgb(200, 200, 200, 1)
 }
 
 .default_form select option {
   margin: 0 auto 0 auto;
-  animation: fade_in .5s ease-in-out 1, blur_in .25s ease-in-out 1;
+  /* animation: fade_in .5s ease-in-out 1, blur_in .25s ease-in-out 1; */
 }
 
 .default_div select {
@@ -259,7 +259,7 @@ select:not(:-internal-list-box) {
   justify-content: center;
   align-items: baseline;
   margin: 0 auto 20px auto;
-  animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1;
+  /* animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1; */
 }
 
 .alt_container {
@@ -319,7 +319,7 @@ select:not(:-internal-list-box) {
   padding: 5px 0px 5px 0px;
   border: 1px solid rgb(200, 200, 200, 1);
   box-sizing: border-box;
-  animation: fade_in .4s ease-in-out 1, blur_in .2s ease-in-out 1;
+  /* animation: fade_in .4s ease-in-out 1, blur_in .2s ease-in-out 1; */
   z-index:8;
 }
 
@@ -344,83 +344,3 @@ select:not(:-internal-list-box) {
 .alt_header h5 {
   font: 300 10pt 'Lato', sans-serif;
 }
-
-/* .confirm_button {
-	-webkit-appearance: none;
-	text-rendering: auto;
-	color: #FFF;
-	background-image: linear-gradient(rgb(81, 88, 102, 1),  rgb(40, 44, 52) );
-	border-radius: 20px 0px 0px 20px;
-	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
-	letter-spacing: normal;
-	word-spacing: normal;
-	text-transform: none;
-	text-indent: 0px;
-	text-shadow: none;
-	display: inline-block;
-	text-align: center;
-	text-decoration: none;
-	align-items: flex-start;
-	cursor: pointer;
-	background-color: buttonface;
-	box-sizing: border-box;
-	margin: 5px 0px 5px 0px;
-	font: 400 15pt Roboto;
-	padding: 13px 19px 10px 24px;
-	border: 0px solid;
-}
-
-.confirm_button:hover {
-	padding: 10px 30px 10px 30px;
-	background-image: linear-gradient(rgb(0, 153, 51, 1),  rgb(0, 128, 43, 1) );
-	animation: scale_in .1s ease-in-out 1;
-}
-
-.confirm_button:active {
-	background-image: linear-gradient(rgb(0, 102, 34, 1),  rgb(0, 77, 26, 1) );
-	animation: scale_out .1s ease-in-out 1, blur_out .1s ease-in-out 1;
-}
-
-.cancel_button {
-	-webkit-appearance: none;
-	text-rendering: auto;
-	color: #FFF;
-	background-image: linear-gradient(rgb(81, 88, 102, 1),  rgb(40, 44, 52) );
-	border-radius: 0px 20px 20px 0px;
-	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
-	letter-spacing: normal;
-	word-spacing: normal;
-	text-transform: none;
-	text-indent: 0px;
-	text-shadow: none;
-	display: inline-block;
-	text-align: center;
-	text-decoration: none;
-	align-items: flex-start;
-	cursor: pointer;
-	background-color: buttonface;
-	box-sizing: border-box;
-	margin: 5px 0px 5px 0px;
-	font: 400 15pt Roboto;
-	padding: 13px 25px 10px 26px;
-	border: 0px solid;
-}
-
-.cancel_button:hover {
-	color: #FFF;
-	padding: 10px 30px 10px 30px;
-	background-image: linear-gradient(rgb(204, 0, 0, 1),  rgb(153, 0, 0, 1) );
-	transition-property: color;
-	transition-duration: .1s, .1s;
-	transition-timing-function: ease-in-out;
-	animation: scale_in .1s ease-in-out 1;
-}
-
-.cancel_button:active {
-	color: #FFF;
-	background-image: linear-gradient(rgb(102, 0, 0, 1),  rgb(77, 0, 0, 1) );
-	transition-property: color;
-	transition-duration: .1s, .1s;
-	transition-timing-function: ease-in-out;
-	animation: scale_out .1s ease-in-out 1, blur_out .1s ease-in-out 1;
-} */

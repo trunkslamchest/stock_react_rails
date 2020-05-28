@@ -4,7 +4,6 @@ import Header from './UI/header/header'
 import Home from './index/Home'
 import Footer from './UI/footer/footer'
 
-import LogIn from './user/logIn/logIn'
 import LogOut from './user/logOut/logOut'
 import SignUp from './user/signUp/signUp'
 
@@ -237,16 +236,10 @@ export default class App extends React.Component {
           <Switch>
             <Route exact path='/'>
               <Home
-                onPageLoadFunctions={this.onPageLoadFunctions}
-                onClickTrafficFunctions={this.onClickTrafficFunctions}
-                user_id={this.state.user.id}
-              />
-            </Route>
-            <Route exact path='/log_in'>
-              <LogIn
                 history={this.props.history}
                 onPageLoadFunctions={this.onPageLoadFunctions}
                 onClickTrafficFunctions={this.onClickTrafficFunctions}
+                user_id={this.state.user.id}
                 setToken={this.setToken}
                 updateLogin={this.updateLogin}
               />

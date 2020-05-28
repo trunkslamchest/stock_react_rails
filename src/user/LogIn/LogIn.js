@@ -40,19 +40,21 @@ export default class LogIn extends React.Component {
 
   onCancel = (event) => {
     this.props.onClickTrafficFunctions(event)
-    this.props.history.push('/')
+    this.props.logInModalFunctions()
   }
 
   render(){
     return (
-      <LogInFormContainer
-        errors={this.state.errors}
-        onChange={this.onChange}
-        onSubmit={this.onSubmit}
-        onCancel={this.onCancel}
-        user_name={this.state.user_name}
-        password={this.state.password}
-      />
+      <div className='login_wrapper'>
+        <LogInFormContainer
+          errors={this.state.errors}
+          onChange={this.onChange}
+          onSubmit={this.onSubmit}
+          onCancel={this.onCancel}
+          user_name={this.state.user_name}
+          password={this.state.password}
+        />
+      </div>
     )
   }
 }

@@ -14,7 +14,13 @@ const Home = (props) => {
   return(
     <div className='default_wrapper'>
       {localStorage.access === 'guest' ?
-          <HomeLoginSignup onClickTrafficFunctions={onClickTrafficFunctions} />
+          <HomeLoginSignup
+            onClickTrafficFunctions={onClickTrafficFunctions}
+            onPageLoadFunctions={onPageLoadFunctions}
+            history={props.history}
+            setToken={props.setToken}
+            updateLogin={props.updateLogin}
+          />
         :
           <HomeLoggedIn />
       }

@@ -11,16 +11,14 @@ const LogInFormContainer = (props) => {
   const onCancel = (event) => {props.onCancel(event)}
 
   return(
-    <div className='default_wrapper'>
-      <LogInForm
-        errors={props.errors}
-        onChange={onChange}
-        onSubmit={onSubmit}
-        onCancel={onCancel}
-        user_name={props.user_name}
-        password={props.password}
-      />
-    </div>
+    <LogInForm
+      errors={props.errors}
+      onChange={onChange}
+      onSubmit={onSubmit}
+      onCancel={onCancel}
+      user_name={props.user_name}
+      password={props.password}
+    />
   )
 }
 

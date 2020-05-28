@@ -8,7 +8,7 @@ select:not(:-internal-list-box) {
   margin: 0 auto 0px auto;
   border: 1px solid rgb(200, 200, 200, 1);
   box-sizing: border-box;
-  animation: fade_in .25s ease-in-out 1, blur_in .25s ease-in-out 1, slide_in_from_bottom.25s ease-in-out 1;
+  /* animation: fade_in .25s ease-in-out 1, blur_in .25s ease-in-out 1, slide_in_from_bottom.25s ease-in-out 1; */
 }
 
 .log_in_div {
@@ -24,7 +24,7 @@ select:not(:-internal-list-box) {
   margin: 0px 0px 0px 0px;
   border: 1px solid rgb(200, 200, 200, 1);
   box-sizing: border-box;
-  animation: fade_in .4s ease-in-out 1, blur_in .2s ease-in-out 1 scale_in .1 ease-in-out 1;
+  /* animation: fade_in .4s ease-in-out 1, blur_in .2s ease-in-out 1 scale_in .1 ease-in-out 1; */
 }
 
 .log_in_div label {
@@ -40,5 +40,5 @@ select:not(:-internal-list-box) {
   margin: 20px auto 20px auto;
   border: 1px solid rgb(200, 200, 200, 1);
   box-sizing: border-box;
-  animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1;
+  /* animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1; */
 }

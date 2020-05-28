@@ -1,13 +1,13 @@
 import React from 'react'
 
-import './altButton.css'
+import './button3.css'
 
-const AltButton = (props) => {
+const Button3 = (props) => {
   return(
     <button
       name={props.name}
       interaction='click'
-      className='alt_button'
+      className='button3'
       onClick={props.onClick}
     >
       {props.children}
@@ -15,4 +15,4 @@ const AltButton = (props) => {
   )
 }
 
-export default AltButton
+export default Button3
