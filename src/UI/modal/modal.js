@@ -9,10 +9,9 @@ export default class Modal extends React.Component {
     const modal =
       <>
         <Backdrop
-          showLogInModal={this.props.showLogInModal}
-          clicked={this.props.modalClosed}
+          logInModal={this.props.logInModal}
         />
-        <div className={this.props.showLogInModal ? 'show_modal_wrapper' : 'hide_modal_wrapper'}>
+        <div className={this.props.logInModal ? 'show_modal_wrapper' : 'hide_modal_wrapper'}>
           {/* <div
                 className='modal_wrapper'
               style={{
@@ -27,7 +26,7 @@ export default class Modal extends React.Component {
     return(
       <>
         {/* { modal } */}
-        { this.props.showLogInModal ? modal : null }
+        { this.props.logInModal ? modal : null }
       </>
     )
   }

@@ -59,7 +59,8 @@ export default class App extends React.Component {
       join_day: null,
       join_month: null,
       join_year: null,
-    }
+    },
+    showLogInModal: false
   }
 
   componentDidMount(){
@@ -202,6 +203,11 @@ export default class App extends React.Component {
     })
   }
 
+  showLogInModal = () => {
+    let switchModal = !this.state.showLogInModal
+    this.setState({showLogInModal: switchModal})
+  }
+
   onPageLoadFunctions = ( page ) => {
     let pageInfo = {
       user_id: localStorage.user_id,
@@ -226,6 +232,7 @@ export default class App extends React.Component {
       <>
         <Header
           logOut={this.logOut}
+          showLogInModal={this.showLogInModal}
           user_access={this.state.user.access}
           user_id={this.state.user.id}
           user_name={this.state.user.user_name}
@@ -237,10 +244,12 @@ export default class App extends React.Component {
             <Route exact path='/'>
               <Home
                 history={this.props.history}
+                logInModal={this.state.showLogInModal}
                 onPageLoadFunctions={this.onPageLoadFunctions}
                 onClickTrafficFunctions={this.onClickTrafficFunctions}
-                user_id={this.state.user.id}
                 setToken={this.setToken}
+                showLogInModal={this.showLogInModal}
+                user_id={this.state.user.id}
                 updateLogin={this.updateLogin}
               />
             </Route>

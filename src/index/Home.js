@@ -18,7 +18,9 @@ const Home = (props) => {
             onClickTrafficFunctions={onClickTrafficFunctions}
             onPageLoadFunctions={onPageLoadFunctions}
             history={props.history}
+            logInModal={props.logInModal}
             setToken={props.setToken}
+            showLogInModal={props.showLogInModal}
             updateLogin={props.updateLogin}
           />
         :

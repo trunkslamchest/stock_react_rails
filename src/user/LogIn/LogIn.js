@@ -40,7 +40,7 @@ export default class LogIn extends React.Component {
 
   onCancel = (event) => {
     this.props.onClickTrafficFunctions(event)
-    this.props.logInModalFunctions()
+    this.props.showLogInModal()
   }
 
   render(){

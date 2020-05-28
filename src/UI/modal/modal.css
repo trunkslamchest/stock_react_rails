@@ -39,10 +39,3 @@
   box-sizing: border-box;
   animation: modal_slide_in_from_top .2s ease-in-out 1;
 }
-
-/* @media (min-width: 600px) {
-    .Modal {
-        width: 500px;
-        left: calc(50% - 250px);
-    }
-} */

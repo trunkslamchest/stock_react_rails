@@ -9,23 +9,15 @@ import Button3 from 'UI/buttons/button3'
 import './homeLoginSignup.css'
 
 export default class HomeLoginSignup extends React.Component {
-
-  state={ showLogInModal: false }
-
-  logInModalFunctions = () => {
-    let switchModal = !this.state.showLogInModal
-    this.setState({showLogInModal: switchModal})
-  }
-
   render(){
     return(
       <div className='login_signup_container'>
         <Modal
-          showLogInModal={ this.state.showLogInModal }
+          logInModal={ this.props.logInModal }
         >
           <LogIn
             history={this.props.history}
-            logInModalFunctions={this.logInModalFunctions}
+            showLogInModal={this.props.showLogInModal}
             onPageLoadFunctions={this.props.onPageLoadFunctions}
             onClickTrafficFunctions={this.props.onClickTrafficFunctions}
             setToken={this.props.setToken}
@@ -34,7 +26,7 @@ export default class HomeLoginSignup extends React.Component {
         </Modal>
         <Button3
           name='log_in_button'
-          onClick={this.logInModalFunctions}
+          onClick={this.props.showLogInModal}
         >
           Log In
         </Button3>

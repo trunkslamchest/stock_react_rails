@@ -1,20 +1,27 @@
 import React from 'react'
 
 import HeaderButton from '../headerButton'
+import HeaderButton2 from '../headerButton2'
+
 
 import '../header.css'
 import '../headerButton.css'
 
 const GuestHeader = (props) => {
+
+  const logInButtonFunctions = (event) => {
+    props.showLogInModal()
+    props.onClickTrafficFunctions(event)
+  }
+
   return(
     <div className='header_nav_links'>
-      <HeaderButton
-        link='/log_in'
+      <HeaderButton2
         name='header_log_in_button'
-        onClick={props.onClickTrafficFunctions}
+        onClick={logInButtonFunctions}
       >
         Login
-      </HeaderButton>
+      </HeaderButton2>
       <HeaderButton
         link='/sign_up'
         name='header_sign_up_button'
