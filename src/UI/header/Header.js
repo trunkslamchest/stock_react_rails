@@ -12,38 +12,41 @@ import './header.css'
 
 const Header = (props) => {
 
-  const onClickHomeFunctions = (event) => { onClickTrafficFunctions(event) }
+  const onClickHomeFunctions = (event) => { props.onClickTrafficFunctions(event) }
 
-  const onClickTrafficFunctions = (event) => {
-    let elementInfo = {
-      user_id: props.user_id,
-      interaction: event.target.attributes.interaction.value,
-      element: event.target.name
-    }
+  // const onClickTrafficFunctions = (event) => {
+  //   let elementInfo = {
+  //     user_id: props.user_id,
+  //     interaction: event.target.attributes.interaction.value,
+  //     element: event.target.name
+  //   }
 
-    trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
+  //   trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
+  // }
+
+  let home_link = null
+
+  if(!!props.user_token) {
+    home_link =
+      <HeaderButton
+        link='/'
+        name='header_home_button'
+        onClick={onClickHomeFunctions}
+      >
+        Home
+      </HeaderButton>
   }
-
-  const home_link =
-    <HeaderButton
-      link='/'
-      name='header_home_button'
-      onClick={onClickHomeFunctions}
-    >
-      Home
-    </HeaderButton>
 
   return(
     <div className='header'>
       <div className='header_left'>
-        {!!props.user_token ? home_link : null}
+        {home_link}
       </div>
       <div className='header_right'>
         {
           {
             false: <GuestHeader
-                      onClickTrafficFunctions={onClickTrafficFunctions}
-                      showModal={props.showModal}
+                      onClickTrafficFunctions={props.onClickTrafficFunctions}
                       showLogInModal={props.showLogInModal}
                       showSignUpModal={props.showSignUpModal}
                     />,
@@ -51,11 +54,10 @@ const Header = (props) => {
               switch(localStorage.access) {
                 case 'normal': return <NormalHeader
                                         user_name={props.user_name}
-                                        showModal={props.showModal}
                                         showLogOutModal={props.showLogOutModal}
-                                        onClickTrafficFunctions={onClickTrafficFunctions}
+                                        onClickTrafficFunctions={props.onClickTrafficFunctions}
                                       />;
-                case 'admin': return <AdminHeader user_name={props.user_name} onClickTrafficFunctions={onClickTrafficFunctions} />;
+                case 'admin': return <AdminHeader user_name={props.user_name} onClickTrafficFunctions={props.onClickTrafficFunctions} />;
                 default: return null;
               }
             })()

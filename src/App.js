@@ -223,15 +223,6 @@ export default class App extends React.Component {
     this.setState({showLogOutModal: switchModal})
   }
 
-  onPageLoadFunctions = ( page ) => {
-    let pageInfo = {
-      user_id: localStorage.user_id,
-      page_name: page,
-    }
-
-    trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
-  }
-
   onClickTrafficFunctions = (event, user) => {
     let elementInfo = {
       user_id: this.state.user.id || user,
@@ -240,6 +231,15 @@ export default class App extends React.Component {
     }
 
     trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
+  }
+
+  onPageLoadFunctions = ( page ) => {
+    let pageInfo = {
+      user_id: localStorage.user_id,
+      page_name: page,
+    }
+
+    trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
   }
 
   componentWillUnmount(){
@@ -280,11 +280,10 @@ export default class App extends React.Component {
     <Modal
       showModal={ this.state.showLogOutModal }
     >
-    <LogOut
+      <LogOut
         access={this.state.user.access}
         history={this.props.history}
         logOut={this.logOut}
-        onPageLoadFunctions={this.onPageLoadFunctions}
         onClickTrafficFunctions={this.onClickTrafficFunctions}
         showLogOutModal={this.showLogOutModal}
         token={this.state.user.token}
@@ -297,16 +296,15 @@ export default class App extends React.Component {
       <>
         <Header
           logOut={this.logOut}
+          onClickTrafficFunctions={this.onClickTrafficFunctions}
           showLogInModal={this.showLogInModal}
           showSignUpModal={this.showSignUpModal}
           showLogOutModal={this.showLogOutModal}
-          showModal={this.showModal}
           user_access={this.state.user.access}
           user_id={this.state.user.id}
           user_name={this.state.user.user_name}
           user_token={this.state.user.token}
         />
-
 
         <div className='main_container'>
           {this.state.showLogInModal ? logInModal : null }

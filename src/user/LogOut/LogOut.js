@@ -11,8 +11,6 @@ export default class LogOut extends React.Component {
     hoverCancel: false
   }
 
-  componentDidMount(){this.props.onPageLoadFunctions('log_out')}
-
   onHoverConfirm = () => {this.setState({ hoverConfirm: true })}
 
   offHoverConfirm = () => {this.setState({ hoverConfirm: false })}

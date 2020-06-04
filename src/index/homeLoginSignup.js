@@ -16,10 +16,6 @@ export default class HomeLoginSignup extends React.Component {
     this.props.onClickTrafficFunctions(event)
   }
 
-  onTestModal = () => {
-    this.props.showModal()
-  }
-
   render(){
     return(
       <div className='login_signup_container'>
