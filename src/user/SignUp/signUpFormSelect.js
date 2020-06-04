@@ -3,7 +3,7 @@ import React from 'react'
 const SignUpFormSelect = (props) => {
   return(
     <>
-      {props.label ? <label htmlFor={props.id}>{props.label}</label> : null }
+      {props.label ? <label htmlFor={props.id}>{props.label}</label> : null}
       <br />
       <select
         id={props.id}
@@ -12,7 +12,7 @@ const SignUpFormSelect = (props) => {
         value={props.value}
       >
         <option value='' key='blank'>{props.defaultOption}</option>
-        { props.options.map ( option => <option value={option} key={props.options.indexOf(option)}>{option}</option> )}
+        {props.options.map(option => <option value={option} key={props.options.indexOf(option)}>{option}</option>)}
       </select>
     </>
   )

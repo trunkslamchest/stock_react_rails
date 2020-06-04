@@ -2,6 +2,10 @@ import React from 'react'
 
 import SignUpForm from './signUpForm'
 
+import genders from 'datasets/genders'
+import months from 'datasets/months'
+import states from 'datasets/states'
+
 const SignUpFormContainer = (props) => {
 
   const signUpFormRef = React.createRef()
@@ -29,6 +33,10 @@ const SignUpFormContainer = (props) => {
       onCancel={onCancel}
       onReset={onReset}
       signUpFormRef={signUpFormRef}
+      // form datasets
+      genders={genders}
+      months={months}
+      states={states}
       // form data
       user_name={props.user_name}
       password={props.password}

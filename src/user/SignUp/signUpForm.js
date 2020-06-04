@@ -6,10 +6,6 @@ import SignUpFormInput from './signUpFormInput'
 import SignUpFormSelect from './signUpFormSelect'
 import SignUpFormButtonContainer from './signUpFormButtonContainer'
 
-import genders from 'datasets/genders'
-import months from 'datasets/months'
-import states from 'datasets/states'
-
 import ErrorContainer from 'error/errorContainer'
 
 const SignUpForm = (props) => {
@@ -78,7 +74,7 @@ const SignUpForm = (props) => {
             id='gender'
             name='gender'
             defaultOption='Select'
-            options={genders}
+            options={props.genders}
             onChange={props.onChange}
             value={props.gender}
           />
@@ -99,7 +95,7 @@ const SignUpForm = (props) => {
             id='birth_month'
             name='birth_month'
             defaultOption='Month'
-            options={months}
+            options={props.months}
             onChange={props.onChange}
             value={props.birth_month}
           />
@@ -146,7 +142,7 @@ const SignUpForm = (props) => {
             id='state'
             name='state'
             defaultOption='State'
-            options={states}
+            options={props.states}
             onChange={props.onChange}
             value={props.state}
           />
