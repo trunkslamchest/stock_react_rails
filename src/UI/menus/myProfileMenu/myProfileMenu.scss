@@ -1,0 +1,22 @@
+
+.myProfileMenu {
+    position: absolute;
+    display: inline-block;
+    z-index: 100;
+
+  ul {
+    display:flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    font-weight:bold;
+  }
+
+  li {
+    color: #000;
+    padding: 8px 16px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+}

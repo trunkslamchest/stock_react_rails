@@ -1,7 +1,6 @@
 import React from 'react'
 
 import HeaderButton from '../headerButton'
-
 import HeaderButton2 from '../headerButton2'
 
 import '../header.css'
@@ -10,9 +9,9 @@ import '../headerButton2.css'
 
 const NormalHeader = (props) => {
 
-  const showLogOutModal = () => {
-    props.showLogOutModal()
-  }
+  const showLogOutModal = () => {props.showLogOutModal()}
+
+  const showProfileMenu = () => {props.showProfileMenu()}
 
   return(
     <>
@@ -21,6 +20,12 @@ const NormalHeader = (props) => {
         Logged In: {props.user_name}
       </span>
       <div className='header_nav_links'>
+        <HeaderButton2
+          name='header_my_profile_button'
+          onClick={showProfileMenu}
+        >
+          My Profile
+        </HeaderButton2>
         <HeaderButton
           link='/dashboard'
           name='header_dashboard_button'
