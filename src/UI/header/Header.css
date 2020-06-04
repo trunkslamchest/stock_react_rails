@@ -4,8 +4,10 @@
   top: 0px;
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+  align-content: center;
   color: white;
   min-height: 57px;
   z-index: 10;
@@ -13,17 +15,30 @@
 
 .header_left {
   max-width: 50%;
+  /* position: absolute; */
 }
 
 .header_right {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-end;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  /* align-self: start; */
   align-items: center;
-  align-content: flex-end;
+  /* align-content: flex-end; */
   padding-right: 10px;
+  max-width: 500px;
+  max-height: 57px;
   /* animation: fade_in .2s ease-in-out 1, blur_in .1s ease-in-out 1; */
+}
+
+.header_nav_links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  max-width: 400px;
+  max-height: 57px;
 }
 
 .header_greeting {

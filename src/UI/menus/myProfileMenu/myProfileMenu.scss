@@ -1,22 +1,64 @@
+@import '../../header/header.css';
+
 
 .myProfileMenu {
-    position: absolute;
-    display: inline-block;
-    z-index: 100;
+  // display:flex;
+  // flex-direction: column;
+  // flex-wrap: nowrap;
+  // justify-content: flex-end;
+  // align-items: center;
+  // align-content: center;
+  position: absolute;
+  top: 57px;
+  // display: block;
+  // z-index: 100;
+  // left: header_left.$max_width;
 
   ul {
-    display:flex;
-    flex-direction: column;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background-color: white;
-    font-weight:bold;
-  }
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
 
-  li {
-    color: #000;
-    padding: 8px 16px;
-    border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  // flex-wrap: nowrap;
+  // justify-content: center;
+  // align-items: stretch;
+  // align-content: stretch;
+
+    list-style: none;
+    // margin: 0;
+  // padding: 17px 20px 16px 20px;
+    background-color: grey;
+    // font-weight:bold;
   }
+}
+
+.myProfileMenuButton {
+  text-align: center;
+  background: rgba(51, 51, 51, 1);
+  color: #FFF;
+  font: 300 12pt 'Lato', sans-serif;
+  padding: 15px 20px 15px 20px;
+  margin:0px;
+  text-decoration: none;
+  border: 0px solid rgba(175, 175, 175, 1);
+  // width: 100%;
+  // min-width: 90px;
+align-self: stretch;
+  // max-width: 85px;
+}
+
+.myProfileMenuButton:hover {
+  cursor: pointer;
+  color: rgba(40, 44, 52, 1);
+  background: rgba(244, 166, 66, 1);
+  border: 0px solid rgba(175, 175, 175, 1);
+}
+
+.myProfileMenuButton:active {
+  background-color: rgba(245, 167, 66, 1);
+  border: 0px solid rgba(175, 175, 175, 1);
 }

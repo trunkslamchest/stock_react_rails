@@ -15,10 +15,10 @@ const NormalHeader = (props) => {
 
   return(
     <>
-      <span
+      {/* <span
         className='header_greeting'>
         Logged In: {props.user_name}
-      </span>
+      </span> */}
       <div className='header_nav_links'>
         <HeaderButton2
           name='header_my_profile_button'
@@ -26,7 +26,7 @@ const NormalHeader = (props) => {
         >
           My Profile
         </HeaderButton2>
-        <HeaderButton
+        {/* <HeaderButton
           link='/dashboard'
           name='header_dashboard_button'
           onClick={props.onClickTrafficFunctions}
@@ -38,7 +38,7 @@ const NormalHeader = (props) => {
           onClick={showLogOutModal}
         >
           Log Out
-        </HeaderButton2>
+        </HeaderButton2> */}
       </div>
     </>
   )

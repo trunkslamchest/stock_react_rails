@@ -5,7 +5,7 @@ const DropDownMenuItem = (props) => {
     <li
       // className={props.liClass}
     >
-      {props.text}
+      {props.children}
     </li>
   )
 }
