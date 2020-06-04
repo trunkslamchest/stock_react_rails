@@ -171,13 +171,13 @@ const SignUpForm = (props) => {
           />
           I acknowledge that I have read and agree to the <Link to='/terms_of_service' target='_blank'>Terms and Conditions</Link> and <Link to='/privacy' target='_blank'>Privacy Policy</Link> statelments supplied by this_project.com
         </div>
+      </form>
         <hr />
         <SignUpFormButtonContainer
           onSubmit={props.onSubmit}
           onReset={props.onReset}
           onCancel={props.onCancel}
         />
-      </form>
     </>
   )
 }
