@@ -4,11 +4,16 @@ import SignUpForm from './signUpForm'
 
 const SignUpFormContainer = (props) => {
 
+  const signUpFormRef = React.createRef()
+
   const onChange = (event) => {props.onChange(event)}
 
   const onChecked = (event) => {props.onChecked(event)}
 
-  const onSubmit = (event) => {props.onSubmit(event)}
+  const onSubmit = (event) => {
+    if(props.errors.length === 0) signUpFormRef.current.scrollTop = 0
+    props.onSubmit(event)
+  }
 
   const onCancel = (event) => {props.onCancel(event)}
 
@@ -16,12 +21,15 @@ const SignUpFormContainer = (props) => {
 
   return(
     <SignUpForm
+      // functional props
       errors={props.errors}
       onChange={onChange}
       onChecked={onChecked}
       onSubmit={onSubmit}
       onCancel={onCancel}
       onReset={onReset}
+      signUpFormRef={signUpFormRef}
+      // form data
       user_name={props.user_name}
       password={props.password}
       email={props.email}

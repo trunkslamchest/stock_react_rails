@@ -179,9 +179,7 @@ export default class App extends React.Component {
 
   logOut = () => {
     localStorage.clear()
-
     localStorage.access = 'guest'
-
     this.setState({
       user: {
         token: null,
@@ -229,7 +227,6 @@ export default class App extends React.Component {
       interaction: event.target.attributes.interaction.value,
       element: event.target.name
     }
-
     trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
   }
 
@@ -238,7 +235,6 @@ export default class App extends React.Component {
       user_id: localStorage.user_id,
       page_name: page,
     }
-
     trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
   }
 

@@ -13,6 +13,7 @@ import states from 'datasets/states'
 import ErrorContainer from 'error/errorContainer'
 
 const SignUpForm = (props) => {
+
   return(
     <>
       <div className='alt_header'>
@@ -22,6 +23,7 @@ const SignUpForm = (props) => {
         id='sign_up_form'
         name='sign_up_form'
         className='sign_up_form'
+        ref={props.signUpFormRef}
       >
         <ErrorContainer errors={props.errors} />
         <div className='sign_up_div'>
@@ -171,13 +173,13 @@ const SignUpForm = (props) => {
           />
           I acknowledge that I have read and agree to the <Link to='/terms_of_service' target='_blank'>Terms and Conditions</Link> and <Link to='/privacy' target='_blank'>Privacy Policy</Link> statelments supplied by this_project.com
         </div>
-      </form>
         <hr />
-        <SignUpFormButtonContainer
-          onSubmit={props.onSubmit}
-          onReset={props.onReset}
-          onCancel={props.onCancel}
-        />
+      </form>
+      <SignUpFormButtonContainer
+        onSubmit={props.onSubmit}
+        onReset={props.onReset}
+        onCancel={props.onCancel}
+      />
     </>
   )
 }
