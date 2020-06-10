@@ -16,7 +16,7 @@ const LogInForm = (props) => {
         name='log_in_form'
         className='log_in_form'
       >
-        <ErrorContainer errors={props.errors}/>
+        <ErrorContainer errors={props.errors} />
         <div className='log_in_div'>
           <LogInFormInput
             type='text'

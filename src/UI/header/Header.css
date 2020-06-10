@@ -9,7 +9,7 @@
   align-items: center;
   align-content: center;
   color: white;
-  max-height: 57px;
+  min-height: 57px;
   z-index: 10;
 }
 

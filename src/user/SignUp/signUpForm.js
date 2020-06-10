@@ -10,6 +10,8 @@ import ErrorContainer from 'error/errorContainer'
 
 const SignUpForm = (props) => {
 
+  console.log(props.errors.password)
+
   return(
     <>
       <div className='alt_header'>
@@ -21,7 +23,6 @@ const SignUpForm = (props) => {
         className='sign_up_form'
         ref={props.signUpFormRef}
       >
-        <ErrorContainer errors={props.errors} />
         <div className='sign_up_div'>
           <label>Basics</label>
           <SignUpFormInput
@@ -32,6 +33,7 @@ const SignUpForm = (props) => {
             onChange={props.onChange}
             value={props.user_name}
           />
+          {props.errors.user_name ? <ErrorContainer errors={props.errors.user_name} /> : null }
           <SignUpFormInput
             type='password'
             id='password'
@@ -40,6 +42,7 @@ const SignUpForm = (props) => {
             onChange={props.onChange}
             value={props.password}
           />
+          {props.errors.password ? <ErrorContainer errors={props.errors.password} /> : null }
           <SignUpFormInput
             type='text'
             id='email'
@@ -48,6 +51,7 @@ const SignUpForm = (props) => {
             onChange={props.onChange}
             value={props.email}
           />
+          {props.errors.email ? <ErrorContainer errors={props.errors.email} /> : null }
         </div>
         <div className='sign_up_div'>
           <label>Name</label>
