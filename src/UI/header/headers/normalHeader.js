@@ -39,7 +39,11 @@ export default class NormalHeader extends React.Component {
           Hello, {this.props.user_name}!
         </div>
         <div className='header_nav_links'>
-          <div className='header_nav_links_menu_container'>
+          <div
+            className='header_nav_links_menu_container'
+            onMouseEnter={this.onHover}
+            onMouseLeave={this.onHover}
+          >
             <HeaderButton2
               name='header_my_profile_button'
               onClick={this.showProfileMenu}

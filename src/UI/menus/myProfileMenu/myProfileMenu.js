@@ -19,6 +19,7 @@ const MyProfileMenu = (props) => {
   return(
     <DropDownMenu
       divClass='myProfileMenu'
+      showMenu={props.showProfileMenu}
     >
       <MyProfileMenuButton
         link='/dashboard'

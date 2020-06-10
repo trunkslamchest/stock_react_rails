@@ -6,12 +6,15 @@ import * as serviceWorker from './serviceWorker';
 import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import ScrollRestore from './utility/scrollRestore'
+// import DetectMouseClick from './utility/detectMouseClick'
+
 
 const history = createBrowserHistory();
 
 ReactDOM.render(
   <Router history={history}>
     <ScrollRestore />
+    {/* <DetectMouseClick /> */}
     <App history={history}/>
   </Router>, document.getElementById('root')
   );

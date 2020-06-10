@@ -14,6 +14,7 @@ const Test2Menu = (props) => {
   return(
     <DropDownMenu
       divClass='test2Menu'
+      showMenu={props.showTest2Menu}
     >
       <Test2MenuButton
         link='/'
