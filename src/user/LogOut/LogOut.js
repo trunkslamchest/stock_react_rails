@@ -4,48 +4,31 @@ import LogOutButtonContainer from './logOutButtonContainer'
 
 import './logOut.css'
 
-export default class LogOut extends React.Component {
+const LogOut = (props) => {
 
-  state = {
-    hoverConfirm: false,
-    hoverCancel: false
+  const onConfirm = (event) => {
+    props.onClickTrafficFunctions(event)
+    props.showLogOutModal()
+    props.logOut(props.token)
+    props.history.push('/')
   }
 
-  onHoverConfirm = () => {this.setState({ hoverConfirm: true })}
-
-  offHoverConfirm = () => {this.setState({ hoverConfirm: false })}
-
-  onHoverCancel = () => {this.setState({ hoverCancel: true })}
-
-  offHoverCancel = () => {this.setState({ hoverCancel: false })}
-
-  onConfirm = (event) => {
-    this.props.onClickTrafficFunctions(event)
-    this.props.showLogOutModal()
-    this.props.logOut(this.props.token)
-    this.props.history.push('/')
+  const onCancel = (event) => {
+    props.onClickTrafficFunctions(event)
+    props.showLogOutModal()
   }
 
-  onCancel = (event) => {
-    this.props.onClickTrafficFunctions(event)
-    this.props.showLogOutModal()
-  }
-
-  render(){
-    return(
-      <>
-        <div className='alt_header'>
-          <h3>Are you sure you want to log out?</h3>
-        </div>
-        <LogOutButtonContainer
-          onHoverConfirm={this.onHoverConfirm}
-          offHoverConfirm={this.offHoverConfirm}
-          onHoverCancel={this.onHoverCancel}
-          offHoverCancel={this.offHoverCancel}
-          onConfirm={this.onConfirm}
-          onCancel={this.onCancel}
-        />
-      </>
-    )
-  }
+  return(
+    <>
+      <div className='alt_header'>
+        <h3>Are you sure you want to log out?</h3>
+      </div>
+      <LogOutButtonContainer
+        onConfirm={onConfirm}
+        onCancel={onCancel}
+      />
+    </>
+  )
 }
+
+export default LogOut
