@@ -1,14 +1,13 @@
 import React from 'react'
 
-// import { NavLink } from 'react-router-dom'
+import DropDownMenu from '../dropDownMenu'
 
 import MyProfileMenuButton from './myProfileMenuButton'
 import MyProfileMenuButton2 from './myProfileMenuButton2'
 
-import DropDownMenu from '../dropDownMenu'
-import DropDownMenuItem from '../dropDownMenuItem'
-
 import './myProfileMenu.scss'
+import './myProfileMenuButton.scss'
+import './myProfileMenuButton2.scss'
 
 const MyProfileMenu = (props) => {
 

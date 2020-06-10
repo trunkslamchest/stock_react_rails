@@ -6,26 +6,13 @@ import AdminHeader from './headers/adminHeader'
 
 import HeaderButton from './headerButton'
 
-import MyProfileMenu from '../menus/myProfileMenu/myProfileMenu'
-
 import './header.css'
 
 export default class Header extends React.Component {
 
-  state = {
-    showProfileMenu: false
-  }
-
   onClickHomeFunctions = (event) => { this.props.onClickTrafficFunctions(event) }
 
-  showProfileMenu = () => {
-    let switchMenu = !this.state.showProfileMenu
-    this.setState({showProfileMenu: switchMenu})
-  }
-
   render(){
-
-    console.log(this.state.showProfileMenu)
 
     let home_link = null
 
@@ -68,7 +55,6 @@ export default class Header extends React.Component {
                 })()
               }[!!this.props.user_token]
             }
-              {this.state.showProfileMenu ? <MyProfileMenu showLogOutModal={this.props.showLogOutModal} showProfileMenu={this.showProfileMenu} /> : null}
           </div>
         </div>
       </>
