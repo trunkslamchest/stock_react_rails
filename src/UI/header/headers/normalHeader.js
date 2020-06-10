@@ -9,7 +9,7 @@ import '../headerButton2.css'
 
 const NormalHeader = (props) => {
 
-  const showLogOutModal = () => {props.showLogOutModal()}
+  // const showLogOutModal = () => {props.showLogOutModal()}
 
   const showProfileMenu = () => {props.showProfileMenu()}
 

@@ -12,6 +12,11 @@ import './myProfileMenu.scss'
 
 const MyProfileMenu = (props) => {
 
+  const onLogOut = () => {
+    props.showProfileMenu()
+    props.showLogOutModal()
+  }
+
   return(
     <DropDownMenu
       divClass='myProfileMenu'
@@ -19,24 +24,27 @@ const MyProfileMenu = (props) => {
       <MyProfileMenuButton
         link='/dashboard'
         name='My Profile'
+        onClick={props.showProfileMenu}
       >
         Dashboard
       </MyProfileMenuButton>
       <MyProfileMenuButton
         link='/dashboard/profile'
         name='View Profile'
+        onClick={props.showProfileMenu}
       >
         View Profile
       </MyProfileMenuButton>
       <MyProfileMenuButton
         link='/dashboard/profile/edit'
         name='Edit Profile'
+        onClick={props.showProfileMenu}
       >
         Edit Profile
       </MyProfileMenuButton>
       <MyProfileMenuButton2
         name='Log Out'
-        onClick={props.showLogOutModal}
+        onClick={onLogOut}
       >
         Log Out
       </MyProfileMenuButton2>

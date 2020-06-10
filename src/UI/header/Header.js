@@ -68,7 +68,7 @@ export default class Header extends React.Component {
                 })()
               }[!!this.props.user_token]
             }
-              {this.state.showProfileMenu ? <MyProfileMenu showLogOutModal={this.props.showLogOutModal}/> : null}
+              {this.state.showProfileMenu ? <MyProfileMenu showLogOutModal={this.props.showLogOutModal} showProfileMenu={this.showProfileMenu} /> : null}
           </div>
         </div>
       </>
