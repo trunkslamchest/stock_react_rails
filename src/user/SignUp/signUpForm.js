@@ -9,9 +9,6 @@ import SignUpFormButtonContainer from './signUpFormButtonContainer'
 import ErrorContainer from 'error/errorContainer'
 
 const SignUpForm = (props) => {
-
-  console.log(props.errors.password)
-
   return(
     <>
       <div className='alt_header'>
