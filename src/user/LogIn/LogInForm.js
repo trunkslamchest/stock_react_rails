@@ -16,8 +16,8 @@ const LogInForm = (props) => {
         name='log_in_form'
         className='log_in_form'
       >
-        <ErrorContainer errors={props.errors} />
         <div className='log_in_div'>
+          {props.errors.form ? <ErrorContainer errors={props.errors.form} /> : null }
           <LogInFormInput
             type='text'
             label='User Name'
@@ -26,6 +26,7 @@ const LogInForm = (props) => {
             onChange={props.onChange}
             value={props.user_name}
           />
+          {props.errors.user_name ? <ErrorContainer errors={props.errors.user_name} /> : null }
           <br />
           <LogInFormInput
             type='password'
@@ -35,6 +36,7 @@ const LogInForm = (props) => {
             onChange={props.onChange}
             value={props.password}
           />
+        {props.errors.password ? <ErrorContainer errors={props.errors.password} /> : null }
         </div>
         <LogInFormButtonContainer
           onSubmit={props.onSubmit}

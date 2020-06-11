@@ -117,9 +117,6 @@ export default class SignUp extends React.Component {
   }
 
   render(){
-
-    console.log(this.state.errors)
-
     return (
       <SignUpFormContainer
         errors={this.state.errors}
