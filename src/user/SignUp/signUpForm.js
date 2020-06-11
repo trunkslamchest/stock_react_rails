@@ -63,6 +63,7 @@ const SignUpForm = (props) => {
             onChange={props.onChange}
             value={props.first_name}
           />
+          {props.errors.first_name ? <ErrorContainer errors={props.errors.first_name} /> : null }
           <SignUpFormInput
             type='text'
             id='last_name'
@@ -71,6 +72,7 @@ const SignUpForm = (props) => {
             onChange={props.onChange}
             value={props.last_name}
           />
+          {props.errors.last_name ? <ErrorContainer errors={props.errors.last_name} /> : null }
         </div>
         <div className='sign_up_div'>
           <SignUpFormSelect
@@ -82,6 +84,7 @@ const SignUpForm = (props) => {
             onChange={props.onChange}
             value={props.gender}
           />
+          {props.errors.gender ? <ErrorContainer errors={props.errors.gender} /> : null }
         </div>
         <div className='sign_up_div'>
           <label>Date of Birth</label>
@@ -95,6 +98,7 @@ const SignUpForm = (props) => {
             onChange={props.onChange}
             value={props.birth_day}
           />
+          {props.errors.birth_day ? <ErrorContainer errors={props.errors.birth_day} /> : null }
           <SignUpFormSelect
             id='birth_month'
             name='birth_month'
@@ -103,6 +107,7 @@ const SignUpForm = (props) => {
             onChange={props.onChange}
             value={props.birth_month}
           />
+          {props.errors.birth_month ? <ErrorContainer errors={props.errors.birth_month} /> : null }
           <SignUpFormInput
             type='number'
             id='birth_year'
@@ -113,6 +118,7 @@ const SignUpForm = (props) => {
             onChange={props.onChange}
             value={props.birth_year}
           />
+          {props.errors.birth_year ? <ErrorContainer errors={props.errors.birth_year} /> : null }
         </div>
         <div className='sign_up_div'>
           <label>Address</label>
@@ -126,6 +132,7 @@ const SignUpForm = (props) => {
             onChange={props.onChange}
             value={props.house_number}
           />
+          {props.errors.house_number ? <ErrorContainer errors={props.errors.house_number} /> : null }
           <SignUpFormInput
             type='text'
             id='street_name'
@@ -134,6 +141,7 @@ const SignUpForm = (props) => {
             onChange={props.onChange}
             value={props.street_name}
           />
+          {props.errors.street_name ? <ErrorContainer errors={props.errors.street_name} /> : null }
           <SignUpFormInput
             type='text'
             id='city_town'
@@ -142,6 +150,7 @@ const SignUpForm = (props) => {
             onChange={props.onChange}
             value={props.city_town}
           />
+          {props.errors.city_town ? <ErrorContainer errors={props.errors.city_town} /> : null }
           <SignUpFormSelect
             id='state'
             name='state'
@@ -150,6 +159,7 @@ const SignUpForm = (props) => {
             onChange={props.onChange}
             value={props.state}
           />
+          {props.errors.state ? <ErrorContainer errors={props.errors.state} /> : null }
           <SignUpFormInput
             type='number'
             id='zip_code'
@@ -160,6 +170,7 @@ const SignUpForm = (props) => {
             onChange={props.onChange}
             value={props.zip_code}
           />
+          {props.errors.zip_code ? <ErrorContainer errors={props.errors.zip_code} /> : null }
         </div>
         <hr />
         <div className='tos_agree_div'>
