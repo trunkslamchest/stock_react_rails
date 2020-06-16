@@ -1,0 +1,25 @@
+import React from 'react'
+
+const SignUpFormInput = (props) => {
+  return(
+    <>
+      {props.label ? <label htmlFor={props.id}>{props.label}</label> : null}
+      <br />
+      <input
+        type={props.type}
+        id={props.id}
+        name={props.name}
+        className={props.className ? props.className : null}
+        placeholder={props.placeholder ? props.placeholder : null}
+        min={props.min ? props.min : null}
+        max={props.max ? props.max : null}
+        onChange={props.onChange}
+        onClick={props.onClick ? props.onClick : null}
+        checked={props.checked ? props.checked : false}
+        value={props.value ? props.value : ''}
+      />
+    </>
+  )
+}
+
+export default SignUpFormInput

@@ -1,0 +1,21 @@
+.footer_links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.footer_link {
+  color: #fff;
+  font-size: 9pt;
+  margin: 0px 5px 0px 5px;
+  text-decoration: none;
+}
+
+.footer_link:hover, footer_link:active {
+  color: rgb(40, 44, 52, 1);
+}
+
+.footer_link_active {
+	color: rgb(245, 167, 66, 1);
+}

@@ -1,0 +1,18 @@
+.modal_container {
+  margin: 0 auto 0 auto;
+}
+
+.modal_wrapper {
+  animation: modal_slide_in_from_top .2s ease-in-out 1;
+  background-color: white;
+  /* max-height: 90vh;
+  overflow-y: auto; */
+  padding: 2.5px;
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 50%;
+  max-width: 75%;
+  z-index: 500;
+}

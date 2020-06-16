@@ -1,0 +1,88 @@
+.delete_buttons_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+  margin: 20px auto 20px auto;
+  animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1;
+}
+
+.confirm_button {
+  -webkit-appearance: none;
+  text-rendering: auto;
+  color: #FFF;
+  background-image: linear-gradient(rgb(81, 88, 102, 1),  rgb(40, 44, 52) );
+  border-radius: 20px 0px 0px 20px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  align-items: flex-start;
+  cursor: pointer;
+  background-color: buttonface;
+  box-sizing: border-box;
+  margin: 5px 0px 5px 0px;
+  font: 400 15pt Roboto;
+  padding: 13px 19px 10px 24px;
+  border: 0px solid;
+}
+
+.confirm_button:hover {
+  padding: 10px 30px 10px 30px;
+  background-image: linear-gradient(rgb(0, 153, 51, 1),  rgb(0, 128, 43, 1) );
+  animation: scale_in .1s ease-in-out 1;
+}
+
+.confirm_button:active {
+  background-image: linear-gradient(rgb(0, 102, 34, 1),  rgb(0, 77, 26, 1) );
+  animation: scale_out .1s ease-in-out 1, blur_out .1s ease-in-out 1;
+}
+
+.cancel_button {
+  -webkit-appearance: none;
+  text-rendering: auto;
+  color: #FFF;
+  background-image: linear-gradient(rgb(81, 88, 102, 1),  rgb(40, 44, 52) );
+  border-radius: 0px 20px 20px 0px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  align-items: flex-start;
+  cursor: pointer;
+  background-color: buttonface;
+  box-sizing: border-box;
+  margin: 5px 0px 5px 0px;
+  font: 400 15pt Roboto;
+  padding: 13px 25px 10px 26px;
+  border: 0px solid;
+}
+
+.cancel_button:hover {
+  color: #FFF;
+  padding: 10px 30px 10px 30px;
+  background-image: linear-gradient(rgb(204, 0, 0, 1),  rgb(153, 0, 0, 1) );
+  transition-property: color;
+  transition-duration: .1s, .1s;
+  transition-timing-function: ease-in-out;
+  animation: scale_in .1s ease-in-out 1;
+}
+
+.cancel_button:active {
+  color: #FFF;
+  background-image: linear-gradient(rgb(102, 0, 0, 1),  rgb(77, 0, 0, 1) );
+  transition-property: color;
+  transition-duration: .1s, .1s;
+  transition-timing-function: ease-in-out;
+  animation: scale_out .1s ease-in-out 1, blur_out .1s ease-in-out 1;
+}

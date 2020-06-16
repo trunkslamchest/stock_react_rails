@@ -1,0 +1,22 @@
+.footer {
+  background: rgba(102, 102, 102, 1);
+  font-size: 15pt;
+  bottom: 0px;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  min-height: 150px;
+  z-index: 0;
+}
+
+.footer_left {
+  max-width: 75%;
+}
+
+.footer_right {
+  max-width: 25%;
+}
+

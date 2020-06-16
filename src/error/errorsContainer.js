@@ -1,0 +1,18 @@
+import React from 'react'
+
+const ErrorContainer = (props) => {
+
+  // console.log(props.errors)
+
+  return(
+    <div className='error_container' key={'log_in_error_report'}>
+      {props.errors.map(error =>
+        <div className='error_item' key={props.errors.indexOf(error)}>
+          {error}
+        </div>
+      )}
+    </div>
+  )
+}
+
+export default ErrorContainer

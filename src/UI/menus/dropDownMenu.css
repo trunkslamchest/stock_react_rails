@@ -1,0 +1,33 @@
+/* @import url('../header/header.css');
+
+.dropDownMenu {
+  display:flex;
+  position: fixed;
+  left: 100px;
+  z-index: 100;
+}
+
+.dropDownMenu ul {
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0px;
+}
+
+.dropDownMenu li {
+  background-color: grey;
+  color: #000;
+  list-style: none;
+} */
+/* 
+.dropDropDownMenu:before{
+     content:"";
+     position:absolute;
+     width:0px;
+     height:0px;
+     border: 10px solid;
+     border-color: white transparent transparent transparent;
+     right:6px;
+     top:18px;
+} */

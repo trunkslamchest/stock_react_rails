@@ -1,0 +1,13 @@
+.home_header {
+  text-align: center;
+  font: 300 20pt "Lato";
+  padding-top: 15px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  animation: fade_in .25s ease-in-out 1, blur_in .25s ease-in-out 1, slide_in_from_top.25s ease-in-out 1;
+}
