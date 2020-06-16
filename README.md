@@ -9,11 +9,12 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/trunkslamchest/stock_react/tree/frontend-0.1/"><img align="center" src="https://img.shields.io/badge/Most%20Recent%20Frontend%20Branch%20-0.1-000000"></a>
-    <a href="https://github.com/trunkslamchest/stock_react/tree/backend-0.1/"><img align="center" src="https://img.shields.io/badge/Most%20Recent%20Backend%20Branch%20-0.1-000000"></a>
+    <a href="https://github.com/trunkslamchest/stock_react/tree/frontend-0.31/"><img align="center" src="https://img.shields.io/badge/Most%20Recent%20Frontend%20Repository%20-0.31-000000"></a>
+    <a href="https://github.com/trunkslamchest/stock_react/tree/backend-0.3/"><img align="center" src="https://img.shields.io/badge/Most%20Recent%20Backend%20Repository%20-0.3-000000"></a>
 </p>
 
 
 A pre-built React.js application with built in Ruby On Rails integration, login/signup using JWT Auth & Bcrypt, Admin panel with database editor, real time traffic viewers & pre-built CSS animations/styling.
 
 Designed to get projects off the ground and running quickly.
+
