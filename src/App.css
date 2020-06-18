@@ -110,7 +110,6 @@ input[type=number]::-webkit-outer-spin-button {
 .main_container {
   margin: 0 auto 0 auto;
   background-color: #fff;
-  /* animation: fade_in .1s ease-in-out 1, blur_in .05s ease-in-out 1; */
   z-index: 0;
 }
 
@@ -131,7 +130,6 @@ input[type=number]::-webkit-outer-spin-button {
   border: 1px solid rgb(200, 200, 200, 1);
   box-sizing: border-box;
   min-height: 85.75vh;
-  /* animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1; */
 }
 
 .default_wrapper h3 {
@@ -145,7 +143,6 @@ input[type=number]::-webkit-outer-spin-button {
   margin-bottom: 0px;
   margin-left: 0px;
   margin-right: 0px;
-  /* animation: fade_in .25s ease-in-out 1, blur_in .25s ease-in-out 1, slide_in_from_top.25s ease-in-out 1; */
 }
 
 .default_header {
@@ -164,7 +161,6 @@ input[type=number]::-webkit-outer-spin-button {
   font-family: Lato;
   color: #000;
   text-decoration: none;
-  /* animation: fade_in .2s ease-in-out 1, blur_in .1s ease-in-out 1; */
 }
 
 .default_link:hover {
@@ -176,38 +172,32 @@ input[type=number]::-webkit-outer-spin-button {
 
 .default_edit_form {
   padding: 10px;
-  /* animation: fade_in .25s ease-in-out 1, blur_in .25s ease-in-out 1, slide_in_from_bottom.25s ease-in-out 1; */
 }
 
 .default_form {
   text-align: center;
   margin: 0 auto 0 auto;
-  /* animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1; */
 }
 
 .default_form label {
   padding: 5px;
   margin: 5px;
   font-family: Lato;
-  /* animation: fade_in .4s ease-in-out 1, blur_in .2s ease-in-out 1; */
 }
 
 .default_form input {
   display: block;
   border-radius: 5px;
   margin: 0 auto 0 auto;
-  /* animation: fade_in .5s ease-in-out 1, blur_in .25s ease-in-out 1; */
 }
 
 .default_form select {
   margin: 0 auto 0 auto;
-  /* animation: fade_in .5s ease-in-out 1, blur_in .25s ease-in-out 1; */
   border: 2px solid rgb(200, 200, 200, 1)
 }
 
 .default_form select option {
   margin: 0 auto 0 auto;
-  /* animation: fade_in .5s ease-in-out 1, blur_in .25s ease-in-out 1; */
 }
 
 .default_div select {
@@ -259,7 +249,6 @@ select:not(:-internal-list-box) {
   justify-content: center;
   align-items: baseline;
   margin: 0 auto 20px auto;
-  /* animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1; */
 }
 
 .alt_container {
@@ -319,7 +308,6 @@ select:not(:-internal-list-box) {
   padding: 5px 0px 5px 0px;
   border: 1px solid rgb(200, 200, 200, 1);
   box-sizing: border-box;
-  /* animation: fade_in .4s ease-in-out 1, blur_in .2s ease-in-out 1; */
   z-index:8;
 }
 

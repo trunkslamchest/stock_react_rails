@@ -1,14 +1,16 @@
 
 .dashboard_navbar {
   width: 100%;
-  padding-top: 0px;
+  padding: 0px;
+  margin: 0px;
+  /* padding-top: 0px;
   padding-bottom: 0px;
   padding-left: 0px;
-  padding-right: 0px;
-  margin-top: 0px;
+  padding-right: 0px; */
+  /* margin-top: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
-  margin-right: 0px;
+  margin-right: 0px; */
   z-index: 9;
 }
 
@@ -20,13 +22,15 @@
   align-items: flex-start;
   align-content: flex-start;
   list-style: none;
-  padding-top: 0px;
+  padding: 0px;
+  margin: 0px;
+  /* padding-top: 0px;
   padding-bottom: 0px;
   padding-left: 0px;
-  padding-right: 0px;
-  margin-top: 0px;
+  padding-right: 0px; */
+  /* margin-top: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
-  margin-right: 0px;
-  animation: fade_in .25s ease-in-out 1, blur_in .25s ease-in-out 1, slide_in_from_top.25s ease-in-out 1;
+  margin-right: 0px; */
+  /* animation: fade_in .25s ease-in-out 1, blur_in .25s ease-in-out 1, slide_in_from_top.25s ease-in-out 1; */
 }

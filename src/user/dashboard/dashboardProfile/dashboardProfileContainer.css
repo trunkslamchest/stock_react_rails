@@ -4,7 +4,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   padding-bottom: 20px;
-  animation: fade_in .4s ease-in-out 1, blur_in .2s ease-in-out 1;
+  /* animation: fade_in .4s ease-in-out 1, blur_in .2s ease-in-out 1; */
 }
 
 .dashboard_profile_body {
