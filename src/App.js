@@ -18,6 +18,8 @@ import Modal from 'UI/modal/modal'
 
 import Backroom from './admin/Backroom'
 
+import DevTest from './devTest/devTest'
+
 import E404 from './error/E404'
 
 import userFunctions from './utility/userFunctions'
@@ -352,6 +354,11 @@ export default class App extends React.Component {
                 token={this.state.user.token}
                 user_name={this.state.user.user_name}
               />
+            </Route>
+            <Route path='/devTest'>
+                <DevTest
+
+                />
             </Route>
             <Route>
               <E404

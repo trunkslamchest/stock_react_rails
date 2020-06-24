@@ -1,6 +1,11 @@
 import React from 'react'
 
-const DashboardTest = () => {
+import { connect } from 'react-redux'
+
+const DashboardTest = (props) => {
+
+  console.log(props)
+
   return(
     <div className='dasboard_index'>
       <div className='alt_header'>
@@ -10,4 +15,11 @@ const DashboardTest = () => {
   )
 }
 
-export default DashboardTest
+const mapStateToProps = state => {
+  return {
+    counter: state.devTest.counter,
+    store: state.store.updates
+  }
+}
+
+export default connect(mapStateToProps)(DashboardTest)
