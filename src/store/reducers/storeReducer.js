@@ -1,7 +1,6 @@
 import * as actionTypes from '../actions/actionTypes'
 
 const initialState = {
-  // counter: 0,
   updates: []
 }
 
@@ -14,8 +13,6 @@ const storeReducer = (currentState = initialState, action) => {
       }
     case actionTypes.REMOVE:
       const updatedArray = currentState.updates.filter(update => update.id !== action.updateID )
-      // const newUpdates = [...currentState.updates]
-      // newUpdates.splice(`<id>`, 1)
       return {
         ...currentState,
         updates: updatedArray

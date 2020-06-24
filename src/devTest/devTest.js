@@ -29,12 +29,12 @@ class DevTest extends React.Component {
         </button>
         <ul>
           {this.props.store.map(update =>
-            <li
+            <button
               key={update.id}
               onClick={() => this.props.onRemove(update.id)}
             >
               {update.value}
-            </li>
+            </button>
             )
           }
         </ul>

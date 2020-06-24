@@ -9,11 +9,7 @@ export const save = (updates) => {
 
 export const update = (updates) => {
   return (dispatch, getState) => {
-    // setTimeout(() => {
-      // const oldCounter = getState().counter.counter
-      // console.log('[getState oldCounter]', oldCounter)
-      dispatch(save(updates))
-    // }, 2000)
+    dispatch(save(updates))
   }
 }
 
