@@ -1,9 +1,6 @@
 ;(function(env) {
 
-  var cookieFunctions = function(method, cookie, value){
-    var init = new cookieFunctions.init(method, cookie, value)
-    return new cookieFunctions.init(method, cookie, value)[method]
-  }
+  var cookieFunctions = function(method, cookie, value){ return new cookieFunctions.init(method, cookie, value)[method] }
 
   cookieFunctions.init = function(method, cookie, value){
     this.decodeCookies = decodeURIComponent(document.cookie)
@@ -17,8 +14,8 @@
       let cookieObj = {}, splitCookies = this.decodeCookies.split(';')
 
       for(let cookie of splitCookies){
-        let splitCookiesB = cookie.trim().split('=')
-        cookieObj[splitCookiesB[0]] = splitCookiesB[1]
+        let splitSingleCookie = cookie.trim().split('=')
+        cookieObj[splitSingleCookie[0]] = splitSingleCookie[1]
       }
 
       return cookieObj
@@ -32,13 +29,9 @@
       }
     },
 
-    getCookieName: function(cookie) {
-      return this.getCookie(cookie).split('=')[0]
-    },
+    getCookieName: function(cookie) { return this.getCookie(cookie).split('=')[0] },
 
-    getCookieValue: function(cookie) {
-      return this.getCookie(cookie).split('=')[1]
-    },
+    getCookieValue: function(cookie) { return this.getCookie(cookie).split('=')[1] },
 
     all: function() { return this.decodeCookies },
 

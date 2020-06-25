@@ -10,6 +10,7 @@ const DashboardTest = (props) => {
     <div className='dasboard_index'>
       <div className='alt_header'>
         <h3>Dashboard Test Page</h3>
+        <p>{props.counter}</p>
       </div>
     </div>
   )
