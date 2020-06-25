@@ -9,6 +9,17 @@ import CounterOutput from './CounterOutput/CounterOutput'
 
 class DevTest extends React.Component {
 
+  storeFunctions = () => {
+    this.props.onSave(this.props.counter)
+    document.cookie = `counter=${this.props.counter}`
+    document.cookie = 'test=1'
+  }
+
+  removeFunctions = (id) => {
+    document.cookie = 'counter=0'
+    this.props.onRemove(id)
+  }
+
   render(){
 
     console.log(this.props)
@@ -23,7 +34,9 @@ class DevTest extends React.Component {
         <CounterControl label="Reset" clicked={this.props.onReset} />
         <hr />
         <button
-          onClick={() => this.props.onSave(this.props.counter)}
+          // onClick={() => this.props.onSave(this.props.counter)}
+          onClick={this.storeFunctions}
+
         >
           Store Result
         </button>
@@ -31,7 +44,8 @@ class DevTest extends React.Component {
           {this.props.store.map(update =>
             <button
               key={update.id}
-              onClick={() => this.props.onRemove(update.id)}
+              // onClick={() => this.props.onRemove(update.id)}
+              onClick={() => this.removeFunctions(update.id)}
             >
               {update.value}
             </button>
